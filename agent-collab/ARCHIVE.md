@@ -45,3 +45,16 @@ ACK(done): 已产出 ai-01-requirements.md（S21-S28），验收命令通过 —
 CLAIM(执行(doc-delivery)): 1794236042
 ACK(done): 已产出 delivery-01-requirements.md（S50-S52），验收命令通过 —— 执行(doc-delivery) —— 执行(doc-delivery)
 审查结论(通过): 独立复验：机械验收 PASS，S50/S51/S52 三场景与五、约束章节在磁盘齐备 —— 监督(malp-architect)
+
+### 3. 产出 collab 模块需求 delta（S29-S42）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md 的 collab 段与 core-01-requirements.md 格式模板 ② 产出 deltas/prd/1-product-requirements/collab-01-requirements.md（中文；S29-S35、S40、S41 P0 与 S36-S39、S42 P1 给完整 GWT；背景写明四条同步路径区分；约束含项目非端到端加密、浏览器无 long-poll 回退、生产浏览器无编译引擎）③ 不要发挥 inventory 之外的事实
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/collab-01-requirements.md && grep -q S29 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/collab-01-requirements.md && grep -q S42 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/collab-01-requirements.md && grep -q 端到端加密 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/collab-01-requirements.md && test $(grep -c WHEN logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/collab-01-requirements.md) -ge 14
+- 优先级: P0
+- 里程碑: M1
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(doc-collab)): 1794235975
+ACK(done): 已产出 collab-01-requirements.md（S29-S42），验收命令通过 —— 执行(doc-collab) —— 执行(doc-collab)
+审查结论(通过): 独立复验：机械验收 PASS，S29-S42 十四场景齐备（44 个 WHEN），四条同步路径与非端到端加密等边界落点确认 —— 监督(malp-architect)
