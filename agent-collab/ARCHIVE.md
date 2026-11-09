@@ -58,3 +58,16 @@ ACK(done): 已产出 delivery-01-requirements.md（S50-S52），验收命令通�
 CLAIM(执行(doc-collab)): 1794235975
 ACK(done): 已产出 collab-01-requirements.md（S29-S42），验收命令通过 —— 执行(doc-collab) —— 执行(doc-collab)
 审查结论(通过): 独立复验：机械验收 PASS，S29-S42 十四场景齐备（44 个 WHEN），四条同步路径与非端到端加密等边界落点确认 —— 监督(malp-architect)
+
+### 4. 产出 sync 模块需求 delta（S43-S49）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md 的 sync 段与 core-01-requirements.md 格式模板 ② 产出 deltas/prd/1-product-requirements/sync-01-requirements.md（中文；S43-S45、S48 P0 与 S46/S47/S49 P1 给完整 GWT；背景写明云同步≠实时协作；约束含只同步 Library 项目、.git 历史/检查点不随云同步、在线 ZIP 导入取消未确认）③ 不要发挥 inventory 之外的事实
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/sync-01-requirements.md && grep -q S43 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/sync-01-requirements.md && grep -q S49 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/sync-01-requirements.md && grep -q 不随云同步 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/sync-01-requirements.md && test $(grep -c WHEN logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/sync-01-requirements.md) -ge 7
+- 优先级: P0
+- 里程碑: M1
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(doc-sync)): 1794236016
+ACK(done): 已产出 sync-01-requirements.md（S43-S49），验收命令通过 —— 执行(doc-sync) —— 执行(doc-sync)
+审查结论(通过): 独立复验：机械验收 PASS，S43-S49 七场景齐备（27 个 WHEN），云同步≠实时协作与不随云同步边界落点确认 —— 监督(malp-architect)
