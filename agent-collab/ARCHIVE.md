@@ -20,3 +20,16 @@
 CLAIM(执行(doc-research)): 1794235940
 ACK(done): 已产出 research-01-requirements.md（S16-S20），验收命令通过 —— 执行(doc-research) —— 执行(doc-research)
 审查结论(通过): 独立复验：磁盘读回文件结构符合模板（ADDED 标记/五个章节），S16-S20 五场景齐备，14 个验收块，WHEN=10≥6；git status 确认未越界 —— 监督(malp-architect)
+
+### 2. 产出 ai 模块需求 delta（S21-S28）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md 的 ai 段与 core-01-requirements.md 格式模板 ② 产出 deltas/prd/1-product-requirements/ai-01-requirements.md（中文；S21/S22 P0 与 S23-S27 P1 给完整 GWT，S28 P2 简要；产品背景必须写明五条 AI 执行路径不可混称；约束含默认开关矩阵要点）③ 不要发挥 inventory 之外的事实
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/ai-01-requirements.md && grep -q S21 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/ai-01-requirements.md && grep -q S28 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/ai-01-requirements.md && grep -q 五条 logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/ai-01-requirements.md && test $(grep -c WHEN logos/changes/add-baseline-docs/deltas/prd/1-product-requirements/ai-01-requirements.md) -ge 10
+- 优先级: P0
+- 里程碑: M1
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(doc-ai)): 1794235953
+ACK(done): 已产出 ai-01-requirements.md（S21-S28），验收命令通过 —— 执行(doc-ai) —— 执行(doc-ai)
+审查结论(通过): 独立复验：磁盘读回确认 1.2 节五条执行路径不可混称表格、场景总览 S21-S28 与模板结构齐备，验收命令通过 —— 监督(malp-architect)
