@@ -252,3 +252,16 @@ ACK(done): 已产出 deltas/database/collab-01-server-schema.md（166 行）与 
 CLAIM(执行(arch-doc)): 1794297599
 ACK(done): 已产出 core-01-architecture-overview.md，验收命令通过 —— 执行(arch-doc) —— 执行(arch-doc)
 审查结论(通过): 独立复验：磁盘读回确认 335 行，七章节齐全；技术栈事实逐条回源命中（Node >=22.13 <25、pnpm 11.9.0、rust-toolchain channel 1.98.1、MSRV 1.87、release opt-level=s / server-release opt-level=3 / wasm-release panic=abort）；口径块明确「未运行任何测试，不代表动态验证通过」 —— 监督(malp-architect)
+
+### 17. 产出 collab P0 场景时序 delta（7 份）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: L
+- 任务书: runbook：同条目 15 体裁，产出 collab-S29-server-onboarding.md、collab-S30-live-coediting.md、collab-S31-reconnect-resync.md、collab-S32-offline-merge-review.md、collab-S33-role-permissions.md、collab-S34-comments-suggestions.md、collab-S35-shared-history.md、collab-S40-browser-collab.md、collab-S41-browser-session.md（该组共 9 份，可拆两次交付）；输入改用 inventory.md collab 段与 collab-01-requirements.md；每份含 Mermaid sequenceDiagram；须体现协议 v1 协商、WS→long-poll 回退、角色服务端逐 change 校验
+- 验收: for f in collab-S29-server-onboarding collab-S30-live-coediting collab-S31-reconnect-resync collab-S32-offline-merge-review collab-S33-role-permissions collab-S34-comments-suggestions collab-S35-shared-history collab-S40-browser-collab collab-S41-browser-session; do p=logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/$f.md; test -f $p && grep -q sequenceDiagram $p || exit 1; done
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(seq-collab)): 1794297701
+ACK(done): 已产出 collab 9 份 P0 场景时序 delta，验收命令通过 —— 执行(seq-collab) —— 执行(seq-collab)
+审查结论(通过): 独立复验：磁盘读回确认 9 份文件体裁与 core/sync 组一致（五个带序号章节 + sequenceDiagram）；事实抽查命中（SESSION_DAYS=30、web_sessions token_hash 主键与 mode CHECK、协议 negotiate 算法 low/high 与 ClientTooOld/ServerTooOld 逐行一致）；初版章节标题缺序号，已回退执行者修正并复验通过 —— 监督(malp-architect)
