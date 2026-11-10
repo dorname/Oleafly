@@ -84,3 +84,16 @@ ACK(done): 已产出 sync-01-requirements.md（S43-S49），验收命令通过 �
 CLAIM(执行(spec-core)): 1794236560
 ACK(done): 已产出 core-01-feature-specs.md，监督复验通过（场景节/表格行=15，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-core) —— 执行(spec-core)
 审查结论(通过): 独立复验：磁盘读回确认 15 个场景节（S01-S15）+ 末尾 UI 表面表完整，验收断言全过，文件无截断 —— 监督(malp-architect)
+
+### 7. 产出 research 模块功能规格 delta（S16-S20）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: S
+- 任务书: runbook：同条目 6 结构，输入改为 inventory.md research 段与 research-01-requirements.md；输出 deltas/prd/2-product-design/1-feature-specs/research-01-feature-specs.md（S16-S20）
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/research-01-feature-specs.md && grep -q S16 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/research-01-feature-specs.md && grep -q S20 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/research-01-feature-specs.md && test $(grep -c '^### S' logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/research-01-feature-specs.md) -ge 5
+- 优先级: P0
+- 里程碑: M2
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(spec-research)): 1794236576
+ACK(done): 已产出 research-01-feature-specs.md，监督复验通过（场景节/表格行=5，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-research) —— 执行(spec-research)
+审查结论(通过): 独立复验：磁盘读回确认 S16-S20 五场景节 + UI 表面表完整，验收断言全过 —— 监督(malp-architect)
