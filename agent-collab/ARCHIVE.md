@@ -188,3 +188,16 @@ ACK(done): 已产出 research/ai 3 份 P0 场景时序 delta，验收命令通�
 CLAIM(执行(seq-core)): 1794297640
 ACK(done): 已产出 core 7 份 P0 场景时序 delta（S01/S04/S07/S09/S10/S11/S12，766 行），条目 15 验收命令通过（7 文件均含 sequenceDiagram），lint 0 项违规 —— 执行(seq-core) —— 执行(seq-core)
 审查结论(通过): 独立复验：磁盘读回确认 7 份 core 时序体裁一致（触发与前置/参与者/主时序+sequenceDiagram/失败降级/边界证据），S11 按实现记录偏差 D2（绝对路径+父目录存在、目标文件可不存在） —— 监督(malp-architect)
+
+### 18. 产出 sync P0 场景时序 delta（4 份）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：同条目 15 体裁，产出 sync-S43-cloud-sync.md、sync-S44-conflict-copies.md、sync-S45-mass-delete-guard.md、sync-S48-online-git-bridge.md 到 deltas/prd/3-technical-plan/2-scenario-implementation/；输入改用 inventory.md sync 段与 sync-01-requirements.md；每份含 Mermaid sequenceDiagram；须体现 manifest 比对、冲突副本、删除 hold 判定、Git bridge auto 触发条件
+- 验收: for f in sync-S43-cloud-sync sync-S44-conflict-copies sync-S45-mass-delete-guard sync-S48-online-git-bridge; do p=logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/$f.md; test -f $p && grep -q sequenceDiagram $p || exit 1; done
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(seq-sync)): 1794297722
+ACK(done): 已产出 sync 4 份 P0 场景时序 delta，验收命令通过 —— 执行(seq-sync) —— 执行(seq-sync)
+审查结论(通过): 独立复验：磁盘读回确认 4 份 sync 时序均含 sequenceDiagram，四份口径声明逐份区分「云同步≠实时协作」并显式标注不涉及协作通道 —— 监督(malp-architect)
