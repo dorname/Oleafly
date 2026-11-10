@@ -71,3 +71,16 @@ ACK(done): 已产出 collab-01-requirements.md（S29-S42），验收命令通过
 CLAIM(执行(doc-sync)): 1794236016
 ACK(done): 已产出 sync-01-requirements.md（S43-S49），验收命令通过 —— 执行(doc-sync) —— 执行(doc-sync)
 审查结论(通过): 独立复验：机械验收 PASS，S43-S49 七场景齐备（27 个 WHEN），云同步≠实时协作与不随云同步边界落点确认 —— 监督(malp-architect)
+
+### 6. 产出 core 模块功能规格 delta（S01-S15）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md core 段与 deltas/prd/1-product-requirements/core-01-requirements.md ② 产出 deltas/prd/2-product-design/1-feature-specs/core-01-feature-specs.md：开头 `## ADDED — …`，每场景一节（### SXX），含「功能入口与表面 / 关键交互（主路径步骤化 3+ 步）/ 能力与限制（inventory 异常边界逐条）/ 关联需求（SXX + 痛点）」；中文；不发明新交互 ③ 末尾给本模块 UI 表面清单小节
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/core-01-feature-specs.md && grep -q S01 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/core-01-feature-specs.md && grep -q S15 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/core-01-feature-specs.md && test $(grep -c '^### S' logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/core-01-feature-specs.md) -ge 15
+- 优先级: P0
+- 里程碑: M2
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(spec-core)): 1794236560
+ACK(done): 已产出 core-01-feature-specs.md，监督复验通过（场景节/表格行=15，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-core) —— 执行(spec-core)
+审查结论(通过): 独立复验：磁盘读回确认 15 个场景节（S01-S15）+ 末尾 UI 表面表完整，验收断言全过，文件无截断 —— 监督(malp-architect)
