@@ -265,3 +265,17 @@ ACK(done): 已产出 core-01-architecture-overview.md，验收命令通过 —�
 CLAIM(执行(seq-collab)): 1794297701
 ACK(done): 已产出 collab 9 份 P0 场景时序 delta，验收命令通过 —— 执行(seq-collab) —— 执行(seq-collab)
 审查结论(通过): 独立复验：磁盘读回确认 9 份文件体裁与 core/sync 组一致（五个带序号章节 + sequenceDiagram）；事实抽查命中（SESSION_DAYS=30、web_sessions token_hash 主键与 mode CHECK、协议 negotiate 算法 low/high 与 ClientTooOld/ServerTooOld 逐行一致）；初版章节标题缺序号，已回退执行者修正并复验通过 —— 监督(malp-architect)
+
+### 19. 产出 API 契约 delta（4 份）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: L
+- 任务书: runbook：① 读 inventory.md「API 资产」与 collab/ai 段 ② 产出 4 份到 deltas/api/：core-01-backend-port.md（BackendPort v7 capabilities 清单、CompilePort 方法与输出、Tauri IPC 分类清单，明确「内部 typed IPC 非稳定公共 HTTP API」）、collab-01-server-api.md（Server HTTP 路由族与 WS/长轮询端点、认证族、项目族、浏览器族、健康与能力端点）、collab-02-collab-protocol.md（协议 v1、min/max 协商、客户端过旧/服务端过旧、角色与项目动作 wire 类型）、ai-01-mcp-cli-api.md（MCP localhost 端点与工具族、审批与降级、CLI --json 输出与退出码、1.0 前不稳定声明）；中文；事实只来自 inventory.md；每份注明「现状契约快照，非新增 API 设计」
+- 验收: for f in core-01-backend-port collab-01-server-api collab-02-collab-protocol ai-01-mcp-cli-api; do p=logos/changes/add-baseline-docs/deltas/api/$f.md; test -f $p || exit 1; done && grep -q 'v7' logos/changes/add-baseline-docs/deltas/api/core-01-backend-port.md && grep -q 'v1' logos/changes/add-baseline-docs/deltas/api/collab-02-collab-protocol.md
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(api-doc)): 1794297879
+
+ACK(done): 已产出 4 份 API 契约 delta（core-01-backend-port / collab-01-server-api / collab-02-collab-protocol / ai-01-mcp-cli-api，共 865 行），条目 19 验收命令通过，lint 0 违规 —— 执行(api-doc) —— 执行(api-doc)
+审查结论(通过): 独立复验：磁盘读回确认 4 份 API 契约（208/216/244/197 行）；BackendPort 12 capabilities 名称与顺序、PROTOCOL_VERSION=7 回源 src-tauri/src/protocol.rs 逐项命中；协商算法回源 crates/oleafly-collab-protocol/src/capabilities.rs:83-93 逐行一致；均声明「现状契约快照，非新增 API 设计」 —— 监督(malp-architect)
