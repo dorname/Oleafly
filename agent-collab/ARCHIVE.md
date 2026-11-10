@@ -136,3 +136,16 @@ ACK(done): 已产出 collab-01-feature-specs.md，监督复验通过（场景节
 CLAIM(执行(spec-sync)): 1794236677
 ACK(done): 已产出 sync-01-feature-specs.md，监督复验通过（场景节/表格行=7，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-sync) —— 执行(spec-sync)
 审查结论(通过): 独立复验：磁盘读回确认「云同步≠实时协作」声明 + S43-S49 七场景节完整，验收断言全过 —— 监督(malp-architect)
+
+### 11. 产出 delivery 模块功能规格 delta（S50-S52）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: S
+- 任务书: runbook：同条目 6 结构，输入改为 inventory.md delivery 段与 delivery-01-requirements.md；输出 deltas/prd/2-product-design/1-feature-specs/delivery-01-feature-specs.md（S50-S52）
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/delivery-01-feature-specs.md && grep -q S50 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/delivery-01-feature-specs.md && grep -q S52 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/delivery-01-feature-specs.md && test $(grep -c '^### S' logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/delivery-01-feature-specs.md) -ge 3
+- 优先级: P1
+- 里程碑: M2
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(spec-delivery)): 1794236680
+ACK(done): 已产出 delivery-01-feature-specs.md，监督复验通过（场景节/表格行=3，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-delivery) —— 执行(spec-delivery)
+审查结论(通过): 独立复验：磁盘读回确认三条发布线声明 + S50-S52 三场景节完整，验收断言全过 —— 监督(malp-architect)
