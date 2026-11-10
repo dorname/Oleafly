@@ -279,3 +279,17 @@ CLAIM(执行(api-doc)): 1794297879
 
 ACK(done): 已产出 4 份 API 契约 delta（core-01-backend-port / collab-01-server-api / collab-02-collab-protocol / ai-01-mcp-cli-api，共 865 行），条目 19 验收命令通过，lint 0 违规 —— 执行(api-doc) —— 执行(api-doc)
 审查结论(通过): 独立复验：磁盘读回确认 4 份 API 契约（208/216/244/197 行）；BackendPort 12 capabilities 名称与顺序、PROTOCOL_VERSION=7 回源 src-tauri/src/protocol.rs 逐项命中；协商算法回源 crates/oleafly-collab-protocol/src/capabilities.rs:83-93 逐行一致；均声明「现状契约快照，非新增 API 设计」 —— 监督(malp-architect)
+
+### 25. 产出部署后冒烟测试用例 delta（1 份）
+- 派单: 监督(malp-architect) 2026-11-10
+- 预算档: S
+- 任务书: runbook：① 输入只读 inventory.md + 该场景的时序 delta（deltas/prd/3-technical-plan/2-scenario-implementation/）+ 需求 delta（deltas/prd/1-product-requirements/）+ 功能规格 delta（deltas/prd/2-product-design/1-feature-specs/）+ 已就绪的 deltas/api/ 与 deltas/database/；② 产出到 deltas/test/，文件名 `<模块>-S<编号>-test-cases.md`；③ 每份文件开头写 `## ADDED — S<编号> <场景名> 测试用例（现状基线）` 并附口径块（基线 桌面 0.4.11 绑定提交 9c307bf3c；静态盘点，未运行任何测试，不得预填 PASS）；④ 四段固定结构：一、单元测试用例（按来源分组：API 字段约束 / DB 约束 / 业务规则）；二、场景测试用例（2.1 主路径 / 2.2 异常路径 / 2.3 人工验证 [manual]）；三、覆盖度校验（逐项勾选并注明未覆盖原因）；四、验收条件追溯表（AC ID 格式 S<编号>-AC-<两位序号>，从需求文档 §四 该场景验收条件逐条取，按出现顺序连续编号，映射到覆盖用例 ID）；⑤ 用例 ID 严格为 UT-S<编号>-<两位序号> / ST-S<编号>-<两位序号>，需要人工视觉或真实终端的用例加 [manual] 后缀；⑥ 事实只来自上述输入，不得发明新需求或新 API；⑦ 全中文
+- 产出 logos/changes/add-baseline-docs/deltas/test/delivery-01-smoke-test-cases.md：模块 delivery 的部署后冒烟用例（ID 格式 SMOKE-delivery-<两位序号>），内容取自 deltas/prd/3-technical-plan/3-deployment/delivery-01-deployment.md 的部署后检查项（桌面/Server/CLI 三条发布线、健康与就绪探针、迁移与存储就绪、配置与密钥、核心链路最小路径、日志无阻断错误）；含冒烟范围表、用例表、覆盖度校验三段
+- 验收: test -f logos/changes/add-baseline-docs/deltas/test/delivery-01-smoke-test-cases.md && grep -q 'SMOKE-delivery-01' logos/changes/add-baseline-docs/deltas/test/delivery-01-smoke-test-cases.md && grep -q '## 三、覆盖度校验' logos/changes/add-baseline-docs/deltas/test/delivery-01-smoke-test-cases.md
+- 优先级: P0
+- 里程碑: M4
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(test-smoke)): 1794298486
+ACK(done): 产出 logos/changes/add-baseline-docs/deltas/test/delivery-01-smoke-test-cases.md（delivery 模块部署后冒烟测试用例 delta，只读静态盘点，未运行任何测试/部署，预期结果全为设计值、未预填 PASS）。共 49 条用例 SMOKE-delivery-01-01~49（连续、不跳号、不重复）。分布：健康检查 10（01-10，含 /healthz 存活语义、/readyz 就绪语义、双探针不可混用、容器 HEALTHCHECK、Server --version、CLI version/--json version/--json doctor/help、桌面首启、更新入口）、核心入口 6（11-16）、数据库迁移与版本 8（17-24，含 Server schema 18、关键表存在、migration 事务化+FK check、DB 比程序新拒绝打开、旧二进制不接管新 DB、本地 library.db schema 3 / catalog format 2 / tasks schema 5）、存储就绪 4（25-28，blob fs/S3、/data 权限 10001:10001 0700、Litestream 默认不启）、配置与密钥 7（29-35，必填变量、OLEAFLY_DOMAIN 缺失即失败、无占位值、登录方式齐备、无登录方式退出码 2、.env 0600、SHA256 校验）、核心链路 7（36-42，setup code 初始化→登录→建项目→写 blob→回读一致、setup code 生命周期、server_id 重启持久）、日志与发布后置 7（43-49，Setup code 日志行、无阻断性错误、进程 UID、镜像静态属性复核、desktop-latest 隔离、Server 人工恢复路径、桌面 updater 失败语义）。环境分档 local/staging/production。覆盖度校验：健康检查/核心入口/数据库迁移/静态资源/配置与密钥/关键链路/日志与监控 全部已覆盖；未覆盖并写明原因 6 项（auto-updater 真实升级成功路径属 manual-only、Windows Authenticode 未接线、macOS 签名公证依赖运维凭据、Litestream 复制与恢复演练未定义断言、外部仓库超出本仓库可证范围、S3 对象删除恢复属破坏性动作） —— 执行(test-smoke)
+审查结论(通过): 独立复验：磁盘读回确认 49 条 SMOKE-delivery-01-NN 用例、三档环境范围表、覆盖度校验逐项对应用例编号；口径块明确「预期结果为设计值、不得预填 PASS」；部署资产路径抽查全部命中（deploy/server/ 下 docker-compose.yml、Caddyfile、litestream.yml、install.sh、smoke-test.sh 均存在）；未覆盖监控项的理由声明成立（部署方案未定义监控点，不发明新检查项） —— 监督(malp-architect)
