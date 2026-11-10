@@ -149,3 +149,16 @@ ACK(done): 已产出 sync-01-feature-specs.md，监督复验通过（场景节/�
 CLAIM(执行(spec-delivery)): 1794236680
 ACK(done): 已产出 delivery-01-feature-specs.md，监督复验通过（场景节/表格行=3，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-delivery) —— 执行(spec-delivery)
 审查结论(通过): 独立复验：磁盘读回确认三条发布线声明 + S50-S52 三场景节完整，验收断言全过 —— 监督(malp-architect)
+
+### 12. 产出全局 UI 表面清单 delta
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md 全文与六份 deltas/prd/1-product-requirements/*-01-requirements.md 的场景总览表 ② 产出 deltas/prd/2-product-design/2-page-design/core-00-ui-surface-map.md：全局 UI 表面清单表（表面 / 所属模块 / 关联场景 / 主要入口），覆盖桌面主窗口（项目库、编辑器、PDF 预览、Source Control、Versioning、终端、AI 面板、Settings、Tools gallery、分享与历史）、浏览器端、Server 管理控制台；中文；标注「现状清单，非原型」 ③ 末尾列各模块设置入口汇总
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/2-product-design/2-page-design/core-00-ui-surface-map.md && grep -q S01 logos/changes/add-baseline-docs/deltas/prd/2-product-design/2-page-design/core-00-ui-surface-map.md && grep -q S52 logos/changes/add-baseline-docs/deltas/prd/2-product-design/2-page-design/core-00-ui-surface-map.md && grep -q 管理控制台 logos/changes/add-baseline-docs/deltas/prd/2-product-design/2-page-design/core-00-ui-surface-map.md
+- 优先级: P1
+- 里程碑: M2
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(spec-uimap)): 1794236718
+ACK(done): 已产出 core-00-ui-surface-map.md，监督复验通过（场景节/表格行=81，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-uimap) —— 执行(spec-uimap)
+审查结论(通过): 独立复验：磁盘读回确认全局表面总表 81 行且含管理控制台/浏览器端/安装器，验收断言全过 —— 监督(malp-architect)
