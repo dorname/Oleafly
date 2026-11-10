@@ -162,3 +162,16 @@ ACK(done): 已产出 delivery-01-feature-specs.md，监督复验通过（场景�
 CLAIM(执行(spec-uimap)): 1794236718
 ACK(done): 已产出 core-00-ui-surface-map.md，监督复验通过（场景节/表格行=81，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-uimap) —— 执行(spec-uimap)
 审查结论(通过): 独立复验：磁盘读回确认全局表面总表 81 行且含管理控制台/浏览器端/安装器，验收断言全过 —— 监督(malp-architect)
+
+### 16. 产出 research/ai P0 场景时序 delta（3 份）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：同条目 15 体裁，产出 research-S16-citation-search.md、ai-S21-copilot-review.md、ai-S22-research-skills.md 到 deltas/prd/3-technical-plan/2-scenario-implementation/；输入改用 inventory.md research/ai 段与对应需求文档；每份含 Mermaid sequenceDiagram
+- 验收: for f in research-S16-citation-search ai-S21-copilot-review ai-S22-research-skills; do p=logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/$f.md; test -f $p && grep -q sequenceDiagram $p || exit 1; done
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(seq-ra)): 1794297673
+ACK(done): 已产出 research/ai 3 份 P0 场景时序 delta，验收命令通过 —— 执行(seq-ra) —— 执行(seq-ra)
+审查结论(通过): 独立复验：磁盘读回确认 3 份时序文件体裁一致（触发与前置/参与者/主时序+sequenceDiagram/失败降级/边界证据），S21 的 approve-for-me 勘误与五条路径不混称声明均落位 —— 监督(malp-architect)
