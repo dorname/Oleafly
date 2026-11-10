@@ -214,3 +214,15 @@ ACK(done): 已产出 sync 4 份 P0 场景时序 delta，验收命令通过 —�
 CLAIM(执行(scene-overview)): 1794297658
 ACK(done): 已产出 core-00-scenario-overview.md（52 场景注册表），验收命令通过 —— 执行(scene-overview) —— 执行(scene-overview)
 审查结论(通过): 独立复验：磁盘读回确认 52 行全场景表齐备且 next_id=53 已声明；痛点编号跨模块消歧处理正确（模块内局部编号，以「模块/Pxx」书写） —— 监督(malp-architect)
+
+### 21. 产出部署方案 delta
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md「部署资产清单」与 delivery 段 ② 产出 deltas/prd/3-technical-plan/3-deployment/delivery-01-deployment.md：开头 `## ADDED — Oleafly 部署方案（现状基线）` + 口径引用块；含：三条发布线（桌面 draft 门禁与资产清单、Server server-v 独立发布、CLI 七 target 与签名缺口）、Server 部署拓扑（Dockerfile distroless/10001/8080/healthcheck、Compose+Caddy、Litestream 可选、systemd 硬化、Render 模板）、安装器与校验（install.sh 下载与 SHA256）、运维 smoke 覆盖项、升级与回滚约束（DB 比程序新拒绝打开、旧二进制不能简单回滚新 DB、/healthz 与 /readyz 语义、restart 后 server_id 持久）、外部仓库边界（Oleafly/oleafly-server 仅作发布分发 adapter）；中文
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/3-deployment/delivery-01-deployment.md && grep -q readyz logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/3-deployment/delivery-01-deployment.md && grep -q Litestream logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/3-deployment/delivery-01-deployment.md
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+CLAIM(执行(deploy-doc)): 1794297814
+ACK(done): 已产出 delivery-01-deployment.md，验收命令通过 —— 执行(deploy-doc) —— 执行(deploy-doc)
+审查结论(通过): 独立复验：磁盘读回确认部署方案含三条发布线、Server 拓扑、/healthz 与 /readyz 语义、Litestream 与升级回滚约束，共 195 行 —— 监督(malp-architect)
