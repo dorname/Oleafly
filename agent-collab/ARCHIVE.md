@@ -201,3 +201,16 @@ ACK(done): 已产出 core 7 份 P0 场景时序 delta（S01/S04/S07/S09/S10/S11/
 CLAIM(执行(seq-sync)): 1794297722
 ACK(done): 已产出 sync 4 份 P0 场景时序 delta，验收命令通过 —— 执行(seq-sync) —— 执行(seq-sync)
 审查结论(通过): 独立复验：磁盘读回确认 4 份 sync 时序均含 sequenceDiagram，四份口径声明逐份区分「云同步≠实时协作」并显式标注不涉及协作通道 —— 监督(malp-architect)
+
+### 14. 产出 52 场景总览与编号注册 delta
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md 全表与六份 deltas/prd/1-product-requirements/*-01-requirements.md 的场景总览表 ② 产出 deltas/prd/3-technical-plan/2-scenario-implementation/core-00-scenario-overview.md：开头 `## ADDED — Oleafly 场景总览（现状基线，编号注册表）` + 口径引用块；一张全场景表（编号/名称/模块/优先级/P0-P1-P2 标记/关联痛点/对应需求文档章节/对应功能规格章节/对应时序文件）；一节「编号规则」（全局唯一、next_id=53、严禁各模块从 S01 重开）；一节「场景到时序文档映射」（S01/S04/S07/S09/S10/S11/S12/S16/S21/S22/S29/S30/S31/S32/S33/S34/S35/S40/S41/S43/S44/S45/S48 各对应文件名）；中文
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/core-00-scenario-overview.md && grep -q S52 logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/core-00-scenario-overview.md && grep -q next_id logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/core-00-scenario-overview.md && test $(grep -c '^| S[0-9]' logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/core-00-scenario-overview.md) -ge 52
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(scene-overview)): 1794297658
+ACK(done): 已产出 core-00-scenario-overview.md（52 场景注册表），验收命令通过 —— 执行(scene-overview) —— 执行(scene-overview)
+审查结论(通过): 独立复验：磁盘读回确认 52 行全场景表齐备且 next_id=53 已声明；痛点编号跨模块消歧处理正确（模块内局部编号，以「模块/Pxx」书写） —— 监督(malp-architect)
