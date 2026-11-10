@@ -84,6 +84,6 @@
 
 ## [code] 项目配置同步
 
-- [ ] 更新 `logos/logos-project.yaml`：注册 research/ai/collab/sync/delivery 五个模块（core 保留），全模块 lifecycle launched / bootstrap adopted
-- [ ] 更新 `logos/logos-project.yaml`：core 模块 `skip_phases` 由 `[api, database, scenario]` 改为 `[scenario]`（本基线已含 API/DB 规格）
-- [ ] 更新 `logos/logos-project.yaml`：`scenario_counter.next_id` 置为 53
+- [x] 更新 `logos/logos-project.yaml`：注册 research/ai/collab/sync/delivery 五个模块（core 保留），全模块 lifecycle launched / bootstrap adopted
+- [x] 更新 `logos/logos-project.yaml`：core 模块 `skip_phases` 由 `[api, database, scenario]` 改为 `[scenario]`（本基线已含 API/DB 规格）
+- [x] 更新 `logos/logos-project.yaml`：`scenario_counter.next_id` 置为 53
