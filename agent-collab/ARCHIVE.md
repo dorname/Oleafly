@@ -226,3 +226,16 @@ ACK(done): 已产出 core-00-scenario-overview.md（52 场景注册表），验�
 CLAIM(执行(deploy-doc)): 1794297814
 ACK(done): 已产出 delivery-01-deployment.md，验收命令通过 —— 执行(deploy-doc) —— 执行(deploy-doc)
 审查结论(通过): 独立复验：磁盘读回确认部署方案含三条发布线、Server 拓扑、/healthz 与 /readyz 语义、Litestream 与升级回滚约束，共 195 行 —— 监督(malp-architect)
+
+### 20. 产出 DB 规格 delta（2 份）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md「数据资产」段 ② 产出 2 份到 deltas/database/：collab-01-server-schema.md（Server SQLite schema 18、migration 0001-0018 演进链、数据对象分组、WAL 与并发参数、升级/拒绝打开/回滚约束、blob fs 与 S3 两条路径）、core-01-local-stores.md（library.db schema3 / catalog.sqlite3 checkpoint catalog format2 / tasks.sqlite3 research schema5 / literature-cache.sqlite3 / sessions.sqlite，各库用途与关键表）；中文；事实只来自 inventory.md；注明「现状 schema 快照」
+- 验收: for f in collab-01-server-schema core-01-local-stores; do p=logos/changes/add-baseline-docs/deltas/database/$f.md; test -f $p || exit 1; done && grep -q 0018 logos/changes/add-baseline-docs/deltas/database/collab-01-server-schema.md && grep -q library.db logos/changes/add-baseline-docs/deltas/database/core-01-local-stores.md
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(db-doc)): 1794297786
+ACK(done): 已产出 deltas/database/collab-01-server-schema.md（166 行）与 core-01-local-stores.md（184 行）；schema 18 迁移链 0001-0018 文件名逐条对上 crates/oleafly-server/migrations/ 实际清单；WAL 强制校验已回源核对 crates/oleafly-server/src/db.rs:112-119；本地 5 库行号抽查全部命中（library_db.rs:8/11、acp/store.rs:54、literature.rs:75、oleafly-history/src/lib.rs:15/1541）；事实只取自 inventory.md，未新增需求 —— 执行(db-doc)
+审查结论(通过): 独立复验：磁盘读回确认 166/184 行；迁移链 0001-0018 与 migrations/ 目录实际清单逐条一致；WAL 强制校验回源核对 db.rs:112-119 命中；本地 5 库行号抽查全部命中；三套版本语义互不可比的边界声明成立 —— 监督(malp-architect)
