@@ -1,0 +1,193 @@
+project:
+  name: "oleafly"
+  description: "Oleafly 桌面研究写作工作区（0.4.11）全链路规格基线"
+  methodology: "OpenLogos"
+
+tech_stack: {}
+
+scenario_counter:
+  next_id: 53
+
+modules:
+  - id: core
+    name: 核心功能
+    lifecycle: launched
+    bootstrap: adopted
+    skip_phases: [scenario]
+    deployment_required: true
+  - id: research
+    name: 研究与文献
+    lifecycle: launched
+    bootstrap: adopted
+    deployment_required: false
+  - id: ai
+    name: AI 与 agent
+    lifecycle: launched
+    bootstrap: adopted
+    deployment_required: false
+  - id: collab
+    name: 实时协作
+    lifecycle: launched
+    bootstrap: adopted
+    deployment_required: false
+  - id: sync
+    name: 云同步与在线服务
+    lifecycle: launched
+    bootstrap: adopted
+    deployment_required: false
+  - id: delivery
+    name: 工程交付
+    lifecycle: launched
+    bootstrap: adopted
+    deployment_required: true
+
+deployment_gates:
+  core:
+    deployment_required: true
+    smoke_required: true
+    environments:
+      - staging
+
+resource_index:
+  - path: logos/resources/prd/1-product-requirements/core-01-requirements.md
+    desc: Oleafly 本地写作核心（core）需求文档。覆盖该模块场景的痛点、GIVEN/WHEN/THEN 验收条件与异常边界。
+  - path: logos/resources/prd/1-product-requirements/research-01-requirements.md
+    desc: 研究与文献（research）需求文档。覆盖该模块场景的痛点、GIVEN/WHEN/THEN 验收条件与异常边界。
+  - path: logos/resources/prd/1-product-requirements/ai-01-requirements.md
+    desc: AI 与 agent（ai）需求文档。覆盖该模块场景的痛点、GIVEN/WHEN/THEN 验收条件与异常边界。
+  - path: logos/resources/prd/1-product-requirements/collab-01-requirements.md
+    desc: 实时协作（collab）需求文档。覆盖该模块场景的痛点、GIVEN/WHEN/THEN 验收条件与异常边界。
+  - path: logos/resources/prd/1-product-requirements/sync-01-requirements.md
+    desc: 云同步与在线服务（sync）需求文档。覆盖该模块场景的痛点、GIVEN/WHEN/THEN 验收条件与异常边界。
+  - path: logos/resources/prd/1-product-requirements/delivery-01-requirements.md
+    desc: 工程交付（delivery）需求文档。覆盖该模块场景的痛点、GIVEN/WHEN/THEN 验收条件与异常边界。
+  - path: logos/resources/prd/2-product-design/1-feature-specs/core-01-feature-specs.md
+    desc: 本地写作核心功能规格。逐场景的交互级验收条件与状态设计。
+  - path: logos/resources/prd/2-product-design/1-feature-specs/research-01-feature-specs.md
+    desc: 研究与文献功能规格。逐场景的交互级验收条件与状态设计。
+  - path: logos/resources/prd/2-product-design/1-feature-specs/ai-01-feature-specs.md
+    desc: AI 与 agent 功能规格。逐场景的交互级验收条件与状态设计。
+  - path: logos/resources/prd/2-product-design/1-feature-specs/collab-01-feature-specs.md
+    desc: 实时协作功能规格。逐场景的交互级验收条件与状态设计。
+  - path: logos/resources/prd/2-product-design/1-feature-specs/sync-01-feature-specs.md
+    desc: 云同步与在线服务功能规格。逐场景的交互级验收条件与状态设计。
+  - path: logos/resources/prd/2-product-design/1-feature-specs/delivery-01-feature-specs.md
+    desc: 工程交付功能规格。逐场景的交互级验收条件与状态设计。
+  - path: logos/resources/prd/2-product-design/2-page-design/core-00-ui-surface-map.md
+    desc: 全局 UI 表面清单。登记所有界面入口、面板与弹层，界面实现或验收时必读。
+  - path: logos/resources/prd/3-technical-plan/1-architecture/core-01-architecture-overview.md
+    desc: 全局唯一架构总纲（现状基线）。技术栈、组件清单、进程边界、关键数据流与信任边界；任何影响架构的改动前必读。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-00-scenario-overview.md
+    desc: 52 场景总览与全局编号注册表（S01-S52，next_id=53）。引用场景编号前必读。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S01-project-create-import.md
+    desc: S01 从模板或外部资料创建研究项目 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S04-multifile-authoring.md
+    desc: S04 多文件研究写作（源码/可视） 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S07-compile-engines.md
+    desc: S07 编译引擎选择与工具链修复 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S09-pdf-preview-synctex.md
+    desc: S09 PDF 预览与源文核对演示 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S10-preflight.md
+    desc: S10 投稿前预检 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S11-export.md
+    desc: S11 导出交付物 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S12-checkpoints.md
+    desc: S12 检查点恢复与加密迁移 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/research-S16-citation-search.md
+    desc: S16 文献检索与引用写入 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/ai-S21-copilot-review.md
+    desc: S21 内置 Copilot 修复与逐轮审阅 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/ai-S22-research-skills.md
+    desc: S22 研究 Skills 调用 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S29-server-onboarding.md
+    desc: S29 服务器接入与项目共享 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S30-live-coediting.md
+    desc: S30 实时共同编辑 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S31-reconnect-resync.md
+    desc: S31 断线重连与增量补发 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S32-offline-merge-review.md
+    desc: S32 离线冲突合并与审查 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S33-role-permissions.md
+    desc: S33 协作角色权限边界 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S34-comments-suggestions.md
+    desc: S34 评论建议与项目聊天 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S35-shared-history.md
+    desc: S35 共享历史与版本恢复 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S40-browser-collab.md
+    desc: S40 浏览器实时协作 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S41-browser-session.md
+    desc: S41 浏览器会话安全 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/sync-S43-cloud-sync.md
+    desc: S43 云同步多设备协作 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/sync-S44-conflict-copies.md
+    desc: S44 冲突副本与三方合并 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/sync-S45-mass-delete-guard.md
+    desc: S45 批量删除保护与回收站 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/2-scenario-implementation/sync-S48-online-git-bridge.md
+    desc: S48 在线服务 Git 桥双向同步 场景实现时序（现状基线）。参与者、主时序、失败降级与边界证据。
+  - path: logos/resources/prd/3-technical-plan/3-deployment/delivery-01-deployment.md
+    desc: 桌面/Server/CLI 三条发布线部署方案。健康与就绪探针、迁移与存储就绪、升级回滚约束。
+  - path: logos/resources/api/core-01-backend-port.md
+    desc: 桌面端 BackendPort v7 / CompilePort / Tauri IPC 契约（现状快照）。前端↔Rust 调用面变更前必读。
+  - path: logos/resources/api/collab-01-server-api.md
+    desc: 协作 Server HTTP/WS 路由契约（现状快照）。路由族、认证族、项目族、浏览器族与健康能力端点。
+  - path: logos/resources/api/collab-02-collab-protocol.md
+    desc: 协作 wire 协议 v1 契约（现状快照）。min/max 协商、角色与项目动作 wire 类型。
+  - path: logos/resources/api/ai-01-mcp-cli-api.md
+    desc: MCP localhost 端点与 CLI JSON 契约（现状快照）。工具族、审批降级、退出码语义。
+  - path: logos/resources/database/collab-01-server-schema.md
+    desc: 协作 Server SQLite schema 18 现状规格。migration 0001-0018 演进链、WAL 与并发参数、blob 存储两条路径。
+  - path: logos/resources/database/core-01-local-stores.md
+    desc: 本地 5 个 SQLite 存储现状规格。library.db schema 3、catalog format 2、tasks schema 5 等各库用途与关键表。
+  - path: logos/resources/test/core-S01-test-cases.md
+    desc: S01 从模板或外部资料创建研究项目 测试用例。含 UT-S01-nn 单元用例、ST-S01-nn 场景用例与 S01-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/core-S04-test-cases.md
+    desc: S04 多文件研究写作（源码/可视） 测试用例。含 UT-S04-nn 单元用例、ST-S04-nn 场景用例与 S04-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/core-S07-test-cases.md
+    desc: S07 编译引擎选择与工具链修复 测试用例。含 UT-S07-nn 单元用例、ST-S07-nn 场景用例与 S07-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/core-S09-test-cases.md
+    desc: S09 PDF 预览与源文核对演示 测试用例。含 UT-S09-nn 单元用例、ST-S09-nn 场景用例与 S09-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/core-S10-test-cases.md
+    desc: S10 投稿前预检 测试用例。含 UT-S10-nn 单元用例、ST-S10-nn 场景用例与 S10-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/core-S11-test-cases.md
+    desc: S11 导出交付物 测试用例。含 UT-S11-nn 单元用例、ST-S11-nn 场景用例与 S11-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/core-S12-test-cases.md
+    desc: S12 检查点恢复与加密迁移 测试用例。含 UT-S12-nn 单元用例、ST-S12-nn 场景用例与 S12-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/research-S16-test-cases.md
+    desc: S16 文献检索与引用写入 测试用例。含 UT-S16-nn 单元用例、ST-S16-nn 场景用例与 S16-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/ai-S21-test-cases.md
+    desc: S21 内置 Copilot 修复与逐轮审阅 测试用例。含 UT-S21-nn 单元用例、ST-S21-nn 场景用例与 S21-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/ai-S22-test-cases.md
+    desc: S22 研究 Skills 调用 测试用例。含 UT-S22-nn 单元用例、ST-S22-nn 场景用例与 S22-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S29-test-cases.md
+    desc: S29 服务器接入与项目共享 测试用例。含 UT-S29-nn 单元用例、ST-S29-nn 场景用例与 S29-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S30-test-cases.md
+    desc: S30 实时共同编辑 测试用例。含 UT-S30-nn 单元用例、ST-S30-nn 场景用例与 S30-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S31-test-cases.md
+    desc: S31 断线重连与增量补发 测试用例。含 UT-S31-nn 单元用例、ST-S31-nn 场景用例与 S31-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S32-test-cases.md
+    desc: S32 离线冲突合并与审查 测试用例。含 UT-S32-nn 单元用例、ST-S32-nn 场景用例与 S32-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S33-test-cases.md
+    desc: S33 协作角色权限边界 测试用例。含 UT-S33-nn 单元用例、ST-S33-nn 场景用例与 S33-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S34-test-cases.md
+    desc: S34 评论建议与项目聊天 测试用例。含 UT-S34-nn 单元用例、ST-S34-nn 场景用例与 S34-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S35-test-cases.md
+    desc: S35 共享历史与版本恢复 测试用例。含 UT-S35-nn 单元用例、ST-S35-nn 场景用例与 S35-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S40-test-cases.md
+    desc: S40 浏览器实时协作 测试用例。含 UT-S40-nn 单元用例、ST-S40-nn 场景用例与 S40-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/collab-S41-test-cases.md
+    desc: S41 浏览器会话安全 测试用例。含 UT-S41-nn 单元用例、ST-S41-nn 场景用例与 S41-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/sync-S43-test-cases.md
+    desc: S43 云同步多设备协作 测试用例。含 UT-S43-nn 单元用例、ST-S43-nn 场景用例与 S43-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/sync-S44-test-cases.md
+    desc: S44 冲突副本与三方合并 测试用例。含 UT-S44-nn 单元用例、ST-S44-nn 场景用例与 S44-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/sync-S45-test-cases.md
+    desc: S45 批量删除保护与回收站 测试用例。含 UT-S45-nn 单元用例、ST-S45-nn 场景用例与 S45-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/sync-S48-test-cases.md
+    desc: S48 在线服务 Git 桥双向同步 测试用例。含 UT-S48-nn 单元用例、ST-S48-nn 场景用例与 S48-AC-nn 验收条件追溯表；生成测试代码时必读。
+  - path: logos/resources/test/delivery-01-smoke-test-cases.md
+    desc: 发布/更新/Server 运维 smoke 用例（SMOKE-delivery-01-nn）。部署后环境可用性验证，不替代 UT/ST。
+
+conventions:
+  - "遵循 OpenLogos 三层推进模型（Why → What → How）"
+  - "每次变更必须先创建 logos/changes/ 变更提案"
