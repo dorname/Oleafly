@@ -239,3 +239,16 @@ ACK(done): 已产出 delivery-01-deployment.md，验收命令通过 —— 执�
 CLAIM(执行(db-doc)): 1794297786
 ACK(done): 已产出 deltas/database/collab-01-server-schema.md（166 行）与 core-01-local-stores.md（184 行）；schema 18 迁移链 0001-0018 文件名逐条对上 crates/oleafly-server/migrations/ 实际清单；WAL 强制校验已回源核对 crates/oleafly-server/src/db.rs:112-119；本地 5 库行号抽查全部命中（library_db.rs:8/11、acp/store.rs:54、literature.rs:75、oleafly-history/src/lib.rs:15/1541）；事实只取自 inventory.md，未新增需求 —— 执行(db-doc)
 审查结论(通过): 独立复验：磁盘读回确认 166/184 行；迁移链 0001-0018 与 migrations/ 目录实际清单逐条一致；WAL 强制校验回源核对 db.rs:112-119 命中；本地 5 库行号抽查全部命中；三套版本语义互不可比的边界声明成立 —— 监督(malp-architect)
+
+### 13. 产出全局架构总纲 delta
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：① 读 inventory.md 的「架构与测试要点」段与「模块划分」表 ② 产出 deltas/prd/3-technical-plan/1-architecture/core-01-architecture-overview.md：开头 `## ADDED — Oleafly 全局架构总纲（现状基线）` + 口径引用块；章节含：技术栈与工具链（pnpm workspace/Rust workspace/Node/pnpm/Rust 版本、profile）、组件清单（Rust 组件分组 + 17 个 TS 包分组，含证据路径）、进程与仓库边界（桌面/CLI/引擎子进程/Server/Browser/WASM/仓库外）、关键数据流（编译主链路、增量项目读取、统计与 RAG、协作同步、MCP 工具流）、本地与网络信任边界（路径与进程、窗口能力、秘密、MCP、下载供应链、模型信任、Server 保密性、代理边界、更新与 OS 签名两条链）、模块依赖主线；中文；事实只来自 inventory.md ②
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/1-architecture/core-01-architecture-overview.md && grep -q 信任边界 logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/1-architecture/core-01-architecture-overview.md && grep -q BackendPort logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/1-architecture/core-01-architecture-overview.md && grep -q 编译主链路 logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/1-architecture/core-01-architecture-overview.md
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(arch-doc)): 1794297599
+ACK(done): 已产出 core-01-architecture-overview.md，验收命令通过 —— 执行(arch-doc) —— 执行(arch-doc)
+审查结论(通过): 独立复验：磁盘读回确认 335 行，七章节齐全；技术栈事实逐条回源命中（Node >=22.13 <25、pnpm 11.9.0、rust-toolchain channel 1.98.1、MSRV 1.87、release opt-level=s / server-release opt-level=3 / wasm-release panic=abort）；口径块明确「未运行任何测试，不代表动态验证通过」 —— 监督(malp-architect)
