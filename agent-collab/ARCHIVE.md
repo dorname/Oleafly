@@ -110,3 +110,16 @@ ACK(done): 已产出 research-01-feature-specs.md，监督复验通过（场景�
 CLAIM(执行(spec-ai)): 1794236625
 ACK(done): 已产出 ai-01-feature-specs.md，监督复验通过（场景节/表格行=8，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-ai) —— 执行(spec-ai)
 审查结论(通过): 独立复验：磁盘读回确认五条执行路径前置口径 + S21-S28 八场景节完整，验收断言全过 —— 监督(malp-architect)
+
+### 9. 产出 collab 模块功能规格 delta（S29-S42）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: M
+- 任务书: runbook：同条目 6 结构，输入改为 inventory.md collab 段与 collab-01-requirements.md；输出 deltas/prd/2-product-design/1-feature-specs/collab-01-feature-specs.md（S29-S42）
+- 验收: test -f logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/collab-01-feature-specs.md && grep -q S29 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/collab-01-feature-specs.md && grep -q S42 logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/collab-01-feature-specs.md && test $(grep -c '^### S' logos/changes/add-baseline-docs/deltas/prd/2-product-design/1-feature-specs/collab-01-feature-specs.md) -ge 14
+- 优先级: P0
+- 里程碑: M2
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(spec-collab)): 1794236651
+ACK(done): 已产出 collab-01-feature-specs.md，监督复验通过（场景节/表格行=15，验收断言全过）；执行者被 operator 硬停后由监督代记回执 —— 执行(spec-collab) —— 执行(spec-collab)
+审查结论(通过): 独立复验：磁盘读回确认加密/权限边界引用块 + S29-S42 场景节完整（15 节），验收断言全过 —— 监督(malp-architect)
