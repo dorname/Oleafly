@@ -175,3 +175,16 @@ ACK(done): 已产出 core-00-ui-surface-map.md，监督复验通过（场景节/
 CLAIM(执行(seq-ra)): 1794297673
 ACK(done): 已产出 research/ai 3 份 P0 场景时序 delta，验收命令通过 —— 执行(seq-ra) —— 执行(seq-ra)
 审查结论(通过): 独立复验：磁盘读回确认 3 份时序文件体裁一致（触发与前置/参与者/主时序+sequenceDiagram/失败降级/边界证据），S21 的 approve-for-me 勘误与五条路径不混称声明均落位 —— 监督(malp-architect)
+
+### 15. 产出 core P0 场景时序 delta（7 份）
+- 派单: 监督(malp-architect) 2026-11-09
+- 预算档: L
+- 任务书: runbook：① 读 inventory.md core 段与 deltas/prd/1-product-requirements/core-01-requirements.md ② 产出 7 个文件到 deltas/prd/3-technical-plan/2-scenario-implementation/：core-S01-project-create-import.md、core-S04-multifile-authoring.md、core-S07-compile-engines.md、core-S09-pdf-preview-synctex.md、core-S10-preflight.md、core-S11-export.md、core-S12-checkpoints.md。每个文件开头 `## ADDED — SXX <场景名> 场景实现（现状基线）` + 口径引用块；含：触发与前置、参与者（前端/Rust/引擎/外部）表、主时序（编号步骤，每步标注调用面：UI / typed IPC / Rust 模块 / 引擎进程 / 文件系统）、失败与降级分支（逐条对应需求文档异常）、边界与证据（引用 inventory 证据路径）；用 Mermaid sequenceDiagram 表达主时序；中文；不发明实现细节
+- 验收: for s in S01 S04 S07 S09 S10 S11 S12; do f=$(ls logos/changes/add-baseline-docs/deltas/prd/3-technical-plan/2-scenario-implementation/core-$s-*.md); test -n "$f" && grep -q "sequenceDiagram" "$f" || exit 1; done
+- 优先级: P0
+- 里程碑: M3
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(seq-core)): 1794297640
+ACK(done): 已产出 core 7 份 P0 场景时序 delta（S01/S04/S07/S09/S10/S11/S12，766 行），条目 15 验收命令通过（7 文件均含 sequenceDiagram），lint 0 项违规 —— 执行(seq-core) —— 执行(seq-core)
+审查结论(通过): 独立复验：磁盘读回确认 7 份 core 时序体裁一致（触发与前置/参与者/主时序+sequenceDiagram/失败降级/边界证据），S11 按实现记录偏差 D2（绝对路径+父目录存在、目标文件可不存在） —— 监督(malp-architect)
