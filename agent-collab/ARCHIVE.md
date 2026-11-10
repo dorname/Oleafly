@@ -321,3 +321,17 @@ ACK(done): 产出 core P0 场景测试用例 delta 7 份到 logos/changes/add-ba
 CLAIM(执行(test-ra)): 1794298449
 ACK(done): 产出 3 份 P0 场景测试用例 delta 到 logos/changes/add-baseline-docs/deltas/test/。research-S16-test-cases.md：UT-S16-01..09（9 条）、ST-S16-01..11（11 条，含 2 条 [manual]）、AC S16-AC-01..05（5 条）；ai-S21-test-cases.md：UT-S21-01..14（14 条）、ST-S21-01..12（12 条，含 2 条 [manual]）、AC S21-AC-01..04（4 条）；ai-S22-test-cases.md：UT-S22-01..14（14 条）、ST-S22-01..10（10 条，含 2 条 [manual]）、AC S22-AC-01..03（3 条）。覆盖度校验结论：各场景 Phase 1 正常/异常/边界验收条件与 EX 异常分支全部覆盖（EX-S16 6/6、EX-S21 7/7、EX-S22 6/6），每条 AC 至少映射 1 个用例且每个 UT/ST 均已进入追溯表；API required 字段与 DB UNIQUE/CHECK 两项对三场景均判为不适用并已写明原因（事实来源中 API delta 仅覆盖 MCP localhost 与 CLI JSON 契约，属执行路径④⑤，与 S16/S21/S22 无交集；无 research/ai 模块 DB DDL 来源，catalog 体积上限与 checksum 已改置业务规则组覆盖），未空勾、未发明字段与约束。本轮为只读静态盘点，未运行任何测试，未预填 PASS。 —— 执行(test-ra)
 审查结论(通过): 独立复验：磁盘读回确认 3 份齐备（research-S16/ai-S21/ai-S22）；ai-S21 保留内置 Copilot「approve-for-me」默认审批模式口径与五条 AI 执行路径不可混称声明；跨文件机械校验（用例 ID 唯一性、AC 覆盖完整性、场景号与文件名一致性）全部通过 —— 监督(malp-architect)
+
+### 24. 产出 sync P0 场景测试用例 delta（4 份）
+- 派单: 监督(malp-architect) 2026-11-10
+- 预算档: M
+- 任务书: runbook：① 输入只读 inventory.md + 该场景的时序 delta（deltas/prd/3-technical-plan/2-scenario-implementation/）+ 需求 delta（deltas/prd/1-product-requirements/）+ 功能规格 delta（deltas/prd/2-product-design/1-feature-specs/）+ 已就绪的 deltas/api/ 与 deltas/database/；② 产出到 deltas/test/，文件名 `<模块>-S<编号>-test-cases.md`；③ 每份文件开头写 `## ADDED — S<编号> <场景名> 测试用例（现状基线）` 并附口径块（基线 桌面 0.4.11 绑定提交 9c307bf3c；静态盘点，未运行任何测试，不得预填 PASS）；④ 四段固定结构：一、单元测试用例（按来源分组：API 字段约束 / DB 约束 / 业务规则）；二、场景测试用例（2.1 主路径 / 2.2 异常路径 / 2.3 人工验证 [manual]）；三、覆盖度校验（逐项勾选并注明未覆盖原因）；四、验收条件追溯表（AC ID 格式 S<编号>-AC-<两位序号>，从需求文档 §四 该场景验收条件逐条取，按出现顺序连续编号，映射到覆盖用例 ID）；⑤ 用例 ID 严格为 UT-S<编号>-<两位序号> / ST-S<编号>-<两位序号>，需要人工视觉或真实终端的用例加 [manual] 后缀；⑥ 事实只来自上述输入，不得发明新需求或新 API；⑦ 全中文
+- 场景: S43/S44/S45/S48，产出 logos/changes/add-baseline-docs/deltas/test/sync-S43-test-cases.md … sync-S48-test-cases.md 共 4 份
+- 验收: for f in sync-S43 sync-S44 sync-S45 sync-S48; do p=logos/changes/add-baseline-docs/deltas/test/$f-test-cases.md; test -f $p || exit 1; grep -q '## 四、验收条件追溯' $p || exit 1; grep -q 'UT-S' $p || exit 1; grep -q 'ST-S' $p || exit 1; done
+- 优先级: P0
+- 里程碑: M4
+- 依据: 提案 add-baseline-docs 已授权，本条目在其范围内
+
+CLAIM(执行(test-sync)): 1794298479
+ACK(done): 产出 4 份 sync P0 场景测试用例 delta 到 logos/changes/add-baseline-docs/deltas/test/ —— sync-S43-test-cases.md（UT 18 / ST 18，含 3 个 [manual] / AC 3）、sync-S44-test-cases.md（UT 20 / ST 13，含 2 个 [manual] / AC 4）、sync-S45-test-cases.md（UT 20 / ST 15，含 2 个 [manual] / AC 3）、sync-S48-test-cases.md（UT 23 / ST 19，含 3 个 [manual] / AC 6）。覆盖度校验结论：Phase 1 正常/异常验收条件、时序 EX 失败分支（F1-F6 / F1-F5 / F1-F8）、API required 字段全部逐条登记；每条 AC 至少映射 1 个用例，UT/ST ID 单文件内不重复且编号连续（脚本自检通过）。未能覆盖并已写明原因的项：(1) DB UNIQUE/CHECK 约束——sync 模块无数据库表（状态以 JSON 文件 state.json 持久化），登记为不适用；(2) API 部分必填项——cloud_connect_begin/cloud_connect_wait 的框架级必填、cloud_settings_keep_local、cloud_project_*（S45）、overleaf_sync_check 与同族命令属部分覆盖或归入相邻场景，均已注明原因；(3) 真实云服务商/在线服务的动态行为以 [manual] 用例登记，不预填结论。口径：云同步≠实时协作、S45 的 hold/Trash 与 collab 的 Send/Keep local 正交、S48 的 Git 桥与 S43 云存储路径非同一路，均已在各文件口径块声明且未混称。 —— 执行(test-sync)
+审查结论(通过): 独立复验：磁盘读回确认 4 份齐备；口径抽查通过（S48 明确 Git 桥 ≠ S43 云存储路径 ≠ collab 实时协作、冲突为 abort 回 base 逐文件选边；S45 明确 hold/Trash ≠ collab 的 Send/Keep local，且 collab_trash_list 与云同步 Trash 不是同一个回收站）；源码回源命中 src-tauri/src/cloud/engine.rs:24 MASS_DELETE_MIN=20 与 L1239 判定式，与边界用例（=20 不 hold、21/40 hold、21/100 不 hold、空集合不 hold）一致 —— 监督(malp-architect)
