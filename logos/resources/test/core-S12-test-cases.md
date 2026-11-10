@@ -126,8 +126,7 @@
   - `store_identity.lineage` UNIQUE → UT-S12-17
   - 附加（外键与版本约束）：`chunks.pack_id` → `packs(pack_id)` 外键 → UT-S12-13；`user_version > 2` → `UnsupportedFormat` → UT-S12-18；`user_version < 2` → 升级 → UT-S12-19。
   - **未覆盖（说明原因）**：其余四库（`library.db` schema 3、`tasks.sqlite3` research schema 5、`literature-cache.sqlite3`、`sessions.sqlite`）不承载检查点数据（DB delta §一、§七），本场景无对应 UNIQUE / CHECK 约束可测。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景为**桌面本地功能**（检查点存储与加密 archive 均在本地），不涉及部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景为**桌面本地功能**（检查点存储与加密 archive 均在本地），不涉及部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
 
 ---
 

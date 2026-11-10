@@ -130,8 +130,7 @@
 - [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
   - `projects.comments_enabled` CHECK（UT-S34-17）、`comment_rechecks` PK（UT-S34-18）、`comment_rechecks` NOT NULL（UT-S34-19）、`comment_rechecks.project_id` FK（UT-S34-20）、`mention_scans` PK（UT-S34-21）、`mention_emails` PK（UT-S34-22）、`mention_emails.recipient_id` FK 与 `sent_at` 可空（UT-S34-23）、`mention_emails_waiting` 部分索引（UT-S34-24）、`email_preferences.mentions` CHECK（UT-S34-25）、`email_preferences.account_id` PK 与 FK（UT-S34-26）、`project_updates` UNIQUE `(project_id, batch_id)`（UT-S34-27）。
   - **未覆盖（说明原因）**：Server 数据库其余 `UNIQUE` / `CHECK` 约束已在 S29 / S30 / S31 / S32 / S33 / S40 / S41 的 DB 分组登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景是**桌面端评论 / 建议 / 聊天行为**；SMTP 配置与邮件队列属 S38，Server 部署形态与升级迁移属 `delivery` 模块 S51，本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景是**桌面端评论 / 建议 / 聊天行为**；SMTP 配置与邮件队列属 S38，Server 部署形态与升级迁移属 `delivery` 模块 S51，本文件不越界登记。
 
 ---
 

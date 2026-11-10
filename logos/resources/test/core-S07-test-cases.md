@@ -103,10 +103,8 @@
 - [x] **API 每个 `required` 字段至少 1 个 UT 用例**
   - 说明：`deltas/api/core-01-backend-port.md` 是**桌面内部 typed IPC 契约快照**，非 OpenAPI 文档，全文**未使用 `required` 关键字标注字段**；本项按「契约中不可省略的入参 / 不可省略的返回字段」等价覆盖：`supports` / `compile` / `stop` / `syncTex`（UT-S07-01、UT-S07-04、UT-S07-05）、`CompileTarget` 三元组（UT-S07-02）、`CompileOutput` 全部字段（UT-S07-03）、`compileProject` / `cancelCompile`（UT-S07-06、UT-S07-07）、`readCompiledPdf` / `readIsolatedPdf` / `readBuildArtifact`（UT-S07-08、UT-S07-09）、`validateCompileFingerprint`（UT-S07-10）、`getProjectEngine`（UT-S07-11）、引擎与工具链命令群（UT-S07-12 ~ UT-S07-15）。
   - **未覆盖（说明原因）**：API delta 未标注任何 `required` 字段，不存在按 OpenAPI 枚举的剩余清单项；契约新增字段时须同步补充本节。
-- [ ] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
-  - **未覆盖，原因**：编译设置落 `project.json`（普通文件），产物落 PDF 文件与构建目录；桌面五库均不承载编译数据（DB delta §一、§七）。唯一与编译相关的 `catalog.sqlite3`（`checkpoints` 表记录 `engine` / `toolchain_identity` / `output_hash`）落点是 **S12 检查点**，已在 `core-S12-test-cases.md` 登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景为**桌面本地编译功能**，引擎与工具链是用户机器上的第三方依赖，不涉及本项目的部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
+- [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**：**不适用**——编译设置落 `project.json`（普通文件），产物落 PDF 文件与构建目录；桌面五库均不承载编译数据（DB delta §一、§七）。唯一与编译相关的 `catalog.sqlite3`（`checkpoints` 表记录 `engine` / `toolchain_identity` / `output_hash`）落点是 **S12 检查点**，已在 `core-S12-test-cases.md` 登记，本文件不重复登记以免越界。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景为**桌面本地编译功能**，引擎与工具链是用户机器上的第三方依赖，不涉及本项目的部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
 
 ---
 

@@ -94,10 +94,8 @@
 - [x] **API 每个 `required` 字段至少 1 个 UT 用例**
   - 说明：`deltas/api/core-01-backend-port.md` 是**桌面内部 typed IPC 契约快照**，非 OpenAPI 文档，全文**未使用 `required` 关键字标注字段**；本项按「契约中不可省略的入参」等价覆盖：`list_file_tree` / `list_files`（UT-S04-01）、`create_file` / `delete_file` / `rename_file` / `copy_file`（UT-S04-02）、`write_file` / `save_file_base`（UT-S04-03）、`project_mutation_generation`（UT-S04-04）、`read_file` / `read_project_sources`（UT-S04-05）、`document_stats`（UT-S04-06）。
   - **未覆盖（说明原因）**：API delta 未标注任何 `required` 字段，不存在按 OpenAPI 枚举的剩余清单项；契约新增字段时须同步补充本节。
-- [ ] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
-  - **未覆盖，原因**：本场景数据只落**项目目录内的普通源文件**与项目索引，不写桌面五库任一 SQLite 库（DB delta §一、§七）；无 UNIQUE / CHECK 约束可测。等价约束由 UT-S04-04（revision 可比且单调）、UT-S04-10（引用同步且无悬空）、UT-S04-15（路径边界）覆盖。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景为**桌面本地编辑器功能**，不产生部署产物或服务端依赖；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
+- [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**：**不适用**——本场景数据只落**项目目录内的普通源文件**与项目索引，不写桌面五库任一 SQLite 库（DB delta §一、§七）；无 UNIQUE / CHECK 约束可测。等价约束由 UT-S04-04（revision 可比且单调）、UT-S04-10（引用同步且无悬空）、UT-S04-15（路径边界）覆盖。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景为**桌面本地编辑器功能**，不产生部署产物或服务端依赖；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
 
 ---
 

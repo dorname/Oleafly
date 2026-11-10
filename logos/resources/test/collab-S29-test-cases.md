@@ -128,8 +128,7 @@
 - [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
   - `accounts.status` CHECK（UT-S29-25）、`accounts.server_role` CHECK（UT-S29-26）、`devices.public_key` UNIQUE（UT-S29-27）、`devices.account_id` FK（UT-S29-28）、`access_tokens.token_hash` PK（UT-S29-30）、`projects.status` CHECK（UT-S29-31）、`projects.link_role` CHECK（UT-S29-32）、`project_grants` PK（UT-S29-33）、`project_grants.role` CHECK（UT-S29-34）、`project_grants.account_id` FK（UT-S29-35）、`guest_invitations_open` 部分唯一索引（UT-S29-36）。
   - **未覆盖（说明原因）**：Server 数据库的 `UNIQUE` / `CHECK` 约束中，其余条目（`identities` 主键、`account_emails` 主键、`allowlist` UNIQUE 与 CHECK、`domain_rules.domain` UNIQUE、`devices.id` PK、`nonces` PK、`refresh_tokens.token_hash` PK、`settings.value` CHECK、`project_updates` 主键与 UNIQUE、`project_snapshots` 主键、`project_blobs` 主键、`project_peers` 主键、`project_outputs` 主键与 CHECK、`web_sessions` 主键与 UNIQUE）分别落在其他 collab 场景（S30 / S31 / S32 / S40 / S41）的 DB 分组中登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景是**桌面端接入自建 Server 的客户端流程**，Server 部署形态、安装器、Compose/systemd、健康检查与升级迁移属 `delivery` 模块 S51 的部署与 smoke 方案，本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景是**桌面端接入自建 Server 的客户端流程**，Server 部署形态、安装器、Compose/systemd、健康检查与升级迁移属 `delivery` 模块 S51 的部署与 smoke 方案，本文件不越界登记。
 
 ---
 

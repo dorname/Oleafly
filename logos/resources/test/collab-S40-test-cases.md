@@ -134,8 +134,7 @@
 - [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
   - `web_sessions.token_hash` PK 与只存哈希（UT-S40-22）、`web_sessions.device_id` UNIQUE 与 FK（UT-S40-23）、`web_sessions.account_id` FK（UT-S40-24）、`web_sessions.mode` CHECK（UT-S40-25）、`web_sessions.expires_at` 与到期索引（UT-S40-26）、`project_updates` UNIQUE `(project_id, batch_id)`（UT-S40-27）、`project_updates` PK 与 NOT NULL（UT-S40-28）、`projects.comments_enabled` CHECK（UT-S40-29）。
   - **未覆盖（说明原因）**：Server 数据库其余 `UNIQUE` / `CHECK` 约束已在 S29 / S30 / S31 / S32 / S33 / S34 / S35 / S41 的 DB 分组登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景是**浏览器端协作行为**；Server 部署形态、安装器、健康检查与升级迁移属 `delivery` 模块 S51，浏览器 E2E 使用 fake engine 且**不等同生产**（属 S42 口径），本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景是**浏览器端协作行为**；Server 部署形态、安装器、健康检查与升级迁移属 `delivery` 模块 S51，浏览器 E2E 使用 fake engine 且**不等同生产**（属 S42 口径），本文件不越界登记。
 
 ---
 

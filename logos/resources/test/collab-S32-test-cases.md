@@ -121,8 +121,7 @@
 - [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
   - `project_updates` UNIQUE `(project_id, batch_id)`（UT-S32-09）、`project_updates` PK `(project_id, seq)`（UT-S32-10）、`project_blobs` PK `(project_id, hash)`（UT-S32-11）、`project_blobs.size` NOT NULL（UT-S32-12）、`project_blobs_used` 索引与 `used_at`（UT-S32-13）、`pending_removals.kind` CHECK（UT-S32-14）、`pending_removals` PK（UT-S32-15）、`file_bytes` 触发器（UT-S32-16）、`log_bytes` / `file_bytes` NOT NULL（UT-S32-17）、`log_bytes` 触发器（UT-S32-18）。
   - **未覆盖（说明原因）**：其余 Server 表的 `UNIQUE` / `CHECK` 约束已在 S29 / S30 / S31 / S33 / S40 / S41 的 DB 分组登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景是**桌面端合并引擎与审查交互行为**，Server 部署形态、健康检查与升级迁移属 `delivery` 模块 S51；本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景是**桌面端合并引擎与审查交互行为**，Server 部署形态、健康检查与升级迁移属 `delivery` 模块 S51；本文件不越界登记。
 
 ---
 

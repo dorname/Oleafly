@@ -138,8 +138,7 @@
 - [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
   - `web_sessions.token_hash` PK（UT-S41-21）、`web_sessions.device_id` UNIQUE（UT-S41-22）、`web_sessions.account_id` FK（UT-S41-23）、`web_sessions.mode` CHECK（UT-S41-24）、`web_sessions.expires_at` NOT NULL 与 30 天语义（UT-S41-25）、`web_sessions_expires` 索引（UT-S41-26）、`devices.public_key` UNIQUE（UT-S41-27）、`accounts.status` CHECK（UT-S41-28）。
   - **未覆盖（说明原因）**：Server 数据库其余 `UNIQUE` / `CHECK` 约束已在 S29 / S30 / S31 / S32 / S33 / S34 / S35 / S40 的 DB 分组登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景是**浏览器会话与写请求防护**；Server 部署形态（TLS / 反向代理 / Caddy）、健康检查与升级迁移属 `delivery` 模块 S51，本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景是**浏览器会话与写请求防护**；Server 部署形态（TLS / 反向代理 / Caddy）、健康检查与升级迁移属 `delivery` 模块 S51，本文件不越界登记。
 
 ---
 

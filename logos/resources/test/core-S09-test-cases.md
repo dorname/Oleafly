@@ -100,10 +100,8 @@
 - [x] **API 每个 `required` 字段至少 1 个 UT 用例**
   - 说明：`deltas/api/core-01-backend-port.md` 是**桌面内部 typed IPC 契约快照**，非 OpenAPI 文档，全文**未使用 `required` 关键字标注字段**；本项按「契约中不可省略的入参 / 返回字段」等价覆盖：`SyncTexIndex.forward/inverse/dispose`（UT-S09-01 ~ UT-S09-03）、`CompilePort.syncTex`（UT-S09-04）、`synctex_*` 三个命令（UT-S09-05）、`typst_sync_*` 三个命令（UT-S09-06）、`readCompiledPdf`（UT-S09-07）、`validateCompileFingerprint`（UT-S09-08）、`readBuildArtifact`（UT-S09-09）。
   - **未覆盖（说明原因）**：API delta 未标注任何 `required` 字段，不存在按 OpenAPI 枚举的剩余清单项；契约新增字段时须同步补充本节。
-- [ ] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
-  - **未覆盖，原因**：预览状态与 stale 判定是**进程内状态**，PDF 与 SyncTeX 索引是**普通文件**；桌面五库均不承载本场景数据（DB delta §一、§七）。检查点相关的 `catalog.sqlite3` 落点在 **S12**，已在 `core-S12-test-cases.md` 登记。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景为**桌面本地预览功能**（PDF.js 渲染 + SyncTeX/Tinymist），不涉及部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
+- [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**：**不适用**——预览状态与 stale 判定是**进程内状态**，PDF 与 SyncTeX 索引是**普通文件**；桌面五库均不承载本场景数据（DB delta §一、§七）。检查点相关的 `catalog.sqlite3` 落点在 **S12**，已在 `core-S12-test-cases.md` 登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景为**桌面本地预览功能**（PDF.js 渲染 + SyncTeX/Tinymist），不涉及部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
 
 ---
 

@@ -101,10 +101,8 @@
 - [x] **API 每个 `required` 字段至少 1 个 UT 用例**
   - 说明：`deltas/api/core-01-backend-port.md` 是**桌面内部 typed IPC 契约快照**，不是 OpenAPI 文档，全文**未使用 `required` 关键字标注字段**；因此本项按「契约中不可省略的入参」等价覆盖：`backend_protocol_info()`（UT-S01-01）、能力清单一致性（UT-S01-02）、`getProjectEngine(projectId)`（UT-S01-03/04）、`project_engine` / `has_pandoc`（UT-S01-05）、`list_files` / `list_file_tree`（UT-S01-06）。
   - **未覆盖（说明原因）**：API delta 未标注任何 `required` 字段，故不存在「按 OpenAPI required 字段枚举」的剩余清单项；契约新增字段时须同步补充本节。
-- [ ] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
-  - **未覆盖，原因**：本场景无 SQLite 落点。项目产物为普通目录 + `project.json`；桌面五库（`library.db` / `catalog.sqlite3` / `tasks.sqlite3` / `literature-cache.sqlite3` / `sessions.sqlite`）均不承载项目源数据与导入元数据（DB delta §一、§七）。因此本场景无 UNIQUE / CHECK 约束可测；等价约束以业务规则形式落在 UT-S01-07 ~ UT-S01-19。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景为**桌面本地功能**（项目创建 / 导入），不涉及部署产物或服务端；基线的部署与 smoke 方案归属 `delivery` 模块与 `deltas/prd/3-technical-plan/3-deployment/delivery-01-deployment.md`，本文件不越界登记。
+- [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**：**不适用**——本场景无 SQLite 落点。项目产物为普通目录 + `project.json`；桌面五库（`library.db` / `catalog.sqlite3` / `tasks.sqlite3` / `literature-cache.sqlite3` / `sessions.sqlite`）均不承载项目源数据与导入元数据（DB delta §一、§七）。因此本场景无 UNIQUE / CHECK 约束可测；等价约束以业务规则形式落在 UT-S01-07 ~ UT-S01-19。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景为**桌面本地功能**（项目创建 / 导入），不涉及部署产物或服务端；基线的部署与 smoke 方案归属 `delivery` 模块与 `deltas/prd/3-technical-plan/3-deployment/delivery-01-deployment.md`，本文件不越界登记。
 
 ---
 

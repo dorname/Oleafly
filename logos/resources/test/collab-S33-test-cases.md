@@ -134,8 +134,7 @@
 - [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
   - `project_grants.role` CHECK（UT-S33-21）、`project_grants` PK（UT-S33-22）、`project_grants` FK（UT-S33-23）、`projects.link_role` CHECK（UT-S33-24）、`projects.status` CHECK（UT-S33-25）、`accounts.status` CHECK（UT-S33-26）、`accounts.server_role` CHECK（UT-S33-27）、`project_removals` PK（UT-S33-28）、`guest_invitations.role` CHECK（UT-S33-29）、`guest_invitations_open` 唯一索引（UT-S33-30）。
   - **未覆盖（说明原因）**：Server 数据库其余 `UNIQUE` / `CHECK` 约束已在 S29 / S30 / S31 / S32 / S40 / S41 的 DB 分组登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景是**桌面端协作角色行为**，Server 部署形态、健康检查与升级迁移属 `delivery` 模块 S51；本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景是**桌面端协作角色行为**，Server 部署形态、健康检查与升级迁移属 `delivery` 模块 S51；本文件不越界登记。
 
 ---
 

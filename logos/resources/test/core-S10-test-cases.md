@@ -98,10 +98,8 @@
 - [x] **API 每个 `required` 字段至少 1 个 UT 用例**
   - 说明：`deltas/api/core-01-backend-port.md` 是**桌面内部 typed IPC 契约快照**，非 OpenAPI 文档，全文**未使用 `required` 关键字标注字段**；本项按「契约中不可省略的入参 / 返回字段」等价覆盖：`backend_protocol_info`（UT-S10-01）、`getProjectEngine`（UT-S10-02）、`project_engine`（UT-S10-03）、`latex_engine::has_tagging_engine`（UT-S10-04）、`readBuildArtifact`（UT-S10-05）、`readCompiledPdf`（UT-S10-06）、`list_files` / `read_project_sources`（UT-S10-07）、`read_app_log` 系列（UT-S10-08）。
   - **未覆盖（说明原因）**：API delta 未标注任何 `required` 字段，不存在按 OpenAPI 枚举的剩余清单项；契约新增字段时须同步补充本节。
-- [ ] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
-  - **未覆盖，原因**：预检为只读计算过程，发现集合不落桌面五库任一 SQLite 库（DB delta §一、§七）；本场景无 UNIQUE / CHECK 约束可测。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景为**桌面本地预检功能**（读源 / 日志 / PDF，输出发现与变体文件），不涉及部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
+- [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**：**不适用**——预检为只读计算过程，发现集合不落桌面五库任一 SQLite 库（DB delta §一、§七）；本场景无 UNIQUE / CHECK 约束可测。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景为**桌面本地预检功能**（读源 / 日志 / PDF，输出发现与变体文件），不涉及部署产物或服务端；部署与 smoke 方案归属 `delivery` 模块，本文件不越界登记。
 
 ---
 

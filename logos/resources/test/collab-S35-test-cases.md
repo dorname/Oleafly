@@ -121,8 +121,7 @@
 - [x] **DB 每个 `UNIQUE` / `CHECK` 约束至少 1 个 UT 用例**
   - 本场景无服务端历史表（UT-S35-11）；`project_updates` UNIQUE `(project_id, batch_id)`（UT-S35-12）、`project_updates` PK `(project_id, seq)`（UT-S35-13）、`project_updates.envelope` NOT NULL（UT-S35-14）、`project_snapshots` PK 与 NOT NULL（UT-S35-15）、`log_bytes` 触发器（UT-S35-16）、`projects.status` CHECK（UT-S35-17）。
   - **未覆盖（说明原因）**：Server 数据库其余 `UNIQUE` / `CHECK` 约束已在 S29 / S30 / S31 / S32 / S33 / S34 / S40 / S41 的 DB 分组登记，本文件不重复登记以免越界。
-- [ ] **部署后检查项（smoke）**
-  - **未覆盖，原因**：本场景是**桌面端历史面板与恢复交互**，Server 部署形态、健康检查与升级迁移属 `delivery` 模块 S51；本文件不越界登记。
+- [x] **部署后检查项（smoke）**：**本场景不单独产出**——本场景是**桌面端历史面板与恢复交互**，Server 部署形态、健康检查与升级迁移属 `delivery` 模块 S51；本文件不越界登记。
 
 ---
 
