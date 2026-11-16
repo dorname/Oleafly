@@ -122,9 +122,10 @@ Oleafly 是本地优先（local-first）的研究写作工作区。core 模块�
 #### 验收条件
 
 ##### 正常：限定词检索
+
 - **GIVEN** 项目库含多个不同引擎的项目
 - **WHEN** 输入 `engine:typst is:pinned` 类组合条件
-- **THEN** 结果正确过滤；引擎筛选支持 LaTeX/Typst/Markdown/Quarto/Calepin 五种（实现现状，文档待回补，见偏差 D1）
+- **THEN** 结果正确过滤；引擎筛选支持 LaTeX/Typst/Markdown/Quarto/Calepin 五种（原偏差 D1，docs/ProjectLibrary.md 已对齐）
 
 ##### 异常：未知限定词或不支持的值
 - **GIVEN** 输入含未知限定词或不接受的值
@@ -175,9 +176,10 @@ Oleafly 是本地优先（local-first）的研究写作工作区。core 模块�
 - **THEN** 仅正文被检查，命令/注释/数学被 mask；发现与建议定位到源位置
 
 ##### 异常：语言未安装
+
 - **GIVEN** 所选语言词典未安装
 - **WHEN** 校对运行
-- **THEN** 明确报告该语言未安装，不回退到其他语言；非英语仅运行 Hunspell，grammar-only 返回 unsupported（实现现状，见偏差 D5）
+- **THEN** 明确报告该语言未安装，不回退到其他语言；非英语仅运行 Hunspell，grammar-only 返回 unsupported（原偏差 D5，docs/Editor.md 已对齐）
 
 ### S06: 图表绘制与插入
 
@@ -276,9 +278,10 @@ Oleafly 是本地优先（local-first）的研究写作工作区。core 模块�
 - **THEN** 拒绝接受并显示 stale，不把旧结果当作当前输出
 
 ##### 边界：失败编译的 PDF 保留
+
 - **GIVEN** 编译失败
 - **WHEN** 预览刷新
-- **THEN** 区分两种情况：无新 PDF 时保留旧文件；有经指纹验证的 best-effort PDF 时显示新文件、保持 error 状态且不更新最后成功检查点（实现现状，纠正文档过度简化，见偏差 D3）
+- **THEN** 区分两种情况：无新 PDF 时保留旧文件；有经指纹验证的 best-effort PDF 时显示新文件、保持 error 状态且不更新最后成功检查点（原偏差 D3，docs/PDFPreview.md 已对齐）
 
 ##### 边界：引擎/文档限制
 - Typst 过旧或 Markdown 项目隐藏同步控件；选择 PDF 文本不触发跳转；加密 PDF 要求密码
@@ -436,4 +439,4 @@ Oleafly 是本地优先（local-first）的研究写作工作区。core 模块�
 
 - 不新增任何功能或交互；只固化现状。
 - 不在本模块内描述实时协作、云同步、AI 能力（分属 collab/sync/ai 模块）。
-- 不修复文档偏差本身（D1-D12 的文档回补另立变更），基线一律以实现为准。
+- 不修复文档偏差本身（D1-D12 文档已由 fix-doc-deviations 对齐），基线一律以实现为准。

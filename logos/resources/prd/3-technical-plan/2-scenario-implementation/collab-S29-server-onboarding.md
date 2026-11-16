@@ -3,7 +3,7 @@
 > module: collab | 场景编号: S29（全局唯一，见 `core-00-scenario-overview.md` 编号注册表） | 优先级: P0
 > 基线口径：桌面 0.4.11，绑定提交 `9c307bf3c`（HEAD，领先 `v0.4.11` 标签 3 个提交）
 > 本文档为存量产品现状基线：只描述已实现行为，事实来源为提案 `logos/changes/add-baseline-docs/inventory.md` collab 段（S29 行与该段引言）与 `deltas/prd/1-product-requirements/collab-01-requirements.md` §四 S29 章节。**本次为只读静态盘点，未执行任何测试**，动态行为在 verify 阶段单独取证。
-> 本文档不新增功能、不修复文档偏差（偏差 D12 等文档回补另立变更），基线一律以实现为准。
+> 本文档不新增功能、不修复文档偏差（偏差 D12 已由 fix-doc-deviations 回补），基线一律以实现为准。
 
 ### 一、触发与前置
 
@@ -82,7 +82,7 @@ sequenceDiagram
 | 首次 admin 初始化 | 全新 Server 尚无管理员 | 首个管理员初始化**必须提供 setup code**；setup code 校验不通过则不授予管理员身份 | `inventory.md` collab 段 S29 行；`crates/oleafly-server/src/routes/auth.rs` L43-85 |
 | 设备被 suspended | 该设备所属账号被 Server 暂停 | 登录/同步被**明确拒绝**（admission suspended → not admitted），不授予访问 | `inventory.md` collab 段 S29 行；`crates/oleafly-server/src/auth/admission.rs` |
 | 设备已撤销 | 设备被签出撤销（token 家族被 revoke） | 拒绝该设备的登录/刷新与同步，返回明确错误，不授予访问 | `inventory.md` collab 段 S29 行；`crates/oleafly-server/src/routes/auth.rs` |
-| 分享语义（偏差 D12） | 用户以为「一切变更都要先问我」 | **过宽**：重叠文本由 Loro 自动合并 + 只读 Merge Review（S32），并非所有变更都先询问；文档回补另立变更 | `inventory.md` 偏差 D12；`deltas/prd/1-product-requirements/collab-01-requirements.md` §5.1 |
+| 分享语义（原偏差 D12，已回补） | 旧 README 表述曾致误解 | 重叠文本由 Loro 自动合并 + 只读 Merge Review（S32），并非所有变更都先询问；README 已由 fix-doc-deviations 对齐 | `inventory.md` 偏差 D12；`deltas/prd/1-product-requirements/collab-01-requirements.md` §5.1 |
 | 项目内容不是端到端加密 | 用户评估托管风险 | Server 能力清单中 `encryption` 明确为 `None`；宿主、磁盘与备份运营者可读取项目内容，**不得宣传为 E2E 加密** | `inventory.md` collab 段引言；`crates/oleafly-collab-protocol/src/capabilities.rs` |
 
 ### 五、边界与证据

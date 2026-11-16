@@ -165,9 +165,10 @@ ai 模块承载 Oleafly 的全部 AI 与 agent 能力：内置 Copilot、研究 
 - **THEN** 保留既有旧列表继续可用，不出现空白或错误状态冒充成功
 
 ##### 异常：blocked 两类语义
+
 - **GIVEN** 模型处于 blocked 状态
 - **WHEN** 尝试使用
-- **THEN** 区分两类：catalog blocked 一律拒绝；probe blocked 允许在**无工具 plain chat** 场景使用（实现现状，纠正文档概括，见偏差 D10）
+- **THEN** 区分两类：catalog blocked 一律拒绝；probe blocked 允许在**无工具 plain chat** 场景使用（原偏差 D10，docs/AICopilot.md 与 docs/ai-model-catalog.md 已对齐）
 
 ##### 边界：自托管判定
 - localhost 与私网地址的 provider 一律按自托管策略处理（probe 超时等），不套用 hosted 规则
@@ -182,9 +183,10 @@ ai 模块承载 Oleafly 的全部 AI 与 agent 能力：内置 Copilot、研究 
 #### 验收条件
 
 ##### 正常：接入与会话
+
 - **GIVEN** 用户从内置目录选择并安装某个 CLI agent，完成其自身账号登录
 - **WHEN** 新建会话并下发任务
-- **THEN** agent 以交互式 ACP 会话运行，turn 产生的变更进入 turn copy 供审阅；内置 agent 数量为 15 个（文档写 14，见偏差 D7）
+- **THEN** agent 以交互式 ACP 会话运行，turn 产生的变更进入 turn copy 供审阅；内置 agent 数量为 15 个（原偏差 D7，docs/AICopilot.md 已对齐）
 
 ##### 异常：越权读取与 fail closed
 - **GIVEN** agent 试图读取项目之外的文件，或访问未知路径
@@ -221,8 +223,9 @@ ai 模块承载 Oleafly 的全部 AI 与 agent 能力：内置 Copilot、研究 
 - **THEN** 拒绝启动并明确说明，不得退化为无隔离执行
 
 ##### 边界：预算与快照
+
 - 非 Git 项目使用 staged snapshot 而非 worktree
-- 默认预算 120 分钟、单 run 60 分钟（文档写 30 分钟，见偏差 D9）
+- 默认预算 120 分钟、单 run 60 分钟（原偏差 D9，docs/Skills.md 已对齐）
 - Windows sandbox 默认关闭；证据检查只产生警告，不是 apply 门禁
 
 ### S27: MCP 双向集成
@@ -245,9 +248,10 @@ ai 模块承载 Oleafly 的全部 AI 与 agent 能力：内置 Copilot、研究 
 - **THEN** 每次调用需确认（默认 ask）；传给外部 server 的参数经脱敏与截断处理
 
 ##### 异常：renderer 断开降级
+
 - **GIVEN** renderer 已断开
 - **WHEN** 外部 client 继续调用 native 工具
-- **THEN** 仅保留 6 个只读工具，写能力不可用（实现现状，文档写可写，见偏差 D8）
+- **THEN** 仅保留 6 个只读工具，写能力不可用（原偏差 D8，docs/mcp.md 已对齐）
 
 ##### 边界：超时与审批
 - tool call 超时 300s、renderer lease 45s
@@ -284,7 +288,7 @@ ai 模块承载 Oleafly 的全部 AI 与 agent 能力：内置 Copilot、研究 
   - MCP：双向均默认关闭；对外工具写操作经审批，对外部 server 的调用默认逐次 ask，auto-approve 不含 delete（S27）；
   - Computer Use：默认全关，功能开启且白名单非空才 ready（S28）。
 - 网络访问均为显式配置或显式动作：Plan 模式只读≠离线（S21）；文献搜索/DOI 核验需网络（S22）；无头 CLI 默认无网络（S23）。
-- 偏差 D7/D8/D9/D10（ACP agent 数量 15、native 断开后 6 个只读工具、run 60 分钟、blocked 两类语义）按实现现状记录，文档回补另立变更。
+- 偏差 D7/D8/D9/D10（ACP agent 数量 15、native 断开后 6 个只读工具、run 60 分钟、blocked 两类语义）按实现现状记录，文档已由 fix-doc-deviations 对齐。
 
 ### 5.2 现状声明（未验证项）
 
@@ -294,4 +298,4 @@ ai 模块承载 Oleafly 的全部 AI 与 agent 能力：内置 Copilot、研究 
 
 - 不新增任何功能或交互；只固化现状。
 - 不在本模块内描述协作、云同步与交付链路（分属 collab/sync/delivery 模块）；终端 containment 与 Research 级 OS sandbox 的区别归 core（S15）表述。
-- 不修复文档偏差本身（D7-D10 的文档回补另立变更），基线一律以实现为准。
+- 不修复文档偏差本身（D7-D10 文档已由 fix-doc-deviations 对齐），基线一律以实现为准。

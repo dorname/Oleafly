@@ -10,7 +10,7 @@ Oleafly 中存在五条相互独立的 AI 执行路径，运行主体、凭据�
 | # | 执行路径 | 运行主体与要点 | 隔离机制 |
 |---|---------|--------------|---------|
 | ① | 内置 Copilot | 由 Oleafly 自身运行 agent loop，工具变更经 diff 审批 | turn 快照 |
-| ② | 交互式 ACP CLI agent | 外部 CLI agent（内置目录 15 个，偏差 D7），使用用户各自的外部账号 | ACP turn copy |
+| ② | 交互式 ACP CLI agent | 外部 CLI agent（内置目录 15 个，原偏差 D7，docs/AICopilot.md 已对齐），使用用户各自的外部账号 | ACP turn copy |
 | ③ | Research Task | 自主长时任务，worktree/snapshot + 预算 + 选择性 apply | worktree+manifest（非 Git 项目 staged snapshot） |
 | ④ | 无头 CLI | `oleafly ask` / `agent run`，默认只读，write 走 review copy | review copy |
 | ⑤ | 外部 MCP client | 经 localhost+bearer 接入，写操作经审批 | 无副本 |
@@ -115,21 +115,15 @@ Oleafly 中存在五条相互独立的 AI 执行路径，运行主体、凭据�
 #### 能力与限制
 
 - 刷新有 30s 节流、24h 自动刷新；刷新失败保留旧列表，不出现空白或以错误状态冒充成功。
-- blocked 两类语义（偏差 D10）：catalog blocked 一律拒绝；probe blocked 允许在无工具 plain chat 场景使用（实现现状，纠正文档概括）。
+- blocked 两类语义（原偏差 D10，docs/AICopilot.md 与 docs/ai-model-catalog.md 已对齐）：catalog blocked 一律拒绝；probe blocked 允许在无工具 plain chat 场景使用。
 - localhost 与私网地址的 provider 一律按自托管策略处理（如 probe 超时规则），不套用 hosted 规则。
 - 证据（inventory 节选）：providers.ts L16-216；ai-model-state.ts L13-78；ai_model_registry.rs L185-207；agent.rs L1556-1712；provider.rs L159-193。
-
-#### 关联需求
-
-- 需求：ai-01-requirements.md S24（模型目录与信任状态管理），优先级 P1。
-- 痛点：P04（数据越界与安全风险）。
-- 执行路径：支撑性场景（模型配置与信任判定），不绑定单一执行路径。
 
 ### S25: 外部 CLI agent（ACP）接入
 
 #### 功能入口与表面
 
-内置 CLI agent 目录（15 个，偏差 D7）与 ACP 交互式会话（执行路径②）：目录选择/安装入口、各 CLI 自身账号登录、会话任务下发、越权审批卡（权限 diff 审阅）、turn 变更审阅。
+内置 CLI agent 目录（15 个，原偏差 D7，docs/AICopilot.md 已对齐）与 ACP 交互式会话（执行路径②）：目录选择/安装入口、各 CLI 自身账号登录、会话任务下发、越权审批卡（权限 diff 审阅）、turn 变更审阅。
 
 #### 关键交互
 
@@ -144,14 +138,8 @@ Oleafly 中存在五条相互独立的 AI 执行路径，运行主体、凭据�
 - turn copy 仅适用于非 task、非子会话、非 remote 场景。
 - 权限 diff 上限 96KiB；审批卡一次最多 16 个。
 - Research 场景使用临时 HOME 时，凭据文件权限为 0700/0600。
-- 内置 agent 数量为 15 个（文档写 14，偏差 D7，按实现记录）。
+- 内置 agent 数量为 15 个（原偏差 D7，docs/AICopilot.md 已对齐）。
 - 证据（inventory 节选）：builtin_agents.rs L23-196；acp/runtime.rs L187-216, L2899-3210；permission_view.rs L8-99；acp/review.rs L49-55。
-
-#### 关联需求
-
-- 需求：ai-01-requirements.md S25（外部 CLI agent（ACP）接入），优先级 P1。
-- 痛点：P03（外部 AI 工具与项目上下文割裂）。
-- 执行路径：②。
 
 ### S26: Research Task 隔离执行
 
@@ -170,17 +158,11 @@ Research Tasks 功能（执行路径③，默认关闭）：Experimentation 开�
 #### 能力与限制
 
 - 默认关闭，须在 Experimentation 显式开启。
-- 默认预算 120 分钟、单 run 60 分钟（文档写 30 分钟，偏差 D9，按实现记录）。
+- 默认预算 120 分钟、单 run 60 分钟（原偏差 D9，docs/Skills.md 已对齐）。
 - Git 项目使用 worktree 隔离，覆盖 manifest 包含未提交修改；非 Git 项目使用 staged snapshot。
 - apply 校验文件前后 hash；hash 不符时经 journal 回滚，不留下半套用的结果；证据检查只产生警告，不是 apply 门禁。
 - 本机 run 无 sandbox 时拒绝启动并明确说明，不退化为无隔离执行；Windows sandbox 默认关闭。
 - 证据（inventory 节选）：research-tasks-flag.ts L10-27；research/model.rs L131-215, L917-924；isolation.rs L110-268；apply.rs L478-583；runs/local.rs L191-198。
-
-#### 关联需求
-
-- 需求：ai-01-requirements.md S26（Research Task 隔离执行），优先级 P1。
-- 痛点：P01、P02。
-- 执行路径：③。
 
 ### S27: MCP 双向集成
 
@@ -197,18 +179,12 @@ MCP 双向集成（执行路径⑤，双向均默认关闭）：对外方向为 
 
 #### 能力与限制
 
-- renderer 断开后 native 仅保留 6 个只读工具，写能力不可用（文档写可写，偏差 D8，按实现记录）。
+- renderer 断开后 native 仅保留 6 个只读工具，写能力不可用（原偏差 D8，docs/mcp.md 已对齐）。
 - bearer 采用常量时间比较，不泄露时序信息。
 - tool call 超时 300s；renderer lease 45s。
 - auto-approve 规则不含 delete 类操作。
 - 无副本隔离是本路径与 Copilot/ACP/Research 的本质差异，不得混称。
 - 证据（inventory 节选）：config.rs L282-285；mcp/server_request.rs L41-265；mcp/native.rs L8-191；mcp/server.rs L20-27；mcp-approvals.ts L4-62；mcp-agent-tools.ts L21-229。
-
-#### 关联需求
-
-- 需求：ai-01-requirements.md S27（MCP 双向集成），优先级 P1。
-- 痛点：P03、P04。
-- 执行路径：⑤。
 
 ### S28: Computer Use 白名单操作
 

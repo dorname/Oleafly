@@ -1,7 +1,7 @@
 ## Oleafly 研究与文献（research）功能规格（现状基线）
 
 > module: research | 基线口径：桌面 0.4.11，绑定提交 `9c307bf3c`（HEAD，领先 v0.4.11 标签 3 个提交）
-> 事实来源：仅限提案 `inventory.md`（research 段 S16-S20）与需求文档 `deltas/prd/1-product-requirements/research-01-requirements.md`。本文档为存量产品现状基线的功能规格：只固化已实现行为，不新增任何功能或交互；文档/实现偏差按实现记录（如 D4），文档回补另立变更。本基线为静态盘点，未执行任何测试，动态行为在 verify 阶段单独取证。
+> 事实来源：仅限提案 `inventory.md`（research 段 S16-S20）与需求文档 `deltas/prd/1-product-requirements/research-01-requirements.md`。本文档为存量产品现状基线的功能规格：只固化已实现行为，不新增任何功能或交互；文档/实现偏差按实现记录（如 D4），文档已由 fix-doc-deviations 对齐。本基线为静态盘点，未执行任何测试，动态行为在 verify 阶段单独取证。
 
 模块定位：research 覆盖写作之外的「研究与文献」半径——文献检索与引用写入（Citation Search）→ Zotero 文献库集成 → 草稿文献发现与 AI 评审 → 图像/扫描件 OCR 转换 → 研究规划与本地统计工具。本模块的**权威数据源是项目本地的 BibTeX/Hayagriva 引用文件**；检索结果、Zotero 条目、AI 评审与远程 OCR 都只是向它供给的外部来源，外部元数据不得取代本地 `.bib` 的权威性。网络能力（多源检索、zotero.org、AI 评审、hosted/Mathpix OCR）均为显式操作且失败必须显式呈现；离线降级路径为本地 `.bib`、Zotero 缓存、启发式评审与本机 Ollama。内置 Copilot / agent 等通用 AI 能力分属 ai 模块，本模块只在 S18/S19 记录其作为研究工具的现状边界。
 
@@ -26,7 +26,7 @@
 - provider 不可用时显式呈现，不静默吞掉。
 - 未配置 Serper key 时不列 Google Scholar。
 - 无网络时引用工作不中断：仍可继续使用本地 `.bib` 完成引用写入。
-- 参考文献 RIS/EndNote XML 导入为偏差 D4：文档未列出，E2E 经 devtools hook 可导入，记为「实现支持、UI 入口待确认」，不作为已确认 UI 入口描述。
+- 参考文献 EndNote XML / RIS / BibTeX 导入（原偏差 D4）：UI 入口已确认（`FileReferencesDialog`），docs/Citations.md 已由 fix-doc-deviations 补写导入说明，按已确认的用户可见功能描述。
 - 外部检索元数据只作供给，引用权威源始终是项目本地 BibTeX/Hayagriva 文件。
 
 **关联需求**

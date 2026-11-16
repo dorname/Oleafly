@@ -3,7 +3,7 @@
 > module: research | 场景编号: S16（全局唯一，见 `core-00-scenario-overview.md` 编号注册表） | 优先级: P0
 > 基线口径：桌面 0.4.11，绑定提交 `9c307bf3c`（HEAD，领先 `v0.4.11` 标签 3 个提交）
 > 本文档为存量产品现状基线：只描述已实现行为，事实来源为提案 `logos/changes/add-baseline-docs/inventory.md` research 段（S16 行）与 `deltas/prd/1-product-requirements/research-01-requirements.md` §四 S16 章节。**本次为只读静态盘点，未执行任何测试**，动态行为在 verify 阶段单独取证。
-> 本文档不新增功能、不修复文档偏差（偏差 D4 等文档回补另立变更），基线一律以实现为准。
+> 本文档不新增功能、不修复文档偏差（偏差 D4 已由 fix-doc-deviations 回补），基线一律以实现为准。
 
 ### 触发与前置
 
@@ -73,7 +73,7 @@ sequenceDiagram
 | 完全离线 | 设备无网络 | 检索环节不可用；用户仍可**继续使用本地 `.bib` 完成引用写入**，引用工作不中断 | `docs/Citations.md` L6-25；需求文档 §5.1 |
 | 批量写入 `.bib` 失败 | 批量流程中 `.bib` 写失败 | 批量流程**先停止**，不静默跳过继续执行 | `citation.test.ts` L480-605 |
 | 引用 key 缺失或非法 | 条目缺 key 或 key 不合规 | 提供 key **补全、校验与诊断**，由用户处理，不自动写入非法 key | `docs/Citations.md` L98-135 |
-| 参考文献文件导入（偏差 D4） | 用户导入 RIS/EndNote XML | 文档未列出该入口；E2E 经 devtools hook 可导入，记为「实现支持、UI 入口待确认」——基线**不表述为用户可见功能** | `inventory.md` 偏差 D4（`48-citation-import.spec.ts`） |
+| 参考文献文件导入（原偏差 D4，已回补） | 用户导入 EndNote XML / RIS / BibTeX | UI 入口已确认（`FileReferencesDialog`，i18n `references.json` 导入文案）；docs/Citations.md 已补写导入说明 | `inventory.md` 偏差 D4（`48-citation-import.spec.ts`）；fix-doc-deviations 调查 |
 
 ### 边界与证据
 

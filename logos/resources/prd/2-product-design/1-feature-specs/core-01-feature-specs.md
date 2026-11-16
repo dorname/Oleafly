@@ -1,7 +1,7 @@
 ## Oleafly 本地写作核心（core）功能规格（现状基线）
 
 > **基线口径**：桌面 0.4.11，绑定提交 `9c307bf3c`（HEAD，领先 v0.4.11 标签 3 个提交）。
-> 本文档为存量产品现状基线：只描述已实现能力，全部事实来自提案 `inventory.md`（core 段 S01-S15）与 `deltas/prd/1-product-requirements/core-01-requirements.md`，不发明任何新交互。文档/实现偏差（D1、D2、D3、D5）一律按实现现状记录，文档回补另立变更。本基线为只读静态盘点，未经动态验证的行为均在各节限制中声明。
+> 本文档为存量产品现状基线：只描述已实现能力，全部事实来自提案 `inventory.md`（core 段 S01-S15）与 `deltas/prd/1-product-requirements/core-01-requirements.md`，不发明任何新交互。文档/实现偏差（D1、D2、D3、D5）一律按实现现状记录，文档已由 fix-doc-deviations 对齐。本基线为只读静态盘点，未经动态验证的行为均在各节限制中声明。
 
 ### S01: 从模板或外部资料创建研究项目
 
@@ -76,7 +76,7 @@
 #### 能力与限制
 
 - 未知限定词按普通文本处理并给出警告；不支持的值以琥珀色提示且被忽略；高级面板不能表达的查询显示 Custom。
-- 引擎筛选支持 LaTeX / Typst / Markdown / Quarto / Calepin 五种——实现现状；文档只列前三种（偏差 D1，文档待回补）。
+- 引擎筛选支持 LaTeX / Typst / Markdown / Quarto / Calepin 五种（原偏差 D1，docs/ProjectLibrary.md 已对齐）。
 
 #### 关联需求
 
@@ -128,7 +128,7 @@
 #### 能力与限制
 
 - 所选语言词典未安装时明确报告，不回退到其他语言。
-- 非英语仅运行 Hunspell，grammar-only 请求返回 unsupported（实现现状，文档未直说，偏差 D5）。
+- 非英语仅运行 Hunspell，grammar-only 请求返回 unsupported（原偏差 D5，docs/Editor.md 已对齐）。
 - Harper 崩溃时重建检查器并标记结果为 partial。
 - 英文场景：仅正文被检查，发现与建议定位到源位置。
 
@@ -237,7 +237,7 @@
 #### 能力与限制
 
 - 源码已变化时，旧 revision 的 PDF 结果被拒绝接受并显示 stale，不当作当前输出。
-- 失败编译的 PDF 保留分两种情况（实现现状，纠正文档过度简化，偏差 D3）：无新 PDF 时保留旧文件；有经指纹验证的 best-effort PDF 时显示新文件、保持 error 状态且不更新最后成功检查点。
+- 失败编译的 PDF 保留分两种情况（原偏差 D3，docs/PDFPreview.md 已对齐）：无新 PDF 时保留旧文件；有经指纹验证的 best-effort PDF 时显示新文件、保持 error 状态且不更新最后成功检查点。
 - Typst 版本过旧或 Markdown 项目隐藏同步控件；选择 PDF 文本不触发跳转；加密 PDF 要求密码。
 
 #### 关联需求

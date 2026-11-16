@@ -1,0 +1,222 @@
+{
+  "type": "merge_complete",
+  "completed_at": "2026-11-16T13:01:48.960Z",
+  "test_change_set": {
+    "schema": "openlogos/test-change-set@1",
+    "change": "fix-doc-deviations",
+    "module": "core",
+    "source": "semantic-before-after-diff",
+    "changed_test_ids": [
+      "ST-S16-11",
+      "UT-S29-42",
+      "UT-S32-35"
+    ],
+    "removed_test_ids": [],
+    "targets": [
+      {
+        "target_path": "logos/resources/test/collab-S29-test-cases.md",
+        "before_sha256": "de7b4ed46f8d1447ba176ca9f29725b5fb1d38a938e73270c1694c64bfdcddcb",
+        "after_sha256": "0c6c1f8f76d9d966cd95011329e1b0e6326f8c16aa6f28acdc0e1ecefcb48213"
+      },
+      {
+        "target_path": "logos/resources/test/collab-S32-test-cases.md",
+        "before_sha256": "07e34c78a729d5785872a2d2c6800d9ab4fe2bc08a5d332baa771059e40f6a40",
+        "after_sha256": "0cf695b42a5229d52a003973f62e5ca3bb0ec4daad98ca7229e05aff3beec00b"
+      },
+      {
+        "target_path": "logos/resources/test/research-S16-test-cases.md",
+        "before_sha256": "d225340bf85f757840e76c2cabf3702e82f9d581dc882e98cb5c0ced3e13a9a2",
+        "after_sha256": "1ee606a5d48442022acfc794596c9ded3ef1611ba2ef6968f7f61b9fff9281db"
+      }
+    ],
+    "sha256": "sha256:c2d2e230410fac016dc2d56bb1709ba295f5df6544e2b3fc75372041f1a36171"
+  },
+  "merge_baseline": {
+    "schema": "openlogos/merge-baseline@1",
+    "delta_digest": "sha256:c526b0897389b87f79d5672560d7c62cb33dd06a9916f3606568aab1c7b7153e",
+    "targets": [
+      {
+        "path": "logos/resources/prd/1-product-requirements/ai-01-requirements.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "26bf6081f02eacf0add01bf9c7e6250e242bd33a20d4136f22f68da3a07487de",
+          "git_blob": "b730895005c2e8038d280c937aa7174f74c1ef8c"
+        },
+        "after_sha256": "599c2cf90ba2d557eca87f4dba047452844afa5ab88600b4877ddfb44b52a335"
+      },
+      {
+        "path": "logos/resources/prd/1-product-requirements/collab-01-requirements.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "b73bf3c67be54ca99df627603db75cd87d6af15c0950b080c2eb1eef068970cc",
+          "git_blob": "cd802841885f17ea5ef5f340556a711d73dc34f9"
+        },
+        "after_sha256": "f9899f52a74653137f53bafa8f6db5c9ec00c71c001ab2ff3d0c69d2b5e4d4ed"
+      },
+      {
+        "path": "logos/resources/prd/1-product-requirements/core-01-requirements.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "9f2c093e0efdb28a56bea36328b0d0b55769af5e6b98b9c533079c0c2128c8ae",
+          "git_blob": "24d3f959c97335a3938f65abbbbd446dfaedc197"
+        },
+        "after_sha256": "7ce9d8472cbb9d790fa4696bd55a02e86355405f11e82e0e8eb137a2fde5715c"
+      },
+      {
+        "path": "logos/resources/prd/1-product-requirements/delivery-01-requirements.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "c09c0b7c81ad954971b22e399815e6c4a3163e2a8288c69428051a24323515e7",
+          "git_blob": "c813764f7fe24943889fbe8326074d479cd1833a"
+        },
+        "after_sha256": "ec0af53b68f351ad5bc9d8fa59ddbdedcc9b7c09492488723b3d0e5e252ae5b7"
+      },
+      {
+        "path": "logos/resources/prd/1-product-requirements/research-01-requirements.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "161f0c8dcf62375c248de1ab30ed802ab22ef50b09c791528dd15caa1189cabf",
+          "git_blob": "4f6486b2fec9cad382d24dc5654617b71ba6ed2e"
+        },
+        "after_sha256": "066bf340e0ac4c058414b36978d8dd1b49cf27e3ee4ed190be224a8c8e58c054"
+      },
+      {
+        "path": "logos/resources/prd/2-product-design/1-feature-specs/ai-01-feature-specs.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "198fcf602f6cc5d4ec288ecff58a85a2a1b324dbacbb1076a9d7cd1cf33d06f0",
+          "git_blob": "034cd39af4c09c76d2231ae8050d8b4bd8990b84"
+        },
+        "after_sha256": "eefc6388cb9b87988bcd9ee3dea134fbc902566ff7be04fa034e788172ac2198"
+      },
+      {
+        "path": "logos/resources/prd/2-product-design/1-feature-specs/collab-01-feature-specs.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "a5b82015c004125bc851bb8b3e9963a007ee4f5cbb5c195440dcf051d0620bd7",
+          "git_blob": "ebd7631e77792ab02e88c2ccc374f259ea9d6de0"
+        },
+        "after_sha256": "dbf3d0a9d12fb5c91fb518df80b30f3adc22c6a4fe758f853c9aea3e1a22772c"
+      },
+      {
+        "path": "logos/resources/prd/2-product-design/1-feature-specs/core-01-feature-specs.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "f83ec673729cb0575704280ce735cd4e60997ef8db8ae7ea7f42dd4dc2c7862d",
+          "git_blob": "7244d904d37d2d29dcadf9772058388c69214ecb"
+        },
+        "after_sha256": "1bb5a925cbbae205138b759647963d4d09754b3324cf6cea10238972666703bc"
+      },
+      {
+        "path": "logos/resources/prd/2-product-design/1-feature-specs/delivery-01-feature-specs.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "c19c6913c34bb24c03c438c38e7c175194627047d0245721ecd783450923ed75",
+          "git_blob": "a65a43b52ceebd999969b7e56961b756e6a95446"
+        },
+        "after_sha256": "f8f8d7901e24159a0149d9ed787eb63767fa8ebb5d6d720c7123c1c0162c26fc"
+      },
+      {
+        "path": "logos/resources/prd/2-product-design/1-feature-specs/research-01-feature-specs.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "345306f2ab63d0a0a2dd57717c9c52242939b7e86bf0b7bd30c6df30251c5c36",
+          "git_blob": "f6ab0f48ca72ee0b7f3697ea4bd977a6b58db412"
+        },
+        "after_sha256": "023a1d2f7cf4bf19573e0f67a6bec3ca8e2d6f3dd10d770d1c58b93c4b0e8e6b"
+      },
+      {
+        "path": "logos/resources/prd/2-product-design/2-page-design/core-00-ui-surface-map.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "601e72a906fda34b6009f7713b01742015081dc1e5619ad3ba652cd60aa8e550",
+          "git_blob": "f218650add03340167ac210636603875c021078d"
+        },
+        "after_sha256": "dd071394b5aaa00cd12a75189dd14c553fa9733e3a517082cf268a9b2566ceb9"
+      },
+      {
+        "path": "logos/resources/prd/3-technical-plan/1-architecture/core-01-architecture-overview.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "e7d687f178ca1d0a0c11dcbd68f27c83813a80abd9b24453a91b6de42605434d",
+          "git_blob": "7a547c22e172fb7aaf795e86bcd70c16b195ce20"
+        },
+        "after_sha256": "7c370f2d17b2f93160e18085ed7f2317f2214673f0bca517b5a734cb1011040a"
+      },
+      {
+        "path": "logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S29-server-onboarding.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "4f7868a8a6ba5b92a715a8e689361004e9db0f6e59055e4565948825d9cb7073",
+          "git_blob": "bee5717620f042363b3eca5cda74c24061d08222"
+        },
+        "after_sha256": "bed9c84a64c13a3abb8c8e416991efdd2cf629a898c961983a9b435da177cb35"
+      },
+      {
+        "path": "logos/resources/prd/3-technical-plan/2-scenario-implementation/collab-S32-offline-merge-review.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "88c7e4f0fd5b89daad91cafc219e16bfcff724158dbfdeaa7df86c38b5c1f3ad",
+          "git_blob": "ba3f7d9ad80a21709bc7580cc6279c30be040f49"
+        },
+        "after_sha256": "b6b8a75141bfa7c0846cd3f8a25758614bcb7d6c768c2bcfa8d74cfb1dfefd2c"
+      },
+      {
+        "path": "logos/resources/prd/3-technical-plan/2-scenario-implementation/core-00-scenario-overview.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "b0a1ad29f57c83ad8bae6868fcbb031e9a9c7b3e0581c9257ca3a11dc6083599",
+          "git_blob": "51ba3746a06d5ee0bf2227e2518cd0a9e0d5d77d"
+        },
+        "after_sha256": "1d9f991b43995f01b633a4d9194b44340da2853d26acbe84cf9f0f1f7c7f4152"
+      },
+      {
+        "path": "logos/resources/prd/3-technical-plan/2-scenario-implementation/core-S09-pdf-preview-synctex.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "c00264fb919fa97579bbc190c6ab3e168d9249b8e9aedd8d8651e942e75dd862",
+          "git_blob": "0c5d7fa1eb2473ba500837295805b196bb483adc"
+        },
+        "after_sha256": "013ef57f7f0eb05825074c4ed0a5502154e8e12ca2b8f7e1dddadb65eae1e82b"
+      },
+      {
+        "path": "logos/resources/prd/3-technical-plan/2-scenario-implementation/research-S16-citation-search.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "b12e263247fdb1fdd4544540b42abd20ee33cbcc90713dacace14d4009fa41b7",
+          "git_blob": "29e011c113599e1b7af28dec113157bf8f1d389a"
+        },
+        "after_sha256": "cea370cf8017128e4cc16dcb698984c69b5cdb9f4f6891fb9ec113c2250758d9"
+      },
+      {
+        "path": "logos/resources/test/collab-S29-test-cases.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "de7b4ed46f8d1447ba176ca9f29725b5fb1d38a938e73270c1694c64bfdcddcb",
+          "git_blob": "841534801ad0d733d789526c82f551a753d4f999"
+        },
+        "after_sha256": "0c6c1f8f76d9d966cd95011329e1b0e6326f8c16aa6f28acdc0e1ecefcb48213"
+      },
+      {
+        "path": "logos/resources/test/collab-S32-test-cases.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "07e34c78a729d5785872a2d2c6800d9ab4fe2bc08a5d332baa771059e40f6a40",
+          "git_blob": "051ccb44d67a10f63e8e4c03379d19975764b49c"
+        },
+        "after_sha256": "0cf695b42a5229d52a003973f62e5ca3bb0ec4daad98ca7229e05aff3beec00b"
+      },
+      {
+        "path": "logos/resources/test/research-S16-test-cases.md",
+        "mode": "MODIFY",
+        "before": {
+          "sha256": "d225340bf85f757840e76c2cabf3702e82f9d581dc882e98cb5c0ced3e13a9a2",
+          "git_blob": "f501de9e674e30f181ed015d9c929735e4311a27"
+        },
+        "after_sha256": "1ee606a5d48442022acfc794596c9ded3ef1611ba2ef6968f7f61b9fff9281db"
+      }
+    ],
+    "prototypes": []
+  },
+  "amendments": []
+}

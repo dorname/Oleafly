@@ -3,7 +3,7 @@
 > module: collab | 场景编号: S32（全局唯一，见 `core-00-scenario-overview.md` 编号注册表） | 优先级: P0
 > 基线口径：桌面 0.4.11，绑定提交 `9c307bf3c`（HEAD，领先 `v0.4.11` 标签 3 个提交）
 > 本文档为存量产品现状基线：只描述已实现行为，事实来源为提案 `logos/changes/add-baseline-docs/inventory.md` collab 段（S32 行与该段引言、偏差 D12）与 `deltas/prd/1-product-requirements/collab-01-requirements.md` §四 S32 章节。**本次为只读静态盘点，未执行任何测试**，动态行为在 verify 阶段单独取证。
-> 本文档不新增功能、不修复文档偏差（偏差 D12 的文档回补另立变更），基线一律以实现为准。
+> 本文档不新增功能、不修复文档偏差（偏差 D12 已由 fix-doc-deviations 回补），基线一律以实现为准。
 
 ### 一、触发与前置
 
@@ -74,7 +74,7 @@ sequenceDiagram
 | 分支 | 触发条件 | 行为（基线口径） | 证据 |
 |---|---|---|---|
 | 重叠文本 | 两端离线期间对同一文本产生重叠编辑 | 由 **Loro/OT 自动合并**，用户在**只读 Merge Review** 中按作者与 diff 审查；**并非所有重叠文本都要求人工二选一** | `inventory.md` collab 段 S32 行；`crates/oleafly-collab/src/merge.rs` L402-498；`src/features/collab/sharing/MergeReviewDialog.tsx` L25-216 |
-| README 概括过宽（偏差 D12） | 用户以为「一切变更都要先问过我」 | README "asks before it applies anything" **过宽**：实际行为是自动合并 + 只读审查；文档回补另立变更，基线以实现为准 | `inventory.md` 偏差 D12；`deltas/prd/1-product-requirements/collab-01-requirements.md` §5.1 |
+| README 概括（原偏差 D12，已回补） | 旧表述曾致误解 | 实际行为是自动合并 + 只读审查；README 已由 fix-doc-deviations 对齐，基线以实现为准 | `inventory.md` 偏差 D12；`deltas/prd/1-product-requirements/collab-01-requirements.md` §5.1 |
 | 二进制 / 路径冲突 | 冲突对象无法自动合并 | **保留双方副本并通知用户**，不静默覆盖 | `inventory.md` collab 段 S32 行；`src-tauri/src/collab/live/kept.rs` L148-322 |
 | 大批量外部磁盘变化 | 项目目录被外部工具批量改动 | 进入**同步暂停**，由用户选 `Send` / `Keep local` | `inventory.md` collab 段 S32 行；`src-tauri/src/collab/live/sync_hold.rs` L26-310；`src/features/collab/live/SyncPauseBanner.tsx` L24-75 |
 | 写盘失败 | 本地文件写入失败 | **退避并通知**，变更不静默丢失 | `inventory.md` collab 段 S32 行；`crates/oleafly-collab/src/sync/` |

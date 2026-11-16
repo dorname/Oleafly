@@ -82,7 +82,8 @@ Oleafly 是本地优先（local-first）的研究写作工作区。research 模�
 - **THEN** 批量流程先停止，不静默跳过继续执行
 
 ##### 边界：参考文献文件导入（偏差 D4）
-- 文档未列出 RIS/EndNote XML 导入；E2E 经 devtools hook 可导入，记为"实现支持、UI 入口待确认"（见 `inventory.md` 偏差 D4，文档回补另立变更）
+
+- UI 提供参考文献文件导入入口（EndNote XML / RIS / BibTeX，`FileReferencesDialog`）；基线原记为"实现支持、UI 入口待确认"，fix-doc-deviations 已确认 UI 入口存在并回补 docs/Citations.md（原 `inventory.md` 偏差 D4）
 
 ### S17: Zotero 文献库集成
 
@@ -176,4 +177,4 @@ Oleafly 是本地优先（local-first）的研究写作工作区。research 模�
 
 - 不新增任何功能或交互；只固化现状。
 - 不在本模块内描述内置 Copilot/agent 等通用 AI 能力（分属 ai 模块）；S18/S19 仅记录其作为研究工具的现状边界。
-- 不修复文档偏差本身（D4 等文档回补另立变更），基线一律以实现为准。
+- 不修复文档偏差本身（D4 等文档已由 fix-doc-deviations 对齐），基线一律以实现为准。

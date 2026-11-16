@@ -40,7 +40,7 @@ Oleafly 存在四条数据同步路径，能力与语义完全不同，不得混
 - 全新 Server 的第一个 admin 初始化必须提供 setup code 才能完成。
 - 客户端与 Server 协作协议版本不兼容时，停止同步并明确报告，不产生半同步状态。
 - 设备被 suspended 或已撤销时，登录/同步返回明确错误，不授予访问。
-- README "asks before it applies anything" 的概括过宽（偏差 D12）：实际重叠文本是 Loro 自动合并 + 只读 Merge Review，并非一切变更都先询问（见 S32）。
+- README 离线冲突概括（原偏差 D12，README 已由 fix-doc-deviations 对齐）：实际重叠文本是 Loro 自动合并 + 只读 Merge Review，并非一切变更都先询问（见 S32）。
 
 #### 关联需求
 - `collab-01-requirements.md` §S29（用户价值：一键接入 Server 并把项目按角色分享给协作者）；痛点 P01。
@@ -109,7 +109,7 @@ Oleafly 存在四条数据同步路径，能力与语义完全不同，不得混
 5. 项目目录发生大批量外部磁盘变化时进入同步暂停，由用户选择 Send / Keep local。
 
 #### 能力与限制
-- 并非所有重叠文本都要求人工二选一：实际行为是自动合并 + 只读审查（README "asks before it applies anything" 概括过宽，偏差 D12）。
+- 并非所有重叠文本都要求人工二选一：实际行为是自动合并 + 只读审查（原偏差 D12，README 已对齐）。
 - 写盘失败时退避并通知。
 - 暂停、副本与通知均有明确行为，不静默丢弃任何一方修改。
 
