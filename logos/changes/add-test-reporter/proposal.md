@@ -80,6 +80,871 @@ unresolved: []
 defaults: []
 ```
 
+## 复用测试 ID
+
+- ST-S01-01 — 模板创建项目主路径（空白 / 内置 / 自定义模板）
+- ST-S01-02 — ZIP / 目录导入主路径
+- ST-S01-03 — DOCX / Markdown / HTML / Typst 经 Pandoc staging 导入主路径
+- ST-S01-04 — ZIP 超出 entries / 解压总量 / 深度上限时导入失败
+- ST-S01-05 — 来源不可读时导入失败
+- ST-S01-06 — 归档中的跳过条目与路径穿越条目被正确排除
+- ST-S01-07 — Pandoc 缺失时导入被明确拒绝
+- ST-S01-08 — Pandoc 转换失败时输入保留且可重试
+- ST-S01-09 — 删除模板后已建项目不受影响
+- ST-S01-10 — 导入项目迁移后 shell escape 信任边界
+- ST-S04-01 — 多文件项目的文件树创建 / 重命名 / 复制与主文档指定
+- ST-S04-02 — Code / Visual 模式撰写并写入普通源文件
+- ST-S04-03 — 项目级重命名后同步引用并触发编译
+- ST-S04-04 — 分析 / 诊断结果随项目 revision 返回并在有效时呈现
+- ST-S04-05 — 自动保存途中继续编辑不丢输入
+- ST-S04-06 — 过期 revision 的诊断结果被拒绝呈现
+- ST-S04-07 — `%novalidate` 只关闭相应语法检查
+- ST-S04-08 — 项目级重命名同步更新引用路径
+- ST-S04-09 — 检查组件不可用时明确报告而非静默跳过
+- ST-S07-01 — 引擎选择与设置持久化
+- ST-S07-02 — 完整编译主路径（PDF + 规范化日志 + 源位置诊断）
+- ST-S07-03 — 依赖缺失时按提示修复并重试
+- ST-S07-04 — latexmk 依赖缺失时启动前停止并给出修复指引
+- ST-S07-05 — Tectonic 镜像不可用时改试上游并记录
+- ST-S07-06 — Tectonic 离线且缺缓存时给出具体消息
+- ST-S07-07 — 项目迁移后 shell escape 信任不随行
+- ST-S07-08 — 编译中止后不产出半成品结果
+- ST-S09-01 — 并排 / 独立 PDF 预览与浏览操作
+- ST-S09-02 — PDF → 源码正向定位（LaTeX SyncTeX）
+- ST-S09-03 — 源码 → PDF 反向定位（LaTeX SyncTeX）
+- ST-S09-04 — Typst 0.13+ 经 Tinymist 的等价双向定位
+- ST-S09-05 — 演示模式与 PDF 下载
+- ST-S09-06 — 过期 revision 的 PDF 结果被拒绝并显示 stale
+- ST-S09-07 — 失败编译且无新 PDF 时预览保留旧文件
+- ST-S09-08 — 失败编译但有经指纹验证的 best-effort PDF 时显示新文件并保持 error
+- ST-S09-09 — Typst 过旧或 Markdown 项目隐藏同步控件
+- ST-S09-10 — 选择 PDF 文本不触发跳转
+- ST-S09-11 — 加密 PDF 要求密码
+- ST-S10-01 — 完整预检主路径（profile + 六类检查一起运行）
+- ST-S10-02 — 单类检查独立运行
+- ST-S10-03 — 发现定位与逐条修复
+- ST-S10-04 — compatible 时执行 accessible preparation 并产出变体
+- ST-S10-05 — 输入缺失时结果标 partial 而非完全成功
+- ST-S10-06 — 不兼容 document class 拒绝 accessible preparation
+- ST-S10-07 — 未知 package 只给 caution
+- ST-S10-08 — PDF/UA 规则集作为子集，不产生正式 conformance 声明
+- ST-S10-09 — Markdown 项目不做源规则检查但输出检查仍可运行
+- ST-S10-10 — 仅运行被勾选的检查类别
+- ST-S11-01 — 标准导出主路径（PDF 路线）
+- ST-S11-02 — 源码 ZIP / DOCX / HTML / Markdown / TXT / Typst / LaTeX 等转换类导出主路径
+- ST-S11-03 — PPTX / EPUB 等依赖媒体素材的格式导出主路径
+- ST-S11-04 — EPS 交付物导出
+- ST-S11-05 — 转换失败时保留既有产物
+- ST-S11-06 — PPTX 缺图时直接失败且不保存
+- ST-S11-07 — 导出 stale / 失败编译所得 PDF 时明确提醒
+- ST-S11-08 — EPS 原样写入并警告
+- ST-S11-09 — 目标非绝对路径或父目录不存在时导出不执行
+- ST-S11-10 — 链接型媒体随交付物携带
+- ST-S12-01 — 成功编译后后台生成独立检查点
+- ST-S12-02 — 时间线查看、标注标签与恢复后重新编译
+- ST-S12-03 — 恢复保留恢复之后新增的文件与 `.git` / `.oleafly`
+- ST-S12-04 — 加密历史导出与同版本导入
+- ST-S12-05 — Keep latest / Reset 清理
+- ST-S12-06 — 捕获不完整时不发布快照且不改编译状态
+- ST-S12-07 — 新编译取消旧捕获且不误报
+- ST-S12-08 — 恢复中断时整体回滚
+- ST-S12-09 — 导入高版本创建的 archive 时在改历史前拒绝
+- ST-S12-10 — archive 版本不受支持时拒绝导入
+- ST-S12-11 — 忘记口令不可恢复
+- ST-S12-12 — 恢复保留恢复后新增的文件与 `.git` / `.oleafly`
+- ST-S16-01 — 按 DOI 单条检索并插入引用、追加 `.bib`、完成 key 诊断
+- ST-S16-02 — DOI / arXiv / URL / 标题多来源检索结果合并查重后展示
+- ST-S16-03 — key 缺失与 key 非法的补全、校验与诊断
+- ST-S16-04 — 追加语义：插入引用不破坏 `.bib` 既有条目
+- ST-S16-05 — provider 不可用被显式呈现，其余来源结果仍可展示
+- ST-S16-06 — 未配置 Serper key 时结果中不列 Google Scholar
+- ST-S16-07 — 完全离线时检索不可用，但本地 `.bib` 引用写入仍可完成
+- ST-S16-08 — 批量写入 `.bib` 失败即停，不静默跳过继续执行
+- ST-S16-09 — 引用 key 缺失或非法时的补全、校验与诊断
+- ST-S21-01 — 主路径全链：配置→交办→工具调用→diff 审批→落盘→编译→同会话续修→turn 快照→逐文件 Undo/Redo
+- ST-S21-02 — Plan 模式只读规划后再交办实际任务
+- ST-S21-03 — turn Review 中逐文件 Undo 与 Redo
+- ST-S21-04 — 审批规则读取失败时终止该 run
+- ST-S21-05 — 工具调用被 deny 时变更不落盘
+- ST-S21-06 — 用户拒绝 diff 审批后该步不落盘，loop 继续
+- ST-S21-07 — 切换项目后旧项目的进行中调用不再执行
+- ST-S21-08 — Undo 只处理未提交、未重叠、未再编辑的文件
+- ST-S21-09 — 编译报错在同一会话内继续修复
+- ST-S21-10 — 单 turn 变更量超出快照上限时的受限行为
+- ST-S22-01 — 显式 `/skill-id` 调用技能完成检索→核验→成稿，`.bib` 变更审批后写入并触发编译
+- ST-S22-02 — 助手自动选择技能执行同一套步骤
+- ST-S22-03 — 三类来源技能清单与开关状态展示，新技能默认开启
+- ST-S22-04 — 离线时文献搜索与 DOI 核验明确不可用，不假装修复成功
+- ST-S22-05 — 离线时 shelf 技能以每日缓存的目录副本回退
+- ST-S22-06 — `.bib` 变更未经审批不写入、不触发编译
+- ST-S22-07 — catalog 或 archive 超限时技能不进入装载结果
+- ST-S22-08 — archive checksum 不匹配时不装载
+- ST-S29-01 — 添加 Server 并完成能力发现与协议协商
+- ST-S29-02 — 经 GitHub / OIDC 登录并完成设备登记
+- ST-S29-03 — 分享项目、授予成员角色并经邀请链接加入
+- ST-S29-04 — 协议区间无交集时停止同步并明确报告
+- ST-S29-05 — 首个管理员缺 setup code 时不授予管理员身份
+- ST-S29-06 — 账号被 suspended 时登录 / 同步被拒
+- ST-S29-07 — 设备被撤销后令牌家族失效
+- ST-S30-01 — 同项目并发编辑文本与文件树，各端实时收敛
+- ST-S30-02 — 光标与在线状态（presence）实时同步
+- ST-S30-03 — 大文本分批发送并完整收敛
+- ST-S30-04 — 单批过大被判 Unsendable 但不阻断其他同步
+- ST-S30-05 — 慢上传不被 quiet timeout 误判为掉线
+- ST-S30-06 — 损坏 frame 不阻断后续 frame 处理
+- ST-S30-07 — 服务端逐 change 拒绝越权变更
+- ST-S31-01 — 断网期间继续编辑，恢复后增量补发且无丢失
+- ST-S31-02 — 桌面端 WS 连续两次失败后回退 long-poll 并每分钟重探
+- ST-S31-03 — 429 / 503 busy 时进入长等待而非高频冲击
+- ST-S31-04 — 退避含 jitter 且随失败次数增长
+- ST-S31-05 — 客户端重启后重发已确认批次被幂等处理
+- ST-S31-06 — 项目文档损坏时同步结束并给出失败原因
+- ST-S31-07 — 补发批次中的越权 change 被逐 change 拒绝
+- ST-S31-08 — 浏览器端断线只有 WS 重连、无 long-poll 回退
+- ST-S31-09 — WS 连续两次失败后回退 long-poll 并每分钟重探
+- ST-S32-01 — 两端离线重叠编辑 → 自动合并 → 只读 Merge Review 审查
+- ST-S32-02 — 二进制 / 路径冲突保留双方副本并通知
+- ST-S32-03 — 大批量外部磁盘变化进入同步暂停并由用户选择
+- ST-S32-04 — 重叠文本自动合并且 Merge Review 为只读
+- ST-S32-05 — 二进制 / 路径冲突保留双方副本并通知
+- ST-S32-06 — 大批量外部磁盘变化进入同步暂停
+- ST-S32-07 — 写盘失败退避并通知
+- ST-S32-08 — 合并提交中的越权 change 被服务端逐 change 拒绝
+- ST-S32-09 — 合并内容不被宣传为端到端加密，且不承诺「一切变更先询问」
+- ST-S33-01 — Owner 授予五角色并管理成员、链接与停止分享
+- ST-S33-02 — 各角色按定义执行各自允许的操作
+- ST-S33-03 — 服务端逐 change 校验并广播合法变更
+- ST-S33-04 — 越权 change 被服务端逐 change 拒绝（绕过 UI 亦然）
+- ST-S33-05 — Reviewer 尝试直接编辑时被固定在 Suggesting
+- ST-S33-06 — 成员被移出项目后同步结束
+- ST-S33-07 — 项目归档后同步结束
+- ST-S33-08 — Viewer 期间的本地编辑保留为 pending
+- ST-S33-09 — Commenter 改文本 / 改建议 / 清空他人内容均被拒
+- ST-S33-10 — Owner 停止分享后项目转入只读保留
+- ST-S34-01 — 评论 / 回复 / mention / resolve 全链路
+- ST-S34-02 — 建议的接受 / 拒绝 / 撤回
+- ST-S34-03 — 项目聊天
+- ST-S34-04 — 离线期间的评论等操作排队并在恢复后发出
+- ST-S34-05 — 评论关闭时新评论与既有评论 resolve 均被拒，文本编辑继续
+- ST-S34-06 — Reviewer 接受建议被拒（含接受自己提出的建议）
+- ST-S34-07 — Commenter 改文本 / 改建议 / 清空他人内容均被拒
+- ST-S34-08 — 离线评论在恢复后发出且形态正确
+- ST-S34-09 — 收到 comments off 拒绝后本地只摘掉被拒评论
+- ST-S34-10 — 功能开关未开时对应入口不可用但不影响文本与评论
+- ST-S35-01 — 打开共享历史并按作者 / 时间浏览
+- ST-S35-02 — 只读打开某版本并与当前版本比较
+- ST-S35-03 — 命名与取消命名
+- ST-S35-04 — 恢复选定版本并广播
+- ST-S35-05 — 本地无目标版本时返回 `history_unavailable`
+- ST-S35-06 — Reviewer 可查看但不能恢复
+- ST-S35-07 — 空名称被拒绝
+- ST-S35-08 — 超长名称被拒绝
+- ST-S35-09 — 恢复不抹除旧历史
+- ST-S35-10 — 文档冻结时拒绝命名与恢复
+- ST-S35-11 — 历史内容不被宣传为端到端加密
+- ST-S40-01 — 浏览器登录并按角色协作（编辑 / 建议 / 评论 / 聊天 / presence）
+- ST-S40-02 — 浏览器端断线恢复：恢复 inflight 与 sessionStorage 未确认输入
+- ST-S40-03 — ack 丢失场景经 transform 处理后重发
+- ST-S40-04 — WS 断线只有重连、无 long-poll 回退
+- ST-S40-05 — 离线时的新编辑被拒绝
+- ST-S40-06 — sessionStorage 未确认输入受 2M 字符 / 7 天上限约束
+- ST-S40-07 — ack 丢失后经 transform 重发
+- ST-S40-08 — 单次变更过大被提示并重新打开文件
+- ST-S40-09 — 会话失效或权限终止时结束访问
+- ST-S40-10 — 绕过前端构造的越权请求仍被服务端拒绝
+- ST-S41-01 — 登录建立 30 天会话并下发安全 cookie
+- ST-S41-02 — 读请求凭会话 cookie 解析身份
+- ST-S41-03 — 写请求的精确 Origin + app marker 双重校验
+- ST-S41-04 — 页面响应带严格 CSP 且禁止被嵌入
+- ST-S41-05 — 会话过期被视为登出
+- ST-S41-06 — 权限终止类错误结束当前访问
+- ST-S41-07 — Origin 错误按 cross_site 拒绝
+- ST-S41-08 — 缺少 app marker 按 cross_site 拒绝
+- ST-S41-09 — 项目过大返回 `project_too_large`
+- ST-S41-10 — 服务繁忙返回 `server_busy`
+- ST-S41-11 — 第三方站点无法嵌入浏览器应用页面
+- ST-S41-12 — 旁带伪造同名 cookie 不被信任
+- ST-S43-01 — 连接 Dropbox 账户并完成一次同步
+- ST-S43-02 — S3 路线：probe + 条件写检查通过后才保存密钥并完成同步
+- ST-S43-03 — 设备 B 连接同一账户并拉取设备 A 的项目内容
+- ST-S43-04 — 设置类内容随项目一起同步到另一设备
+- ST-S43-05 — 同步范围判定只取 Library 中有 `project.json` 的项目
+- ST-S43-06 — manifest 比对驱动差异上传与拉取（两侧各一次）
+- ST-S43-07 — S3 的 probe 未通过 → 不保存密钥、同步不启动
+- ST-S43-08 — S3 条件写检查未通过 → 不保存密钥
+- ST-S43-09 — 单项目文件数超 100000 → 该项目不参与本次同步
+- ST-S43-10 — manifest 超过 64MiB → 该项目不参与本次同步
+- ST-S43-11 — 目标缺少 `project.json` → 该对象不被同步
+- ST-S43-12 — Library 之外的 linked folder → 不被同步
+- ST-S43-13 — 项目内 `.git` 历史与 checkpoints → 不随云同步
+- ST-S43-14 — 云存储 provider 访问失败 → 同步以显式错误结束
+- ST-S43-15 — 多设备同步后另一设备可继续编辑同一项目
+- ST-S44-01 — 普通文件双侧修改 → 保留冲突副本、后到者保留双方
+- ST-S44-02 — 用户在文件树比对两个版本并收敛
+- ST-S44-03 — `project.json` 双侧修改走 merge3 三方合并
+- ST-S44-04 — 设置类双侧修改走 merge3，同字段冲突 local 获胜
+- ST-S44-05 — 冲突副本上传成功后覆盖当前编辑
+- ST-S44-06 — 后到者保留双方、双方最终收敛
+- ST-S44-07 — 编辑器存在 dirty 缓冲，同步带来 Download / LocalDelete / MetaMerge
+- ST-S44-08 — 冲突副本尚未上传成功，用户继续当前编辑
+- ST-S44-09 — 同字段 metadata 冲突时 local 获胜
+- ST-S44-10 — 冲突副本数量累积到上限
+- ST-S44-11 — 上传失败后重启复用同一冲突副本名
+- ST-S45-01 — 本地删除一小批文件（未命中 hold）→ 正常传播删除
+- ST-S45-02 — 删除全部文件 → 必 hold → 用户选择 restore → 恢复被删文件
+- ST-S45-03 — 删除全部文件 → 必 hold → 用户确认 delete → 继续传播删除
+- ST-S45-04 — 删除 > 20 且过半 → hold 并等待用户裁决
+- ST-S45-05 — 远端删除传播到本机 → 被删文件进入回收站
+- ST-S45-06 — 回收站条目在 30 天内可恢复
+- ST-S45-07 — hold 裁决为 restore 后再次同步，两端趋于一致
+- ST-S45-08 — 远端 tombstone 判定为异常大规模删除 → 暂停执行、不删本地文件
+- ST-S45-09 — 删除未命中 hold 条件 → 正常传播、不额外拦截
+- ST-S45-10 — hold 状态下用户未裁决 → 同步保持暂停
+- ST-S45-11 — Trash 条目超过 30 天 → 不再保证保留
+- ST-S45-12 — 删除数量恰为 20（占比高但不 > 20）→ 不 hold
+- ST-S45-13 — 单文件项目的「删除全部」→ 仍必 hold
+- ST-S48-01 — link 本地项目到在线服务项目（两侧一致）
+- ST-S48-02 — 首链 NeedsChoice → 用户选 local → 以本地为准建立链路
+- ST-S48-03 — 首链 NeedsChoice → 用户选 remote → 先存 backup ref 再建链路
+- ST-S48-04 — 手动触发同步 → 本地与远端双向同步完成
+- ST-S48-05 — auto 条件满足 → 首次 2 秒后触发、其后每 3 分钟
+- ST-S48-06 — 同文件冲突 → abort 回 base → 用户逐文件选边 → 收敛
+- ST-S48-07 — unlink → 导出本地备份后解除链接
+- ST-S48-08 — auto 周期到达但条件不满足 → 不执行推送
+- ST-S48-09 — 远端在同步期间持续变化 → `SyncKeptChanging` 收尾
+- ST-S48-10 — 前一同步未结束又触发 → `SyncBusy`
+- ST-S48-11 — 同一文件双侧被修改 → abort 回 base 并逐文件选边
+- ST-S48-12 — 首链选 remote 前保存本地 backup ref，本地可回退
+- ST-S48-13 — 项目已 link 后再次 link → `AlreadyLinked` 分类错误
+- ST-S48-14 — 同步期间本地文件发生变化 → `after_files_changed` 分类错误
+- ST-S48-15 — 未 link 的项目执行同步 → 明确「未链接」分类错误
+- ST-S48-16 — 项目已 link 到另一远端时再次 link → 拒绝并保持原链路
+- UT-S01-01 — `backend_protocol_info()` 返回的 `protocol_version` 与 `capabilities` 形态符合 v7 契约
+- UT-S01-02 — 能力清单的「已排序且唯一、且必须包含 `collab`」一致性约束成立
+- UT-S01-03 — `getProjectEngine(projectId)` 返回 `DocumentEngineDescriptor`，含引擎、文档类型与主文件
+- UT-S01-04 — `getProjectEngine(projectId)` 对未知 `projectId` 不返回伪造描述符
+- UT-S01-05 — `project_engine` / `has_pandoc` 可用于导入前的引擎与 Pandoc 可用性判定
+- UT-S01-06 — `list_files` / `list_file_tree` 在导入完成后返回新项目目录的内容，且不含导入源路径
+- UT-S01-07 — ZIP 条目数上限 5000，超限即拒绝导入
+- UT-S01-08 — ZIP 解压总量上限 2 GiB，超限即拒绝导入
+- UT-S01-09 — 目录深度上限 16，超限即拒绝导入
+- UT-S01-10 — 归档内的 `.git` / `.oleafly` / `__MACOSX` 条目被跳过
+- UT-S01-11 — 归档内的路径穿越条目被跳过
+- UT-S01-12 — Pandoc 不可用时返回 `tools.pandoc_missing` 且不创建项目
+- UT-S01-13 — Pandoc 转换失败时保留输入（原件与 staging 输入不丢），允许重试
+- UT-S01-14 — 导入项目强制关闭 shell escape
+- UT-S01-15 — 单根目录 ZIP 自动展开并推断主文档
+- UT-S01-16 — 导入为复制语义，原件不被修改
+- UT-S01-17 — 导入失败不留下半成品项目目录
+- UT-S01-18 — 删除模板不影响已建项目
+- UT-S01-19 — 导入项目迁移到新位置后 shell escape 仍为关闭态
+- UT-S01-20 — 模板创建后主文件可编辑且编译按声明引擎执行
+- UT-S04-01 — `list_file_tree` / `list_files` 返回项目目录内的文件树，且与磁盘真实内容一致
+- UT-S04-02 — `create_file` / `delete_file` / `rename_file` / `copy_file` 作用于项目目录内的普通文件
+- UT-S04-03 — `write_file` / `save_file_base` 把编辑结果写入**普通源文件**
+- UT-S04-04 — `project_mutation_generation` 随项目变更递增，提供可比的 revision
+- UT-S04-05 — `read_file` / `read_project_sources` 读取的是项目内源文件
+- UT-S04-06 — `document_stats` 返回源文档统计，不暴露项目外的路径
+- UT-S04-07 — 自动保存触发时若仍有新编辑，dirty 状态保留并再次保存
+- UT-S04-08 — 旧 revision 的分析 / 诊断结果被拒绝呈现
+- UT-S04-09 — `%novalidate` 只关闭相应语法检查，编译错误 / 拼写 / 语法 / 引用检查仍继续
+- UT-S04-10 — 项目级重命名同步更新项目内指向该文件的路径
+- UT-S04-11 — 重命名后触发编译
+- UT-S04-12 — 主文档可指定且文件树支持设主文档
+- UT-S04-13 — 所有编辑结果只写入普通源文件，项目不产生隐藏副本
+- UT-S04-14 — 项目目录可被任意编辑器直接打开（普通目录语义）
+- UT-S04-15 — 保存路径的解析经过校验，不接受越界路径
+- UT-S07-01 — `CompilePort.supports(target)` 为纯查询，无副作用
+- UT-S07-02 — `CompileTarget` 三元组的字段约束：`mainDocument`、`engine` 必填，`texFlavor` 可空
+- UT-S07-03 — `CompileOutput` 结构完整：`target`、`ok`、`pdf`、`synctex`、`log`、`diagnostics`、`timeMs`
+- UT-S07-04 — `CompilePort.compile(target)` 被中断时抛 `CompileStopped`
+- UT-S07-05 — `CompilePort.syncTex(output)` 无法建立索引时返回 `null`
+- UT-S07-06 — `compileProject(projectId, mainDoc, offline?, fast?, haltOnError?, typstVaria…
+- UT-S07-07 — `cancelCompile()` 返回布尔表示是否取消成功
+- UT-S07-08 — `readCompiledPdf(projectId)` / `readIsolatedPdf(projectId)` 返回 `ArrayBuffer`，…
+- UT-S07-09 — `readBuildArtifact(projectId, name)` 对不存在的产物返回 `null`
+- UT-S07-10 — `validateCompileFingerprint(projectId, mainDoc)` 能区分当前与过期编译指纹
+- UT-S07-11 — `getProjectEngine(projectId)` 返回的 `DocumentEngineDescriptor` 是引擎能力的唯一事实源
+- UT-S07-12 — `project_engine` / `latex_engine_info` 返回引擎与工具链信息
+- UT-S07-13 — `latex_engine::has_tagging_engine` 判定 LaTeX 侧是否具备 tagging 能力
+- UT-S07-14 — 工具链修复类命令的可达性：`tex_distributions`、`set_tex_distribution`、`set_custom_tex_folde…
+- UT-S07-15 — `has_pandoc` / `download_pandoc` 提供 Pandoc 可用性与获取通道
+- UT-S07-16 — 可移植编译设置写入 `project.json`，保证可复现
+- UT-S07-17 — latexmk 路线缺 TeX / latexmk / Biber 时**启动前停止**并给具体修复指引
+- UT-S07-18 — Tectonic 配置镜像不可用时改试上游并记录
+- UT-S07-19 — Tectonic 离线且缺缓存文件时给出具体消息（指明缺哪个缓存文件）
+- UT-S07-20 — shell escape 信任按**目录 + 机器**授予，不随 `project.json` 迁移
+- UT-S07-21 — shell escape 信任不随 ZIP / Git 迁移
+- UT-S07-22 — 编译产物 PDF 记录输出身份与本地构建 provenance
+- UT-S07-23 — 规范化日志与源位置诊断同时产出
+- UT-S07-24 — 编译只针对**已保存的源**
+- UT-S07-25 — 编译被用户中止时不静默产出半成品结果
+- UT-S09-01 — `SyncTexIndex.forward(file, line)` 返回源码行对应的 PDF 位置
+- UT-S09-02 — `SyncTexIndex.inverse(page, x, y)` 返回 PDF 位置对应的源码位置
+- UT-S09-03 — `SyncTexIndex.dispose()` 释放索引资源
+- UT-S09-04 — `CompilePort.syncTex(output)` 在无法建立索引时返回 `null`
+- UT-S09-05 — `synctex_forward` / `synctex_inverse` / `synctex_map_line`（LaTeX 引擎）三个 IPC 命令可用
+- UT-S09-06 — `typst_sync_forward` / `typst_sync_inverse` / `typst_sync_stop`（Typst 引擎）三个 I…
+- UT-S09-07 — `readCompiledPdf(projectId)` 返回 `ArrayBuffer`（PDF 不走 base64 JSON）
+- UT-S09-08 — `validateCompileFingerprint(projectId, mainDoc)` 能识别源码已变化的过期编译结果
+- UT-S09-09 — `readBuildArtifact(projectId, name)` 对不存在的产物返回 `null`
+- UT-S09-10 — 旧 revision 的编译结果被拒绝接受并标为 stale
+- UT-S09-11 — 失败编译且**无新 PDF** 时保留旧文件
+- UT-S09-12 — 失败编译但存在**经指纹验证的 best-effort PDF** 时显示新文件、保持 error 状态
+- UT-S09-13 — best-effort PDF **不更新最后成功检查点**
+- UT-S09-14 — Typst 版本过旧（< 0.13）时隐藏同步控件
+- UT-S09-15 — Markdown 项目隐藏同步控件
+- UT-S09-16 — 仅**选择 PDF 文本**不触发跳转
+- UT-S09-17 — 加密 PDF 要求输入密码后才能打开
+- UT-S09-18 — PDF 以文件形式提供，不走 base64 JSON
+- UT-S10-01 — `backend_protocol_info()` 返回 v7 契约版本与 12 项能力清单，且清单已排序唯一并含 `collab`
+- UT-S10-02 — `getProjectEngine(projectId)` 返回 `DocumentEngineDescriptor`，供预检确认引擎支持的检查面
+- UT-S10-03 — `project_engine` 命令与 `getProjectEngine` 一致
+- UT-S10-04 — `latex_engine::has_tagging_engine` 判定 LaTeX tagged preparation 是否可行
+- UT-S10-05 — `readBuildArtifact(projectId, name)` 对缺失的当前 PDF / 编译日志返回 `null`
+- UT-S10-06 — `readCompiledPdf(projectId)` 返回 `ArrayBuffer`，不返回 base64 JSON
+- UT-S10-07 — `list_files` / `read_project_sources` 提供源侧检查所需输入
+- UT-S10-08 — `read_app_log` / `append_app_log` 可读取预检所需的编译日志类内容
+- UT-S10-09 — 所需输入缺失时结果标记为 **partial**，不得报告完全成功
+- UT-S10-10 — 发现按**严重度**与**确定性**分级，每条附规则 ID、源 / PDF 位置与标准条款
+- UT-S10-11 — 不兼容 document class **拒绝** accessible preparation 并说明原因
+- UT-S10-12 — 源中出现未知 package 时只给 **caution**，不判为错误
+- UT-S10-13 — PDF/UA 机器规则共 106 条，是**子集**；未读取的证据不计通过，不构成正式 conformance 声明
+- UT-S10-14 — Markdown 项目不做源规则检查，但 PDF / ATS 等输出检查仍可运行
+- UT-S10-15 — 未勾选的检查类别不运行，且不补报为通过
+- UT-S10-16 — 六类检查（编译 / 规范 / 可访问性 / 引用 / 隐私 / ATS）可独立或一起运行
+- UT-S10-17 — 投稿 profile 在 arXiv / IEEE / ACM / 期刊 / 学位论文之中，且被传入预检请求
+- UT-S10-18 — 预检**不重新拉起**编译引擎，只读取当前编译日志与当前 PDF
+- UT-S11-01 — 可选导出格式由**持久化引擎描述符**声明，不是硬编码全集
+- UT-S11-02 — `project_engine` 与 `getProjectEngine` 返回同一引擎描述符
+- UT-S11-03 — `pick_save_path` 提供导出目标选择（绝对路径）
+- UT-S11-04 — `readCompiledPdf(projectId)` 返回 `ArrayBuffer`（PDF 不走 base64 JSON）
+- UT-S11-05 — `readBuildArtifact(projectId, name)` 对缺失产物返回 `null`
+- UT-S11-06 — `list_files` / `read_project_sources` 提供转换所需源内容
+- UT-S11-07 — `write_file` 写入路径经校验，不接受越界目标
+- UT-S11-08 — `convert_ad_hoc` 等转换类命令在 IPC 注册表中可达
+- UT-S11-09 — 目标必须是**绝对路径**
+- UT-S11-10 — 目标**父目录必须存在**
+- UT-S11-11 — 目标**文件可以尚不存在**（实现语义，纠正文档 D2）
+- UT-S11-12 — 转换失败时**保留既有产物**不破坏
+- UT-S11-13 — PPTX 目标缺图时**直接失败且不保存**
+- UT-S11-14 — 导出的 PDF 为 stale 或来自失败编译时**明确提醒**
+- UT-S11-15 — EPS 不可转换时**原样写入并警告**
+- UT-S11-16 — 链接而非复制的媒体随交付物**一并携带**，不留下悬空链接
+- UT-S11-17 — 导出记录汇总缺失内容 / 图 / 引用 / 数学警告
+- UT-S11-18 — PDF 路线保存**当前显示的 PDF**，其他路线保存**转换后的源**
+- UT-S12-01 — `checkpoint_list` 返回检查点列表，含版本、引擎、主文档与文件列表
+- UT-S12-02 — `checkpoint_set_label` 为检查点写入标签
+- UT-S12-03 — `checkpoint_stats` / `checkpoint_files` / `checkpoint_inspect` 提供统计、文件清单与明细检查
+- UT-S12-04 — `checkpoint_restore` 触发指定版本恢复
+- UT-S12-05 — `checkpoint_verify` 校验检查点完整性
+- UT-S12-06 — `checkpoint_export` / `checkpoint_import` 处理加密 archive 的导出与导入
+- UT-S12-07 — `checkpoint_keep_latest` / `checkpoint_reset` 执行历史清理
+- UT-S12-08 — `checkpoint_delete` / `checkpoint_reveal_store` / `checkpoint_save_file` 的可达性
+- UT-S12-09 — `checkpoints` 能力出现在 BackendPort 能力清单中
+- UT-S12-10 — `compileProject` 成功后触发后台检查点捕获（编译成功信号路径）
+- UT-S12-11 — `packs.file_name` 唯一约束：重复 `file_name` 被拒绝
+- UT-S12-12 — `packs.encoded_size` 非负约束：负值被拒绝
+- UT-S12-13 — `chunks.chunk_hash` 主键 + 指向 `packs(pack_id)` 的外键
+- UT-S12-14 — `chunks.encoding` 取值限于 0 / 1
+- UT-S12-15 — `checkpoints.snapshot_root` 唯一约束
+- UT-S12-16 — `store_identity` 单例约束：`singleton = 1` CHECK
+- UT-S12-17 — `store_identity.lineage` 唯一约束
+- UT-S12-18 — 打开 `catalog.sqlite3` 时 `user_version` 高于 2 → 返回 `UnsupportedFormat` 错误
+- UT-S12-19 — `user_version` 低于 2 时走 `upgrade_existing_format` 升级
+- UT-S12-20 — 全部 DDL 在单事务内完成（`BEGIN IMMEDIATE` … `COMMIT`）
+- UT-S12-21 — 检查点记录带可复现身份字段：`engine`、`toolchain_identity`、`main_document`、`output_hash`
+- UT-S12-22 — 仅在**成功编译且项目目录有变化**时才后台生成独立检查点
+- UT-S12-23 — 部分文件无法完整捕获时**不发布不完整快照**
+- UT-S12-24 — 捕获不完整**不把成功编译改为失败**
+- UT-S12-25 — 新编译开始时**取消旧捕获**且不误报
+- UT-S12-26 — 恢复是**事务**：中断则回滚到恢复前状态
+- UT-S12-27 — 恢复之后新增的文件与 `.git` / `.oleafly` **保留**
+- UT-S12-28 — 恢复后触发重新编译
+- UT-S12-29 — 导入由**更新版本**创建的加密 archive 时，在**改历史前拒绝**
+- UT-S12-30 — archive 版本不受支持时拒绝导入且不改动本地历史
+- UT-S12-31 — 忘记导出口令**不可恢复**
+- UT-S12-32 — 检查点存储与本地 Git **完全独立**，互不替代
+- UT-S12-33 — 失败编译的 best-effort PDF **不更新**最后成功检查点
+- UT-S16-01 — 多来源检索结果合并查重去重
+- UT-S16-02 — 未配置 Serper key 时结果中不列 Google Scholar
+- UT-S16-03 — provider 不可用被显式呈现，不静默吞掉
+- UT-S16-04 — 引用插入后对应条目追加至项目 `.bib`
+- UT-S16-05 — 批量写入 `.bib` 失败时批量流程停止
+- UT-S16-06 — 引用 key 缺失时提供补全候选
+- UT-S16-07 — 引用 key 非法时给出校验结果与诊断且不自动写入
+- UT-S16-08 — 完全离线时检索环节不可用，但本地 `.bib` 写入路径仍可用
+- UT-S16-09 — 外部检索元数据不取代本地 `.bib` 的权威性
+- UT-S21-01 — 审批模式默认值为 `approve-for-me`
+- UT-S21-02 — write 类工具在 `approve-for-me` 下判定为「询问」
+- UT-S21-03 — shell 类工具在 `approve-for-me` 下判定为「询问」
+- UT-S21-04 — Ask 模式下 network 单独纳入询问范围
+- UT-S21-05 — deny 始终优先于询问与放行
+- UT-S21-06 — run 启动时审批规则读取失败则该 run 被终止
+- UT-S21-07 — 用户拒绝 diff 审批后该步不落盘
+- UT-S21-08 — 切换项目后旧项目的进行中调用不再执行
+- UT-S21-09 — 已提交的文件不进入可回退集合
+- UT-S21-10 — 与其他变更重叠的文件不进入可回退集合
+- UT-S21-11 — 事后被再次编辑的文件不进入可回退集合
+- UT-S21-12 — 编译报错后在同一会话内继续修复
+- UT-S21-13 — turn 快照上限与保留策略
+- UT-S21-14 — Plan 模式的「只读」不等于离线
+- UT-S22-01 — bundled / shelf / user 三类来源技能均可装载并暴露开关状态
+- UT-S22-02 — 新技能默认开启
+- UT-S22-03 — `/skill-id` 显式调用选中指定技能
+- UT-S22-04 — 助手可自动选择技能
+- UT-S22-05 — 技能按「检索 → 核验 → 成稿」顺序执行
+- UT-S22-06 — `.bib` 变更未经审批不写入，也不触发编译
+- UT-S22-07 — 审批通过后写入 `.bib` 并触发编译，新增引用进入本地引用流
+- UT-S22-08 — 离线时文献搜索与 DOI 核验明确不可用
+- UT-S22-09 — 离线时 shelf 技能以每日缓存的目录副本回退
+- UT-S22-10 — catalog 体积超过 8MiB 时不进入装载结果
+- UT-S22-11 — archive 体积超过 64MiB 时不进入装载结果
+- UT-S22-12 — archive checksum 校验不通过时不装载
+- UT-S22-13 — checksum 校验不替代对技能脚本内容的人工信任
+- UT-S22-14 — 技能落盘变更的隔离归内置 Copilot 的 turn 快照，不与其它路径隔离机制混称
+- UT-S29-01 — `CapabilityManifest` 必含 `server_id`、`name`、`version`、`protocol`、`needs_setup`…
+- UT-S29-02 — `ProtocolRange` 只含 `min` 与 `max` 两个 u32 字段，序列化为区间而非单点版本
+- UT-S29-03 — `negotiate` 在区间交集非空时取**交集高端**
+- UT-S29-04 — `negotiate` 在 client `{1,1}` / server `{1,2}` 时仍取交集高端
+- UT-S29-05 — 客户端过旧：client.max < server.min → `ClientTooOld`
+- UT-S29-06 — 服务端过旧：区间无交集且 client.max ≥ server.min → `ServerTooOld`
+- UT-S29-07 — `VersionMismatch` 使用 `snake_case` 小写下划线序列化
+- UT-S29-08 — `ProviderKind` 取值集合为 `github` / `oidc` / `email_link`，未知值落 `Unknown` 兜底
+- UT-S29-09 — `EncryptionSupport` 取值集合为 `none` / `allowed` / `required` / `unknown`；当前能力声明为…
+- UT-S29-10 — `Features` 九个开关字段：`email`、`guests`、`link_sharing`、`access_logs`、`comments`、`e…
+- UT-S29-11 — `Limits` 含 `max_project_mb`、`max_file_mb`、`max_members_per_project`
+- UT-S29-12 — 能力发现路径固定为 `/.well-known/oleafly-server`
+- UT-S29-13 — setup claim 端点 `POST /auth/setup-claim`；**缺少或错误的 setup code 不得授予管理员身份**
+- UT-S29-14 — 登录链路端点齐全：`/auth/start`、`/auth/callback/{provider}`、`/auth/challenge`、`/auth/t…
+- UT-S29-15 — 桌面 / API 族使用 `Authorization: Bearer <token>`；scheme 大小写不敏感、token 不得为空
+- UT-S29-16 — 令牌解析链：`bearer_token` → `tokens::resolve_access_token` → 查 `accounts.status`；`…
+- UT-S29-17 — 设备登记后可由 `GET /api/v1/devices` 与 `GET /api/v1/projects/{project}/devices` 列出
+- UT-S29-18 — 分享端点：`PUT/DELETE /api/v1/projects/{project}/members/{account}` 授予 / 移除成员；`GET…
+- UT-S29-19 — 项目分享设置 `link_sharing` / `link_role` 由 `PATCH /api/v1/projects/{project}` 更新
+- UT-S29-20 — 链接加入：`GET /api/v1/projects/{project}/join` 预览、`POST` 加入
+- UT-S29-21 — 项目标题上限 `MAX_TITLE_CHARS = 200`
+- UT-S29-22 — 目录端点 `GET /api/v1/directory` 的可见范围按角色收敛
+- UT-S29-23 — 落地页端点 `GET /p/{project}` 匿名可达
+- UT-S29-24 — Server 角色与动作矩阵：`server_role_allows` 对 11 个 `ServerAction` 给出允许 / 拒绝
+- UT-S29-25 — `accounts.status` 的 CHECK 约束只允许 `'active'` / `'suspended'` / `'removed'`
+- UT-S29-26 — `accounts.server_role` 的 CHECK 约束只允许 `'admin'` / `'maintainer'` / `'member'` …
+- UT-S29-27 — `devices.public_key` 的 UNIQUE 约束：同一公钥不得登记两台设备
+- UT-S29-28 — `devices.account_id` 外键指向 `accounts(id)`，设备随账号级联删除
+- UT-S29-29 — `devices.revoked_at` 记录撤销时刻；撤销后该设备的令牌家族被拒
+- UT-S29-30 — `access_tokens.token_hash` / `refresh_tokens.token_hash` 为主键，**只存哈希不存明文令牌**
+- UT-S29-31 — `projects.status` 的 CHECK 约束只允许 `'pending'` / `'active'` / `'archived'`
+- UT-S29-32 — `projects.link_role` 的 CHECK 约束只允许 `'editor'` / `'reviewer'` / `'commenter'` …
+- UT-S29-33 — `project_grants` 主键为 `(project_id, account_id)`：同一项目同一成员不可重复授权
+- UT-S29-34 — `project_grants.role` 的 CHECK 约束只允许 `'owner'` / `'editor'` / `'reviewer'` / `…
+- UT-S29-35 — `projects.owner_account` 与 `project_grants.account_id` 的外键指向 `accounts(id)`
+- UT-S29-36 — `guest_invitations` 的部分唯一索引 `guest_invitations_open (project_id, email) WHERE…
+- UT-S29-37 — 全新 Server 的**首个管理员初始化必须提供 setup code**
+- UT-S29-38 — 协议不兼容时**停止同步并明确报告，不产生半同步状态**
+- UT-S29-39 — 设备被 **suspended** 时登录 / 同步被明确拒绝，不授予访问
+- UT-S29-40 — 设备**已被撤销**（令牌家族被 revoke）时登录 / 刷新 / 同步被拒绝
+- UT-S29-41 — 可授予角色只有 Editor / Reviewer / Commenter / Viewer 四种，`Owner` 不可被授予（`grantable`）
+- UT-S29-42 — 分享语义按实现口径：重叠文本是 **Loro 自动合并 + 只读 Merge Review**，不是「一切变更都先询问」
+- UT-S29-43 — Server 能力清单中 `encryption = none`，产品不得宣传为端到端加密
+- UT-S29-44 — 登录相关端点受专门限流中间件约束
+- UT-S29-45 — 客户端读取 Server 注册表：添加 Server 后本地保存 Server 条目
+- UT-S30-01 — 帧统一用 `#[serde(tag = "type", rename_all = "snake_case")]` 内部标签编码，帧体字段平铺在同一 JSO…
+- UT-S30-02 — `ClientFrame::Update` 必含 `project_id` 与 `envelope`
+- UT-S30-03 — `Envelope` 字段集合：`v`、`project_id`、`batch_id`、`device_id`、`mode`、`key_epoch`、`p…
+- UT-S30-04 — `Envelope.mode` 取值为 `plain` / `e2ee` / 兜底未知；`e2ee` 时 `key_epoch` 才有意义
+- UT-S30-05 — `payload` 与 `signature` 为 base64url 字节序列
+- UT-S30-06 — 信封签名域常量 `SIGNING_DOMAIN = b"oleafly-envelope/v1\0"`（信封层版本化域，与 `PROTOCOL_VERSI…
+- UT-S30-07 — `ClientFrame::Subscribe` 必含 `project_id` 与 `since_seq`（增量起点）
+- UT-S30-08 — `ClientFrame::Presence` 必含 `project_id` 与 `state`；`PresenceState` 含可选 `file_i…
+- UT-S30-09 — `ClientFrame::PresenceLeave` 必含 `project_id`
+- UT-S30-10 — `ServerFrame::Ack` 必含 `project_id`、`batch_id`、`seq`（`batch_id` 为幂等依据）
+- UT-S30-11 — `ServerFrame::Subscribed` 必含 `project_id`、`role`、`head_seq`，`since_batch` 可选
+- UT-S30-12 — `ServerFrame::Update` 必含 `project_id`、`seq`、`envelope`，`account_id` 可选
+- UT-S30-13 — `ServerFrame::Presence` / `PresenceLeft` 必含 `project_id` 与 `device_id`；`Prese…
+- UT-S30-14 — 帧枚举两端均带 `#[serde(other)] Unknown` 兜底：未知帧类型不导致反序列化失败
+- UT-S30-15 — `FrameErrorCode` 集合含 `unauthorized` / `protocol_mismatch` / `rate_limited` / …
+- UT-S30-16 — WS 帧有最大尺寸限制，超限按 `TooLarge` 处理
+- UT-S30-17 — 二进制帧按 `BadFrame` 处理，损坏帧不阻断后续帧
+- UT-S30-18 — `/ws` 受**每账号连接数上限**约束，超限返回 `RateLimited`
+- UT-S30-19 — 实时通道端点：`/ws`（Upgrade）、`/api/v1/projects/{project}/poll`（GET 长轮询）、`/api/v1/pro…
+- UT-S30-20 — `/ws` 与 `/poll` 均要求 `Authorization: Bearer`
+- UT-S30-21 — `project_updates` 主键为 `(project_id, seq)`：同一项目的序号唯一
+- UT-S30-22 — `project_updates` 的 `UNIQUE (project_id, batch_id)`：**同一批次不得重复存储**（幂等的落库依据）
+- UT-S30-23 — `project_updates.envelope` 为 `BLOB NOT NULL`，`batch_id` / `device_id` / `acco…
+- UT-S30-24 — `project_updates.project_id` 外键指向 `projects(id)` 且 `ON DELETE CASCADE`
+- UT-S30-25 — `project_snapshots` 主键为 `(project_id, seq)`
+- UT-S30-26 — `project_blobs` 主键为 `(project_id, hash)`（内容寻址去重）
+- UT-S30-27 — `projects.head_seq` 记录队头序号，默认 0，随变更递增
+- UT-S30-28 — `project_updates_counted` / `project_updates_uncounted` 触发器在写入 / 删除时维护 `proje…
+- UT-S30-29 — `projects.comments_enabled` 的 CHECK 约束只允许 `0` / `1`（0015 重建后口径）
+- UT-S30-30 — 大文本**分批**发送，最终内容仍完整收敛
+- UT-S30-31 — 某单批过大被判 **Unsendable** 时该批暂不发送，发出 `Unsendable` 事件提示用户，**不阻断其他内容的同步**
+- UT-S30-32 — 慢上传**不被 quiet timeout 误判**为掉线
+- UT-S30-33 — 传输选项默认值：`fallback_after = 2`、`retry_socket_every = 60s`、`ping_every = 20s`、`q…
+- UT-S30-34 — 个别 **损坏 frame 不阻断后续 frame** 的处理
+- UT-S30-35 — 服务端**逐 change 校验角色**并拒绝越权 change，不依赖客户端 UI 自我约束
+- UT-S30-36 — `RoleVerdict` 三态判定：`Allowed` / `ChangesComments` / `Refused`，其中评论开关导致的差异判为 `C…
+- UT-S30-37 — 发送端收到 `ack` 后清除该批待发内容；`ack` 丢失场景由 S31 的补发与幂等兜底
+- UT-S30-38 — presence 帧同步光标位置与在线状态，各端显示其他协作者的位置与在线名单
+- UT-S30-39 — 项目归档时服务端下发 `project_archived` 帧，同步终止
+- UT-S30-40 — 权限 / 成员 / 评论开关变更时下发 `access_changed` 帧（含 `role` / `change` / `comments` 可选字段）
+- UT-S30-41 — 项目内容**不是端到端加密**：Server 能力 `encryption = none`，宿主 / 磁盘 / 备份运营者可读
+- UT-S30-42 — 各端内容经 Loro change log **收敛一致**（不承诺所有重叠都人工二选一）
+- UT-S31-01 — 增量补发上行端点 `POST /api/v1/projects/{project}/frames`（批量提交帧）
+- UT-S31-02 — 增量补发下行端点 `GET /api/v1/projects/{project}/poll`（长轮询取增量）
+- UT-S31-03 — `subscribe` 帧的 `since_seq` 字段用于声明增量起点
+- UT-S31-04 — `subscribed` 帧的 `since_batch`（可选）与 `head_seq` 用于定位批次缺口
+- UT-S31-05 — `ack` 帧含 `project_id`、`batch_id`、`seq`，是幂等与清除待发的唯一依据
+- UT-S31-06 — 帧错误码中 `rate_limited` 用于表达限流（429）语义
+- UT-S31-07 — 项目族与输出族挂 `transfers::retry_soon` 响应中间件，在 429 / 503 busy 场景给出 `Retry-Soon` 语义
+- UT-S31-08 — Server 错误族含 `Unauthorized`、`Forbidden`、`NotFound`、`BadRequest`、`RateLimited`、…
+- UT-S31-09 — `/ws` 与 `/poll` 均要求 `Authorization: Bearer`；`/frames` 同属 Bearer 族
+- UT-S31-10 — 桌面端 long-poll 上行 / 下行端点为 `/frames`（POST）与 `/poll`（GET），二者成对使用
+- UT-S31-11 — `project_updates` 的 `UNIQUE (project_id, batch_id)` 是**批次幂等的落库保证**：重发同一批次不得产生第二行
+- UT-S31-12 — `project_updates` 主键 `(project_id, seq)` 保证同一项目序号不重复
+- UT-S31-13 — `project_updates.seq` 单调递增，`projects.head_seq` 记录队头
+- UT-S31-14 — `refresh_tokens.family_id` 标识令牌家族，家族内一次轮换后其余令牌被撤销
+- UT-S31-15 — `refresh_tokens.revoked_at` 与 `access_tokens.expires_at` 记录撤销与到期时刻
+- UT-S31-16 — `project_snapshots` 主键 `(project_id, seq)` 保证同一项目同一快照序号唯一
+- UT-S31-17 — `project_updates.envelope` 为 NOT NULL BLOB：补发的变更必须带完整载荷
+- UT-S31-18 — 默认传输选项：`fallback_after = 2`、`retry_socket_every = 60s`、`ping_every = 20s`、`qu…
+- UT-S31-19 — 重连退避**含 jitter**：等待时长在上限内随机化，避免多客户端同频重连
+- UT-S31-20 — 退避随失败次数增长到分钟级，一次稳定连接后计数归零重新开始
+- UT-S31-21 — 退避初期等待上限不超过 **5 秒**
+- UT-S31-22 — 收到 429 / 503 busy 时进入**长等待**而非高频冲击，busy 与普通失败使用不同的等待策略
+- UT-S31-23 — WS **连续两次失败**（`fallback_after = 2`）后回退到 `/frames` + `/poll` long-poll
+- UT-S31-24 — 处于 long-poll 通道时**每分钟**（`retry_socket_every = 60s`）重探一次 WS 可用性；探测失败继续 long-po…
+- UT-S31-25 — 断网期间本地编辑的变更**保留不丢弃**
+- UT-S31-26 — 通道恢复后发起**增量补发**，携带未确认批次与 `since_batch` 缺口定位
+- UT-S31-27 — 幂等判定在**服务端**：客户端不做「保证不重发」的假设
+- UT-S31-28 — 项目文档被判定损坏（damaged）时**同步结束**并给出失败结束原因
+- UT-S31-29 — 补发批次中混入越权 change 时，服务端**逐 change 校验并拒绝**
+- UT-S31-30 — 协议在重连时沿用同一 min/max 协商结果；区间无交集则**停止同步并明确报告**，不回退到更旧协议
+- UT-S31-31 — 用户手动「立即重连」可提前打断长等待
+- UT-S31-32 — **浏览器端断线只有 WS 重连，无 long-poll 回退**；浏览器端也无离线编辑能力
+- UT-S31-33 — 项目内容**不是端到端加密**：补发内容经 Server 中转，宿主 / 磁盘 / 备份运营者可读
+- UT-S32-01 — 合并结果作为**新的 change** 提交：走 `ClientFrame::Update`（`project_id` + `envelope`），`ba…
+- UT-S32-02 — 信封 `mode` 与 `key_epoch` 字段在合并提交中取值合法
+- UT-S32-03 — 服务端对合并提交的变更同样**逐 change 校验角色**，合并不绕过授权
+- UT-S32-04 — 帧错误码含 `forbidden` / `not_found` / `too_large` / `comments_off`，可区分拒绝原因
+- UT-S32-05 — `session_revoked` 帧携带可选 `reason`（`SessionEndReason`）
+- UT-S32-06 — `project_archived` 帧含 `project_id`，到达后同步终止
+- UT-S32-07 — 端点 `PUT/GET/HEAD /api/v1/projects/{project}/snapshot` 与 `PUT/GET /api/v1/proj…
+- UT-S32-08 — 项目标题上限 `MAX_TITLE_CHARS = 200`（合并副本若以项目标题关联亦受同一约束）
+- UT-S32-09 — `project_updates` UNIQUE `(project_id, batch_id)`：合并结果作为新批次提交，与既有批次不冲突
+- UT-S32-10 — `project_updates` PK `(project_id, seq)`：合并结果占用新的连续序号
+- UT-S32-11 — `project_blobs` PK `(project_id, hash)`：冲突副本以内容哈希去重存放
+- UT-S32-12 — `project_blobs.size` NOT NULL：副本大小必须记录
+- UT-S32-13 — `project_blobs_used` 索引与 `used_at` 列（0009 起）支持副本回收排序
+- UT-S32-14 — `pending_removals` 表的 `kind` CHECK 只允许 `'file'` / `'snapshot'`
+- UT-S32-15 — `pending_removals` PK `(kind, project_id, hash)`：同一待清理对象不重复入队
+- UT-S32-16 — `project_blobs_counted` / `project_blobs_uncounted` / `project_blobs_resized`…
+- UT-S32-17 — `projects.log_bytes` / `projects.file_bytes` 为 NOT NULL 且默认 0
+- UT-S32-18 — `project_updates_counted` / `project_updates_uncounted` 触发器维护 `projects.log_b…
+- UT-S32-19 — 重叠文本由 **Loro/OT 自动合并**产出唯一合并结果（必要时 rebase 一侧操作到另一侧基线）
+- UT-S32-20 — `rebase(base, changed, onto)` 在无法直接套用时把一侧操作重放到另一侧基线上
+- UT-S32-21 — `diff(old, new)` 与 `distance(old, new)` 提供合并结果的差异与距离度量，且有预算上限（`DIFF_BUDGET = …
+- UT-S32-22 — **Merge Review 是只读的**：可查看文件、变更量、作者与 diff，**不提供在此编辑合并结果的入口**
+- UT-S32-23 — Merge Review 一次最多打开 `MAX_OPEN_DIFFS = 3` 个 diff
+- UT-S32-24 — Merge Review 按**作者**归并变更归属（`authors` / `accountId` 维度）
+- UT-S32-25 — 二进制文件或路径冲突**保留双方副本并通知用户**，不静默覆盖任一侧
+- UT-S32-26 — 副本命名带短哈希标记（`SHORT_HASH = 6`），可区分双方版本
+- UT-S32-27 — 大批量外部磁盘变化进入**同步暂停**，由用户选择 `Send` / `Keep local`（`SyncDecision::Send` / `SyncD…
+- UT-S32-28 — 同步暂停状态以 `sync-hold.json` 持久化，保留副本目录为 `sync-kept`
+- UT-S32-29 — `Keep local` 决策保留本地不动；`Send` 决策把本地变化发上去
+- UT-S32-30 — 同步暂停**只针对大批量外部磁盘变化**这一类情形，不作为常规冲突的处理方式
+- UT-S32-31 — 写盘失败时**退避并通知**，变更不静默丢弃
+- UT-S32-32 — 写盘失败退避与「用户选择 Send / Keep local」是**不同机制**，二者不得混称
+- UT-S32-33 — 合并结果提交后仍由**服务端逐 change 校验**，客户端 UI 不是安全边界
+- UT-S32-34 — 项目内容**不是端到端加密**：合并内容经 Server 中转，宿主 / 磁盘 / 备份运营者可读
+- UT-S32-35 — **偏差 D12 口径**：本场景只提供自动合并 + 只读审查，不提供「一切变更先询问」的承诺
+- UT-S33-01 — `ProjectRole` 取值为 `owner` / `editor` / `reviewer` / `commenter` / `viewer`，未知…
+- UT-S33-02 — `GRANTABLE_ROLES` 只含 Editor / Reviewer / Commenter / Viewer 四种；`grantable(rol…
+- UT-S33-03 — `project_role_allows` 对 `Read` 允许全部五角色
+- UT-S33-04 — `project_role_allows` 对 `Edit` / `UploadSnapshot` / `Resolve` 只允许 Owner 与 Editor
+- UT-S33-05 — `project_role_allows` 对 `Suggest` 允许 Owner / Editor / Reviewer
+- UT-S33-06 — `project_role_allows` 对 `Comment` / `Chat` 允许 Owner / Editor / Reviewer / Com…
+- UT-S33-07 — `project_role_allows` 对 `ManageMembers` / `ChangeLinkSharing` / `StopSharing`…
+- UT-S33-08 — `ServerRole` 取值为 `admin` / `maintainer` / `member` / `guest` + `Unknown` 兜底
+- UT-S33-09 — `server_role_allows` 对 11 个 `ServerAction` 的允许矩阵：Admin 全允许；Maintainer 允许 5 项管…
+- UT-S33-10 — `ProjectStatus` 取值为 `pending` / `active` / `archived` + 兜底未知
+- UT-S33-11 — `MemberGrant` 结构只含 `role` 字段
+- UT-S33-12 — `access_changed` 帧含 `project_id`，`role` / `change`（`MemberChange`）/ `comments…
+- UT-S33-13 — `MemberChange` 含 `account_id`、`by`、`kind`（`added` / `removed` / `role_changed…
+- UT-S33-14 — `FrameErrorCode` 含 `forbidden` 与 `not_found`：越权与不存在可区分
+- UT-S33-15 — `project_archived` 帧含 `project_id`，到达后同步终止
+- UT-S33-16 — 成员授权端点：`PUT /api/v1/projects/{project}/members/{account}`（授予）、`DELETE` 同路径（移除…
+- UT-S33-17 — 链接分享设置经 `PATCH /api/v1/projects/{project}` 更新 `link_sharing` / `link_role`
+- UT-S33-18 — 目录端点 `GET /api/v1/directory` 的可见范围按 Server 角色收敛（`SeeDirectory` 动作）
+- UT-S33-19 — 浏览器端 `abilitiesFor(role, features)` 只产出 UI 能力（`edit` / `chooseMode` / `always…
+- UT-S33-20 — 浏览器端 `effectiveMode(role, chosen, features)` 强制 Reviewer 为 `suggesting`；Owner…
+- UT-S33-21 — `project_grants.role` 的 CHECK 约束允许五档角色 `'owner'` / `'editor'` / `'reviewer'` …
+- UT-S33-22 — `project_grants` 主键 `(project_id, account_id)`：同一成员在同一项目只授权一次（改角色走 UPDATE）
+- UT-S33-23 — `project_grants.project_id` / `account_id` 外键指向 `projects(id)` / `accounts(id…
+- UT-S33-24 — `projects.link_role` 的 CHECK 只允许 `'editor'` / `'reviewer'` / `'commenter'` / …
+- UT-S33-25 — `projects.status` 的 CHECK 只允许 `'pending'` / `'active'` / `'archived'`（归档态即同步终止态）
+- UT-S33-26 — `accounts.status` 的 CHECK 只允许 `'active'` / `'suspended'` / `'removed'`（`'remo…
+- UT-S33-27 — `accounts.server_role` 的 CHECK 只允许 `'admin'` / `'maintainer'` / `'member'` / …
+- UT-S33-28 — `project_removals` 主键 `(project_id, account_id)`：同一成员在同一项目的移除记录不重复
+- UT-S33-29 — `guest_invitations.role` 的 CHECK 只允许 `'editor'` / `'reviewer'` / `'commenter'…
+- UT-S33-30 — `guest_invitations_open` 部分唯一索引 `(project_id, email) WHERE status IN ('awaiti…
+- UT-S33-31 — 服务端**逐 change** 判定角色：越权的文本 / 建议 / 评论 / 清空他人内容被**拒绝**（`RoleVerdict::Refused`）
+- UT-S33-32 — 客户端 UI 的隐藏 / 禁用**不是安全边界**：绕过客户端直接构造帧同样被服务端拒绝
+- UT-S33-33 — `RoleVerdict` 三态：`Allowed` / `ChangesComments` / `Refused`；评论开关导致的差异判为 `Chang…
+- UT-S33-34 — Reviewer **固定处于 Suggesting 模式**，不能切回直接编辑；其编辑以建议形式提交
+- UT-S33-35 — Reviewer **不能接受建议**（含自己提出的建议）——只提建议，不裁决建议
+- UT-S33-36 — Commenter 仅可评论与聊天：**不能改文本 / 改建议 / 清空他人内容**
+- UT-S33-37 — 被移出项目后**同步结束**，不再获得项目访问，不产生半同步状态
+- UT-S33-38 — 项目被归档后**同步结束**；归档后项目在 Server 侧保留只读一段时间后删除
+- UT-S33-39 — **Viewer 期间的本地编辑保留为 pending**，权限恢复后可发出
+- UT-S33-40 — **拒绝语义区分**：Viewer's forbidden 拒绝**丢弃该批**（保留每条 change 与本地内容）；comments off 拒绝**…
+- UT-S33-41 — Owner 可管理成员、生成 / 撤销邀请链接、开启或停止分享；停止分享后项目转入只读保留
+- UT-S33-42 — `ManageMembers` / `ChangeLinkSharing` / `StopSharing` 仅 Owner 可执行，Editor 也不行
+- UT-S33-43 — 项目内容**不是端到端加密**：Server 能力 `encryption = none`，宿主 / 磁盘 / 备份运营者可读
+- UT-S33-44 — 权限裁决**只在服务端逐 change 执行**；客户端本地禁用与隐藏不构成安全边界
+- UT-S34-01 — Server 级功能开关 `comments` / `suggestions` / `chat` 出现在能力清单 `features` 中，后两者带 `#…
+- UT-S34-02 — 项目级评论开关 `comments_enabled` 与 Server 级 `features.comments` **是两个独立层次**
+- UT-S34-03 — `FrameErrorCode` 含 `comments_off`，与 `forbidden` 可区分
+- UT-S34-04 — `access_changed` 帧的 `comments` 字段为 `CommentSwitches { server, project }`，两端开关…
+- UT-S34-05 — `RoleVerdict::ChangesComments` 表示**只有评论部分被摘除**，其余变更照常
+- UT-S34-06 — `comment_guard::Verdict` 四态：`Allowed` / `ChangesComments` / `Unreadable` / `U…
+- UT-S34-07 — 评论复核队列上限 `MAX_RECHECKS = 5`、重试间隔 `RECHECK_RETRY = 60s`、分页 `RECHECK_PAGE = 64`
+- UT-S34-08 — 评论根键常量为 `"comments"`
+- UT-S34-09 — `ProjectAction::Comment` 允许 Owner / Editor / Reviewer / Commenter；`Chat` 同
+- UT-S34-10 — `ProjectAction::Suggest` 允许 Owner / Editor / Reviewer；`Resolve` 只允许 Owner / E…
+- UT-S34-11 — 浏览器端 `canWithdraw(role, author, self)`：仅作者本人且角色不为 `viewer` / `commenter` / `u…
+- UT-S34-12 — 浏览器端 `abilitiesFor` 的 `comment` / `chat` 依赖 `features.comments` / `features.c…
+- UT-S34-13 — mention 通知经 `mention_scans` / `mention_emails` 落库并进入异步邮件队列
+- UT-S34-14 — 邮件偏好端点：`GET/PATCH /api/v1/admin/email/preferences`、`GET /api/v1/admin/email`（…
+- UT-S34-15 — 评论 / 建议 / 聊天作为变更帧提交，走 `ClientFrame::Update`（`project_id` + `envelope`）
+- UT-S34-16 — `Envelope.batch_id` 为每一批变更（含评论类）提供幂等键
+- UT-S34-17 — `projects.comments_enabled` 的 CHECK 只允许 `0` / `1`（项目级评论开关）
+- UT-S34-18 — `comment_rechecks` 主键 `(project_id, seq)`：同一变更不重复入复核队列
+- UT-S34-19 — `comment_rechecks.spans` / `account_id` / `device_id` / `queued_at` 均为 NOT NU…
+- UT-S34-20 — `comment_rechecks.project_id` 外键指向 `projects(id)` 且 `ON DELETE CASCADE`
+- UT-S34-21 — `mention_scans` 主键 `(project_id, seq)`：同一变更的 mention 扫描不重复
+- UT-S34-22 — `mention_emails` 主键 `(project_id, message_id, recipient_id)`：同一消息对同一收件人只入队一次
+- UT-S34-23 — `mention_emails.recipient_id` 外键指向 `accounts(id)` 且 `ON DELETE CASCADE`；`sent…
+- UT-S34-24 — `mention_emails_waiting` 为部分索引（`WHERE sent_at IS NULL`），只索引待发送条目
+- UT-S34-25 — `email_preferences.mentions` 的 CHECK 只允许 `0` / `1`，默认 1
+- UT-S34-26 — `email_preferences.account_id` 为主键并外键指向 `accounts(id)`，账号删除时级联清理
+- UT-S34-27 — `project_updates` UNIQUE `(project_id, batch_id)`：评论 / 建议 / 聊天批次同样幂等
+- UT-S34-28 — 评论建模为线程（锚点 + 正文 + mention），作为变更进入 change log
+- UT-S34-29 — 评论支持**回复 / mention / resolve** 四类操作
+- UT-S34-30 — 项目关闭评论后：**新评论被拒**，但**文本编辑继续**（打字仍获 ack）
+- UT-S34-31 — 项目关闭评论后：**对既有评论的 resolve 也被拒**
+- UT-S34-32 — 客户端收到 comments off 拒绝后**只摘掉被拒的评论**并保留其正文供用户查看，文本变更照常发送
+- UT-S34-33 — **Reviewer 不能接受建议**（含自己提出的建议）——只提建议，不裁决建议
+- UT-S34-34 — **Commenter 不能改文本 / 不能提建议 / 不能清空他人内容**
+- UT-S34-35 — 建议可被**接受 / 拒绝 / 撤回**；**接受**才把建议内容写入正文
+- UT-S34-36 — 离线期间的评论等操作**在本地排队**，连接恢复后按序发出
+- UT-S34-37 — 离线评论的多种形态（纯评论、文本 + 评论、先文本后评论）都被正确处理
+- UT-S34-38 — 评论 / 建议 / 聊天消息是 **change log 的一部分**：删除评论 / 聊天消息会从项目中移除，但历史 change log 仍保留
+- UT-S34-39 — mention 被扫描后进入**通知队列**异步发送；邮件重试与配额语义属 S38
+- UT-S34-40 — 功能开关未开（`suggestions` / `chat` 为 false）时对应入口不可用，**不影响文本与评论**
+- UT-S34-41 — 项目内容**不是端到端加密**：评论 / 建议 / 聊天同样随 change log 留在服务端与各成员副本
+- UT-S34-42 — 权限裁决**只在服务端逐 change 执行**；客户端评论 / 建议按钮禁用不是安全边界
+- UT-S35-01 — 恢复作为**新变更**提交：走 `ClientFrame::Update`（`project_id` + `envelope`），提交消息标记为 `res…
+- UT-S35-02 — 信封 `batch_id` 为恢复批次提供幂等键
+- UT-S35-03 — 服务端对恢复产生的变更同样**逐 change 校验角色**，越权恢复被拒
+- UT-S35-04 — `FrameErrorCode` 含 `forbidden` 与 `not_found`：恢复被拒与目标不存在可区分
+- UT-S35-05 — 历史页容量上限 `MAX_HISTORY_PAGE = 200`
+- UT-S35-06 — 命名以文档内的版本映射（容器键 `VERSIONS = "versions"`）写入并提交，成为一条新变更
+- UT-S35-07 — 取消命名（`unname_version`）同样以变更形式提交
+- UT-S35-08 — 只读打开历史版本与版本比较（diff）均通过变更帧 / 本地文档能力实现，不引入新的服务端端点
+- UT-S35-09 — 快照端点 `PUT/GET/HEAD /api/v1/projects/{project}/snapshot` 与 `x-oleafly-snapshot…
+- UT-S35-10 — 浏览器端角色映射 `abilitiesFor` 的 `edit` / `resolve` 等能力不包含「恢复历史」入口，恢复能力由可编辑角色决定
+- UT-S35-11 — **本场景没有服务端「历史表」**：共享历史由客户端本地 Loro change log 构建，Server 侧只存 `project_updates`（…
+- UT-S35-12 — `project_updates` UNIQUE `(project_id, batch_id)`：恢复作为新批次提交，不与既有批次冲突且可幂等
+- UT-S35-13 — `project_updates` PK `(project_id, seq)`：恢复占用新的连续序号
+- UT-S35-14 — `project_updates.envelope` 为 NOT NULL BLOB：恢复变更必须带完整载荷
+- UT-S35-15 — `project_snapshots` PK `(project_id, seq)` 与 `hash` / `size` NOT NULL：快照索引唯一且带引用
+- UT-S35-16 — `project_updates_counted` / `project_updates_uncounted` 触发器维护 `projects.log_b…
+- UT-S35-17 — `projects.status` 的 CHECK 只允许 `'pending'` / `'active'` / `'archived'`（归档项目不可写…
+- UT-S35-18 — 共享历史由**本地完整 Loro change log** 构建，按时间与作者归并条目
+- UT-S35-19 — 历史条目归并规则：相邻步长在合并窗口（`MERGE_SECONDS = 60`）内合并，间隔超过 `GAP_MS = 10 分钟` 断开，跨度超过 `SP…
+- UT-S35-20 — 只读打开某版本内容或与当前版本比较（diff）
+- UT-S35-21 — 目标版本定位依赖 frontiers 解码；解码失败返回 **`history_unavailable`**
+- UT-S35-22 — 版本名称校验：**去空白后不得为空**
+- UT-S35-23 — 版本名称校验：**不得超过 `MAX_VERSION_NAME_CHARS = 120`**
+- UT-S35-24 — 名称校验**只含上述两项**，其余规则不由本基线推断
+- UT-S35-25 — 恢复以**新 change 追加**，当前内容被替换为该版本内容
+- UT-S35-26 — **恢复不抹除旧历史**：旧版本仍可在历史中查看，恢复只是历史中的又一个条目
+- UT-S35-27 — **Reviewer 可查看 / 比较历史但不能恢复**（恢复需要可编辑角色）
+- UT-S35-28 — 服务端逐 change 校验会拒绝不匹配的恢复变更（客户端限制之外的第二道防线）
+- UT-S35-29 — 项目文档因错误停止同步而**冻结**时，拒绝写入类操作（含命名与恢复），提示需重新打开项目
+- UT-S35-30 — 恢复变更同样受协议与通道约束：会话按 min/max 协商确定，桌面端 WS 失败两次后回退 long-poll，浏览器端无回退
+- UT-S35-31 — 项目内容**不是端到端加密**：内容与历史都不是 E2E 加密，历史随 change log 存在服务端与各成员副本
+- UT-S40-01 — 浏览器实时通道端点为 `GET /web/ws`（Upgrade），**不是**桌面的 `/ws`
+- UT-S40-02 — 浏览器族 API 端点集合：`/web/api/me`、`/web/api/projects`、`/web/api/projects/{project}`…
+- UT-S40-03 — 浏览器族使用**会话 cookie** 认证，桌面 / API 族使用 `Authorization: Bearer`；二者不可混用
+- UT-S40-04 — 浏览器客户端帧族以 `t` 字段做内部标签，帧类型含 `open` / `change` / `close` / `mode` / `presence` …
+- UT-S40-05 — 浏览器服务端帧族含 `hello`（`role` / `features` / `files` / `people` / `compile`）、`open…
+- UT-S40-06 — `WebFeatures` 只含 `comments` / `suggestions` / `chat` 三项（浏览器族功能开关子集）
+- UT-S40-07 — 浏览器 `hello` 帧回带当前角色 `role` 与在线人员 `people`，供前端做能力映射
+- UT-S40-08 — 浏览器 `ack` 帧含 `rev` 与 `length`；`length` 可为 `null`（长度未知时以 inflight 目标长度补齐）
+- UT-S40-09 — 浏览器 `remote` 帧含 `fileId` / `rev` / `op` / `length`，用于携带并发变化
+- UT-S40-10 — 浏览器 `access` 帧回带新的 `role`
+- UT-S40-11 — 浏览器重连退避常量：`RECONNECT_BASE_MS = 500`、`RECONNECT_MAX_MS = 15_000`
+- UT-S40-12 — 浏览器探测阈值 `PROBE_AFTER_FAILURES = 2`
+- UT-S40-13 — 浏览器单次变更上限 `MAX_CHANGE_BYTES = 10 * 1024 * 1024`
+- UT-S40-14 — 浏览器会话失效错误码集合 `SIGNED_OUT_CODES = { unauthorized, signed_out, session_expired }`
+- UT-S40-15 — 浏览器访问终止错误码集合 `NO_ACCESS_CODES = { forbidden, not_found, removed, project_not_…
+- UT-S40-16 — 浏览器端 `abilitiesFor(role, features)` 的能力映射：`edit` / `chooseMode` / `alwaysSugg…
+- UT-S40-17 — 浏览器端 `effectiveMode(role, chosen, features)`：Reviewer 恒为 `suggesting`；Owner /…
+- UT-S40-18 — `sessionStorage` 未确认输入缓冲上限 `MAX_UNSENT_CHARS = 2_000_000`
+- UT-S40-19 — 未确认输入缓冲的有效期上限 `MAX_UNSENT_AGE_MS = 7 * 24 * 60 * 60 * 1000`（7 天）
+- UT-S40-20 — 未确认输入的存储键带前缀 `oleafly.web.unsent.v1.` 且按项目分区
+- UT-S40-21 — 浏览器端**不存在** long-poll 回退端点调用：`/api/v1/projects/{project}/frames` 与 `/poll` 属 …
+- UT-S40-22 — `web_sessions.token_hash` 为主键：同一会话令牌只有一行，且**只存哈希不存明文令牌**
+- UT-S40-23 — `web_sessions.device_id` 为 UNIQUE 且外键指向 `devices(id)`：一台设备只保留一个浏览器会话
+- UT-S40-24 — `web_sessions.account_id` 外键指向 `accounts(id)` 且 `ON DELETE CASCADE`
+- UT-S40-25 — `web_sessions.mode` 的 CHECK 只允许 `'editing'` / `'suggesting'`
+- UT-S40-26 — `web_sessions.expires_at` 记录到期时刻；`web_sessions_expires` 索引支持按到期时间清理
+- UT-S40-27 — `project_updates` UNIQUE `(project_id, batch_id)`：浏览器端提交的变更同样幂等
+- UT-S40-28 — `project_updates` PK `(project_id, seq)` 与 `envelope` NOT NULL
+- UT-S40-29 — `projects.comments_enabled` 的 CHECK 只允许 `0` / `1`：浏览器端评论入口受项目级开关约束
+- UT-S40-30 — 浏览器端按角色映射能力：Owner / Editor 可编辑并可切换模式，Reviewer 固定 Suggesting，Commenter 仅评论与聊天，…
+- UT-S40-31 — 浏览器端角色映射**只是 UI 呈现**：绕过前端直接构造越权请求仍被服务端逐 change 校验拒绝
+- UT-S40-32 — 浏览器端编辑后记录 **inflight**（未确认变更），收到 `ack` 后清空
+- UT-S40-33 — 断线重连按 `reconnectDelay`（指数退避 + 抖动，基准 500ms、上限 15s）执行
+- UT-S40-34 — 浏览器端**没有 long-poll 回退**：WS 断线只做 WS 重连
+- UT-S40-35 — 浏览器端**没有离线编辑能力**：离线时的新编辑被拒（`OfflineError`）；文档通道未打开、正在恢复或不在线时同样拒绝
+- UT-S40-36 — 未确认输入保留在 `sessionStorage`（约 2M 字符 / 7 天上限），重连成功后恢复 inflight 通道与这些未确认输入
+- UT-S40-37 — `sessionStorage` 缓冲**是本标签页的未确认输入缓冲，不是跨设备离线队列**
+- UT-S40-38 — **ack 丢失**场景：服务端以 `remote` 帧带回并发变化，浏览器端对 inflight 操作执行 `transform` 后重发
+- UT-S40-39 — **transform 失败**则丢弃 inflight 并重新打开该文件
+- UT-S40-40 — 单次变更过大时判为过大并提示，丢弃 inflight 后重新打开该文件
+- UT-S40-41 — 浏览器端会话失效或权限终止时按错误码结束访问（`SIGNED_OUT_CODES` / `NO_ACCESS_CODES`）
+- UT-S40-42 — **生产浏览器没有编译引擎**：浏览器只读取 Owner / Editor 上传的输出；fake engine 仅用于开发与测试环境
+- UT-S40-43 — 项目内容**不是端到端加密**：Server 能力 `encryption = none`
+- UT-S40-44 — 浏览器与桌面是**同一协作协议的两个客户端**：会话按 min/max 协商确定，协议不兼容即停止同步
+- UT-S41-01 — 浏览器会话期限常量为 `SESSION_DAYS = 30`，`SESSION_TTL_MS = SESSION_DAYS * DAY_MS`
+- UT-S41-02 — 会话 cookie 名为 `oleafly_web`；在 host-only 绑定配置下为 `__Host-oleafly_web`
+- UT-S41-03 — 会话 cookie 属性为 `HttpOnly`、`SameSite=Lax`、`Path={前缀}/`、`Max-Age=30 天秒数`
+- UT-S41-04 — `Secure` 属性在本机明文 HTTP 场景下**例外省略**，其余场景必须带
+- UT-S41-05 — 会话令牌长度为 `TOKEN_CHARS = 43`，字符集限定为 ASCII 字母数字与 `-` / `_`
+- UT-S41-06 — `presented` 只读取**期望 cookie 名**且格式合法的值；同名 cookie 出现多个时**不被信任**
+- UT-S41-07 — `web_sessions` 表**只存 token 哈希**，服务端不保存明文令牌
+- UT-S41-08 — app marker 常量：请求头名 `x-requested-with`、值 `oleafly-web`（文档称谓 `X-Oleafly-Request…
+- UT-S41-09 — `same_origin` 要求**恰好一个** `Origin` 头且其值**精确等于** `public_url` 的 origin；零个或多个 Or…
+- UT-S41-10 — `requested_by_the_app` = **app marker 存在且值正确** **且** `same_origin` 成立，二者同时满足才通过
+- UT-S41-11 — `cross_site` 错误的形状：状态码 403、错误码 `cross_site`、消息明示「该请求并非来自本 Server 上的 Oleafly 网…
+- UT-S41-12 — 写路径守卫：写请求先经 `changing`（校验 app marker 与 Origin），再经 `signed_in`（解析会话并校验到期）
+- UT-S41-13 — `features.web` 未开启时，浏览器写路径返回 `NotFound`
+- UT-S41-14 — 严格 CSP 内容含 `default-src 'self'`、`script-src 'self' 'wasm-unsafe-eval'`、`conne…
+- UT-S41-15 — 项目过大错误 `project_too_large` 映射为 **409 CONFLICT**；服务繁忙 `server_busy` 映射为 **503 …
+- UT-S41-16 — 浏览器族端点错误族沿用 Server 通用错误结构：`Unauthorized` / `Forbidden` / `NotFound` / `BadReq…
+- UT-S41-17 — 浏览器族与 API 族认证**不可混用**：浏览器族凭会话 cookie，桌面 / API 族凭 `Authorization: Bearer`
+- UT-S41-18 — 登出端点 `POST /web/api/sign-out` 清除会话 cookie
+- UT-S41-19 — 浏览器会话绑定设备：`web_sessions.device_id` 指向 `devices(id)`，并以 `platform = 'web'`（`PL…
+- UT-S41-20 — 返回路径参数上限 `MAX_RETURN_CHARS = 512`，且只接受浏览器应用路径内的返回目标
+- UT-S41-21 — `web_sessions.token_hash` 为主键：同一令牌只存一行，且只存哈希
+- UT-S41-22 — `web_sessions.device_id` 为 UNIQUE：一台设备只保留一个浏览器会话
+- UT-S41-23 — `web_sessions.account_id` 外键指向 `accounts(id)` 且 `ON DELETE CASCADE`
+- UT-S41-24 — `web_sessions.mode` 的 CHECK 只允许 `'editing'` / `'suggesting'`
+- UT-S41-25 — `web_sessions.expires_at` 为 NOT NULL 且与 `created_at` 相差 30 天
+- UT-S41-26 — `web_sessions_expires` 索引按 `expires_at` 建立，支持过期会话清理
+- UT-S41-27 — `devices.public_key` UNIQUE 与 `devices.account_id` FK：浏览器会话绑定的设备不得重复登记同一公钥
+- UT-S41-28 — `accounts.status` 的 CHECK 只允许 `'active'` / `'suspended'` / `'removed'`：账号状态终止…
+- UT-S41-29 — 登录成功建立 30 天会话：令牌随机生成、**哈希后入库**，到期时间 = 建立时间 + 30 天，并绑定浏览器设备
+- UT-S41-30 — 读请求携带会话 cookie 即可解析身份；解析时校验到期
+- UT-S41-31 — **会话过期视为登出**，结束当前访问
+- UT-S41-32 — 服务端判定 `forbidden` / `not_found` / `removed` / `archived` 时**结束当前访问**
+- UT-S41-33 — Origin 不匹配的写请求按 **cross_site** 拒绝（403）
+- UT-S41-34 — 缺少 app marker 的写请求同样按 cross_site 拒绝
+- UT-S41-35 — **双重校验的判定完全落在服务端**：请求可由任意客户端伪造，浏览器端带头不构成安全保证
+- UT-S41-36 — 严格 CSP **禁止被嵌入**（`frame-ancestors 'none'`）
+- UT-S41-37 — **CSP 与 cookie 属性是两个独立防护**，不可互相替代
+- UT-S41-38 — 项目过大返回 `project_too_large`，服务繁忙返回 `server_busy`，两者为**独立错误分类**
+- UT-S41-39 — 会话有效**不等于**有权改动内容：写操作仍受服务端逐 change 的角色校验约束
+- UT-S41-40 — 令牌旁带伪造：真实 cookie 旁附带同名伪造 cookie 时，伪造项不被信任
+- UT-S41-41 — 浏览器路径与桌面路径是**两套会话模型**：桌面端凭设备凭据与 `/api/v1/*`，浏览器凭会话 cookie 与 `/web/*`
+- UT-S41-42 — 浏览器端**没有 long-poll 回退**，只有 WS 重连；桌面端才有 WS 失败两次后的 long-poll 回退
+- UT-S41-43 — 项目内容**不是端到端加密**：Server 能力 `encryption = none`；会话令牌在服务端以哈希存储，不存明文
+- UT-S41-44 — 本场景只覆盖**浏览器会话**；Guest admission、Admin 控制台、桌面端凭据分属 S36 / S37 / S29
+- UT-S43-01 — `cloud_connect_credentials` 拒绝非 S3 provider
+- UT-S43-02 — `cloud_connect_credentials` 在 S3 配置缺少必填项时被拒
+- UT-S43-03 — `cloud_set_device_name` 拒绝空设备名
+- UT-S43-04 — `cloud_set_device_name` 拒绝超长设备名
+- UT-S43-05 — `cloud_set_device_name` 拒绝非法字符与结尾点
+- UT-S43-06 — `cloud_set_device_name` 接受合法名并去除首尾空白
+- UT-S43-07 — `cloud_connect_paste` 拒绝空授权码
+- UT-S43-08 — `cloud_download_project` 拒绝非法 cloud id
+- UT-S43-09 — `cloud_settings_sync` / `cloud_settings_keep_local` 的 `values` 为必填 JSON
+- UT-S43-10 — 同步范围只含 Library 中**有 `project.json`** 的项目
+- UT-S43-11 — Library 之外的任意 linked folder 不被同步
+- UT-S43-12 — 项目内 `.git` 历史与 checkpoints 不随云同步
+- UT-S43-13 — 单项目文件数上限 100000
+- UT-S43-14 — manifest 体积上限 64MiB
+- UT-S43-15 — S3 probe 未通过时**不保存密钥**
+- UT-S43-16 — S3 条件写检查未通过时**不保存密钥**
+- UT-S43-17 — 远端 manifest 与本地 manifest 比对得出差异条目
+- UT-S43-18 — provider 访问失败以显式错误结束
+- UT-S44-01 — `cloud_project_dismiss_conflicts` 接受已存在的项目并清零冲突
+- UT-S44-02 — `cloud_project_dismiss_conflicts` 对未在状态中的项目不产生副作用
+- UT-S44-03 — `cloud_project_replace_remote` 必填 `local_id`
+- UT-S44-04 — `cloud_project_remove` 必填 `local_id`
+- UT-S44-05 — `cloud_settings_sync` 的 `values` 为必填 JSON（设置走 merge3 的同一入口）
+- UT-S44-06 — 普通文件双侧修改判定为冲突，**不做文本合并**
+- UT-S44-07 — `project.json` / 设置类双侧修改判定为 `MetaMerge`
+- UT-S44-08 — merge3 标量/同字段冲突时 **local 获胜**
+- UT-S44-09 — merge3 单侧未改时取另一侧
+- UT-S44-10 — merge3 对象按键合并、双方各自改动都保留
+- UT-S44-11 — merge3 数组按元素 `id` 合并
+- UT-S44-12 — merge3 无 base 时取双方并集
+- UT-S44-13 — 设备专属元数据字段保持本地值，不被远端覆盖
+- UT-S44-14 — dirty 缓冲下 `Download` / `LocalDelete` / `MetaMerge` 改为 `Carry`
+- UT-S44-15 — dirty 保护只作用于 dirty 集合内的键
+- UT-S44-16 — 冲突副本命名格式为 `<stem> (<设备名> YYYY-MM-DD)<ext>`
+- UT-S44-17 — 冲突副本同名已被占用时追加序号
+- UT-S44-18 — 冲突副本设备名做字符清洗
+- UT-S44-19 — 冲突副本数量上限 100，超出后最早条目被淘汰
+- UT-S44-20 — 冲突副本上传成功前不覆盖当前编辑
+- UT-S45-01 — `cloud_project_resolve_hold` 拒绝非法 `choice`
+- UT-S45-02 — `cloud_project_resolve_hold` 的 `choice="restore"` 走恢复分支
+- UT-S45-03 — `cloud_project_resolve_hold` 的 `choice="delete"` 走确认删除分支
+- UT-S45-04 — `cloud_project_resolve_hold` 必填 `local_id`
+- UT-S45-05 — `cloud_project_set_mode` 拒绝非法 `mode`
+- UT-S45-06 — `cloud_project_set_mode` 的 `mode="pause"` 暂停该项目
+- UT-S45-07 — `cloud_project_set_mode` 的 `mode="sync"` 恢复该项目
+- UT-S45-08 — `cloud_project_remove` 必填 `local_id`
+- UT-S45-09 — 删除**全部**项目文件 → 必 hold
+- UT-S45-10 — 删除数量 **> 20 且过半**项目文件 → hold
+- UT-S45-11 — 删除数量 **> 20 但不过半** → 不 hold
+- UT-S45-12 — 删除数量 **恰为 20** 且占比高 → 不 hold（`> 20` 为严格大于）
+- UT-S45-13 — 删除集合为空 → 不 hold
+- UT-S45-14 — 本地删除与远端 tombstone **分别判定**
+- UT-S45-15 — 远端 tombstone 判定为异常大规模删除 → 暂停执行、**不删除本地文件**
+- UT-S45-16 — 远端删除被接受 → 文件进入回收站而非直接消失
+- UT-S45-17 — Trash 保留 30 天，超期条目被清理
+- UT-S45-18 — hold 状态下用户未裁决 → 同步保持暂停
+- UT-S45-19 — `project.json` 不计入「项目文件数」分母
+- UT-S45-20 — `cloud_project_remove` 写 tombstone 并标记待删除
+- UT-S48-01 — `overleaf_sync_link` 必填 `project_id` 与 `remote_id`
+- UT-S48-02 — `overleaf_sync_link` 对已链接到**不同**远端的项目返回分类错误
+- UT-S48-03 — `overleaf_sync_link` 的 `prefer` 仅接受 `local` / `remote`（可选）
+- UT-S48-04 — `overleaf_sync_now` 的 `resolutions` 为逐文件选边映射
+- UT-S48-05 — `overleaf_sync_set_auto` 必填 `auto` 布尔
+- UT-S48-06 — `overleaf_git_token_set` 的 `token` 必填且 `server` 归一化
+- UT-S48-07 — `overleaf_sync_status` 必填 `project_id`
+- UT-S48-08 — `overleaf_sync_unlink` 必填 `project_id`
+- UT-S48-09 — auto 触发须**五项条件全部满足**
+- UT-S48-10 — auto **首次**在 2 秒后触发
+- UT-S48-11 — auto 其后**每 3 分钟**触发一次
+- UT-S48-12 — 「静默 15 秒」判定
+- UT-S48-13 — 页面不可见 → 不推送
+- UT-S48-14 — 存在 dirty 编辑 → 不推送
+- UT-S48-15 — 存在未解决冲突 → 不推送
+- UT-S48-16 — 无可用 token → 不推送
+- UT-S48-17 — auto 开关未开启 → 不推送
+- UT-S48-18 — 远端持续变化三轮未收敛 → 以 `SyncKeptChanging` 收尾
+- UT-S48-19 — 并发触发 → 返回 `SyncBusy`，不叠加执行
+- UT-S48-20 — 同一文件双侧被修改 → abort 回 base 并返回待选边文件清单
+- UT-S48-21 — 首链 NeedsChoice 且选 remote → **先保存本地 backup ref**
+- UT-S48-22 — unlink → 导出本地备份
+- UT-S48-23 — 同步期间本地文件变化 → 分类错误 `after_files_changed`
+
 ## 变更概述
 
 建立「集中映射表 + 三端结构化输出 + 聚合器」的 OpenLogos reporter 链路：`test-map.json` 以 862 个用例 ID 为基准集，每个 ID 映射到一组测试选择器；Vitest（根配置一处生效于主/web 实例）与 Playwright（tauri/web 两个 config）接入 JSON reporter，Rust 侧引入 nextest（或等效）产出结构化结果；聚合器 `scripts/openlogos-reporter.mjs` 将三端原始结果与映射表 join 成契约格式 JSONL（先 truncate、id 过正则校验）。`verify.pre_run_command` 调整为聚合入口 `pnpm test:openlogos`，使 verify 自动驱动全链。
