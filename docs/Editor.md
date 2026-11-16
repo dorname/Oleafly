@@ -218,6 +218,9 @@ the LaTeX one.
 
 - Two checkers share one worker pass. Hunspell owns spelling against the
   selected dictionary pack. Harper owns grammar and style.
+- Grammar is English-only. A document checked in another language gets
+  Hunspell spelling alone, and grammar-only checking is reported as
+  unsupported.
 - Five dictionary packs ship with the app: English (United States, United
   Kingdom, Australia), German and French. The rest of the list, more than
   sixty languages, downloads on demand and then stays on disk, so it works

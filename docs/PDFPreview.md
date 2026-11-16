@@ -3,7 +3,7 @@
 The preview surface is a PDF.js-backed reader embedded beside the source. It
 can also open in a detached preview window. The preview is driven by the
 compiled artifact and retains the last accepted PDF while a newer compile is
-pending or has failed.
+pending or has failed without a usable PDF.
 
 <div align="center">
   <img src="assets/readme/pdf-preview.png" alt="Oleafly PDF preview beside the source editor" width="100%" />
@@ -56,7 +56,11 @@ editor where it is. A single click jumps.
 
 - A PDF result carries a project revision identity.
 - A result is accepted only when its revision matches the current project.
-- A newer failed compile does not erase the last accepted PDF.
+- If a failed compile produced no new PDF, the last accepted PDF stays on
+  screen.
+- A best-effort PDF from a failed compile is shown only after its bytes match
+  the output fingerprint the compiler reported. The compile state stays an
+  error and the last successful compile is not recorded.
 - PDF bytes are transferred as binary IPC data, not base64 embedded in compile
   metadata.
 - Rotation, password retry, and reload preserve the visible page where possible

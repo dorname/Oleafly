@@ -321,7 +321,7 @@ GPU and the tools that target needs. Files a run creates come back to
 
 The brief also picks a run profile. Analysis uses your Python and R
 environments with read-only data folders and no GPU, and a run stops after
-30 minutes unless the brief allows more, up to 2 hours. Training adds GPU
+60 minutes unless the brief allows more, up to 2 hours. Training adds GPU
 access and longer runs: 4 hours by default, 12 at most.
 
 GPU access in the Windows sandbox isn't verified yet, and Python

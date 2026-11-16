@@ -47,7 +47,7 @@ path, exports, engine, kind and cover colour. Qualifiers narrow the list:
 | --- | --- | --- |
 | `is:` | `is:bookmarked`, `is:folder`, `is:library`, `is:forked` | Project state |
 | `has:` and `no:` | `has:preview`, `no:exports` | Whether something exists |
-| `engine:` | `engine:typst`, `engine:latex` | LaTeX, Typst or Markdown |
+| `engine:` | `engine:typst`, `engine:latex` | LaTeX, Typst, Markdown, Quarto or Calepin |
 | `kind:` | `kind:image` | Document, image or diagram |
 | `color:` | `color:mint` | Cover colour |
 | `created:`, `updated:`, `opened:` | `created:>2026-01-01`, `updated:>@today-1w` | Dates |

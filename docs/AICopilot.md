@@ -15,7 +15,7 @@ it is not a second document model.
   CeTZ or fletcher in Typst.
 - Generate a template or figure when a configured provider supports it.
 - Use a hosted provider, an OpenAI-compatible endpoint, or Ollama locally.
-- Use a CLI agent instead of a model. 14 are built in, **Find more agents** in
+- Use a CLI agent instead of a model. 15 are built in, **Find more agents** in
   Settings searches the ACP registry, and you can register your own.
 - Work without an API key. Pick a CLI agent as the model for Tools, and Paper
   Review, inline edits, Fix with AI in the diagram composer, template
@@ -144,7 +144,9 @@ badge. Verified means we have run the assistant on that model and a tool call
 came back. Untested means the provider lists it but nobody has tried it with
 the assistant yet. Blocked means someone did, it failed in a way we can put
 into a sentence, and that sentence is the badge's tooltip. Blocked models stay
-in the picker so you can read why, but you cannot pick them for the assistant.
+in the picker so you can read why. A model the catalog blocks cannot be picked
+for the assistant, while a model blocked by your own probe can still be used
+for plain chat with every tool switched off.
 The labels come from a catalog the app also fetches from the CDN, which is how
 a model that breaks can be blocked for everyone the same day, with no release
 in between. No badge at all means the provider has not listed that model since

@@ -95,8 +95,13 @@ pnpm build              # typecheck + build the frontend (tsc -b && vite build)
 pnpm tauri build        # produce a distributable bundle
 ```
 
-The command-line adapter ships inside the desktop app but has no standalone
-package yet. Run it from the workspace. Cargo builds it as `oleaflyc`, because the desktop package already owns the
+The command-line adapter ships inside the desktop app, and standalone CLI
+binaries come from the `release-cli` workflow
+(`.github/workflows/release-cli.yml`): a `cli-vX.Y.Z` tag builds seven
+targets, smoke-tests each binary (version, help and doctor checks) and opens
+a draft release. Publishing that release distributes the CLI on its own
+version line, no desktop install required. For local development, run it
+from the workspace. Cargo builds it as `oleaflyc`, because the desktop package already owns the
 name `oleafly` in this workspace. Help, completions, the manual and release
 archives all call it `oleafly`:
 

@@ -58,7 +58,7 @@ Share a project to your lab's Oleafly Server and everyone edits the same files a
 </p>
 
 - Comment on any selection in LaTeX, Typst or Markdown, then reply, mention someone, resolve or reopen. A mentioned coauthor gets one email, and can turn those off.
-- Edits you make offline merge when you reconnect. If they overlap with someone else's, Oleafly shows you both and asks before it applies anything.
+- Edits you make offline merge when you reconnect. Overlapping text edits are merged automatically, and a read-only merge review shows what each author changed.
 - AI edits, Zotero citations, renames, deletes and figures all travel too. If two people replace the same figure at once, both versions are kept.
 - The main file, compiler, spelling language and Typst options are shared, so the whole team compiles the project the same way.
 - Each project has an owner, editors, reviewers, commenters and viewers. Reviewers' edits become suggestions, and owners and editors can switch to Suggesting too. Guests invited by email see only the projects they were invited to.

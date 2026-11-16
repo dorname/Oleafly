@@ -83,7 +83,7 @@ Oleafly 是本地优先（local-first）的研究写作工作区。research 模�
 
 ##### 边界：参考文献文件导入（偏差 D4）
 
-- UI 提供参考文献文件导入入口（EndNote XML / RIS / BibTeX，`FileReferencesDialog`）；基线原记为"实现支持、UI 入口待确认"，fix-doc-deviations 已确认 UI 入口存在并回补 docs/Citations.md（原 `inventory.md` 偏差 D4）
+- UI 提供参考文献文件导入入口（EndNote XML / RIS / BibTeX，`ImportReferenceLibraryDialog`）；基线原记为"实现支持、UI 入口待确认"，fix-doc-deviations 已确认 UI 入口存在并回补 docs/Citations.md（原 `inventory.md` 偏差 D4）
 
 ### S17: Zotero 文献库集成
 

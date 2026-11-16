@@ -26,7 +26,7 @@
 - provider 不可用时显式呈现，不静默吞掉。
 - 未配置 Serper key 时不列 Google Scholar。
 - 无网络时引用工作不中断：仍可继续使用本地 `.bib` 完成引用写入。
-- 参考文献 EndNote XML / RIS / BibTeX 导入（原偏差 D4）：UI 入口已确认（`FileReferencesDialog`），docs/Citations.md 已由 fix-doc-deviations 补写导入说明，按已确认的用户可见功能描述。
+- 参考文献 EndNote XML / RIS / BibTeX 导入（原偏差 D4）：UI 入口已确认（`ImportReferenceLibraryDialog`），docs/Citations.md 已由 fix-doc-deviations 补写导入说明，按已确认的用户可见功能描述。
 - 外部检索元数据只作供给，引用权威源始终是项目本地 BibTeX/Hayagriva 文件。
 
 **关联需求**

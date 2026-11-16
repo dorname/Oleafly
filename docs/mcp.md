@@ -97,9 +97,8 @@ assistant, so names, descriptions, and schemas stay in lockstep. File reads,
 listing, and search execute in Rust. File writes, replacement, creation,
 renaming, and deletion use the renderer coordinator while a window is active so
 dirty editor buffers cannot overwrite an external change. After the renderer
-disconnects, writes, replacements, creates, and renames can execute natively
-when the approval policy allows them. Deletion always requires a connected
-window.
+disconnects, only the six read-only tools keep working (file reads, listing,
+search, and the three skill tools); every write tool needs a connected window.
 
 ### Orientation
 

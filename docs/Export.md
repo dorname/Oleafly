@@ -113,7 +113,8 @@ or newer. `oleafly export` takes the same routes as the Export menu.
 
 ## Integrity and safety
 
-- Export destinations must be absolute, existing, and non-directory paths.
+- Export destinations must be absolute, non-directory paths whose parent
+  directory exists; the file itself does not have to exist yet.
 - The Rust sandbox rejects paths outside the approved destination policy.
 - Existing artifacts are preserved when a conversion fails.
 - The engine descriptor is the source of truth for allowed conversion formats.

@@ -20,6 +20,10 @@ BibTeX source remains the authority; external services only supply metadata.
   with your user ID and an API key, which Oleafly checks before saving. Up to
   5,000 items come in as BibTeX, and references already in the bibliography
   are skipped.
+- The References panel's **Import reference library** dialog also takes a
+  file: an EndNote XML, RIS, or BibTeX export, or a Zotero RDF file. Oleafly
+  adds its references to the project bibliography, and references whose DOI
+  is already there are skipped.
 - Hayagriva `.yml` bibliographies in Typst projects: keys complete and resolve,
   and a new citation goes into the bibliography the document declares. The
   References panel has a **Citation style** picker for Typst.

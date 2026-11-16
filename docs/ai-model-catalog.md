@@ -35,7 +35,8 @@ call. The assistant runs on it without a warning.
 
 **Blocked** is the other end. Someone tried the model, it failed in a way we can describe, and the
 catalog carries that description as one sentence. The assistant refuses to start a run and shows
-the sentence instead.
+the sentence instead. That refusal is absolute for a catalog block, while a model blocked by your
+own probe can still be used for plain chat with the tools switched off.
 
 Everything else is **untested**: the provider offered the model, and the catalog has nothing to
 say about it. You can still pick it, and the picker tells you it is untested. Custom endpoints

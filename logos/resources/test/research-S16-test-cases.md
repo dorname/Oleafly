@@ -63,7 +63,7 @@
 | ID | 描述 | 覆盖 Steps / EX | 验证方式 |
 |----|------|-----------------|---------|
 | ST-S16-10 [manual] | 检索结果面板的来源标识与 provider 不可用提示的呈现 | Step 5、EX-S16-1 | 人工在真实桌面应用触发一次含 provider 不可用的检索，观察候选列表中来源标识与不可用提示是否同时可见、是否可区分 |
-| ST-S16-11 [manual] | 参考文献文件（EndNote XML / RIS / BibTeX）导入入口核对（原偏差 D4，已回补） | EX-S16-6 | 人工核对桌面应用的导入入口（`FileReferencesDialog`）与 docs/Citations.md 回补后描述一致；基线原记「实现支持、UI 入口待确认」，fix-doc-deviations 已确认入口存在 |
+| ST-S16-11 [manual] | 参考文献文件（EndNote XML / RIS / BibTeX）导入入口核对（原偏差 D4，已回补） | EX-S16-6 | 人工核对桌面应用的导入入口（`ImportReferenceLibraryDialog`）与 docs/Citations.md 回补后描述一致；基线原记「实现支持、UI 入口待确认」，fix-doc-deviations 已确认入口存在 |
 
 ## 三、覆盖度校验
 
