@@ -1,0 +1,21 @@
+{
+  "type": "merge_complete",
+  "completed_at": "2026-11-17T09:51:39.944Z",
+  "test_change_set": {
+    "schema": "openlogos/test-change-set@1",
+    "change": "add-test-reporter",
+    "module": "core",
+    "source": "semantic-before-after-diff",
+    "changed_test_ids": [],
+    "removed_test_ids": [],
+    "targets": [],
+    "sha256": "sha256:1f0f5c373613816b88923035aa85a34baf15c1dccaf3fd5f6722177dbfa5dde5"
+  },
+  "merge_baseline": {
+    "schema": "openlogos/merge-baseline@1",
+    "delta_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "targets": [],
+    "prototypes": []
+  },
+  "amendments": []
+}
