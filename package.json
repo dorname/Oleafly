@@ -45,6 +45,7 @@
     "lint": "biome lint src packages",
     "lint:fix": "biome lint --write src packages",
     "test": "vitest run --maxWorkers=4",
+    "test:openlogos": "node scripts/openlogos-test.mjs",
     "test:coverage": "vitest run --coverage --maxWorkers=4",
     "test:editor:performance": "vitest run --config vitest.editor-performance.config.ts",
     "test:watch": "vitest",

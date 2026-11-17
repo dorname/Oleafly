@@ -11,5 +11,8 @@ export default defineConfig({
     environment: "jsdom",
     include: ["web/src/**/*.test.ts", "web/src/**/*.test.tsx", "web/dev/**/*.test.ts"],
     setupFiles: ["./web/vitest.setup.ts"],
+    // OpenLogos 运行时覆盖：与主实例同构的 json reporter，产出独立原始文件。
+    reporters: ["default", "json"],
+    outputFile: { json: "logos/resources/verify/.raw/vitest-web.json" },
   },
 });

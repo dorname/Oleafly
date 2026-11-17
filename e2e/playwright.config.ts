@@ -23,7 +23,13 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   workers: 1,
   fullyParallel: false,
-  reporter: [["list"]],
+  // list 保留人读进度；json reporter 落盘逐条结果，供
+  // scripts/openlogos-reporter.mjs 与 test-map.json join 成契约 JSONL
+  // （见 logos/spec/test-results.md「集中映射表 + 聚合器」章节）。
+  reporter: [
+    ["list"],
+    ["json", { outputFile: "logos/resources/verify/.raw/playwright.json" }],
+  ],
   // Playwright enables diff capture in CI and fetches the PR base SHA for
   // every invocation. On Windows that three-second fetch can time out without
   // terminating the child process, eventually overflowing Playwright's stdout

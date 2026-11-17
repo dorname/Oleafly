@@ -31,6 +31,11 @@ export default defineConfig({
     environment: "node",
     include: ["src/**/*.test.ts", "src/**/*.test.tsx", "packages/**/*.test.ts", "packages/**/*.test.tsx"],
     setupFiles: ["./vitest.setup.ts"],
+    // OpenLogos 运行时覆盖：json reporter 把逐条测试结果落盘，供
+    // scripts/openlogos-reporter.mjs 与 logos/resources/verify/test-map.json
+    // join 成契约格式的 test-results.jsonl（见 logos/spec/test-results.md）。
+    reporters: ["default", "json"],
+    outputFile: { json: "logos/resources/verify/.raw/vitest.json" },
     coverage: {
       provider: "v8",
       reporter: ["lcov"],

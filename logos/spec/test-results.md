@@ -65,7 +65,7 @@ logos/resources/verify/test-results.jsonl
 - `id` 必须匹配正则 `^(UT|ST)-S\d{2}-\d{2,3}$`
 - `status` 仅允许三个值：`pass`、`fail`、`skip`
 - `error` 在 `status=fail` 时必须提供，其他状态可省略
-- 同一个 `id` 如果出现多次（如重试），`openlogos verify` 取**最后一次**的结果
+- 同一个 `id` 如果出现多次（如重试），`openlogos verify` 按「同 ID timestamp 去重全序规则」取最新一次的结果（完整算法见「JSONL 结果账本一致性与 Gate 判据 → 归一化规则」；该 ID 存在任一缺失/非法 `timestamp` 时整组退回文件行序 last-wins，等价旧行为——旧 reporter 不写 `timestamp`，产物零行为变化）
 
 ### `[manual]` 标记用例
 
@@ -135,8 +135,10 @@ logos/resources/verify/test-results.jsonl
 1. 若配置 `regression_command`，先执行回归测试。
 2. 若配置 `incremental_command`，再执行增量测试。
 3. CLI 合并阶段结果，写入 `result_path`。
-4. 同一个用例 ID 多次出现时，最后一次结果生效。
+4. 同一个用例 ID 多次出现时（含跨阶段重复），按**「同 ID timestamp 去重全序规则」**取一条生效记录（contract-self-description 统一算法，见「归一化规则」第 5 条）：该 ID 全部 `timestamp` 合法 → 绝对时刻最新优先、同刻按合并后文件行序后者优先；存在任一缺失/非法 → 该 ID 整组退回合并后文件行序 last-wins。**两阶段合并与单文件去重不得各自实现两套语义**。
 5. 若未配置阶段结果路径，CLI 必须用临时快照或等价机制避免第二阶段 reporter 清空第一阶段结果。
+
+**`merge_results: "last-write-wins"` 配置值语义升级（contract-self-description）**：枚举值名称保留（**兼容名称，不新增枚举、不要求迁移**），其规范语义即上述统一全序算法——对不写 `timestamp` 的旧 reporter 产物，算法必然命中「整组退回行序 last-wins」分支，行为与旧名字面含义逐字节一致（零行为变化）；写 `timestamp` 的新 reporter 则取真正最新的执行证据。该配置语义以 S13 测试用例为验收锚（两阶段合并路径的 timestamp 去重回归）。
 
 ### `verify.sandbox_mode` / `smoke.sandbox_mode`
 
@@ -190,6 +192,79 @@ reporter 在写入前应确保 `logos/resources/verify/` 目录存在（`mkdir -
 2. **清空策略一致**：无论是否分批，执行“本批完整测试”前都必须先清空结果文件，避免混入旧批次数据
 3. **重复 ID 判定**：同一 `id` 在同次运行中出现多条记录（如重试）时，`openlogos verify` 仍以最后一条为准
 4. **批次可独立验收**：建议每一批产出后立即运行测试并校验 JSONL，可在批次内尽早发现“只写业务未写测试”或 ID 不匹配问题
+
+## 集中映射表 + 聚合器模式（存量项目适用）
+
+> 适用场景：测试体系规模大（数千个测试函数），且**测试代码里不含用例 ID**——此时前两种模式都不成立：
+> 「测试代码内嵌 reporter」要求逐个改写上千个测试文件；「从测试名提取 ID」要求测试名含 ID，
+> 而存量测试通常是行为描述句。此时用**集中映射表**把用例 ID 映射到既有测试，
+> 由一个**聚合器**把各框架的结构化结果 join 成契约 JSONL。
+
+### 映射表
+
+映射表默认放在 `logos/resources/verify/test-map.json`：
+
+```json
+{
+  "schema": "openlogos/test-map@1",
+  "cases": {
+    "UT-S01-01": {
+      "vitest": ["src/store/project.test.ts > detects the project name"],
+      "e2e": ["e2e/tests/01-library.spec.ts > creates a project from a template"],
+      "rust": ["oleafly_core::project::tests::detects_project_name"]
+    }
+  }
+}
+```
+
+| 字段 | 说明 |
+|---|---|
+| `vitest` | Vitest 测试选择器，语法 `<测试文件路径> > <测试标题前缀>` |
+| `e2e` | Playwright spec 选择器，语法 `<spec 文件路径> > <测试标题前缀>` |
+| `rust` | Rust 测试名（函数名，或 `模块路径::函数名`） |
+
+匹配规则：
+
+- **路径**按后缀匹配——映射表写仓库根相对路径即可，原始结果里的绝对路径同样命中；
+- **标题**按**前缀**匹配（测试标题常带尾部的解释性从句，前缀比全文更稳）；
+- **Rust 测试名**按后缀或包含匹配（nextest 的名字形如 `crate::module$fn` 或 `crate::module::fn`）。
+
+### 聚合语义
+
+- 同一用例命中多条测试时，状态取**最差值**（`fail` > `skip` > `pass`），错误信息取第一条；
+- 命中 0 条测试的用例**不写入 JSONL**——它会以 uncovered 出现在验收报告里，
+  而不是被伪装成 `skip`；
+- `duration_ms` 为命中测试的耗时之和。
+
+### 各框架的结构化输出
+
+聚合器只读各框架**自带**的结构化结果，不要求改动测试代码：
+
+| 体系 | 采集方式 | 原始文件 |
+|---|---|---|
+| Vitest | `--reporter=json --outputFile=<path>`（也可在 config 里配 `reporters`/`outputFile`） | `.raw/vitest.json`、`.raw/vitest-web.json` |
+| Playwright | `reporter: [["list"], ["json", { outputFile }]]` | `.raw/playwright.json`、`.raw/playwright-web.json` |
+| Rust | `cargo nextest run --workspace --message-format libtest-json`（需 `NEXTEST_EXPERIMENTAL_LIBTEST_JSON=1`） | `.raw/rust.json` |
+| Rust（回退） | `cargo test --workspace --all-targets --no-fail-fast` 的文本输出 | `.raw/rust.txt` |
+
+Rust 回退路径下 libtest 只打印函数名（不含模块路径），映射粒度因此更粗——优先用 nextest。
+
+### 清空策略
+
+聚合器在写 JSONL 前**清空**目标文件，保证只含最近一次采集的结果；
+原始结果文件由各套测试在运行前清空。`pnpm test:openlogos` 这类聚合入口
+（跑三套测试 → 聚合）在每次运行开始时清空全部原始文件。
+
+### 与 verify 预跑命令的关系
+
+聚合入口若会写工作区内的构建产物（如 `cargo` 的 `target/`、Playwright 的 `test-results/`），
+**不适合直接作为 `verify.pre_run_command`**——verify 的沙箱只放行结果文件路径，
+预跑命令会被判定为越界写入。此时采用「**先采集后验收**」：
+
+1. 先跑聚合入口，产出完整的 `test-results.jsonl`；
+2. 再跑 `openlogos verify`——它读取已有 JSONL 做三层追溯。
+
+verify 在未配置预跑命令时会对覆盖不足给出诊断，但**不改变 Gate 判定**。
 
 ## AI 生成 reporter 代码模板
 
@@ -370,6 +445,138 @@ func ReportResult(id, status string, durationMs int64, err string) {
 }
 ````
 
+## Smoke 结果与覆盖预检
+
+部署后 smoke 用例使用同一类 JSONL 结果格式，但默认写入：
+
+```text
+logos/resources/verify/smoke-results.jsonl
+```
+
+可通过 `logos.config.json.smoke.result_path` 覆盖该路径。每行仍为一个 JSON 对象：
+
+```json
+{ "id": "SMOKE-core-01", "status": "pass", "timestamp": "2026-06-28T00:00:00.000Z", "scenario": "cli version" }
+```
+
+当提案新增或修改 `logos/resources/test/smoke/*.md`，code 阶段必须同步实现可执行 smoke 闭环：
+
+- `scripts/smoke-*.sh`、`scripts/smoke-*.js` 或等效 smoke runner 必须覆盖新增或修改的 `SMOKE-*` ID。
+- runner 必须写入 `smoke-results.jsonl` 或 `smoke.result_path` 指定路径。
+- `smoke.command` 必须能执行新增 runner；推荐配置为 `node scripts/run-smoke.js` 统一 dispatcher，由 dispatcher 自动发现并运行 `scripts/smoke-*`。
+- `openlogos verify` / code completion gate 可执行 smoke 覆盖预检：若本提案新增 smoke ID 但缺少 runner、reporter 或执行结果，应输出 `smoke_runner_missing`、`smoke_reporter_missing` 或 `smoke_cases_uncovered`，并阻断 code 完成。
+
+推荐项目在根目录提供：
+
+```json
+{
+  "smoke": {
+    "command": "node scripts/run-smoke.js",
+    "result_path": "logos/resources/verify/smoke-results.jsonl"
+  }
+}
+```
+
+`scripts/run-smoke.js` 负责发现并顺序运行 `scripts/smoke-*.sh` / `scripts/smoke-*.js`。runner 可通过 `OPENLOGOS_SMOKE_RESULT_PATH` 读取目标结果路径，避免硬编码。
+
+### 目标环境注入与 `target_environment`（environment-registry）
+
+- 项目存在 `logos/environments.yaml` 且执行 `openlogos smoke --env <id|alias>` 时，CLI 以环境变量 `OPENLOGOS_SMOKE_ENV=<解析后的 id>` 运行 `smoke.command`（含沙箱内执行）。登记表不存在时不注入。
+- smoke 结果行新增**可选**字段 `target_environment`（string）：runner 写入其**实际验证的**环境 id，通常取自 `OPENLOGOS_SMOKE_ENV`，但必须是 runner 真正访问的目标，不得在访问了其他环境时照抄注入值。
+
+```json
+{ "id": "SMOKE-core-01", "status": "pass", "timestamp": "2026-10-14T08:00:00.000Z", "target_environment": "prod" }
+```
+
+- 既有字段 `environment`（若 runner 写入）是 runner 自定义的执行环境标签，语义不变，不参与环境证据判定。
+- CLI 只就计入门禁的结果行判定环境证据：任一行声明与本次环境不一致 → 登记表存在时门禁 FAIL，原因 `SMOKE_ENV_EVIDENCE_MISMATCH`；全部声明一致 → 记为已声明；存在缺少声明的行 → 门禁按既有判据计算（兼容旧 runner），但本次结果不算「已在该环境验证」。判定细节与账本记录见 `spec/environments.md` §5、§6。
+- 本字段不改变 `id` / `status` / `reason_code` / `detail` 的既有语义，也不改变覆盖预检与 skip 统计口径。
+
+## JSONL 结果账本一致性与 Gate 判据
+
+`openlogos verify` 读取 `test-results.jsonl` 时，必须把“结果格式合法”和“统计自洽”作为 Gate PASS 的前置条件。
+
+### skip 结果的有效通过语义
+
+`status:"skip"` 表示用例已被当前测试运行明确处理，但因本机环境、外部依赖、部署目标或平台能力限制未实际执行断言。它不同于未覆盖：
+
+- skip 结果必须由 reporter 显式写入 JSONL；
+- skip 计入 `executed_count`，并使对应定义用例计入 covered；
+- skip 计入 `skipped_count`，并继续暴露在 `skipped_cases` / 报告的跳过列表中；
+- skip 不计入 `failed_count`，也不作为 Gate 失败原因；
+- 在计算通过率时，skip 视为有效通过，使用 `(passed_count + skipped_count) / executed_count`。
+
+该语义只适用于合法、已定义、非 `[manual]` 的自动化结果。非法 JSON、未知 ID、manual ID、缺失 `fail.error` 等账本一致性错误仍必须使 Gate FAIL。
+
+### 归一化规则
+
+1. 每行必须是 JSON 对象。
+2. 每条记录必须包含字符串 `id` 和 `status`。
+3. `status` 只能为 `pass`、`fail` 或 `skip`。
+4. `status="fail"` 时必须提供非空 `error`。
+5. 同一 `id` 多次出现时，在**合法记录**之间按「同 ID timestamp 去重全序规则」取一条生效记录（contract-self-description，替代旧「最后一条合法记录生效」行序规则）：
+   1. 先对该 ID 的每条记录严格解析 `timestamp`（ISO 8601，含时区偏移归一为绝对时刻）；非法格式一律按「缺失」处理；
+   2. **该 ID 全部记录时间戳均合法** → 按绝对时刻比较取最新；同一时刻（含不同时区表示的同刻）→ 文件行序后者优先；
+   3. **该 ID 存在任一缺失/非法时间戳** → 该 ID 整组退回文件行序 last-wins（等价旧行为——不对不完整证据做时间猜测，对齐宁慢勿错杀原则，也保证旧 reporter 产物零行为变化）。
+
+   去重按 ID 分组独立进行；一个 ID 退回行序不影响其他 ID 按时间戳去重。旧 reporter（完全不写 `timestamp`）的账本对每个 ID 均命中第 3 条 → 与旧版结论逐字节一致，**零行为变化**。实现测试必须覆盖混合情况：乱序追加、缺失+合法混排、非法格式、异时区同刻。
+6. 非法记录必须进入诊断集合，不得被静默丢弃后继续 PASS（去重只在合法记录之间进行，不吞非法行）。
+
+### ID 对齐规则
+
+1. 自动化结果 ID 必须与 `logos/resources/test/**/*.md` 中定义的非 `[manual]` `UT-*` / `ST-*` 用例完全一致。
+2. 未定义 ID 必须被报告为 `unknown_test_result_id`。
+3. `[manual]` 用例不得写入 JSONL；若出现，应报告为 `manual_test_result_id`。
+
+### 统计不变量
+
+去重（按上文「同 ID timestamp 去重全序规则」）并过滤为合法自动化结果后，verify 汇总必须满足：
+
+```text
+passed_count + failed_count + skipped_count == executed_count
+executed_count <= defined_count
+covered_count + uncovered_count == defined_count
+```
+
+通过率必须按有效通过数计算：
+
+```text
+effective_passed_count = passed_count + skipped_count
+pass_rate_pct = executed_count > 0 ? round(effective_passed_count / executed_count * 100) : 0
+```
+
+若 `failed_count == 0`，还必须满足：
+
+```text
+passed_count + skipped_count == executed_count
+pass_rate_pct == 100
+```
+
+任一不变量失败时，`gate.result` 必须为 `FAIL`，`gate.reason` 必须非空，推荐使用 `result_ledger_inconsistent` 或具体错误码。
+
+**与去重规则的关系（contract-self-description）**：上述守恒不变量与「JSON 输出建议」的 `consistency` 契约均在**去重后**的结果集上计算；去重规则的变更只影响「同一 ID 多条记录取哪一条」，**不改变 `consistency` 既有契约**（字段形态、`ok` 判据、FAIL 语义均不变）。极端场景（乱序追加的 jsonl）下 verify 结论可能与旧版不同——这正是改造目的：取真正最新的执行证据，而非文件末尾的陈旧证据。
+
+### JSON 输出建议
+
+`openlogos verify --format json` 应输出可选 `consistency` 字段，供自动化消费方展示诊断：
+
+```json
+{
+  "consistency": {
+    "ok": false,
+    "reasons": ["unknown_test_result_id", "result_count_mismatch"],
+    "unknown_result_ids": ["UT-S13-GHOST"],
+    "manual_result_ids": [],
+    "invalid_results": [
+      {"line": 3, "id": "UT-S13-X", "reason": "invalid_status"}
+    ],
+    "count_mismatches": ["passed_failed_skipped_ne_executed"]
+  }
+}
+```
+
+当 `consistency.ok === false` 时，任何客户端都必须把 verify 视为未通过；不得仅因 `failed_count == 0` 和 `uncovered_count == 0` 继续推进 archive、deploy 或 release。
+
 ## 与其他规范的关系
 
 | 规范 | 关系 |
@@ -379,3 +586,80 @@ func ReportResult(id, status string, durationMs int64, err string) {
 | `directory-convention.md` | 定义 `logos/resources/verify/` 目录位置 |
 | `logos.config.json` | `verify.result_path` 可覆盖默认路径 |
 | `openlogos verify` 命令 | 读取此格式文件，生成验收报告 |
+
+## 切片 checkpoint 的结果集合与 pending 语义
+
+### 三个集合
+
+切片感知 verify 必须在读取 reporter JSONL 前确定以下互斥/包含关系：
+
+- `eligible_test_ids`：本轮必须有合法最终结果、参与覆盖率与 Gate 的测试。
+- `pending_test_ids`：属于未来未确认切片，尚不要求结果且不进入分母。
+- `defined_test_ids`：已合并测试规格中全部非 manual ID，满足 `eligible ∪ pending ⊆ defined`。
+
+checkpoint 下 eligible 为基线回归、已确认切片与 attempted slice 的并集；pending 为其余 owned tests。final 下 eligible 等于全部 defined，pending 为空。
+
+### reporter 处理
+
+1. reporter 格式、合法 `status`、timestamp 去重与手工用例排除沿用既有规则。
+2. 覆盖率只按 eligible 计算：
+
+```text
+covered = eligible ∩ latest_result_ids
+uncovered = eligible − covered
+coverage = |covered| / |eligible|
+```
+
+3. pending 没有结果是合法状态，不生成 pass/skip 行，不进入 uncovered。
+4. reporter 若意外输出 pending ID，保留该行供诊断但不得使未来切片提前确认；严格模式以 `result_outside_eligible_scope` 失败。
+5. 未在 defined 中的结果仍按既有 unknown ID 硬门失败。
+
+### 基线回归集合
+
+`baseline_test_ids = defined_test_ids − manifest_owned_test_ids`。它在每个 checkpoint 都属于 eligible，用于阻止当前切片破坏未触达能力。manifest owned 集合必须只包含本提案新增或修改的测试 ID；不得把全项目测试都分配到切片以逃避基线定义。
+
+### checkpoint/final 报告
+
+验收报告新增 mode、attempted slice、eligible/pending 数量和 ID 清单、manifest fingerprint、confirmed slices。checkpoint PASS 明确标注“切片检查点通过，非最终验收”，不得产生最终 `VERIFY_PASS`。final 报告继续给出全量覆盖率与 Gate 结论。
+
+### checkpoint 账本
+
+`SLICE_CHECKPOINTS.jsonl` 每行至少包含：`schema`、`slice_id`、`manifest_sha256`、`result`、`eligible_test_ids_sha256`、`timestamp`。有效完成只采信当前 manifest 哈希的最新 PASS；相同 identity 的重复 PASS 幂等。FAIL 可留作审计，但 attempted identity 由“缺少有效 PASS 的首片”恢复。
+
+### 安全边界
+
+- pending 不是 reporter status，允许的结果状态枚举不新增 `pending`。
+- checkpoint 不降低非法状态、unknown ID、重复结果和 100% eligible coverage 硬门。
+- final 不允许 pending，不接受部分结果。
+- manifest 恢复态不读取旧 JSONL 计算 Gate，不生成验收报告假失败。
+
+## 沙箱复用配置
+
+> 归属「`verify.sandbox_mode` / `smoke.sandbox_mode`」；来源变更 verify-sandbox-reuse-0-16-1（决策 C01、C02），功能规格 §2.91。本节为 `verify` / `smoke` 两个新增可选配置字段的权威定义；`spec/logos.config.schema.json` 的 `verify` / `smoke` 节点未限制额外属性，新字段不会被拒绝，schema 补录另案处理。
+
+### 字段
+
+| 字段 | 所在节点 | 类型 | 默认 | 说明 |
+|---|---|---|---|---|
+| `sandbox_reuse` | `verify`、`smoke` | boolean | `true` | 仅在 `sandbox_mode` 为 `auto` / `always` 时生效。`true`：每项目一份持久沙箱，跨运行留存并增量同步；`false`：一次性临时沙箱（引入复用前的行为） |
+| `sandbox_cache_paths` | `verify`、`smoke` | string[] | `[]` | 工作区相对路径。命中的路径归沙箱所有：同步时不从工作区复制、不删除，跨运行留存（如 Rust 的 `target`、`src-tauri/target`） |
+
+```json
+{
+  "verify": {
+    "pre_run_command": "cargo test && node scripts/report.js",
+    "sandbox_mode": "auto",
+    "sandbox_root": "/Volumes/BuildWork/openlogos-sandbox",
+    "sandbox_reuse": true,
+    "sandbox_cache_paths": ["src-tauri/target"]
+  }
+}
+```
+
+### 约束
+
+- 默认值在读取时补齐；`openlogos init` / `sync` 不向配置写入这两个字段。
+- `sandbox_cache_paths` 的非法项（绝对路径、规范化后含 `..`、为空或项目根、与任一白名单结果路径相同 / 为其祖先 / 为其后代）被忽略并在 `sandbox.diagnostics` 中给出诊断，按普通镜像路径处理。**结果文件不得放在缓存路径内**——reporter 写入的结果文件必须随每次同步被工作区状态覆盖，才能保证回收的是本次结果。
+- 缓存路径**不豁免**写入审计：`sandbox_deny_workspace_write=true` 时，命令对缓存路径的写入与其他非白名单写入同口径（`auto` 告警、`always` 失败）。需要在 `always` 下使用缓存路径的项目，应让构建产物写到工作区之外（如 cargo 的 `CARGO_TARGET_DIR`）。
+- reporter 不需要感知复用：清空策略不变，每次完整测试运行前仍应清空对应阶段的结果文件。verify 在执行预跑命令前清空结果文件，清空后的状态经同步进入沙箱。
+- 复用不改变 `test-results.jsonl` 的 schema 与门禁判据。

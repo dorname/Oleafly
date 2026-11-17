@@ -81,8 +81,7 @@
     "result_path": "logos/resources/verify/test-results.jsonl",
     "sandbox_mode": "auto",
     "sandbox_root": "/private/tmp",
-    "sandbox_deny_workspace_write": true,
-    "pre_run_command": "pnpm test"
+    "sandbox_deny_workspace_write": true
   },
   "smoke": {
     "result_path": "logos/resources/verify/smoke-results.jsonl",

@@ -8,7 +8,11 @@ export default defineConfig({
   timeout: 60_000,
   retries: process.env.CI ? 1 : 0,
   workers: 1,
-  reporter: [["list"]],
+  // 与桌面端 E2E 同构：json reporter 落盘逐条结果，供 OpenLogos 聚合器 join。
+  reporter: [
+    ["list"],
+    ["json", { outputFile: "logos/resources/verify/.raw/playwright-web.json" }],
+  ],
   use: {
     baseURL: `http://localhost:${WEB_PORT}`,
     trace: "retain-on-failure",
