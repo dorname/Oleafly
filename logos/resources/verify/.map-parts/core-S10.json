@@ -3,142 +3,231 @@
   "module": "core-S10",
   "cases": {
     "ST-S10-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state",
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint exposes the publication-grade check set and profile selector"
+      ],
+      "e2e": [
+        "13-preflight.spec.ts > preflight categories render and a single check runs independently"
+      ],
       "rust": []
     },
     "ST-S10-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state"
+      ],
+      "e2e": [
+        "13-preflight.spec.ts > preflight categories render and a single check runs independently"
+      ],
       "rust": []
     },
     "ST-S10-03": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/FindingRow.test.tsx > FindingRow shows every finding category, severity, location, and certainty label"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-04": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PrepExport.test.ts > prepGate offers preparation for a compatible class and lists packages that will not tag",
+        "packages/preflight/src/accessible-prep.test.ts > prepareAccessibleSource: DocumentMetadata adds \\DocumentMetadata as the very first line when missing"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-05": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > runPreflight reports partial submission coverage until a PDF is available",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight marks Typst submission checks partial until there is a PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-06": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PrepExport.test.ts > prepGate does not offer preparation for a class that cannot be tagged, and names it",
+        "packages/preflight/src/tagging-status.test.ts > taggingGate blocks an incompatible class and names it"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-07": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/tagging-status.test.ts > taggingGate treats a package with no recorded verdict as a caution, not as compatible",
+        "src/components/preflight/PrepExport.test.ts > prepGate cautions about a package with no recorded verdict instead of passing it"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-08": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability counts nothing as read when the PDF was never inspected",
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability stops trusting the marked-content and structure evidence when extraction failed",
+        "src/components/preflight/PreflightPanel.results.test.tsx > Preflight check results summarises PDF/UA coverage with its caveat once a PDF was checked"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-09": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight does not apply LaTeX source rules to unsupported source profiles",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight keeps output checks shared when source checks are unavailable"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "markdown_gets_no_source_rules_but_still_reads_the_log"
+      ]
     },
     "ST-S10-10": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state"
+      ],
+      "e2e": [
+        "13-preflight.spec.ts > preflight categories render and a single check runs independently"
+      ],
       "rust": []
     },
     "UT-S10-01": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a non-empty, sorted, duplicate-free capability list",
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract matches the Rust capability list exactly",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends backendProtocolInfo"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "info_reports_the_declared_contract"
+      ]
     },
     "UT-S10-02": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition denies capabilities until the backend descriptor resolves",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight runs Typst rules and reports refs, submission and privacy as evaluated"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "descriptor_exposes_canonical_identity_and_capabilities"
+      ]
     },
     "UT-S10-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends setProjectEngineCmd keeps auto-detection"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends hasTaggingEngine"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S10-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-07": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > search_project and list_files lists the project's files",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends readProjectSourcesBatch"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-08": {
-      "vitest": [],
+      "vitest": [
+        "src/components/ErrorBoundary.test.tsx > ErrorBoundary crash screen logs a caught error to the app log"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-09": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > runPreflight reports partial submission coverage until a PDF is available"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-10": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/FindingRow.test.tsx > FindingRow shows every finding category, severity, location, and certainty label"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-11": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PrepExport.test.ts > prepGate does not offer preparation for a class that cannot be tagged, and names it",
+        "packages/preflight/src/tagging-status.test.ts > taggingGate blocks an incompatible class and names it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-12": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/tagging-status.test.ts > taggingGate treats a package with no recorded verdict as a caution, not as compatible"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-13": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability counts nothing as read when the PDF was never inspected",
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability stops trusting the marked-content and structure evidence when extraction failed",
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability does not treat catalog rules as evaluated on an untagged PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-14": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight does not apply LaTeX source rules to unsupported source profiles",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight keeps output checks shared when source checks are unavailable"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "markdown_gets_no_source_rules_but_still_reads_the_log"
+      ]
     },
     "UT-S10-15": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-16": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state",
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint exposes the publication-grade check set and profile selector"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-17": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.results.test.tsx > Preflight check results switches the publication profile",
+        "packages/preflight/src/profiles.test.ts > submission profiles detects official IEEE and ACM classes"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-18": {
-      "vitest": [],
+      "vitest": [
+        "src/store/preflight.test.ts > preflight store uses an explicit profile and treats a stale successful compile as source-only",
+        "src/store/preflight.test.ts > preflight store runs PDF-backed checks only for the current compile checkpoint"
+      ],
       "e2e": [],
       "rust": []
     }

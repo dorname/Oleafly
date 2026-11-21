@@ -1,6 +1,6 @@
 {
   "schema": "openlogos/test-map@1",
-  "generated_at": "2026-11-21T08:36:54.775Z",
+  "generated_at": "2026-11-21T09:05:43.671Z",
   "description": "用例 ID → 测试选择器映射表。vitest/e2e 选择器语法为「<文件路径> > <标题前缀>」；rust 选择器为测试名（函数名或模块路径::函数名）。多选择器时状态取最差值。",
   "cases": {
     "ST-S21-01": {
@@ -783,2005 +783,3120 @@
     "ST-S30-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_see_each_others_typing_through_the_server",
+        "an_update_is_acknowledged_and_reaches_the_others",
+        "changes_that_arrive_together_share_one_commit_and_both_are_acknowledged"
+      ]
     },
     "ST-S30-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/live/presence.test.ts > presence publisher sends at most once per 150 ms"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "hiding_tells_the_others_this_device_left_after_its_last_presence",
+        "presence_and_leaving_cross_between_socket_and_long_poll"
+      ]
     },
     "ST-S30-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_bigger_than_one_batch_goes_out_in_pieces_that_each_fit",
+        "four_three_megabyte_files_added_at_once_reach_the_other_editor_over_a_socket"
+      ]
     },
     "ST-S30-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_single_edit_too_large_for_any_batch_is_refused_here_and_never_sent_again",
+        "a_batch_refused_as_full_waits_for_the_next_connection_without_counting_as_on_its_way"
+      ]
     },
     "ST-S30-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_on_its_way_up_extends_the_quiet_window_by_what_a_slow_link_needs",
+        "a_large_change_on_a_slow_uplink_is_acknowledged_without_reconnecting"
+      ]
     },
     "ST-S30-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_frame_of_an_unknown_type_is_skipped_and_the_frames_around_it_arrive_over_a_socket",
+        "an_update_that_cannot_be_imported_is_skipped_and_the_rest_of_its_batch_reaches_the_editor"
+      ]
     },
     "ST-S30-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_viewer_cannot_change_the_project",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     },
     "UT-S30-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "envelopes_serialise_binary_fields_as_base64url"
+      ]
     },
     "UT-S30-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mode_from_a_later_version_reads_as_unknown_and_signs_like_no_known_mode"
+      ]
     },
     "UT-S30-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "envelopes_serialise_binary_fields_as_base64url"
+      ]
     },
     "UT-S30-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_signature_over_the_signing_bytes_verifies_and_breaks_on_tampering"
+      ]
     },
     "UT-S30-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "subscribed_names_the_change_stored_at_the_clients_since_number"
+      ]
     },
     "UT-S30-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_frame_of_a_type_this_build_does_not_know_reads_as_unknown_and_its_details_are_ignored"
+      ]
     },
     "UT-S30-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S30-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_message_over_the_size_limit_is_answered_before_the_socket_closes"
+      ]
     },
     "UT-S30-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "malformed_frames_are_rejected"
+      ]
     },
     "UT-S30-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_account_keeps_at_most_its_open_socket_allowance"
+      ]
     },
     "UT-S30-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_hello_is_welcomed_and_pings_are_answered"
+      ]
     },
     "UT-S30-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_upgrade_without_a_valid_session_is_refused_before_a_socket_opens"
+      ]
     },
     "UT-S30-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S30-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S30-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S30-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S30-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S30-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_bigger_than_one_batch_goes_out_in_pieces_that_each_fit"
+      ]
     },
     "UT-S30-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_single_edit_too_large_for_any_batch_is_refused_here_and_never_sent_again"
+      ]
     },
     "UT-S30-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_on_its_way_up_extends_the_quiet_window_by_what_a_slow_link_needs"
+      ]
     },
     "UT-S30-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_answer_is_overdue_only_once_a_later_ping_is_answered"
+      ]
     },
     "UT-S30-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_frame_of_an_unknown_type_is_skipped_and_the_frames_around_it_arrive_over_a_socket"
+      ]
     },
     "UT-S30-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_reviewer_always_suggests_and_the_server_takes_the_whole_batch"
+      ]
     },
     "UT-S30-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewers_forbidden_refusal_drops_the_batch_keeps_every_change_and_tells_no_one",
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "UT-S30-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_own_acknowledgement_fills_the_gap_between_others_updates"
+      ]
     },
     "UT-S30-38": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/live/presence.test.ts > presence publisher sends at most once per 150 ms and always the latest selection"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "hiding_tells_the_others_this_device_left_after_its_last_presence"
+      ]
     },
     "UT-S30-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_archives_the_project_for_everyone"
+      ]
     },
     "UT-S30-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_access_change_can_carry_the_comment_switches_and_earlier_clients_ignore_them",
+        "an_access_change_can_name_who_changed_whom_and_earlier_clients_ignore_it"
+      ]
     },
     "UT-S30-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S30-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "concurrent_edits_converge_after_both_sides_import",
+        "two_editors_see_each_others_typing_through_the_server"
+      ]
     },
     "ST-S31-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "edits_made_offline_sync_after_reconnecting",
+        "catching_up_after_time_away_reports_who_changed_which_file_and_how",
+        "a_batch_the_client_missed_is_sent_again"
+      ]
     },
     "ST-S31-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_behind_a_proxy_that_blocks_websockets_still_converge",
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through"
+      ]
     },
     "ST-S31-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "a_server_that_asks_for_a_wait_with_retry_after_is_left_alone_that_long"
+      ]
     },
     "ST-S31-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reconnect_waits_spread_over_the_whole_window",
+        "waits_grow_to_a_minute_after_many_failures_and_start_over_once_connected"
+      ]
     },
     "ST-S31-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice",
+        "a_batch_still_on_its_way_up_keeps_its_id_after_a_restart"
+      ]
     },
     "ST-S31-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "ST-S31-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_change_forged_under_another_devices_writer_id_is_refused_and_both_copies_converge"
+      ]
     },
     "ST-S31-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one",
+        "presence_and_leaving_cross_between_socket_and_long_poll"
+      ]
     },
     "ST-S31-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_behind_a_proxy_that_blocks_websockets_still_converge",
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through",
+        "a_long_poll_editor_notices_a_dropped_network_and_catches_up_after"
+      ]
     },
     "UT-S31-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_over_long_poll_is_acknowledged_and_reaches_a_socket_peer"
+      ]
     },
     "UT-S31-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "socket_changes_reach_a_long_poll_peer_in_order"
+      ]
     },
     "UT-S31-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S31-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "subscribed_names_the_change_stored_at_the_clients_since_number"
+      ]
     },
     "UT-S31-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_own_acknowledgement_fills_the_gap_between_others_updates"
+      ]
     },
     "UT-S31-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S31-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_asks_for_a_wait_with_retry_after_is_left_alone_that_long"
+      ]
     },
     "UT-S31-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "every_auth_code_has_a_wire_name_status_and_message"
+      ]
     },
     "UT-S31-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_upgrade_without_a_valid_session_is_refused_before_a_socket_opens",
+        "opening_needs_a_valid_session_and_proof_of_the_device_key"
+      ]
     },
     "UT-S31-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_over_long_poll_is_acknowledged_and_reaches_a_socket_peer",
+        "socket_changes_reach_a_long_poll_peer_in_order"
+      ]
     },
     "UT-S31-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S31-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S31-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S31-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_old_refresh_used_after_the_new_one_signs_the_device_out"
+      ]
     },
     "UT-S31-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "access_tokens_resolve_until_they_expire_and_only_the_hash_is_stored"
+      ]
     },
     "UT-S31-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S31-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S31-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_answer_is_overdue_only_once_a_later_ping_is_answered"
+      ]
     },
     "UT-S31-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reconnect_waits_spread_over_the_whole_window"
+      ]
     },
     "UT-S31-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "waits_grow_to_a_minute_after_many_failures_and_start_over_once_connected",
+        "only_a_connection_that_stayed_up_starts_the_waits_over"
+      ]
     },
     "UT-S31-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_first_minute_of_retries_never_waits_more_than_five_seconds"
+      ]
     },
     "UT-S31-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once"
+      ]
     },
     "UT-S31-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_behind_a_proxy_that_blocks_websockets_still_converge"
+      ]
     },
     "UT-S31-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through"
+      ]
     },
     "UT-S31-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "edits_made_offline_sync_after_reconnecting"
+      ]
     },
     "UT-S31-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "edits_made_offline_sync_after_reconnecting",
+        "a_batch_the_client_missed_is_sent_again"
+      ]
     },
     "UT-S31-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S31-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "UT-S31-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_reviewer_always_suggests_and_the_server_takes_the_whole_batch"
+      ]
     },
     "UT-S31-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_speaks_only_a_newer_protocol_ends_the_session_once_and_keeps_the_changes",
+        "a_server_that_speaks_only_an_older_protocol_says_the_server_needs_an_update"
+      ]
     },
     "UT-S31-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reconnect_now_cuts_a_long_wait_short"
+      ]
     },
     "UT-S31-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S31-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "ST-S32-01": {
-      "vitest": [],
-      "e2e": [],
-      "rust": []
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file"
+      ],
+      "e2e": [
+        "109-live-collaboration-peer.spec.ts > one app and a headless peer share"
+      ],
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land"
+      ]
     },
     "ST-S32-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person",
+        "a_figure_both_people_replaced_offline_keeps_both_when_their_changes_arrive_together"
+      ]
     },
     "ST-S32-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "keep_local_never_sends_them_after_an_unrelated_edit_or_a_restart"
+      ]
     },
     "ST-S32-04": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file",
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog compares only a few files at once"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land"
+      ]
     },
     "ST-S32-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person",
+        "a_figure_both_people_replaced_offline_keeps_both_when_their_changes_arrive_together"
+      ]
     },
     "ST-S32-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "many_files_changed_while_the_app_was_closed_wait_for_a_decision_and_one_does_not"
+      ]
     },
     "ST-S32-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retries_back_off_to_a_minute",
+        "os_errors_read_as_the_reasons_the_window_explains",
+        "a_file_another_program_holds_is_found_held_by_one_quick_open"
+      ]
     },
     "ST-S32-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     },
     "ST-S32-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S32-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S32-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mode_from_a_later_version_reads_as_unknown_and_signs_like_no_known_mode"
+      ]
     },
     "UT-S32-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back"
+      ]
     },
     "UT-S32-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S32-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_revoked_session_can_say_why_and_earlier_clients_still_read_it"
+      ]
     },
     "UT-S32-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S32-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "snapshots_round_trip_and_cannot_run_ahead_of_the_log",
+        "files_are_checked_against_their_hash_and_read_only_by_members"
+      ]
     },
     "UT-S32-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_title_must_not_be_empty"
+      ]
     },
     "UT-S32-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S32-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S32-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S32-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S32-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land",
+        "different_text_typed_at_the_same_place_is_all_kept"
+      ]
     },
     "UT-S32-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_difference_between_two_texts_rebuilds_the_newer_one",
+        "edits_far_apart_stay_separate_and_the_text_between_them_is_kept"
+      ]
     },
     "UT-S32-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_distance_counts_what_was_typed_and_removed",
+        "the_difference_between_two_texts_rebuilds_the_newer_one"
+      ]
     },
     "UT-S32-22": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S32-23": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog compares only a few files at once"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S32-24": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S32-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person",
+        "a_figure_both_people_replaced_offline_keeps_both_when_their_changes_arrive_together"
+      ]
     },
     "UT-S32-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_stand_in_name_keeps_the_extension_when_it_is_safe_on_its_own",
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person"
+      ]
     },
     "UT-S32-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "many_files_changed_while_the_app_was_closed_wait_for_a_decision_and_one_does_not"
+      ]
     },
     "UT-S32-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_decision_left_open_survives_a_restart_and_is_announced_again"
+      ]
     },
     "UT-S32-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "keep_local_never_sends_them_after_an_unrelated_edit_or_a_restart"
+      ]
     },
     "UT-S32-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "one_save_in_a_three_file_project_never_pauses_and_three_saves_do",
+        "ten_changed_files_pause_a_large_project_and_nine_do_not"
+      ]
     },
     "UT-S32-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retries_back_off_to_a_minute",
+        "os_errors_read_as_the_reasons_the_window_explains"
+      ]
     },
     "UT-S32-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retries_back_off_to_a_minute",
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them"
+      ]
     },
     "UT-S32-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back"
+      ]
     },
     "UT-S32-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S32-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land"
+      ]
     },
     "ST-S33-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/ManageSharing.comments.test.tsx > ManageSharing comments switch lets the owner turn comments off and back on"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_owner_adds_changes_and_removes_people",
+        "stopping_sharing_archives_the_project_for_everyone",
+        "a_link_lets_signed_in_people_join_with_the_link_role",
+        "reviewers_and_commenters_can_be_granted_linked_and_invited"
+      ]
     },
     "ST-S33-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_can_suggest_comment_and_chat",
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_viewer_still_cannot_change_anything",
+        "an_editor_can_accept_a_reviewers_suggestion"
+      ]
     },
     "ST-S33-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_update_is_acknowledged_and_reaches_the_others",
+        "two_editors_see_each_others_typing_through_the_server"
+      ]
     },
     "ST-S33-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_change_signed_by_another_key_is_refused",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "ST-S33-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_edit_mode_follows_the_role",
+        "a_reviewer_always_suggests_and_the_server_takes_the_whole_batch",
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees"
+      ]
     },
     "ST-S33-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "removal_and_sign_out_end_live_sync_the_same_way_over_both_transports",
+        "a_removed_person_is_told_and_stops_syncing",
+        "the_removed_person_hears_who_removed_them_before_sync_ends"
+      ]
     },
     "ST-S33-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_archives_the_project_for_everyone",
+        "after_stop_sharing_only_the_owner_and_admins_can_still_read_the_project"
+      ]
     },
     "ST-S33-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewers_forbidden_refusal_drops_the_batch_keeps_every_change_and_tells_no_one",
+        "an_edit_refused_while_its_writer_was_a_viewer_goes_out_once_they_can_edit_again_over_a_socket"
+      ]
     },
     "ST-S33-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_commenter_or_viewer_typing_in_the_editor_is_put_back",
+        "reviewers_and_commenters_never_touch_the_file_tree_or_settings"
+      ]
     },
     "ST-S33-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/ManageSharing.edges.test.tsx > ManageSharing people and ending stays open and says why when sharing cannot be stopped"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_archives_the_project_for_everyone",
+        "after_stop_sharing_only_the_owner_and_admins_can_still_read_the_project"
+      ]
     },
     "UT-S33-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/roles.test.ts > role helpers reads a role from wire text"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "roles_serialise_in_snake_case"
+      ]
     },
     "UT-S33-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "everyone_but_the_owner_and_unknown_roles_can_be_granted"
+      ]
     },
     "UT-S33-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_roles_say_what_they_allow",
+        "every_role_follows_the_review_matrix"
+      ]
     },
     "UT-S33-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_roles_say_what_they_allow",
+        "every_role_follows_the_review_matrix"
+      ]
     },
     "UT-S33-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_roles_say_what_they_allow",
+        "every_role_follows_the_review_matrix"
+      ]
     },
     "UT-S33-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_roles_say_what_they_allow",
+        "every_role_follows_the_review_matrix"
+      ]
     },
     "UT-S33-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_roles_say_what_they_allow",
+        "every_role_follows_the_review_matrix"
+      ]
     },
     "UT-S33-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/roles.test.ts > role helpers reads a role from wire text"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "roles_serialise_in_snake_case"
+      ]
     },
     "UT-S33-09": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/roles.test.ts > serverRoleAllows manageMembers follows the program plan's truth table",
+        "src/features/collab/roles.test.ts > serverRoleAllows names the same actions and roles, in the same order, as the protocol crate"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_roles_follow_the_rbac_truth_table",
+        "the_truth_table_lists_every_action_exactly_once"
+      ]
     },
     "UT-S33-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_newer_status_reads_as_unknown"
+      ]
     },
     "UT-S33-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "members_patches_and_new_projects_match_their_wire_json"
+      ]
     },
     "UT-S33-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_access_change_can_carry_the_comment_switches_and_earlier_clients_ignore_them",
+        "an_access_change_can_name_who_changed_whom_and_earlier_clients_ignore_it"
+      ]
     },
     "UT-S33-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_access_change_can_name_who_changed_whom_and_earlier_clients_ignore_it"
+      ]
     },
     "UT-S33-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S33-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S33-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_owner_adds_changes_and_removes_people"
+      ]
     },
     "UT-S33-17": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/ManageSharing.comments.test.tsx > ManageSharing comments switch lets the owner turn comments off and back on"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_the_owner_turns_comments_off_for_a_project_and_everyone_sees_it"
+      ]
     },
     "UT-S33-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_directory_finds_other_people_by_name"
+      ]
     },
     "UT-S33-19": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/roles.test.ts > role helpers gives each project role the rights in the role table"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_roles_say_what_they_allow"
+      ]
     },
     "UT-S33-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_edit_mode_follows_the_role",
+        "an_owners_chosen_mode_is_kept_on_disk"
+      ]
     },
     "UT-S33-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S33-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S33-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S33-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S33-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S33-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S33-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S33-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S33-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S33-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S33-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "UT-S33-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     },
     "UT-S33-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_comments_off_a_reviewer_comment_is_refused_and_a_suggestion_still_saves",
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "UT-S33-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_edit_mode_follows_the_role",
+        "a_reviewer_always_suggests_and_the_server_takes_the_whole_batch",
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees"
+      ]
     },
     "UT-S33-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_can_withdraw_their_own_suggestion_but_not_accept_one",
+        "only_owners_and_editors_accept_or_reject_and_only_the_author_withdraws"
+      ]
     },
     "UT-S33-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_commenter_or_viewer_typing_in_the_editor_is_put_back",
+        "reviewers_and_commenters_never_touch_the_file_tree_or_settings"
+      ]
     },
     "UT-S33-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "removal_and_sign_out_end_live_sync_the_same_way_over_both_transports",
+        "a_removed_person_is_told_and_stops_syncing",
+        "the_removed_person_hears_who_removed_them_before_sync_ends"
+      ]
     },
     "UT-S33-38": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_archives_the_project_for_everyone",
+        "after_stop_sharing_only_the_owner_and_admins_can_still_read_the_project"
+      ]
     },
     "UT-S33-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_edit_refused_while_its_writer_was_a_viewer_goes_out_once_they_can_edit_again_over_a_socket",
+        "a_viewers_forbidden_refusal_drops_the_batch_keeps_every_change_and_tells_no_one"
+      ]
     },
     "UT-S33-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewers_forbidden_refusal_drops_the_batch_keeps_every_change_and_tells_no_one",
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "UT-S33-41": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/ManageSharing.comments.test.tsx > ManageSharing comments switch lets the owner turn comments off and back on"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_owner_adds_changes_and_removes_people",
+        "stopping_sharing_archives_the_project_for_everyone",
+        "a_link_lets_signed_in_people_join_with_the_link_role"
+      ]
     },
     "UT-S33-42": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/ManageSharing.comments.test.tsx > ManageSharing comments switch is not offered to people who are not the owner"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_the_owner_turns_comments_off_for_a_project_and_everyone_sees_it",
+        "admin_routes_never_create_or_read_project_grants"
+      ]
     },
     "UT-S33-43": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S33-44": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     },
     "ST-S34-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.test.tsx > Comments tab replies with the members so mentions resolve, and resolves the thread"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_thread_starts_with_its_quote_its_range_and_its_first_message",
+        "a_thread_can_be_resolved_and_reopened",
+        "a_mention_in_a_new_comment_emails_the_person_once_the_minute_is_up"
+      ]
     },
     "ST-S34-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets an owner accept or reject one suggestion"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "accepting_keeps_the_text_and_rejecting_puts_the_original_back",
+        "only_the_author_withdraws_and_a_withdrawal_puts_the_text_back",
+        "two_reviewers_suggesting_at_once_converge"
+      ]
     },
     "ST-S34-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/chat/ChatPane.test.tsx > project chat sends a message and shows it straight away"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "messages_reach_everyone_in_order_and_older_ones_come_in_pages",
+        "chat_is_sent_listed_deleted_and_cleared_by_the_owner"
+      ]
     },
     "ST-S34-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "a_comment_written_offline_stays_off_the_server_round_after_round_over_a_socket"
+      ]
     },
     "ST-S34-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_comments_off_for_the_project_a_new_thread_is_refused_and_typing_still_saves",
+        "with_comments_off_a_reply_to_a_thread_made_earlier_is_refused"
+      ]
     },
     "ST-S34-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets a reviewer withdraw only their own suggestion and never accept"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_can_withdraw_their_own_suggestion_but_not_accept_one",
+        "only_owners_and_editors_accept_or_reject_and_only_the_author_withdraws"
+      ]
     },
     "ST-S34-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_commenter_or_viewer_typing_in_the_editor_is_put_back"
+      ]
     },
     "ST-S34-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "a_comment_written_offline_stays_off_the_server_round_after_round_over_a_socket"
+      ]
     },
     "ST-S34-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "ST-S34-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access",
+        "browser_access_is_advertised_only_when_built_in_and_turned_on"
+      ]
     },
     "UT-S34-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access"
+      ]
     },
     "UT-S34-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/ManageSharing.comments.test.tsx > ManageSharing comments switch shows the switch off and locked when the server has comments turned off"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_are_advertised_only_while_the_server_allows_them",
+        "only_the_owner_turns_comments_off_for_a_project_and_everyone_sees_it"
+      ]
     },
     "UT-S34-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_has_its_own_code_and_earlier_clients_read_it_as_unknown"
+      ]
     },
     "UT-S34-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_access_change_can_carry_the_comment_switches_and_earlier_clients_ignore_them"
+      ]
     },
     "UT-S34-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written",
+        "with_comments_off_a_reviewer_comment_is_refused_and_a_suggestion_still_saves"
+      ]
     },
     "UT-S34-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "typing_in_a_file_is_not_a_comment_change",
+        "a_new_thread_a_resolve_and_a_reply_are_all_comment_changes",
+        "a_change_that_hides_a_comment_inside_typing_is_still_a_comment_change",
+        "a_change_that_builds_on_unknown_changes_cannot_be_checked"
+      ]
     },
     "UT-S34-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_guard_keeps_a_bounded_number_of_slots"
+      ]
     },
     "UT-S34-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "typing_in_a_file_is_not_a_comment_change",
+        "a_new_thread_a_resolve_and_a_reply_are_all_comment_changes"
+      ]
     },
     "UT-S34-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "every_role_follows_the_review_matrix"
+      ]
     },
     "UT-S34-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "every_role_follows_the_review_matrix",
+        "only_owners_and_editors_accept_or_reject_and_only_the_author_withdraws"
+      ]
     },
     "UT-S34-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_the_author_withdraws_and_a_withdrawal_puts_the_text_back"
+      ]
     },
     "UT-S34-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "everyone_but_viewers_chats_and_only_the_owner_clears"
+      ]
     },
     "UT-S34-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mention_in_a_new_comment_emails_the_person_once_the_minute_is_up"
+      ]
     },
     "UT-S34-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_test_email_goes_to_the_admin_and_reports_the_result",
+        "email_status_is_for_staff_and_never_shows_the_password"
+      ]
     },
     "UT-S34-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S34-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S34-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S34-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S34-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S34-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S34-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S34-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "sending_the_same_comment_again_or_editing_it_never_emails_twice"
+      ]
     },
     "UT-S34-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "people_outside_the_project_and_removed_members_are_not_emailed"
+      ]
     },
     "UT-S34-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "mentions_waiting_when_the_server_stops_go_out_after_it_starts_again"
+      ]
     },
     "UT-S34-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "mention_emails_are_on_until_a_person_turns_them_off_apart_from_share_emails"
+      ]
     },
     "UT-S34-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S34-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S34-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_thread_starts_with_its_quote_its_range_and_its_first_message"
+      ]
     },
     "UT-S34-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_thread_can_be_resolved_and_reopened",
+        "replies_edits_and_deletes_follow_their_author",
+        "mentions_are_kept_with_each_message"
+      ]
     },
     "UT-S34-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_comments_off_for_the_project_a_new_thread_is_refused_and_typing_still_saves",
+        "a_socket_client_that_understands_the_comments_off_code_is_refused_with_it"
+      ]
     },
     "UT-S34-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_comments_off_a_reply_to_a_thread_made_earlier_is_refused"
+      ]
     },
     "UT-S34-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "UT-S34-33": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets a reviewer withdraw only their own suggestion and never accept"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_can_withdraw_their_own_suggestion_but_not_accept_one",
+        "only_owners_and_editors_accept_or_reject_and_only_the_author_withdraws"
+      ]
     },
     "UT-S34-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_commenter_or_viewer_typing_in_the_editor_is_put_back",
+        "reviewers_and_commenters_never_touch_the_file_tree_or_settings"
+      ]
     },
     "UT-S34-35": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets an owner accept or reject one suggestion"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "accepting_keeps_the_text_and_rejecting_puts_the_original_back",
+        "only_the_author_withdraws_and_a_withdrawal_puts_the_text_back"
+      ]
     },
     "UT-S34-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "edits_made_offline_sync_after_reconnecting"
+      ]
     },
     "UT-S34-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "a_comment_written_offline_stays_off_the_server_round_after_round_over_a_socket"
+      ]
     },
     "UT-S34-38": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "people_delete_only_their_own_messages_and_the_owner_can_clear_all",
+        "replies_edits_and_deletes_follow_their_author"
+      ]
     },
     "UT-S34-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mention_in_a_new_comment_emails_the_person_once_the_minute_is_up",
+        "without_mail_settings_mentions_are_accepted_and_nothing_waits_to_be_sent"
+      ]
     },
     "UT-S34-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access",
+        "browser_access_is_advertised_only_when_built_in_and_turned_on"
+      ]
     },
     "UT-S34-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S34-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     },
     "ST-S35-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history groups versions by day, newest first, with earlier changes last"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "changes_group_into_entries_by_time_newest_first",
+        "changes_made_before_times_were_kept_collapse_into_one_entry"
+      ]
     },
     "ST-S35-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project opens the first changed file",
+        "src/features/collab/sharing/HistoryCompareDialog.test.tsx > comparing two versions names both versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "ST-S35-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history names a version and removes a name"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_named_version_ends_its_entry_and_can_be_renamed_or_unnamed"
+      ]
     },
     "ST-S35-04": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history restores the whole project only after a confirmation"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "restoring_a_version_brings_back_its_text_and_its_deleted_files"
+      ]
     },
     "ST-S35-05": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project says when the file didn't exist in that version and offers no file restore"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_moved_or_deleted_file_is_found_in_an_older_version_by_the_name_it_is_listed_under"
+      ]
     },
     "ST-S35-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "ST-S35-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "ST-S35-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "ST-S35-09": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history restores the whole project only after a confirmation"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "restoring_a_version_brings_back_its_text_and_its_deleted_files"
+      ]
     },
     "ST-S35-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "ST-S35-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S35-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history opens a version read-only and restores the file after asking"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json",
+        "a_restored_text_starts_its_own_entry"
+      ]
     },
     "UT-S35-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S35-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S35-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "versions_read_for_history_are_kept_for_the_next_request_up_to_a_few"
+      ]
     },
     "UT-S35-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history names a version and removes a name"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_named_version_ends_its_entry_and_can_be_renamed_or_unnamed"
+      ]
     },
     "UT-S35-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history names a version and removes a name"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_named_version_ends_its_entry_and_can_be_renamed_or_unnamed"
+      ]
     },
     "UT-S35-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project opens the first changed file",
+        "src/features/collab/sharing/HistoryCompareDialog.test.tsx > comparing two versions names both versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "UT-S35-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "snapshots_round_trip_and_cannot_run_ahead_of_the_log"
+      ]
     },
     "UT-S35-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S35-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S35-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-18": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history groups versions by day, newest first, with earlier changes last"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "changes_group_into_entries_by_time_newest_first"
+      ]
     },
     "UT-S35-19": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history groups versions by day, newest first, with earlier changes last"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "changes_group_into_entries_by_time_newest_first",
+        "changes_made_before_times_were_kept_collapse_into_one_entry"
+      ]
     },
     "UT-S35-20": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project opens the first changed file",
+        "src/features/collab/sharing/HistoryCompareDialog.test.tsx > comparing two versions names both versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "UT-S35-21": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project says when the file didn't exist in that version and offers no file restore"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_moved_or_deleted_file_is_found_in_an_older_version_by_the_name_it_is_listed_under"
+      ]
     },
     "UT-S35-22": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-23": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-24": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-25": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > restoring a version keeps the dialog open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "UT-S35-26": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history restores the whole project only after a confirmation"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "restoring_a_version_brings_back_its_text_and_its_deleted_files"
+      ]
     },
     "UT-S35-27": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused"
+      ]
     },
     "UT-S35-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "UT-S35-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_speaks_only_a_newer_protocol_ends_the_session_once_and_keeps_the_changes",
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S35-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "ST-S40-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence",
+        "a_browser_edit_is_acknowledged_with_its_length_and_reaches_a_desktop",
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees",
+        "cursors_travel_between_a_desktop_and_a_browser"
+      ]
     },
     "ST-S40-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored",
+        "a_file_a_desktop_adds_shows_in_the_browser_tree_and_a_reopened_socket_sees_the_latest_text"
+      ]
     },
     "ST-S40-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_whose_ack_was_lost_is_reported_on_reopen_and_never_applied_twice"
+      ]
     },
     "ST-S40-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "ST-S40-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_socket_from_another_origin_or_without_a_session_is_refused",
+        "an_open_socket_ends_when_its_browser_session_expires"
+      ]
     },
     "ST-S40-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "ST-S40-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_whose_ack_was_lost_is_reported_on_reopen_and_never_applied_twice"
+      ]
     },
     "ST-S40-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing",
+        "a_project_beyond_the_memory_budget_is_refused_before_hello"
+      ]
     },
     "ST-S40-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_or_signing_out_ends_the_open_socket",
+        "an_open_socket_ends_when_its_browser_session_expires"
+      ]
     },
     "ST-S40-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "UT-S40-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_socket_from_another_origin_or_without_a_session_is_refused",
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence"
+      ]
     },
     "UT-S40-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_project_list_and_a_project_describe_what_the_browser_shows",
+        "every_text_file_comes_back_in_one_answer_sorted_by_path"
+      ]
     },
     "UT-S40-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "me_needs_a_bearer_token"
+      ]
     },
     "UT-S40-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_read_as_the_contract_writes_them"
+      ]
     },
     "UT-S40-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_carry_the_t_tag_and_camel_case_fields"
+      ]
     },
     "UT-S40-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence"
+      ]
     },
     "UT-S40-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence"
+      ]
     },
     "UT-S40-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_browser_edit_is_acknowledged_with_its_length_and_reaches_a_desktop"
+      ]
     },
     "UT-S40-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_desktop_edit_reaches_the_open_browser_as_a_remote_change"
+      ]
     },
     "UT-S40-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_role_change_and_a_removal_reach_the_browser"
+      ]
     },
     "UT-S40-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "waits_grow_to_a_minute_after_many_failures_and_start_over_once_connected"
+      ]
     },
     "UT-S40-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through"
+      ]
     },
     "UT-S40-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing",
+        "a_project_beyond_the_memory_budget_is_refused_before_hello"
+      ]
     },
     "UT-S40-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "refusals_use_the_codes_the_web_app_knows",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S40-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "refusals_use_the_codes_the_web_app_knows",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S40-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "roles_follow_the_review_matrix"
+      ]
     },
     "UT-S40-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees",
+        "an_owner_switches_to_suggesting_and_back_and_the_server_keeps_the_choice"
+      ]
     },
     "UT-S40-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "UT-S40-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S40-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read"
+      ]
     },
     "UT-S40-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S40-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read"
+      ]
     },
     "UT-S40-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S40-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S40-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S40-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S40-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S40-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S40-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S40-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "roles_follow_the_review_matrix",
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees",
+        "a_viewer_reads_but_cannot_edit_comment_suggest_or_chat"
+      ]
     },
     "UT-S40-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "UT-S40-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_browser_edit_is_acknowledged_with_its_length_and_reaches_a_desktop"
+      ]
     },
     "UT-S40-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "reconnect_waits_spread_over_the_whole_window"
+      ]
     },
     "UT-S40-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S40-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_socket_from_another_origin_or_without_a_session_is_refused",
+        "an_open_socket_ends_when_its_browser_session_expires"
+      ]
     },
     "UT-S40-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "UT-S40-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "UT-S40-38": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_whose_ack_was_lost_is_reported_on_reopen_and_never_applied_twice"
+      ]
     },
     "UT-S40-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggestion_refused_partway_leaves_nothing_behind_in_the_room",
+        "reloading_a_room_after_a_refused_change_frees_the_old_copy_first"
+      ]
     },
     "UT-S40-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing",
+        "a_project_beyond_the_memory_budget_is_refused_before_hello"
+      ]
     },
     "UT-S40-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "refusals_use_the_codes_the_web_app_knows",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows",
+        "stopping_sharing_or_signing_out_ends_the_open_socket"
+      ]
     },
     "UT-S40-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_editor_in_the_browser_stores_a_pdf_and_its_synctex_and_open_browsers_hear_of_it",
+        "the_latest_compiled_pdf_is_listed_and_served"
+      ]
     },
     "UT-S40-43": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S40-44": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_speaks_only_a_newer_protocol_ends_the_session_once_and_keeps_the_changes",
+        "a_server_that_speaks_only_an_older_protocol_says_the_server_needs_an_update"
+      ]
     },
     "ST-S41-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "signing_in_from_the_browser_sets_a_session_cookie_and_returns_to_the_app",
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer"
+      ]
     },
     "ST-S41-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "ST-S41-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "ST-S41-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "ST-S41-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_open_socket_ends_when_its_browser_session_expires",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "ST-S41-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_or_signing_out_ends_the_open_socket",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "ST-S41-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "ST-S41-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "ST-S41-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_project_beyond_the_memory_budget_is_refused_before_hello",
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing"
+      ]
     },
     "ST-S41-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_transfer_that_finds_no_room_for_a_while_hears_the_server_is_busy"
+      ]
     },
     "ST-S41-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "ST-S41-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "UT-S41-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "at_an_https_root_the_cookie_is_host_only_and_survives_the_provider_redirect",
+        "under_a_path_or_over_http_the_cookie_is_scoped_to_sign_in"
+      ]
     },
     "UT-S41-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer",
+        "signing_in_from_the_browser_sets_a_session_cookie_and_returns_to_the_app"
+      ]
     },
     "UT-S41-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer"
+      ]
     },
     "UT-S41-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read"
+      ]
     },
     "UT-S41-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "UT-S41-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_web_sign_in_is_known_by_its_platform_and_return_path"
+      ]
     },
     "UT-S41-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "UT-S41-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "UT-S41-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "UT-S41-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "refusals_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S41-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "a_socket_from_another_origin_or_without_a_session_is_refused"
+      ]
     },
     "UT-S41-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_browser_access_off_every_web_address_is_missing"
+      ]
     },
     "UT-S41-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "UT-S41-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_project_beyond_the_memory_budget_is_refused_before_hello",
+        "a_transfer_that_finds_no_room_for_a_while_hears_the_server_is_busy"
+      ]
     },
     "UT-S41-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "errors_render_as_api_error_json",
+        "every_auth_code_has_a_wire_name_status_and_message"
+      ]
     },
     "UT-S41-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "me_needs_a_bearer_token"
+      ]
     },
     "UT-S41-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "signing_out_needs_the_app_marker_and_this_origin_then_revokes_the_device"
+      ]
     },
     "UT-S41-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_web_sign_in_is_known_by_its_platform_and_return_path"
+      ]
     },
     "UT-S41-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_paths_inside_the_browser_app_are_returned_to",
+        "a_return_path_outside_the_app_goes_back_to_the_app_home"
+      ]
     },
     "UT-S41-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S41-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S41-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S41-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "signing_in_from_the_browser_sets_a_session_cookie_and_returns_to_the_app",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_open_socket_ends_when_its_browser_session_expires",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_or_signing_out_ends_the_open_socket",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S41-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "UT-S41-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "UT-S41-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "UT-S41-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "UT-S41-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "UT-S41-38": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_project_beyond_the_memory_budget_is_refused_before_hello",
+        "a_transfer_that_finds_no_room_for_a_while_hears_the_server_is_busy"
+      ]
     },
     "UT-S41-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "UT-S41-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "UT-S41-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "me_needs_a_bearer_token"
+      ]
     },
     "UT-S41-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S41-43": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S41-44": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_web_sign_in_is_known_by_its_platform_and_return_path"
+      ]
     },
     "ST-S01-01": {
       "vitest": [],
-      "e2e": [],
+      "e2e": [
+        "02-create-compile.spec.ts > create a project from the Blank template",
+        "00-tours.spec.ts > welcome is modal and Home creates a real project before Workspace starts"
+      ],
       "rust": []
     },
     "ST-S01-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import keeps ZIP archives on the existing project importer",
+        "src/store/files.test.ts > importProject lets the opened project confirm the import"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "archive_extraction_never_overwrites_existing_files"
+      ]
     },
     "ST-S01-03": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import converts /tmp/paper.docx to LaTeX and shows the conversion notice",
+        "src/features/project-import.test.ts > project file import converts /tmp/paper.md to LaTeX and shows the conversion notice",
+        "src/features/project-import.test.ts > project file import converts /tmp/page.html into the requested latex project and names that format",
+        "src/features/project-import.test.ts > project file import converts /tmp/paper.typ into the requested markdown project and names that format"
+      ],
+      "e2e": [
+        "40-import.spec.ts > DOCX imports through pandoc into a project"
+      ],
       "rust": []
     },
     "ST-S01-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_entry_count_is_bounded_even_for_empty_directories",
+        "archive_path_attacks_are_rejected_before_writing"
+      ]
     },
     "ST-S01-05": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "malformed_and_truncated_archives_fail"
+      ]
     },
     "ST-S01-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "zip_symlinks_and_tar_special_entries_are_rejected"
+      ]
     },
     "ST-S01-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import stops cleanly when Pandoc installation is declined",
+        "src/features/import.test.ts > picked file import stops quietly when pandoc setup reported its own failure"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S01-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error",
+        "src/features/import.test.ts > converted project publication keeps the conversion open and reports failure from the catalog when publication rejects"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -2793,92 +3908,151 @@
     "ST-S01-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S01-01": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a positive integer protocol version",
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a non-empty, sorted, duplicate-free capability list",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends backendProtocolInfo"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "info_reports_the_declared_contract"
+      ]
     },
     "UT-S01-02": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a non-empty, sorted, duplicate-free capability list",
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract matches the Rust capability list exactly"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "tests::capabilities_are_sorted_and_unique",
+        "reports_the_collaboration_capability"
+      ]
     },
     "UT-S01-03": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition denies capabilities until the backend descriptor resolves"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "descriptor_exposes_canonical_identity_and_capabilities"
+      ]
     },
     "UT-S01-04": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition remains fail-closed and records the error for the toolbar when descriptor loading fails"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-05": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends setProjectEngineCmd keeps auto-detection",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends downloadPandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-06": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > search_project and list_files lists the project's files"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_entry_count_is_bounded_even_for_empty_directories"
+      ]
     },
     "UT-S01-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "standalone_gzip_is_streamed_and_size_limited"
+      ]
     },
     "UT-S01-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing"
+      ]
     },
     "UT-S01-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "zip_symlinks_and_tar_special_entries_are_rejected"
+      ]
     },
     "UT-S01-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "tar_extraction_skips_traversal_and_junk"
+      ]
     },
     "UT-S01-12": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import stops cleanly when Pandoc installation is declined",
+        "src/features/import.test.ts > picked file import stops quietly when pandoc setup reported its own failure"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-13": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error",
+        "src/features/import.test.ts > converted project publication keeps the conversion open and reports failure from the catalog when publication rejects"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-14": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S01-15": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import keeps ZIP archives on the existing project importer"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "main_source_prefers_a_root_main_document"
+      ]
     },
     "UT-S01-16": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import keeps ZIP archives on the existing project importer"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_extraction_never_overwrites_existing_files"
+      ]
     },
     "UT-S01-17": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_extraction_never_overwrites_existing_files"
+      ]
     },
     "UT-S01-18": {
       "vitest": [],
@@ -2888,596 +4062,973 @@
     "UT-S01-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S01-20": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "packages/templates/src/NewProjectDialog.render.test.tsx > NewProjectDialog creates the project with the chosen name and colour"
+      ],
+      "e2e": [
+        "02-create-compile.spec.ts > compile produces a rendered PDF with zero errors"
+      ],
       "rust": []
     },
     "ST-S04-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > createFile bridge returns the created path and generation",
+        "src/lib/tauri.bridge.test.ts > renameFile bridge raises the same conflict error shape as create",
+        "packages/ai-tools/src/tools.files.test.ts > set_main_doc sets the main document after approval and echoes what the backend stored"
+      ],
+      "e2e": [
+        "26-file-tree.spec.ts > create a scratch file in the tree",
+        "26-file-tree.spec.ts > rename a file via the tree three-dot menu",
+        "54-file-tree-production.spec.ts > real row menus cover nested create/rename/copy/main/delete and reopen persistence"
+      ],
       "rust": []
     },
     "ST-S04-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile writes through the backend and refreshes the tree",
+        "src/store/files.test.ts > writeProjectFile updates a buffer that is already open and marks it clean"
+      ],
+      "e2e": [
+        "03-editor.spec.ts > typed text appears in the compiled PDF",
+        "08-files.spec.ts > create a new file, edit it, and switch between files"
+      ],
       "rust": []
     },
     "ST-S04-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/file-references/follow-rename.test.ts > answerReferenceUpdate writes closed files to disk and keeps CRLF line endings",
+        "src/lib/file-references/follow-rename.test.ts > answerReferenceUpdate edits the active file through its editor so undo works"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S04-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/analysis/coordinator.test.ts > ProjectAnalysisCoordinator does not let a stale unsupported rejection overwrite a newer project revision",
+        "src/components/editor/cm/language-service.view.test.ts > language service diagnostics ignores diagnostics from another revision"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S04-05": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile still autosaves an edit made during the generation lookup",
+        "src/store/files.test.ts > writeProjectFile keeps an edit that landed while the write was in flight"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S04-06": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/cm/language-service.view.test.ts > language service diagnostics ignores diagnostics from another revision",
+        "src/components/editor/cm/language-service.view.test.ts > language service diagnostics ignores diagnostics from a request for another revision"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S04-07": {
-      "vitest": [],
+      "vitest": [
+        "packages/editor/src/latex-linter.test.ts > lintLatexText: %novalidate disables the whole file from anywhere in it",
+        "packages/editor/src/latex-linter.test.ts > lintLatexText: %novalidate disables only the marked region"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S04-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/file-references/follow-rename.test.ts > answerReferenceUpdate writes closed files to disk and keeps CRLF line endings",
+        "src/lib/file-references/follow-rename.test.ts > followRename updates silently when set to always"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S04-09": {
-      "vitest": [],
+      "vitest": [
+        "src/store/preflight.test.ts > preflight store reports why the document engine is unavailable"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-01": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > search_project and list_files lists the project's files"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-02": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > createFile bridge returns the created path and generation",
+        "src/lib/tauri.bridge.test.ts > renameFile bridge raises the same conflict error shape as create",
+        "packages/ai-tools/src/tools.files.test.ts > create_file creates a file, refreshes the tree, and defaults to a file"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-03": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile writes through the backend and refreshes the tree",
+        "src/store/files.test.ts > writeProjectFile updates a buffer that is already open and marks it clean"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-04": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile remembers the generation the backend returned",
+        "src/store/files.test.ts > external project mutations remembers a generation only for the open project"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-05": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends readFileContent",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends readProjectSourcesBatch"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends documentStats"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-07": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile still autosaves an edit made during the generation lookup",
+        "src/store/files.test.ts > writeProjectFile keeps an edit that landed while the write was in flight",
+        "src/store/files.test.ts > writeProjectFile re-queues a buffer that was dirty before the write so its content wins on disk"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/analysis/coordinator.test.ts > ProjectAnalysisCoordinator does not let a stale unsupported rejection overwrite a newer project revision",
+        "src/components/editor/cm/language-service.view.test.ts > language service diagnostics ignores diagnostics from another revision"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-09": {
-      "vitest": [],
+      "vitest": [
+        "packages/editor/src/latex-linter.test.ts > lintLatexText: %novalidate disables the whole file from anywhere in it",
+        "packages/editor/src/latex-linter.test.ts > lintLatexText: %novalidate disables only the marked region"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-10": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/file-references/follow-rename.test.ts > answerReferenceUpdate writes closed files to disk and keeps CRLF line endings",
+        "src/lib/file-references/follow-rename.test.ts > answerReferenceUpdate edits the active file through its editor so undo works",
+        "src/lib/file-references/follow-rename.test.ts > followRename updates silently when set to always"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-11": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/file-references/follow-rename.test.ts > answerReferenceUpdate writes closed files to disk and keeps CRLF line endings"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-12": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > set_main_doc sets the main document after approval and echoes what the backend stored"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "set_main_doc_for_test"
+      ]
     },
     "UT-S04-13": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile writes through the backend and refreshes the tree"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-14": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile writes through the backend and refreshes the tree"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S04-15": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile refuses to write into a project that is no longer open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "ST-S07-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/store/files.test.ts > project.json in an opened folder saves project settings to the folder once and reports it once",
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort supports a target only when an engine accepts it"
+      ],
+      "e2e": [
+        "64-compiler-choice.spec.ts > picking pdfLaTeX moves the project to latexmk and pins the compiler",
+        "64-compiler-choice.spec.ts > the pinned compiler survives closing and reopening the project"
+      ],
       "rust": []
     },
     "ST-S07-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote",
+        "src/store/compile.test.ts > compile log diagnostics resets diagnostics when a compile starts and stores the backend diagnostics from the result"
+      ],
+      "e2e": [
+        "02-create-compile.spec.ts > compile produces a rendered PDF with zero errors"
+      ],
       "rust": []
     },
     "ST-S07-03": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_missing refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX compiles when a refresh finds the TeX that was missing"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S07-04": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_missing refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_needs_perl refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX offers TinyTeX without saving or compiling when the engine info says latexmk can't run"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S07-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_bundle_fallback_retries_without_the_mirror"
+      ]
     },
     "ST-S07-06": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle explains a Typst package that is not cached when compiling offline"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_empty_tectonic_cache_says_to_build_online_once"
+      ]
     },
     "ST-S07-07": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "ST-S07-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort turns a stopped compile into CompileStopped",
+        "src/store/compile.test.ts > compile options keeps the last good preview when the user stops a compile"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-01": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort supports a target only when an engine accepts it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-02": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort refuses a target no engine compiles"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote",
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort reads a TeX log when the engine gives no diagnostics"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort turns a stopped compile into CompileStopped"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-05": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort opens SyncTeX with the project's paths and has nothing for an output without it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends compileProject defaults"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends cancelCompile",
+        "src/lib/compile-port.test.ts > createDesktopCompilePort cancels its running compile before the next and on stop, and nothing when idle"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S07-10": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint stays idle and reads no PDF when the fingerprint is invalid",
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint rejects a PDF on disk that is not the fingerprinted output"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-11": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition denies capabilities until the backend descriptor resolves"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "descriptor_exposes_canonical_identity_and_capabilities"
+      ]
     },
     "UT-S07-12": {
-      "vitest": [],
+      "vitest": [
+        "src/store/engine.test.ts > engine info loading loads engine info once and remembers an interrupted download",
+        "src/store/engine.test.ts > engine info loading asks the backend for a login_probe rescan"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-13": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends hasTaggingEngine"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-14": {
-      "vitest": [],
+      "vitest": [
+        "src/store/engine.test.ts > TinyTeX install and removal notices claims the install before its first await so a second click cannot start another",
+        "src/store/engine.test.ts > TinyTeX install and removal notices reports a failed install in the same notice slot"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-15": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends downloadPandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-16": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > project.json in an opened folder saves project settings to the folder once and reports it once"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-17": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_missing refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_needs_perl refusal into the offer, with no English prefix"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_bundle_fallback_retries_without_the_mirror",
+        "only_the_last_attempt_counts_after_a_bundle_fallback"
+      ]
     },
     "UT-S07-19": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle explains a Typst package that is not cached when compiling offline"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_empty_tectonic_cache_says_to_build_online_once"
+      ]
     },
     "UT-S07-20": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S07-21": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S07-22": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-sync.test.ts > cross-window successful output synchronization applies a newer event only after the on-disk PDF matches its identity"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-23": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile log diagnostics resets diagnostics when a compile starts and stores the backend diagnostics from the result",
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort reads a TeX log when the engine gives no diagnostics"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-24": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > saving before a compile saves every open file before compiling"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-25": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort turns a stopped compile into CompileStopped",
+        "src/store/compile.test.ts > compile options keeps the last good preview when the user stops a compile"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.load.test.tsx > PdfViewer loading asks for a password, rejects a wrong one and opens with the right one"
+      ],
+      "e2e": [
+        "17-preview-controls.spec.ts > zoom controls change the zoom level",
+        "17-preview-controls.spec.ts > multi-page layout, previous/next, and direct page jump all navigate",
+        "17-preview-controls.spec.ts > invert colors toggles on and off"
+      ],
       "rust": []
     },
     "ST-S09-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) switches to the child file when the click lands on \\input content",
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) places the cursor on the clicked word and skips the line jump when found"
+      ],
+      "e2e": [
+        "24-synctex-inverse.spec.ts > clicking the PDF jumps to the word in the source"
+      ],
       "rust": []
     },
     "ST-S09-03": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/synctex.test.ts > forward SyncTeX from the editor with the cursor on a word jumps to the typeset line the word is on, not the first one of its source line"
+      ],
+      "e2e": [
+        "10-shortcuts.spec.ts > Cmd+Enter compiles and Cmd+Shift+J forward-SyncTeX highlights the PDF"
+      ],
       "rust": []
     },
     "ST-S09-04": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server moves the PDF to the cursor's line and column without SyncTeX",
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server selects the word at the exact character clicked in the PDF"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_tinymist_builds_from_0_13_30_answer_both_sync_directions"
+      ]
     },
     "ST-S09-05": {
-      "vitest": [],
+      "vitest": [
+        "src/contributions/presentation-commands.test.tsx > presentation commands present the compiled PDF of the open project"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > stale SyncTeX source translation rejects a click from a different retained PDF output",
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering cancels old work and cannot repopulate the current text layer"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-07": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle preserves the prior PDF when the failed compile produced none at all",
+        "src/store/compile.test.ts > compile output lifecycle keeps the last good PDF when compilation throws"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it",
+        "src/store/compile.test.ts > compile output lifecycle reports a nonzero compile as an error but still shows the best-effort PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/document-engine.test.ts > compileSettingsForEngine offers none of them for Typst, Markdown or an unknown engine"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "projects_whose_typst_matches_an_old_tinymist_hide_sync"
+      ]
     },
     "ST-S09-10": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering does not invoke inverse SyncTeX when a non-collapsed selection intersects the page"
+      ],
+      "e2e": [
+        "24-synctex-inverse.spec.ts > clicking after a non-collapsed PDF selection does not invoke inverse SyncTeX"
+      ],
       "rust": []
     },
     "ST-S09-11": {
-      "vitest": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.load.test.tsx > PdfViewer loading asks for a password, rejects a wrong one and opens with the right one",
+        "src/components/preview/PdfViewerOverlay.test.tsx > PdfViewerOverlay asks for a password and submits only once one is typed"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > forward SyncTeX from the editor with the cursor on a word jumps to the typeset line the word is on, not the first one of its source line"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) places the cursor on the clicked word and skips the line jump when found",
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) does nothing when synctex has no hit for that spot"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) no-ops with no project open (never calls into the backend)"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-04": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort opens SyncTeX with the project's paths and has nothing for an output without it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-05": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends synctexForward",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends synctexInverse"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server moves the PDF to the cursor's line and column without SyncTeX"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_tinymist_builds_from_0_13_30_answer_both_sync_directions",
+        "jump_messages_parse_into_page_points"
+      ]
     },
     "UT-S09-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-08": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint stays idle and reads no PDF when the fingerprint is invalid",
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint rejects a PDF on disk that is not the fingerprinted output"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S09-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > stale SyncTeX source translation rejects a click from a different retained PDF output",
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering cancels old work and cannot repopulate the current text layer"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-11": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle preserves the prior PDF when the failed compile produced none at all",
+        "src/store/compile.test.ts > compile output lifecycle keeps the last good PDF when compilation throws"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-12": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it",
+        "src/store/compile.test.ts > compile output lifecycle reports a nonzero compile as an error but still shows the best-effort PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-13": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-14": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server stays out of the way for a Typst project whose Tinymist cannot sync"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "projects_whose_typst_matches_an_old_tinymist_hide_sync"
+      ]
     },
     "UT-S09-15": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) does not fake SyncTeX navigation for Typst projects",
+        "src/lib/document-engine.test.ts > compileSettingsForEngine offers none of them for Typst, Markdown or an unknown engine"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-16": {
-      "vitest": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering does not invoke inverse SyncTeX when a non-collapsed selection intersects the page"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-17": {
-      "vitest": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.load.test.tsx > PdfViewer loading asks for a password, rejects a wrong one and opens with the right one"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-18": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state",
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint exposes the publication-grade check set and profile selector"
+      ],
+      "e2e": [
+        "13-preflight.spec.ts > preflight categories render and a single check runs independently"
+      ],
       "rust": []
     },
     "ST-S10-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state"
+      ],
+      "e2e": [
+        "13-preflight.spec.ts > preflight categories render and a single check runs independently"
+      ],
       "rust": []
     },
     "ST-S10-03": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/FindingRow.test.tsx > FindingRow shows every finding category, severity, location, and certainty label"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-04": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PrepExport.test.ts > prepGate offers preparation for a compatible class and lists packages that will not tag",
+        "packages/preflight/src/accessible-prep.test.ts > prepareAccessibleSource: DocumentMetadata adds \\DocumentMetadata as the very first line when missing"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-05": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > runPreflight reports partial submission coverage until a PDF is available",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight marks Typst submission checks partial until there is a PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-06": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PrepExport.test.ts > prepGate does not offer preparation for a class that cannot be tagged, and names it",
+        "packages/preflight/src/tagging-status.test.ts > taggingGate blocks an incompatible class and names it"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-07": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/tagging-status.test.ts > taggingGate treats a package with no recorded verdict as a caution, not as compatible",
+        "src/components/preflight/PrepExport.test.ts > prepGate cautions about a package with no recorded verdict instead of passing it"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-08": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability counts nothing as read when the PDF was never inspected",
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability stops trusting the marked-content and structure evidence when extraction failed",
+        "src/components/preflight/PreflightPanel.results.test.tsx > Preflight check results summarises PDF/UA coverage with its caveat once a PDF was checked"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S10-09": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight does not apply LaTeX source rules to unsupported source profiles",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight keeps output checks shared when source checks are unavailable"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "markdown_gets_no_source_rules_but_still_reads_the_log"
+      ]
     },
     "ST-S10-10": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state"
+      ],
+      "e2e": [
+        "13-preflight.spec.ts > preflight categories render and a single check runs independently"
+      ],
       "rust": []
     },
     "UT-S10-01": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a non-empty, sorted, duplicate-free capability list",
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract matches the Rust capability list exactly",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends backendProtocolInfo"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "info_reports_the_declared_contract"
+      ]
     },
     "UT-S10-02": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition denies capabilities until the backend descriptor resolves",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight runs Typst rules and reports refs, submission and privacy as evaluated"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "descriptor_exposes_canonical_identity_and_capabilities"
+      ]
     },
     "UT-S10-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends setProjectEngineCmd keeps auto-detection"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends hasTaggingEngine"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S10-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-07": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > search_project and list_files lists the project's files",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends readProjectSourcesBatch"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-08": {
-      "vitest": [],
+      "vitest": [
+        "src/components/ErrorBoundary.test.tsx > ErrorBoundary crash screen logs a caught error to the app log"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-09": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > runPreflight reports partial submission coverage until a PDF is available"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-10": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/FindingRow.test.tsx > FindingRow shows every finding category, severity, location, and certainty label"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-11": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PrepExport.test.ts > prepGate does not offer preparation for a class that cannot be tagged, and names it",
+        "packages/preflight/src/tagging-status.test.ts > taggingGate blocks an incompatible class and names it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-12": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/tagging-status.test.ts > taggingGate treats a package with no recorded verdict as a caution, not as compatible"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-13": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability counts nothing as read when the PDF was never inspected",
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability stops trusting the marked-content and structure evidence when extraction failed",
+        "packages/preflight/src/engine.test.ts > pdfUaAvailability does not treat catalog rules as evaluated on an untagged PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-14": {
-      "vitest": [],
+      "vitest": [
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight does not apply LaTeX source rules to unsupported source profiles",
+        "packages/preflight/src/engine-capabilities.test.ts > engine-aware preflight keeps output checks shared when source checks are unavailable"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "markdown_gets_no_source_rules_but_still_reads_the_log"
+      ]
     },
     "UT-S10-15": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-16": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint runs one check or the complete enabled set and persists the expanded state",
+        "src/components/preflight/PreflightPanel.compile-checkpoint.test.tsx > Preflight document suggestion checkpoint exposes the publication-grade check set and profile selector"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-17": {
-      "vitest": [],
+      "vitest": [
+        "src/components/preflight/PreflightPanel.results.test.tsx > Preflight check results switches the publication profile",
+        "packages/preflight/src/profiles.test.ts > submission profiles detects official IEEE and ACM classes"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S10-18": {
-      "vitest": [],
+      "vitest": [
+        "src/store/preflight.test.ts > preflight store uses an explicit profile and treats a stale successful compile as source-only",
+        "src/store/preflight.test.ts > preflight store runs PDF-backed checks only for the current compile checkpoint"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S11-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/export.test.ts > the exported PDF is the one on screen sends the preview's bytes as they are when the save dialog closes",
+        "src/features/export.test.ts > the exported PDF is the one on screen copies the compiled PDF on disk instead of sending bytes when it is the one on screen"
+      ],
+      "e2e": [
+        "55-export-artifacts.spec.ts > every document export writes a semantic artifact to the selected exact path",
+        "17-preview-controls.spec.ts > save PDF writes the exact compiled bytes at the requested relative path and reports failures"
+      ],
       "rust": []
     },
     "ST-S11-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc",
+        "packages/conversion-registry/src/index.test.ts > conversion registry invariants orders export routes per engine and drops unavailable formats"
+      ],
+      "e2e": [
+        "74-conversion-matrix.spec.ts > LaTeX project exports (registry routes) › exports Typst, Word, MathML HTML, and Markdown"
+      ],
       "rust": []
     },
     "ST-S11-03": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/ad-hoc-converters.test.ts > ad-hoc converter registry converts Word bytes through the binary Pandoc route"
+      ],
+      "e2e": [
+        "30-project-kinds.spec.ts > presentation export menu offers PowerPoint but not EPUB"
+      ],
       "rust": []
     },
     "ST-S11-04": {
@@ -3486,17 +5037,27 @@
       "rust": []
     },
     "ST-S11-05": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports clears the progress slot and reports once when the export itself fails",
+        "src/features/export.test.ts > export edge cases explains a failed PDF or PNG save with or without the reason"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "failed_export_preserves_an_existing_destination"
+      ]
     },
     "ST-S11-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports clears the progress slot and reports once when the export itself fails"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S11-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > stale and failed compiles warns that a error compile may have left an incomplete file",
+        "src/features/export.test.ts > stale and failed compiles says a PDF comes from the last compile when the source has moved on"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -3506,82 +5067,123 @@
       "rust": []
     },
     "ST-S11-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S11-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-01": {
-      "vitest": [],
+      "vitest": [
+        "packages/conversion-registry/src/index.test.ts > conversion registry invariants orders export routes per engine and drops unavailable formats",
+        "packages/conversion-registry/src/index.test.ts > conversion registry invariants offers the exports Quarto and Calepin render themselves"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-02": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends setProjectEngineCmd keeps auto-detection"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued",
+        "src/lib/native-file-dialog.test.ts > pickSavePath returns a queued save path once, including a queued cancellation"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S11-06": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > search_project and list_files lists the project's files",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends readProjectSourcesBatch"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-07": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile refuses to write into a project that is no longer open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S11-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends exportDocument defaults",
+        "src/features/ad-hoc-converters.test.ts > ad-hoc converter registry converts Word bytes through the binary Pandoc route"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > export edge cases explains a failed PDF or PNG save with or without the reason"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-11": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-12": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > export edge cases explains a failed PDF or PNG save with or without the reason"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "failed_export_preserves_an_existing_destination"
+      ]
     },
     "UT-S11-13": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports clears the progress slot and reports once when the export itself fails"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-14": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > stale and failed compiles warns that a error compile may have left an incomplete file",
+        "src/features/export.test.ts > stale and failed compiles says a PDF comes from the last compile when the source has moved on"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -3591,129 +5193,229 @@
       "rust": []
     },
     "UT-S11-16": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-17": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports turns the progress toast into the result in place instead of stacking a second toast"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-18": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > the exported PDF is the one on screen sends the preview's bytes as they are when the save dialog closes",
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S12-01": {
-      "vitest": [],
-      "e2e": [],
-      "rust": []
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel capture notices counts the files checkpoints left out"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source",
+        "66-checkpoints.spec.ts > blank-typst: successful compiles deduplicate checkpoints and restore source",
+        "66-checkpoints.spec.ts > blank-markdown: successful compiles deduplicate checkpoints and restore source"
+      ],
+      "rust": [
+        "compile_evidence_requires_a_toolchain_identity"
+      ]
     },
     "ST-S12-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel labels names a checkpoint inline and keeps the version as a tag",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source"
+      ],
       "rust": []
     },
     "ST-S12-03": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "ST-S12-04": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions validates archive passwords, exports, imports, and clears the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "encrypted_full_history_round_trips_without_plaintext_staging",
+        "encrypted_v2_golden_archive_remains_importable"
+      ]
     },
     "ST-S12-05": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions that outlive their project ignores a keep latest sweep confirmed from Keep latest and Delete older checkpoints that settles after the switch with resolve",
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes retention and encrypted archives through their native handlers"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retention_removes_visible_roots_before_reclaiming_unreachable_packs"
+      ]
     },
     "ST-S12-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events only logs an incomplete capture until it keeps happening",
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events starts counting incomplete captures again after a checkpoint saves"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S12-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events does not report incomplete captures again after checkpoints save in between"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S12-08": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports a restore that failed and leaves the panel open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_retries_after_a_crash_immediately_after_transaction_creation",
+        "restore_retries_after_a_crash_during_materialization"
+      ]
     },
     "ST-S12-09": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_catalog_newer_than_this_build_is_never_opened",
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "ST-S12-10": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "ST-S12-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "wrong_password_and_truncation_are_rejected"
+      ]
     },
     "ST-S12-12": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "UT-S12-01": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes reads, verification, and restore through the shared desktop port",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel file lists collapses an expanded file list without reloading it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-02": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel labels names a checkpoint inline and keeps the version as a tag",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel labels clears a label and falls back to the version number"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "checkpoint_labels_are_saved_cleared_and_bounded",
+        "checkpoint_labels_are_trimmed_validated_and_clearable"
+      ]
     },
     "UT-S12-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes inspection, file listing, and reveal",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel files loads an entry's files on demand and labels how each one arrived"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes reads, verification, and restore through the shared desktop port",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "UT-S12-05": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes reads, verification, and restore through the shared desktop port"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "verification_checks_checkpoint_summary_and_compile_evidence"
+      ]
     },
     "UT-S12-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes retention and encrypted archives through their native handlers",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions validates archive passwords, exports, imports, and clears the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "encrypted_full_history_round_trips_without_plaintext_staging"
+      ]
     },
     "UT-S12-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes retention and encrypted archives through their native handlers",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions that outlive their project ignores a keep latest sweep confirmed from Keep latest and Delete older checkpoints that settles after the switch with resolve"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retention_removes_visible_roots_before_reclaiming_unreachable_packs"
+      ]
     },
     "UT-S12-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes inspection, file listing, and reveal"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract requires a backend that implements Checkpoints"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reports_the_collaboration_capability"
+      ]
     },
     "UT-S12-10": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events marks the active project as publishing until the lane finishes"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "compile_evidence_requires_a_toolchain_identity"
+      ]
     },
     "UT-S12-11": {
       "vitest": [],
@@ -3728,105 +5430,165 @@
     "UT-S12-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "content_defined_chunk_boundaries_match_the_published_store_format"
+      ]
     },
     "UT-S12-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "fastcdc_streaming_reuses_unchanged_chunks_and_compresses_only_when_smaller"
+      ]
     },
     "UT-S12-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "in_project_snapshot_roots_are_unchanged",
+        "layouts_never_share_a_snapshot_root"
+      ]
     },
     "UT-S12-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "nonempty_store_rejects_a_foreign_history_lineage"
+      ]
     },
     "UT-S12-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "nonempty_store_rejects_a_foreign_history_lineage"
+      ]
     },
     "UT-S12-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_catalog_newer_than_this_build_is_never_opened"
+      ]
     },
     "UT-S12-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "version_one_catalog_and_manifest_migrate_in_place_on_open"
+      ]
     },
     "UT-S12-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "first_publication_store_is_invisible_until_nonempty_commit",
+        "publication_faults_never_expose_a_root_and_reopen_removes_orphan_packs"
+      ]
     },
     "UT-S12-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "checkpoints_keep_the_toolchain_identity_they_were_published_with",
+        "the_compile_evidence_names_the_typst_version_that_produced_it"
+      ]
     },
     "UT-S12-22": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events treats an unchanged source as a silent outcome"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source"
+      ],
       "rust": []
     },
     "UT-S12-23": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events only logs an incomplete capture until it keeps happening"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-24": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events only logs an incomplete capture until it keeps happening"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-25": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events does not report incomplete captures again after checkpoints save in between"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-26": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports a restore that failed and leaves the panel open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_retries_after_a_crash_immediately_after_transaction_creation",
+        "restore_retries_after_a_crash_during_materialization",
+        "pending_restore_without_a_transaction_stays_fail_closed"
+      ]
     },
     "UT-S12-27": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "UT-S12-28": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source"
+      ],
       "rust": []
     },
     "UT-S12-29": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_catalog_newer_than_this_build_is_never_opened",
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "UT-S12-30": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "UT-S12-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "wrong_password_and_truncation_are_rejected"
+      ]
     },
     "UT-S12-32": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/VersioningModal.test.tsx > VersioningModal shows checkpoints without a Git tab"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-33": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it"
+      ],
       "e2e": [],
       "rust": []
     },

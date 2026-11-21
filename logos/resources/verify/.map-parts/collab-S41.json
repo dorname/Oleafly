@@ -5,282 +5,426 @@
     "ST-S41-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "signing_in_from_the_browser_sets_a_session_cookie_and_returns_to_the_app",
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer"
+      ]
     },
     "ST-S41-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "ST-S41-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "ST-S41-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "ST-S41-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_open_socket_ends_when_its_browser_session_expires",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "ST-S41-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_or_signing_out_ends_the_open_socket",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "ST-S41-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "ST-S41-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "ST-S41-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_project_beyond_the_memory_budget_is_refused_before_hello",
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing"
+      ]
     },
     "ST-S41-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_transfer_that_finds_no_room_for_a_while_hears_the_server_is_busy"
+      ]
     },
     "ST-S41-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "ST-S41-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "UT-S41-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "at_an_https_root_the_cookie_is_host_only_and_survives_the_provider_redirect",
+        "under_a_path_or_over_http_the_cookie_is_scoped_to_sign_in"
+      ]
     },
     "UT-S41-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer",
+        "signing_in_from_the_browser_sets_a_session_cookie_and_returns_to_the_app"
+      ]
     },
     "UT-S41-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer"
+      ]
     },
     "UT-S41-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read"
+      ]
     },
     "UT-S41-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "UT-S41-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_web_sign_in_is_known_by_its_platform_and_return_path"
+      ]
     },
     "UT-S41-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "UT-S41-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "UT-S41-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "UT-S41-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "refusals_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S41-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "a_socket_from_another_origin_or_without_a_session_is_refused"
+      ]
     },
     "UT-S41-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_browser_access_off_every_web_address_is_missing"
+      ]
     },
     "UT-S41-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "UT-S41-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_project_beyond_the_memory_budget_is_refused_before_hello",
+        "a_transfer_that_finds_no_room_for_a_while_hears_the_server_is_busy"
+      ]
     },
     "UT-S41-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "errors_render_as_api_error_json",
+        "every_auth_code_has_a_wire_name_status_and_message"
+      ]
     },
     "UT-S41-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "me_needs_a_bearer_token"
+      ]
     },
     "UT-S41-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "signing_out_needs_the_app_marker_and_this_origin_then_revokes_the_device"
+      ]
     },
     "UT-S41-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_web_sign_in_is_known_by_its_platform_and_return_path"
+      ]
     },
     "UT-S41-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_paths_inside_the_browser_app_are_returned_to",
+        "a_return_path_outside_the_app_goes_back_to_the_app_home"
+      ]
     },
     "UT-S41-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S41-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S41-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S41-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S41-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "signing_in_from_the_browser_sets_a_session_cookie_and_returns_to_the_app",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_open_socket_ends_when_its_browser_session_expires",
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S41-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_or_signing_out_ends_the_open_socket",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S41-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "UT-S41-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin"
+      ]
     },
     "UT-S41-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_needs_the_app_marker_and_the_origin",
+        "only_this_servers_exact_origin_counts_as_the_same_origin"
+      ]
     },
     "UT-S41-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_the_app",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "UT-S41-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_cookie_is_secure_except_over_plain_http_on_this_computer",
+        "every_answer_carries_the_browser_app_security_headers"
+      ]
     },
     "UT-S41-38": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_project_beyond_the_memory_budget_is_refused_before_hello",
+        "a_transfer_that_finds_no_room_for_a_while_hears_the_server_is_busy"
+      ]
     },
     "UT-S41-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "UT-S41-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_cookie_planted_beside_the_real_one_is_not_trusted"
+      ]
     },
     "UT-S41-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "me_needs_a_bearer_token"
+      ]
     },
     "UT-S41-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S41-43": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S41-44": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_web_sign_in_is_known_by_its_platform_and_return_path"
+      ]
     }
   }
 }

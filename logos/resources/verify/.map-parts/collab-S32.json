@@ -3,224 +3,341 @@
   "module": "collab-S32",
   "cases": {
     "ST-S32-01": {
-      "vitest": [],
-      "e2e": [],
-      "rust": []
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file"
+      ],
+      "e2e": [
+        "109-live-collaboration-peer.spec.ts > one app and a headless peer share"
+      ],
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land"
+      ]
     },
     "ST-S32-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person",
+        "a_figure_both_people_replaced_offline_keeps_both_when_their_changes_arrive_together"
+      ]
     },
     "ST-S32-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "keep_local_never_sends_them_after_an_unrelated_edit_or_a_restart"
+      ]
     },
     "ST-S32-04": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file",
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog compares only a few files at once"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land"
+      ]
     },
     "ST-S32-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person",
+        "a_figure_both_people_replaced_offline_keeps_both_when_their_changes_arrive_together"
+      ]
     },
     "ST-S32-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "many_files_changed_while_the_app_was_closed_wait_for_a_decision_and_one_does_not"
+      ]
     },
     "ST-S32-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retries_back_off_to_a_minute",
+        "os_errors_read_as_the_reasons_the_window_explains",
+        "a_file_another_program_holds_is_found_held_by_one_quick_open"
+      ]
     },
     "ST-S32-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     },
     "ST-S32-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S32-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S32-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mode_from_a_later_version_reads_as_unknown_and_signs_like_no_known_mode"
+      ]
     },
     "UT-S32-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back"
+      ]
     },
     "UT-S32-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S32-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_revoked_session_can_say_why_and_earlier_clients_still_read_it"
+      ]
     },
     "UT-S32-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S32-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "snapshots_round_trip_and_cannot_run_ahead_of_the_log",
+        "files_are_checked_against_their_hash_and_read_only_by_members"
+      ]
     },
     "UT-S32-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_title_must_not_be_empty"
+      ]
     },
     "UT-S32-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S32-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S32-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S32-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S32-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S32-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land",
+        "different_text_typed_at_the_same_place_is_all_kept"
+      ]
     },
     "UT-S32-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_difference_between_two_texts_rebuilds_the_newer_one",
+        "edits_far_apart_stay_separate_and_the_text_between_them_is_kept"
+      ]
     },
     "UT-S32-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_distance_counts_what_was_typed_and_removed",
+        "the_difference_between_two_texts_rebuilds_the_newer_one"
+      ]
     },
     "UT-S32-22": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S32-23": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog compares only a few files at once"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S32-24": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/MergeReviewDialog.test.tsx > MergeReviewDialog lists each person and file"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S32-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person",
+        "a_figure_both_people_replaced_offline_keeps_both_when_their_changes_arrive_together"
+      ]
     },
     "UT-S32-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_stand_in_name_keeps_the_extension_when_it_is_safe_on_its_own",
+        "two_people_replacing_one_figure_keep_both_and_the_copy_is_named_for_the_person"
+      ]
     },
     "UT-S32-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "many_files_changed_while_the_app_was_closed_wait_for_a_decision_and_one_does_not"
+      ]
     },
     "UT-S32-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_decision_left_open_survives_a_restart_and_is_announced_again"
+      ]
     },
     "UT-S32-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them",
+        "keep_local_never_sends_them_after_an_unrelated_edit_or_a_restart"
+      ]
     },
     "UT-S32-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "one_save_in_a_three_file_project_never_pauses_and_three_saves_do",
+        "ten_changed_files_pause_a_large_project_and_nine_do_not"
+      ]
     },
     "UT-S32-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retries_back_off_to_a_minute",
+        "os_errors_read_as_the_reasons_the_window_explains"
+      ]
     },
     "UT-S32-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retries_back_off_to_a_minute",
+        "outside_changes_wait_for_the_decision_and_send_imports_exactly_them"
+      ]
     },
     "UT-S32-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back"
+      ]
     },
     "UT-S32-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S32-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_edit_made_on_both_sides_lands_once",
+        "independent_edits_on_both_sides_both_land"
+      ]
     }
   }
 }

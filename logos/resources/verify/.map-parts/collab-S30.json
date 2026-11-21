@@ -5,247 +5,362 @@
     "ST-S30-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_see_each_others_typing_through_the_server",
+        "an_update_is_acknowledged_and_reaches_the_others",
+        "changes_that_arrive_together_share_one_commit_and_both_are_acknowledged"
+      ]
     },
     "ST-S30-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/live/presence.test.ts > presence publisher sends at most once per 150 ms"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "hiding_tells_the_others_this_device_left_after_its_last_presence",
+        "presence_and_leaving_cross_between_socket_and_long_poll"
+      ]
     },
     "ST-S30-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_bigger_than_one_batch_goes_out_in_pieces_that_each_fit",
+        "four_three_megabyte_files_added_at_once_reach_the_other_editor_over_a_socket"
+      ]
     },
     "ST-S30-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_single_edit_too_large_for_any_batch_is_refused_here_and_never_sent_again",
+        "a_batch_refused_as_full_waits_for_the_next_connection_without_counting_as_on_its_way"
+      ]
     },
     "ST-S30-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_on_its_way_up_extends_the_quiet_window_by_what_a_slow_link_needs",
+        "a_large_change_on_a_slow_uplink_is_acknowledged_without_reconnecting"
+      ]
     },
     "ST-S30-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_frame_of_an_unknown_type_is_skipped_and_the_frames_around_it_arrive_over_a_socket",
+        "an_update_that_cannot_be_imported_is_skipped_and_the_rest_of_its_batch_reaches_the_editor"
+      ]
     },
     "ST-S30-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_viewer_cannot_change_the_project",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     },
     "UT-S30-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "envelopes_serialise_binary_fields_as_base64url"
+      ]
     },
     "UT-S30-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mode_from_a_later_version_reads_as_unknown_and_signs_like_no_known_mode"
+      ]
     },
     "UT-S30-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "envelopes_serialise_binary_fields_as_base64url"
+      ]
     },
     "UT-S30-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_signature_over_the_signing_bytes_verifies_and_breaks_on_tampering"
+      ]
     },
     "UT-S30-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "subscribed_names_the_change_stored_at_the_clients_since_number"
+      ]
     },
     "UT-S30-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_match_their_wire_json"
+      ]
     },
     "UT-S30-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_frame_of_a_type_this_build_does_not_know_reads_as_unknown_and_its_details_are_ignored"
+      ]
     },
     "UT-S30-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S30-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_message_over_the_size_limit_is_answered_before_the_socket_closes"
+      ]
     },
     "UT-S30-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "malformed_frames_are_rejected"
+      ]
     },
     "UT-S30-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_account_keeps_at_most_its_open_socket_allowance"
+      ]
     },
     "UT-S30-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_hello_is_welcomed_and_pings_are_answered"
+      ]
     },
     "UT-S30-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_upgrade_without_a_valid_session_is_refused_before_a_socket_opens"
+      ]
     },
     "UT-S30-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S30-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S30-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S30-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S30-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S30-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S30-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_bigger_than_one_batch_goes_out_in_pieces_that_each_fit"
+      ]
     },
     "UT-S30-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_single_edit_too_large_for_any_batch_is_refused_here_and_never_sent_again"
+      ]
     },
     "UT-S30-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_on_its_way_up_extends_the_quiet_window_by_what_a_slow_link_needs"
+      ]
     },
     "UT-S30-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_answer_is_overdue_only_once_a_later_ping_is_answered"
+      ]
     },
     "UT-S30-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_frame_of_an_unknown_type_is_skipped_and_the_frames_around_it_arrive_over_a_socket"
+      ]
     },
     "UT-S30-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_reviewer_always_suggests_and_the_server_takes_the_whole_batch"
+      ]
     },
     "UT-S30-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewers_forbidden_refusal_drops_the_batch_keeps_every_change_and_tells_no_one",
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "UT-S30-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_own_acknowledgement_fills_the_gap_between_others_updates"
+      ]
     },
     "UT-S30-38": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/live/presence.test.ts > presence publisher sends at most once per 150 ms and always the latest selection"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "hiding_tells_the_others_this_device_left_after_its_last_presence"
+      ]
     },
     "UT-S30-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_archives_the_project_for_everyone"
+      ]
     },
     "UT-S30-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_access_change_can_carry_the_comment_switches_and_earlier_clients_ignore_them",
+        "an_access_change_can_name_who_changed_whom_and_earlier_clients_ignore_it"
+      ]
     },
     "UT-S30-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S30-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "concurrent_edits_converge_after_both_sides_import",
+        "two_editors_see_each_others_typing_through_the_server"
+      ]
     }
   }
 }

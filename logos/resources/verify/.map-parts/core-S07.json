@@ -3,167 +3,265 @@
   "module": "core-S07",
   "cases": {
     "ST-S07-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/store/files.test.ts > project.json in an opened folder saves project settings to the folder once and reports it once",
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort supports a target only when an engine accepts it"
+      ],
+      "e2e": [
+        "64-compiler-choice.spec.ts > picking pdfLaTeX moves the project to latexmk and pins the compiler",
+        "64-compiler-choice.spec.ts > the pinned compiler survives closing and reopening the project"
+      ],
       "rust": []
     },
     "ST-S07-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote",
+        "src/store/compile.test.ts > compile log diagnostics resets diagnostics when a compile starts and stores the backend diagnostics from the result"
+      ],
+      "e2e": [
+        "02-create-compile.spec.ts > compile produces a rendered PDF with zero errors"
+      ],
       "rust": []
     },
     "ST-S07-03": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_missing refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX compiles when a refresh finds the TeX that was missing"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S07-04": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_missing refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_needs_perl refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX offers TinyTeX without saving or compiling when the engine info says latexmk can't run"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S07-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_bundle_fallback_retries_without_the_mirror"
+      ]
     },
     "ST-S07-06": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle explains a Typst package that is not cached when compiling offline"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_empty_tectonic_cache_says_to_build_online_once"
+      ]
     },
     "ST-S07-07": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "ST-S07-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort turns a stopped compile into CompileStopped",
+        "src/store/compile.test.ts > compile options keeps the last good preview when the user stops a compile"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-01": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort supports a target only when an engine accepts it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-02": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort refuses a target no engine compiles"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote",
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort reads a TeX log when the engine gives no diagnostics"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort turns a stopped compile into CompileStopped"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-05": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort opens SyncTeX with the project's paths and has nothing for an output without it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends compileProject defaults"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends cancelCompile",
+        "src/lib/compile-port.test.ts > createDesktopCompilePort cancels its running compile before the next and on stop, and nothing when idle"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S07-10": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint stays idle and reads no PDF when the fingerprint is invalid",
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint rejects a PDF on disk that is not the fingerprinted output"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-11": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition denies capabilities until the backend descriptor resolves"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "descriptor_exposes_canonical_identity_and_capabilities"
+      ]
     },
     "UT-S07-12": {
-      "vitest": [],
+      "vitest": [
+        "src/store/engine.test.ts > engine info loading loads engine info once and remembers an interrupted download",
+        "src/store/engine.test.ts > engine info loading asks the backend for a login_probe rescan"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-13": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends hasTaggingEngine"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-14": {
-      "vitest": [],
+      "vitest": [
+        "src/store/engine.test.ts > TinyTeX install and removal notices claims the install before its first await so a second click cannot start another",
+        "src/store/engine.test.ts > TinyTeX install and removal notices reports a failed install in the same notice slot"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-15": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends downloadPandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-16": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > project.json in an opened folder saves project settings to the folder once and reports it once"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-17": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_missing refusal into the offer, with no English prefix",
+        "src/store/compile.test.ts > missing TeX turns a tex.latexmk_needs_perl refusal into the offer, with no English prefix"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_bundle_fallback_retries_without_the_mirror",
+        "only_the_last_attempt_counts_after_a_bundle_fallback"
+      ]
     },
     "UT-S07-19": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle explains a Typst package that is not cached when compiling offline"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_empty_tectonic_cache_says_to_build_online_once"
+      ]
     },
     "UT-S07-20": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S07-21": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S07-22": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-sync.test.ts > cross-window successful output synchronization applies a newer event only after the on-disk PDF matches its identity"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-23": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile log diagnostics resets diagnostics when a compile starts and stores the backend diagnostics from the result",
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort reads a TeX log when the engine gives no diagnostics"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-24": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > saving before a compile saves every open file before compiling"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S07-25": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort turns a stopped compile into CompileStopped",
+        "src/store/compile.test.ts > compile options keeps the last good preview when the user stops a compile"
+      ],
       "e2e": [],
       "rust": []
     }

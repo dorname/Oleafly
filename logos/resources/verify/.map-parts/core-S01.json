@@ -4,41 +4,73 @@
   "cases": {
     "ST-S01-01": {
       "vitest": [],
-      "e2e": [],
+      "e2e": [
+        "02-create-compile.spec.ts > create a project from the Blank template",
+        "00-tours.spec.ts > welcome is modal and Home creates a real project before Workspace starts"
+      ],
       "rust": []
     },
     "ST-S01-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import keeps ZIP archives on the existing project importer",
+        "src/store/files.test.ts > importProject lets the opened project confirm the import"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "archive_extraction_never_overwrites_existing_files"
+      ]
     },
     "ST-S01-03": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import converts /tmp/paper.docx to LaTeX and shows the conversion notice",
+        "src/features/project-import.test.ts > project file import converts /tmp/paper.md to LaTeX and shows the conversion notice",
+        "src/features/project-import.test.ts > project file import converts /tmp/page.html into the requested latex project and names that format",
+        "src/features/project-import.test.ts > project file import converts /tmp/paper.typ into the requested markdown project and names that format"
+      ],
+      "e2e": [
+        "40-import.spec.ts > DOCX imports through pandoc into a project"
+      ],
       "rust": []
     },
     "ST-S01-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_entry_count_is_bounded_even_for_empty_directories",
+        "archive_path_attacks_are_rejected_before_writing"
+      ]
     },
     "ST-S01-05": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "malformed_and_truncated_archives_fail"
+      ]
     },
     "ST-S01-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "zip_symlinks_and_tar_special_entries_are_rejected"
+      ]
     },
     "ST-S01-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import stops cleanly when Pandoc installation is declined",
+        "src/features/import.test.ts > picked file import stops quietly when pandoc setup reported its own failure"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S01-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error",
+        "src/features/import.test.ts > converted project publication keeps the conversion open and reports failure from the catalog when publication rejects"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -50,92 +82,151 @@
     "ST-S01-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S01-01": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a positive integer protocol version",
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a non-empty, sorted, duplicate-free capability list",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends backendProtocolInfo"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "info_reports_the_declared_contract"
+      ]
     },
     "UT-S01-02": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract declares a non-empty, sorted, duplicate-free capability list",
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract matches the Rust capability list exactly"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "tests::capabilities_are_sorted_and_unique",
+        "reports_the_collaboration_capability"
+      ]
     },
     "UT-S01-03": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition denies capabilities until the backend descriptor resolves"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "descriptor_exposes_canonical_identity_and_capabilities"
+      ]
     },
     "UT-S01-04": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition remains fail-closed and records the error for the toolbar when descriptor loading fails"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-05": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends setProjectEngineCmd keeps auto-detection",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends downloadPandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-06": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > search_project and list_files lists the project's files"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_entry_count_is_bounded_even_for_empty_directories"
+      ]
     },
     "UT-S01-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "standalone_gzip_is_streamed_and_size_limited"
+      ]
     },
     "UT-S01-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing"
+      ]
     },
     "UT-S01-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "zip_symlinks_and_tar_special_entries_are_rejected"
+      ]
     },
     "UT-S01-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_path_attacks_are_rejected_before_writing",
+        "tar_extraction_skips_traversal_and_junk"
+      ]
     },
     "UT-S01-12": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import stops cleanly when Pandoc installation is declined",
+        "src/features/import.test.ts > picked file import stops quietly when pandoc setup reported its own failure"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-13": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error",
+        "src/features/import.test.ts > converted project publication keeps the conversion open and reports failure from the catalog when publication rejects"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S01-14": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.engine-transition.test.ts > project engine transition keeps shell escape off and logs nothing when the person cancels the shared project warning"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S01-15": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import keeps ZIP archives on the existing project importer"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "main_source_prefers_a_root_main_document"
+      ]
     },
     "UT-S01-16": {
-      "vitest": [],
+      "vitest": [
+        "src/features/project-import.test.ts > project file import keeps ZIP archives on the existing project importer"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_extraction_never_overwrites_existing_files"
+      ]
     },
     "UT-S01-17": {
-      "vitest": [],
+      "vitest": [
+        "src/features/import.test.ts > picked file import reports a failed import with catalog text instead of the raw error"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "archive_extraction_never_overwrites_existing_files"
+      ]
     },
     "UT-S01-18": {
       "vitest": [],
@@ -145,11 +236,17 @@
     "UT-S01-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "shell_escape_consent_is_device_local_and_project_json_cannot_grant_it"
+      ]
     },
     "UT-S01-20": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "packages/templates/src/NewProjectDialog.render.test.tsx > NewProjectDialog creates the project with the chosen name and colour"
+      ],
+      "e2e": [
+        "02-create-compile.spec.ts > compile produces a rendered PDF with zero errors"
+      ],
       "rust": []
     }
   }

@@ -5,212 +5,314 @@
     "ST-S31-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "edits_made_offline_sync_after_reconnecting",
+        "catching_up_after_time_away_reports_who_changed_which_file_and_how",
+        "a_batch_the_client_missed_is_sent_again"
+      ]
     },
     "ST-S31-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_behind_a_proxy_that_blocks_websockets_still_converge",
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through"
+      ]
     },
     "ST-S31-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "a_server_that_asks_for_a_wait_with_retry_after_is_left_alone_that_long"
+      ]
     },
     "ST-S31-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reconnect_waits_spread_over_the_whole_window",
+        "waits_grow_to_a_minute_after_many_failures_and_start_over_once_connected"
+      ]
     },
     "ST-S31-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice",
+        "a_batch_still_on_its_way_up_keeps_its_id_after_a_restart"
+      ]
     },
     "ST-S31-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "ST-S31-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_change_forged_under_another_devices_writer_id_is_refused_and_both_copies_converge"
+      ]
     },
     "ST-S31-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one",
+        "presence_and_leaving_cross_between_socket_and_long_poll"
+      ]
     },
     "ST-S31-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_behind_a_proxy_that_blocks_websockets_still_converge",
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through",
+        "a_long_poll_editor_notices_a_dropped_network_and_catches_up_after"
+      ]
     },
     "UT-S31-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_over_long_poll_is_acknowledged_and_reaches_a_socket_peer"
+      ]
     },
     "UT-S31-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "socket_changes_reach_a_long_poll_peer_in_order"
+      ]
     },
     "UT-S31-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S31-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "subscribed_names_the_change_stored_at_the_clients_since_number"
+      ]
     },
     "UT-S31-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_own_acknowledgement_fills_the_gap_between_others_updates"
+      ]
     },
     "UT-S31-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S31-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_asks_for_a_wait_with_retry_after_is_left_alone_that_long"
+      ]
     },
     "UT-S31-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "every_auth_code_has_a_wire_name_status_and_message"
+      ]
     },
     "UT-S31-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_upgrade_without_a_valid_session_is_refused_before_a_socket_opens",
+        "opening_needs_a_valid_session_and_proof_of_the_device_key"
+      ]
     },
     "UT-S31-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_over_long_poll_is_acknowledged_and_reaches_a_socket_peer",
+        "socket_changes_reach_a_long_poll_peer_in_order"
+      ]
     },
     "UT-S31-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S31-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S31-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S31-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_old_refresh_used_after_the_new_one_signs_the_device_out"
+      ]
     },
     "UT-S31-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "access_tokens_resolve_until_they_expire_and_only_the_hash_is_stored"
+      ]
     },
     "UT-S31-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S31-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S31-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_answer_is_overdue_only_once_a_later_ping_is_answered"
+      ]
     },
     "UT-S31-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reconnect_waits_spread_over_the_whole_window"
+      ]
     },
     "UT-S31-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "waits_grow_to_a_minute_after_many_failures_and_start_over_once_connected",
+        "only_a_connection_that_stayed_up_starts_the_waits_over"
+      ]
     },
     "UT-S31-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_first_minute_of_retries_never_waits_more_than_five_seconds"
+      ]
     },
     "UT-S31-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once"
+      ]
     },
     "UT-S31-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "two_editors_behind_a_proxy_that_blocks_websockets_still_converge"
+      ]
     },
     "UT-S31-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through"
+      ]
     },
     "UT-S31-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "edits_made_offline_sync_after_reconnecting"
+      ]
     },
     "UT-S31-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "edits_made_offline_sync_after_reconnecting",
+        "a_batch_the_client_missed_is_sent_again"
+      ]
     },
     "UT-S31-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S31-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "UT-S31-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_reviewer_always_suggests_and_the_server_takes_the_whole_batch"
+      ]
     },
     "UT-S31-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_speaks_only_a_newer_protocol_ends_the_session_once_and_keeps_the_changes",
+        "a_server_that_speaks_only_an_older_protocol_says_the_server_needs_an_update"
+      ]
     },
     "UT-S31-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reconnect_now_cuts_a_long_wait_short"
+      ]
     },
     "UT-S31-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S31-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     }
   }
 }

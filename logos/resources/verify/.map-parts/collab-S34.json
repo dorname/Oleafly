@@ -3,264 +3,414 @@
   "module": "collab-S34",
   "cases": {
     "ST-S34-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.test.tsx > Comments tab replies with the members so mentions resolve, and resolves the thread"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_thread_starts_with_its_quote_its_range_and_its_first_message",
+        "a_thread_can_be_resolved_and_reopened",
+        "a_mention_in_a_new_comment_emails_the_person_once_the_minute_is_up"
+      ]
     },
     "ST-S34-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets an owner accept or reject one suggestion"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "accepting_keeps_the_text_and_rejecting_puts_the_original_back",
+        "only_the_author_withdraws_and_a_withdrawal_puts_the_text_back",
+        "two_reviewers_suggesting_at_once_converge"
+      ]
     },
     "ST-S34-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/chat/ChatPane.test.tsx > project chat sends a message and shows it straight away"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "messages_reach_everyone_in_order_and_older_ones_come_in_pages",
+        "chat_is_sent_listed_deleted_and_cleared_by_the_owner"
+      ]
     },
     "ST-S34-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "a_comment_written_offline_stays_off_the_server_round_after_round_over_a_socket"
+      ]
     },
     "ST-S34-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_comments_off_for_the_project_a_new_thread_is_refused_and_typing_still_saves",
+        "with_comments_off_a_reply_to_a_thread_made_earlier_is_refused"
+      ]
     },
     "ST-S34-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets a reviewer withdraw only their own suggestion and never accept"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_can_withdraw_their_own_suggestion_but_not_accept_one",
+        "only_owners_and_editors_accept_or_reject_and_only_the_author_withdraws"
+      ]
     },
     "ST-S34-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_commenter_or_viewer_typing_in_the_editor_is_put_back"
+      ]
     },
     "ST-S34-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "a_comment_written_offline_stays_off_the_server_round_after_round_over_a_socket"
+      ]
     },
     "ST-S34-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "ST-S34-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access",
+        "browser_access_is_advertised_only_when_built_in_and_turned_on"
+      ]
     },
     "UT-S34-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access"
+      ]
     },
     "UT-S34-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/ManageSharing.comments.test.tsx > ManageSharing comments switch shows the switch off and locked when the server has comments turned off"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_are_advertised_only_while_the_server_allows_them",
+        "only_the_owner_turns_comments_off_for_a_project_and_everyone_sees_it"
+      ]
     },
     "UT-S34-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_has_its_own_code_and_earlier_clients_read_it_as_unknown"
+      ]
     },
     "UT-S34-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_access_change_can_carry_the_comment_switches_and_earlier_clients_ignore_them"
+      ]
     },
     "UT-S34-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written",
+        "with_comments_off_a_reviewer_comment_is_refused_and_a_suggestion_still_saves"
+      ]
     },
     "UT-S34-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "typing_in_a_file_is_not_a_comment_change",
+        "a_new_thread_a_resolve_and_a_reply_are_all_comment_changes",
+        "a_change_that_hides_a_comment_inside_typing_is_still_a_comment_change",
+        "a_change_that_builds_on_unknown_changes_cannot_be_checked"
+      ]
     },
     "UT-S34-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_guard_keeps_a_bounded_number_of_slots"
+      ]
     },
     "UT-S34-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "typing_in_a_file_is_not_a_comment_change",
+        "a_new_thread_a_resolve_and_a_reply_are_all_comment_changes"
+      ]
     },
     "UT-S34-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "every_role_follows_the_review_matrix"
+      ]
     },
     "UT-S34-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "every_role_follows_the_review_matrix",
+        "only_owners_and_editors_accept_or_reject_and_only_the_author_withdraws"
+      ]
     },
     "UT-S34-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_the_author_withdraws_and_a_withdrawal_puts_the_text_back"
+      ]
     },
     "UT-S34-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "everyone_but_viewers_chats_and_only_the_owner_clears"
+      ]
     },
     "UT-S34-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mention_in_a_new_comment_emails_the_person_once_the_minute_is_up"
+      ]
     },
     "UT-S34-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_test_email_goes_to_the_admin_and_reports_the_result",
+        "email_status_is_for_staff_and_never_shows_the_password"
+      ]
     },
     "UT-S34-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json"
+      ]
     },
     "UT-S34-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S34-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S34-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S34-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S34-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S34-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S34-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "sending_the_same_comment_again_or_editing_it_never_emails_twice"
+      ]
     },
     "UT-S34-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "people_outside_the_project_and_removed_members_are_not_emailed"
+      ]
     },
     "UT-S34-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "mentions_waiting_when_the_server_stops_go_out_after_it_starts_again"
+      ]
     },
     "UT-S34-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "mention_emails_are_on_until_a_person_turns_them_off_apart_from_share_emails"
+      ]
     },
     "UT-S34-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S34-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S34-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_thread_starts_with_its_quote_its_range_and_its_first_message"
+      ]
     },
     "UT-S34-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_thread_can_be_resolved_and_reopened",
+        "replies_edits_and_deletes_follow_their_author",
+        "mentions_are_kept_with_each_message"
+      ]
     },
     "UT-S34-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_comments_off_for_the_project_a_new_thread_is_refused_and_typing_still_saves",
+        "a_socket_client_that_understands_the_comments_off_code_is_refused_with_it"
+      ]
     },
     "UT-S34-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "with_comments_off_a_reply_to_a_thread_made_earlier_is_refused"
+      ]
     },
     "UT-S34-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_comments_off_refusal_drops_only_the_comment_and_names_what_was_written"
+      ]
     },
     "UT-S34-33": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets a reviewer withdraw only their own suggestion and never accept"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_can_withdraw_their_own_suggestion_but_not_accept_one",
+        "only_owners_and_editors_accept_or_reject_and_only_the_author_withdraws"
+      ]
     },
     "UT-S34-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_commenter_can_comment_and_chat_but_not_touch_text_or_suggestions",
+        "a_commenter_or_viewer_typing_in_the_editor_is_put_back",
+        "reviewers_and_commenters_never_touch_the_file_tree_or_settings"
+      ]
     },
     "UT-S34-35": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/comments/CommentsPane.suggestions.test.tsx > suggestions in the Comments pane lets an owner accept or reject one suggestion"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "accepting_keeps_the_text_and_rejecting_puts_the_original_back",
+        "only_the_author_withdraws_and_a_withdrawal_puts_the_text_back"
+      ]
     },
     "UT-S34-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "edits_made_offline_sync_after_reconnecting"
+      ]
     },
     "UT-S34-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "comments_made_offline_on_two_peers_merge",
+        "a_comment_written_offline_stays_off_the_server_round_after_round_over_a_socket"
+      ]
     },
     "UT-S34-38": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "people_delete_only_their_own_messages_and_the_owner_can_clear_all",
+        "replies_edits_and_deletes_follow_their_author"
+      ]
     },
     "UT-S34-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_mention_in_a_new_comment_emails_the_person_once_the_minute_is_up",
+        "without_mail_settings_mentions_are_accepted_and_nothing_waits_to_be_sent"
+      ]
     },
     "UT-S34-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access",
+        "browser_access_is_advertised_only_when_built_in_and_turned_on"
+      ]
     },
     "UT-S34-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S34-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_change_signed_by_another_key_is_refused"
+      ]
     }
   }
 }

@@ -3,214 +3,362 @@
   "module": "collab-S35",
   "cases": {
     "ST-S35-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history groups versions by day, newest first, with earlier changes last"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "changes_group_into_entries_by_time_newest_first",
+        "changes_made_before_times_were_kept_collapse_into_one_entry"
+      ]
     },
     "ST-S35-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project opens the first changed file",
+        "src/features/collab/sharing/HistoryCompareDialog.test.tsx > comparing two versions names both versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "ST-S35-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history names a version and removes a name"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_named_version_ends_its_entry_and_can_be_renamed_or_unnamed"
+      ]
     },
     "ST-S35-04": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history restores the whole project only after a confirmation"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "restoring_a_version_brings_back_its_text_and_its_deleted_files"
+      ]
     },
     "ST-S35-05": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project says when the file didn't exist in that version and offers no file restore"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_moved_or_deleted_file_is_found_in_an_older_version_by_the_name_it_is_listed_under"
+      ]
     },
     "ST-S35-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "ST-S35-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "ST-S35-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "ST-S35-09": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history restores the whole project only after a confirmation"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "restoring_a_version_brings_back_its_text_and_its_deleted_files"
+      ]
     },
     "ST-S35-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "ST-S35-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S35-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history opens a version read-only and restores the file after asking"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_match_their_wire_json",
+        "a_restored_text_starts_its_own_entry"
+      ]
     },
     "UT-S35-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S35-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "frame_error_codes_use_snake_case_and_read_new_codes_as_unknown"
+      ]
     },
     "UT-S35-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "versions_read_for_history_are_kept_for_the_next_request_up_to_a_few"
+      ]
     },
     "UT-S35-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history names a version and removes a name"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_named_version_ends_its_entry_and_can_be_renamed_or_unnamed"
+      ]
     },
     "UT-S35-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history names a version and removes a name"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_named_version_ends_its_entry_and_can_be_renamed_or_unnamed"
+      ]
     },
     "UT-S35-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project opens the first changed file",
+        "src/features/collab/sharing/HistoryCompareDialog.test.tsx > comparing two versions names both versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "UT-S35-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "snapshots_round_trip_and_cannot_run_ahead_of_the_log"
+      ]
     },
     "UT-S35-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S35-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "project_sizes_start_from_what_is_stored_and_follow_every_write"
+      ]
     },
     "UT-S35-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S35-18": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history groups versions by day, newest first, with earlier changes last"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "changes_group_into_entries_by_time_newest_first"
+      ]
     },
     "UT-S35-19": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history groups versions by day, newest first, with earlier changes last"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "changes_group_into_entries_by_time_newest_first",
+        "changes_made_before_times_were_kept_collapse_into_one_entry"
+      ]
     },
     "UT-S35-20": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project opens the first changed file",
+        "src/features/collab/sharing/HistoryCompareDialog.test.tsx > comparing two versions names both versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "UT-S35-21": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > a version of the project says when the file didn't exist in that version and offers no file restore"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_moved_or_deleted_file_is_found_in_an_older_version_by_the_name_it_is_listed_under"
+      ]
     },
     "UT-S35-22": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-23": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-24": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.edges.test.tsx > naming versions never saves a name of only spaces"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-25": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/HistoryVersionDialog.test.tsx > restoring a version keeps the dialog open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "a_version_shows_its_files_and_a_restore_brings_them_back"
+      ]
     },
     "UT-S35-26": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history restores the whole project only after a confirmation"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_restored_text_starts_its_own_entry",
+        "restoring_a_version_brings_back_its_text_and_its_deleted_files"
+      ]
     },
     "UT-S35-27": {
-      "vitest": [],
+      "vitest": [
+        "src/features/collab/sharing/SharedHistory.test.tsx > shared history lets reviewers look but not restore or name versions"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_owners_and_editors_restore_or_name_versions"
+      ]
     },
     "UT-S35-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_viewer_cannot_change_text_and_gets_the_file_back",
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused"
+      ]
     },
     "UT-S35-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_panic_in_a_local_edit_marks_the_project_damaged_and_takes_no_more_edits",
+        "a_change_the_engine_panics_on_ends_the_session_and_the_next_start_skips_it"
+      ]
     },
     "UT-S35-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_speaks_only_a_newer_protocol_ends_the_session_once_and_keeps_the_changes",
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S35-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     }
   }
 }

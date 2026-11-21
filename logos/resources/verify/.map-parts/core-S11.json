@@ -3,18 +3,33 @@
   "module": "core-S11",
   "cases": {
     "ST-S11-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/export.test.ts > the exported PDF is the one on screen sends the preview's bytes as they are when the save dialog closes",
+        "src/features/export.test.ts > the exported PDF is the one on screen copies the compiled PDF on disk instead of sending bytes when it is the one on screen"
+      ],
+      "e2e": [
+        "55-export-artifacts.spec.ts > every document export writes a semantic artifact to the selected exact path",
+        "17-preview-controls.spec.ts > save PDF writes the exact compiled bytes at the requested relative path and reports failures"
+      ],
       "rust": []
     },
     "ST-S11-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc",
+        "packages/conversion-registry/src/index.test.ts > conversion registry invariants orders export routes per engine and drops unavailable formats"
+      ],
+      "e2e": [
+        "74-conversion-matrix.spec.ts > LaTeX project exports (registry routes) › exports Typst, Word, MathML HTML, and Markdown"
+      ],
       "rust": []
     },
     "ST-S11-03": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/ad-hoc-converters.test.ts > ad-hoc converter registry converts Word bytes through the binary Pandoc route"
+      ],
+      "e2e": [
+        "30-project-kinds.spec.ts > presentation export menu offers PowerPoint but not EPUB"
+      ],
       "rust": []
     },
     "ST-S11-04": {
@@ -23,17 +38,27 @@
       "rust": []
     },
     "ST-S11-05": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports clears the progress slot and reports once when the export itself fails",
+        "src/features/export.test.ts > export edge cases explains a failed PDF or PNG save with or without the reason"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "failed_export_preserves_an_existing_destination"
+      ]
     },
     "ST-S11-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports clears the progress slot and reports once when the export itself fails"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S11-07": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > stale and failed compiles warns that a error compile may have left an incomplete file",
+        "src/features/export.test.ts > stale and failed compiles says a PDF comes from the last compile when the source has moved on"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -43,82 +68,123 @@
       "rust": []
     },
     "ST-S11-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S11-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-01": {
-      "vitest": [],
+      "vitest": [
+        "packages/conversion-registry/src/index.test.ts > conversion registry invariants orders export routes per engine and drops unavailable formats",
+        "packages/conversion-registry/src/index.test.ts > conversion registry invariants offers the exports Quarto and Calepin render themselves"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-02": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends setProjectEngineCmd keeps auto-detection"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued",
+        "src/lib/native-file-dialog.test.ts > pickSavePath returns a queued save path once, including a queued cancellation"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S11-06": {
-      "vitest": [],
+      "vitest": [
+        "packages/ai-tools/src/tools.files.test.ts > search_project and list_files lists the project's files",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends readProjectSourcesBatch"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-07": {
-      "vitest": [],
+      "vitest": [
+        "src/store/files.test.ts > writeProjectFile refuses to write into a project that is no longer open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S11-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends exportDocument defaults",
+        "src/features/ad-hoc-converters.test.ts > ad-hoc converter registry converts Word bytes through the binary Pandoc route"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > export edge cases explains a failed PDF or PNG save with or without the reason"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-11": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/native-file-dialog.test.ts > pickSavePath uses the native save dialog when nothing is queued"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-12": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > export edge cases explains a failed PDF or PNG save with or without the reason"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "failed_export_preserves_an_existing_destination"
+      ]
     },
     "UT-S11-13": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports clears the progress slot and reports once when the export itself fails"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-14": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > stale and failed compiles warns that a error compile may have left an incomplete file",
+        "src/features/export.test.ts > stale and failed compiles says a PDF comes from the last compile when the source has moved on"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -128,17 +194,24 @@
       "rust": []
     },
     "UT-S11-16": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-17": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > document exports turns the progress toast into the result in place instead of stacking a second toast"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S11-18": {
-      "vitest": [],
+      "vitest": [
+        "src/features/export.test.ts > the exported PDF is the one on screen sends the preview's bytes as they are when the save dialog closes",
+        "src/features/export.test.ts > document exports saves a source archive without requiring Pandoc"
+      ],
       "e2e": [],
       "rust": []
     }

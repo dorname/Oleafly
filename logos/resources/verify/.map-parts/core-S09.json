@@ -3,147 +3,237 @@
   "module": "core-S09",
   "cases": {
     "ST-S09-01": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.load.test.tsx > PdfViewer loading asks for a password, rejects a wrong one and opens with the right one"
+      ],
+      "e2e": [
+        "17-preview-controls.spec.ts > zoom controls change the zoom level",
+        "17-preview-controls.spec.ts > multi-page layout, previous/next, and direct page jump all navigate",
+        "17-preview-controls.spec.ts > invert colors toggles on and off"
+      ],
       "rust": []
     },
     "ST-S09-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) switches to the child file when the click lands on \\input content",
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) places the cursor on the clicked word and skips the line jump when found"
+      ],
+      "e2e": [
+        "24-synctex-inverse.spec.ts > clicking the PDF jumps to the word in the source"
+      ],
       "rust": []
     },
     "ST-S09-03": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/features/synctex.test.ts > forward SyncTeX from the editor with the cursor on a word jumps to the typeset line the word is on, not the first one of its source line"
+      ],
+      "e2e": [
+        "10-shortcuts.spec.ts > Cmd+Enter compiles and Cmd+Shift+J forward-SyncTeX highlights the PDF"
+      ],
       "rust": []
     },
     "ST-S09-04": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server moves the PDF to the cursor's line and column without SyncTeX",
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server selects the word at the exact character clicked in the PDF"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_tinymist_builds_from_0_13_30_answer_both_sync_directions"
+      ]
     },
     "ST-S09-05": {
-      "vitest": [],
+      "vitest": [
+        "src/contributions/presentation-commands.test.tsx > presentation commands present the compiled PDF of the open project"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > stale SyncTeX source translation rejects a click from a different retained PDF output",
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering cancels old work and cannot repopulate the current text layer"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-07": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle preserves the prior PDF when the failed compile produced none at all",
+        "src/store/compile.test.ts > compile output lifecycle keeps the last good PDF when compilation throws"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-08": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it",
+        "src/store/compile.test.ts > compile output lifecycle reports a nonzero compile as an error but still shows the best-effort PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S09-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/document-engine.test.ts > compileSettingsForEngine offers none of them for Typst, Markdown or an unknown engine"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "projects_whose_typst_matches_an_old_tinymist_hide_sync"
+      ]
     },
     "ST-S09-10": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering does not invoke inverse SyncTeX when a non-collapsed selection intersects the page"
+      ],
+      "e2e": [
+        "24-synctex-inverse.spec.ts > clicking after a non-collapsed PDF selection does not invoke inverse SyncTeX"
+      ],
       "rust": []
     },
     "ST-S09-11": {
-      "vitest": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.load.test.tsx > PdfViewer loading asks for a password, rejects a wrong one and opens with the right one",
+        "src/components/preview/PdfViewerOverlay.test.tsx > PdfViewerOverlay asks for a password and submits only once one is typed"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-01": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > forward SyncTeX from the editor with the cursor on a word jumps to the typeset line the word is on, not the first one of its source line"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-02": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) places the cursor on the clicked word and skips the line jump when found",
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) does nothing when synctex has no hit for that spot"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-03": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) no-ops with no project open (never calls into the backend)"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-04": {
-      "vitest": [],
+      "vitest": [
+        "packages/compile-port/src/browser.test.ts > createBrowserCompilePort opens SyncTeX with the project's paths and has nothing for an output without it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-05": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.contract.test.ts > IPC command contract sends synctexForward",
+        "src/lib/tauri.contract.test.ts > IPC command contract sends synctexInverse"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-06": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server moves the PDF to the cursor's line and column without SyncTeX"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_tinymist_builds_from_0_13_30_answer_both_sync_directions",
+        "jump_messages_parse_into_page_points"
+      ]
     },
     "UT-S09-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-08": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint stays idle and reads no PDF when the fingerprint is invalid",
+        "src/store/compile.test.ts > restore from the on-disk compile fingerprint rejects a PDF on disk that is not the fingerprinted output"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "build_artifact_reads_refuse_other_files_and_escapes"
+      ]
     },
     "UT-S09-10": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > stale SyncTeX source translation rejects a click from a different retained PDF output",
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering cancels old work and cannot repopulate the current text layer"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-11": {
-      "vitest": [],
+      "vitest": [
+        "src/store/compile.test.ts > compile output lifecycle preserves the prior PDF when the failed compile produced none at all",
+        "src/store/compile.test.ts > compile output lifecycle keeps the last good PDF when compilation throws"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-12": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it",
+        "src/store/compile.test.ts > compile output lifecycle reports a nonzero compile as an error but still shows the best-effort PDF"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-13": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-14": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > Typst sync through the Tinymist preview server stays out of the way for a Typst project whose Tinymist cannot sync"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "projects_whose_typst_matches_an_old_tinymist_hide_sync"
+      ]
     },
     "UT-S09-15": {
-      "vitest": [],
+      "vitest": [
+        "src/features/synctex.test.ts > inverseFromClick (multi-file, 0.1.1 fix) does not fake SyncTeX navigation for Typst projects",
+        "src/lib/document-engine.test.ts > compileSettingsForEngine offers none of them for Typst, Markdown or an unknown engine"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-16": {
-      "vitest": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.stale.test.tsx > PdfViewer stale document rendering does not invoke inverse SyncTeX when a non-collapsed selection intersects the page"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-17": {
-      "vitest": [],
+      "vitest": [
+        "packages/preview/src/PdfViewer.load.test.tsx > PdfViewer loading asks for a password, rejects a wrong one and opens with the right one"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S09-18": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/compile-port.test.ts > createDesktopCompilePort compiles the project folder and reads the PDF it wrote"
+      ],
       "e2e": [],
       "rust": []
     }

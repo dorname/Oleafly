@@ -3,114 +3,207 @@
   "module": "core-S12",
   "cases": {
     "ST-S12-01": {
-      "vitest": [],
-      "e2e": [],
-      "rust": []
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel capture notices counts the files checkpoints left out"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source",
+        "66-checkpoints.spec.ts > blank-typst: successful compiles deduplicate checkpoints and restore source",
+        "66-checkpoints.spec.ts > blank-markdown: successful compiles deduplicate checkpoints and restore source"
+      ],
+      "rust": [
+        "compile_evidence_requires_a_toolchain_identity"
+      ]
     },
     "ST-S12-02": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel labels names a checkpoint inline and keeps the version as a tag",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source"
+      ],
       "rust": []
     },
     "ST-S12-03": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "ST-S12-04": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions validates archive passwords, exports, imports, and clears the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "encrypted_full_history_round_trips_without_plaintext_staging",
+        "encrypted_v2_golden_archive_remains_importable"
+      ]
     },
     "ST-S12-05": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions that outlive their project ignores a keep latest sweep confirmed from Keep latest and Delete older checkpoints that settles after the switch with resolve",
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes retention and encrypted archives through their native handlers"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retention_removes_visible_roots_before_reclaiming_unreachable_packs"
+      ]
     },
     "ST-S12-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events only logs an incomplete capture until it keeps happening",
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events starts counting incomplete captures again after a checkpoint saves"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S12-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events does not report incomplete captures again after checkpoints save in between"
+      ],
       "e2e": [],
       "rust": []
     },
     "ST-S12-08": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports a restore that failed and leaves the panel open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_retries_after_a_crash_immediately_after_transaction_creation",
+        "restore_retries_after_a_crash_during_materialization"
+      ]
     },
     "ST-S12-09": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_catalog_newer_than_this_build_is_never_opened",
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "ST-S12-10": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "ST-S12-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "wrong_password_and_truncation_are_rejected"
+      ]
     },
     "ST-S12-12": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "UT-S12-01": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes reads, verification, and restore through the shared desktop port",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel file lists collapses an expanded file list without reloading it"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-02": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel labels names a checkpoint inline and keeps the version as a tag",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel labels clears a label and falls back to the version number"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "checkpoint_labels_are_saved_cleared_and_bounded",
+        "checkpoint_labels_are_trimmed_validated_and_clearable"
+      ]
     },
     "UT-S12-03": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes inspection, file listing, and reveal",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel files loads an entry's files on demand and labels how each one arrived"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-04": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes reads, verification, and restore through the shared desktop port",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "UT-S12-05": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes reads, verification, and restore through the shared desktop port"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "verification_checks_checkpoint_summary_and_compile_evidence"
+      ]
     },
     "UT-S12-06": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes retention and encrypted archives through their native handlers",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions validates archive passwords, exports, imports, and clears the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "encrypted_full_history_round_trips_without_plaintext_staging"
+      ]
     },
     "UT-S12-07": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes retention and encrypted archives through their native handlers",
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions that outlive their project ignores a keep latest sweep confirmed from Keep latest and Delete older checkpoints that settles after the switch with resolve"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "retention_removes_visible_roots_before_reclaiming_unreachable_packs"
+      ]
     },
     "UT-S12-08": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/tauri.bridge.test.ts > Checkpoints bridge routes inspection, file listing, and reveal"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-09": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/backend-port-protocol.test.ts > backend-port protocol contract requires a backend that implements Checkpoints"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "reports_the_collaboration_capability"
+      ]
     },
     "UT-S12-10": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events marks the active project as publishing until the lane finishes"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "compile_evidence_requires_a_toolchain_identity"
+      ]
     },
     "UT-S12-11": {
       "vitest": [],
@@ -125,105 +218,165 @@
     "UT-S12-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "content_defined_chunk_boundaries_match_the_published_store_format"
+      ]
     },
     "UT-S12-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "fastcdc_streaming_reuses_unchanged_chunks_and_compresses_only_when_smaller"
+      ]
     },
     "UT-S12-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "in_project_snapshot_roots_are_unchanged",
+        "layouts_never_share_a_snapshot_root"
+      ]
     },
     "UT-S12-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "nonempty_store_rejects_a_foreign_history_lineage"
+      ]
     },
     "UT-S12-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "nonempty_store_rejects_a_foreign_history_lineage"
+      ]
     },
     "UT-S12-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_catalog_newer_than_this_build_is_never_opened"
+      ]
     },
     "UT-S12-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "version_one_catalog_and_manifest_migrate_in_place_on_open"
+      ]
     },
     "UT-S12-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "first_publication_store_is_invisible_until_nonempty_commit",
+        "publication_faults_never_expose_a_root_and_reopen_removes_orphan_packs"
+      ]
     },
     "UT-S12-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "checkpoints_keep_the_toolchain_identity_they_were_published_with",
+        "the_compile_evidence_names_the_typst_version_that_produced_it"
+      ]
     },
     "UT-S12-22": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events treats an unchanged source as a silent outcome"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source"
+      ],
       "rust": []
     },
     "UT-S12-23": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events only logs an incomplete capture until it keeps happening"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-24": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events only logs an incomplete capture until it keeps happening"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-25": {
-      "vitest": [],
+      "vitest": [
+        "src/lib/checkpoint-publication.test.ts > checkpoint publication events does not report incomplete captures again after checkpoints save in between"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-26": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports a restore that failed and leaves the panel open"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_retries_after_a_crash_immediately_after_transaction_creation",
+        "restore_retries_after_a_crash_during_materialization",
+        "pending_restore_without_a_transaction_stays_fail_closed"
+      ]
     },
     "UT-S12-27": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "restore_removes_files_added_after_the_checkpoint_and_brings_back_deleted_ones"
+      ]
     },
     "UT-S12-28": {
-      "vitest": [],
-      "e2e": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel actions warns about unstored files, then flushes edits and applies the restored state"
+      ],
+      "e2e": [
+        "66-checkpoints.spec.ts > blank: successful compiles deduplicate checkpoints and restore source"
+      ],
       "rust": []
     },
     "UT-S12-29": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_catalog_newer_than_this_build_is_never_opened",
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "UT-S12-30": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/CheckpointsPanel.test.tsx > CheckpointsPanel failure reporting reports an import that failed and keeps the password"
+      ],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "unsupported_envelope_versions_and_kdf_ids_are_rejected"
+      ]
     },
     "UT-S12-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "wrong_password_and_truncation_are_rejected"
+      ]
     },
     "UT-S12-32": {
-      "vitest": [],
+      "vitest": [
+        "src/components/editor/VersioningModal.test.tsx > VersioningModal shows checkpoints without a Git tab"
+      ],
       "e2e": [],
       "rust": []
     },
     "UT-S12-33": {
-      "vitest": [],
+      "vitest": [
+        "src/features/latex-engine.test.ts > tagged compile checkpoints shows a verified best-effort PDF from a failed tagged compile without checkpointing it"
+      ],
       "e2e": [],
       "rust": []
     }

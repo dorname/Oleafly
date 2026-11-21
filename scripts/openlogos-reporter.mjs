@@ -40,7 +40,13 @@ const STATUS_SEVERITY = { fail: 3, skip: 2, pass: 1 };
 /** 各来源的原始结果文件（缺失即视为该来源无记录，不算失败）。 */
 const RAW_SOURCES = {
   vitest: [`${RAW_DIR}/vitest.json`, `${RAW_DIR}/vitest-web.json`],
-  e2e: [`${RAW_DIR}/playwright.json`, `${RAW_DIR}/playwright-web.json`],
+  e2e: [
+    `${RAW_DIR}/playwright.json`,
+    `${RAW_DIR}/playwright-web.json`,
+    // Playwright 的 cwd 是 e2e/，json reporter 的 outputFile 相对它解析
+    `e2e/${RAW_DIR}/playwright.json`,
+    `web/e2e/${RAW_DIR}/playwright-web.json`,
+  ],
   rust: [`${RAW_DIR}/rust.json`, `${RAW_DIR}/rust.txt`],
 };
 

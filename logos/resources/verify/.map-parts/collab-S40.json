@@ -5,272 +5,408 @@
     "ST-S40-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence",
+        "a_browser_edit_is_acknowledged_with_its_length_and_reaches_a_desktop",
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees",
+        "cursors_travel_between_a_desktop_and_a_browser"
+      ]
     },
     "ST-S40-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored",
+        "a_file_a_desktop_adds_shows_in_the_browser_tree_and_a_reopened_socket_sees_the_latest_text"
+      ]
     },
     "ST-S40-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_whose_ack_was_lost_is_reported_on_reopen_and_never_applied_twice"
+      ]
     },
     "ST-S40-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "ST-S40-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_socket_from_another_origin_or_without_a_session_is_refused",
+        "an_open_socket_ends_when_its_browser_session_expires"
+      ]
     },
     "ST-S40-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "ST-S40-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_whose_ack_was_lost_is_reported_on_reopen_and_never_applied_twice"
+      ]
     },
     "ST-S40-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing",
+        "a_project_beyond_the_memory_budget_is_refused_before_hello"
+      ]
     },
     "ST-S40-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "stopping_sharing_or_signing_out_ends_the_open_socket",
+        "an_open_socket_ends_when_its_browser_session_expires"
+      ]
     },
     "ST-S40-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "UT-S40-01": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_socket_from_another_origin_or_without_a_session_is_refused",
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence"
+      ]
     },
     "UT-S40-02": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_project_list_and_a_project_describe_what_the_browser_shows",
+        "every_text_file_comes_back_in_one_answer_sorted_by_path"
+      ]
     },
     "UT-S40-03": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_this_servers_exact_origin_counts_as_the_same_origin",
+        "me_needs_a_bearer_token"
+      ]
     },
     "UT-S40-04": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "client_frames_read_as_the_contract_writes_them"
+      ]
     },
     "UT-S40-05": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "server_frames_carry_the_t_tag_and_camel_case_fields"
+      ]
     },
     "UT-S40-06": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence"
+      ]
     },
     "UT-S40-07": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_hello_names_the_role_features_files_and_people_then_chat_output_and_presence"
+      ]
     },
     "UT-S40-08": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_browser_edit_is_acknowledged_with_its_length_and_reaches_a_desktop"
+      ]
     },
     "UT-S40-09": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_desktop_edit_reaches_the_open_browser_as_a_remote_change"
+      ]
     },
     "UT-S40-10": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_role_change_and_a_removal_reach_the_browser"
+      ]
     },
     "UT-S40-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "waits_grow_to_a_minute_after_many_failures_and_start_over_once_connected"
+      ]
     },
     "UT-S40-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_fallback_moves_back_to_the_socket_once_websockets_get_through"
+      ]
     },
     "UT-S40-13": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing",
+        "a_project_beyond_the_memory_budget_is_refused_before_hello"
+      ]
     },
     "UT-S40-14": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "refusals_use_the_codes_the_web_app_knows",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S40-15": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "refusals_use_the_codes_the_web_app_knows",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows"
+      ]
     },
     "UT-S40-16": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "roles_follow_the_review_matrix"
+      ]
     },
     "UT-S40-17": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees",
+        "an_owner_switches_to_suggesting_and_back_and_the_server_keeps_the_choice"
+      ]
     },
     "UT-S40-18": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "UT-S40-19": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S40-20": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read"
+      ]
     },
     "UT-S40-21": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S40-22": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "only_a_well_formed_session_cookie_is_read"
+      ]
     },
     "UT-S40-23": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S40-24": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
     },
     "UT-S40-25": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S40-26": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_session_is_a_device_that_changes_mode_signs_out_and_expires"
+      ]
     },
     "UT-S40-27": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_repeated_change_is_acknowledged_again_but_not_sent_twice"
+      ]
     },
     "UT-S40-28": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
     },
     "UT-S40-29": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
     },
     "UT-S40-30": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "roles_follow_the_review_matrix",
+        "a_browser_reviewers_edits_become_suggestions_a_desktop_sees",
+        "a_viewer_reads_but_cannot_edit_comment_suggest_or_chat"
+      ]
     },
     "UT-S40-31": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_reviewer_who_edits_directly_or_deletes_without_a_suggestion_is_refused",
+        "a_viewer_still_cannot_change_anything"
+      ]
     },
     "UT-S40-32": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_browser_edit_is_acknowledged_with_its_length_and_reaches_a_desktop"
+      ]
     },
     "UT-S40-33": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_busy_or_rate_limited_server_gets_the_long_waits_at_once",
+        "reconnect_waits_spread_over_the_whole_window"
+      ]
     },
     "UT-S40-34": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_long_poll_editor_catches_up_after_time_away_like_a_socket_one"
+      ]
     },
     "UT-S40-35": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_socket_from_another_origin_or_without_a_session_is_refused",
+        "an_open_socket_ends_when_its_browser_session_expires"
+      ]
     },
     "UT-S40-36": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "UT-S40-37": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_queued_when_its_socket_closes_is_still_stored"
+      ]
     },
     "UT-S40-38": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_change_whose_ack_was_lost_is_reported_on_reopen_and_never_applied_twice"
+      ]
     },
     "UT-S40-39": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggestion_refused_partway_leaves_nothing_behind_in_the_room",
+        "reloading_a_room_after_a_refused_change_frees_the_old_copy_first"
+      ]
     },
     "UT-S40-40": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_suggested_deletion_over_the_limit_reads_as_too_large_and_changes_nothing",
+        "a_project_beyond_the_memory_budget_is_refused_before_hello"
+      ]
     },
     "UT-S40-41": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "refusals_use_the_codes_the_web_app_knows",
+        "access_problems_before_hello_use_the_codes_the_web_app_knows",
+        "stopping_sharing_or_signing_out_ends_the_open_socket"
+      ]
     },
     "UT-S40-42": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "an_editor_in_the_browser_stores_a_pdf_and_its_synctex_and_open_browsers_hear_of_it",
+        "the_latest_compiled_pdf_is_listed_and_served"
+      ]
     },
     "UT-S40-43": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
     },
     "UT-S40-44": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "a_server_that_speaks_only_a_newer_protocol_ends_the_session_once_and_keeps_the_changes",
+        "a_server_that_speaks_only_an_older_protocol_says_the_server_needs_an_update"
+      ]
     }
   }
 }
