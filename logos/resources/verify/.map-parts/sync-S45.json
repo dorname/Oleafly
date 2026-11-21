@@ -1,0 +1,322 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "sync-S45",
+  "cases": {
+    "ST-S45-01": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-02": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store passes the project's unsaved files to hold resolution and reloads what it put back"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "an_emptied_project_folder_is_held_even_when_small"
+      ]
+    },
+    "ST-S45-03": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store names what putting back or deleting did for files missing from Dropbox"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "ST-S45-04": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "ST-S45-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round closes a clean open file the round deleted, the way an outside delete does"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-06": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store leaves Recycle Bin projects out of Download all"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store marks a resumed project as waiting and clears transfer progress when the round ends"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete"
+      ]
+    },
+    "ST-S45-08": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "ST-S45-09": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "ST-S45-11": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store leaves Recycle Bin projects out of Download all"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_daily_sweep_removes_old_objects_no_manifest_names_and_keeps_the_rest"
+      ]
+    },
+    "ST-S45-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "ST-S45-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_emptied_project_folder_is_held_even_when_small"
+      ]
+    },
+    "UT-S45-01": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete"
+      ]
+    },
+    "UT-S45-02": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store passes the project's unsaved files to hold resolution and reloads what it put back",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-03": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store names what putting back or deleting did for files missing from Dropbox"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-04": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete"
+      ]
+    },
+    "UT-S45-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store rolls back a project switch the engine refuses"
+      ],
+      "e2e": [],
+      "rust": [
+        "pausing_removing_and_resuming_projects"
+      ]
+    },
+    "UT-S45-06": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store rolls back a project switch the engine refuses"
+      ],
+      "e2e": [],
+      "rust": [
+        "pausing_removing_and_resuming_projects"
+      ]
+    },
+    "UT-S45-07": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab turns a removed project back on so it uploads again",
+        "src/store/cloud.test.ts > cloud store marks a resumed project as waiting and clears transfer progress when the round ends"
+      ],
+      "e2e": [],
+      "rust": [
+        "pausing_removing_and_resuming_projects"
+      ]
+    },
+    "UT-S45-08": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab removes a project from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "projects_only_in_dropbox_can_be_removed_from_dropbox"
+      ]
+    },
+    "UT-S45-09": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_emptied_project_folder_is_held_even_when_small",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S45-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_quiet_project_costs_no_requests_and_a_changed_flag_costs_one",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S45-14": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "files_another_computer_removed_go_here_too_once_you_say_so",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-15": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back",
+        "files_another_computer_removed_go_here_too_once_you_say_so"
+      ]
+    },
+    "UT-S45-16": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round closes a clean open file the round deleted, the way an outside delete does"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S45-17": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store leaves Recycle Bin projects out of Download all"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_daily_sweep_removes_old_objects_no_manifest_names_and_keeps_the_rest"
+      ]
+    },
+    "UT-S45-18": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "UT-S45-19": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "files_another_computer_removed_go_here_too_once_you_say_so",
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "UT-S45-20": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab removes a project from Dropbox only after confirming",
+        "src/store/cloud.test.ts > cloud store removes a project that is only in Dropbox and reloads the list"
+      ],
+      "e2e": [],
+      "rust": [
+        "projects_only_in_dropbox_can_be_removed_from_dropbox"
+      ]
+    }
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "sync-S48",
+  "cases": {
+    "ST-S48-01": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton shows a token error and links straight away when a token is saved",
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_identical_trees_then_local_edits_push_without_app_files"
+      ]
+    },
+    "ST-S48-02": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton asks which version wins when linking finds differences",
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_different_trees_asks_and_never_deletes",
+        "linking_with_my_version_uploads_mine"
+      ]
+    },
+    "ST-S48-03": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported"
+      ]
+    },
+    "ST-S48-04": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs, toggles automatic sync and stops syncing when linked",
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_project_on_main_links_pulls_and_pushes_without_a_new_branch",
+        "co_author_changes_arrive_and_local_deletions_leave"
+      ]
+    },
+    "ST-S48-05": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S48-06": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying",
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_clash_changes_nothing_until_a_side_is_chosen",
+        "clashes_list_the_files_still_waiting_for_a_choice"
+      ]
+    },
+    "ST-S48-07": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store says where stopping the sync kept the files Overleaf's versions replaced"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy"
+      ]
+    },
+    "ST-S48-08": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton names a failed sync and a missing token"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S48-09": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_push_rejected_by_a_newer_remote_retries_and_keeps_both_changes"
+      ]
+    },
+    "ST-S48-10": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "only_one_sync_runs_per_project_at_a_time",
+        "sync_waits_for_the_worktree_lock_then_reports_busy"
+      ]
+    },
+    "ST-S48-11": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_clash_changes_nothing_until_a_side_is_chosen",
+        "diff_lists_changes_marks_conflicts_and_leaves_the_mirror_at_base"
+      ]
+    },
+    "ST-S48-12": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported",
+        "link_backups_are_never_written_through_a_link"
+      ]
+    },
+    "ST-S48-13": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_a_folder_to_a_second_project_is_refused"
+      ]
+    },
+    "ST-S48-14": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_file_edited_after_it_was_read_is_never_overwritten_or_deleted"
+      ]
+    },
+    "ST-S48-15": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store does nothing when unlinked, busy or missing an id"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unlinked_folder_reports_not_linked"
+      ]
+    },
+    "ST-S48-16": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_a_folder_to_a_second_project_is_refused"
+      ]
+    },
+    "UT-S48-01": {
+      "vitest": [
+        "src/lib/overleaf-sync.test.ts > overleaf sync bridge names every command and argument",
+        "src/store/overleaf-sync.test.ts > overleaf sync store does nothing when unlinked, busy or missing an id"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_project_id_reports_no_git_access"
+      ]
+    },
+    "UT-S48-02": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_a_folder_to_a_second_project_is_refused"
+      ]
+    },
+    "UT-S48-03": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_my_version_uploads_mine",
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported"
+      ]
+    },
+    "UT-S48-04": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying"
+      ],
+      "e2e": [],
+      "rust": [
+        "clashes_list_the_files_still_waiting_for_a_choice",
+        "diff_lists_changes_marks_conflicts_and_leaves_the_mirror_at_base"
+      ]
+    },
+    "UT-S48-05": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store saves the token, toggles auto sync and unlinks",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs, toggles automatic sync and stops syncing when linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy"
+      ]
+    },
+    "UT-S48-06": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store saves the token, toggles auto sync and unlinks",
+        "src/components/settings/OverleafSection.test.tsx > OverleafSection saves, replaces and removes the Git token for sync"
+      ],
+      "e2e": [],
+      "rust": [
+        "guards_refuse_unsafe_trees_tokens_and_ids"
+      ]
+    },
+    "UT-S48-07": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store refreshes the status and resets when the project changes"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_project_id_reports_no_git_access"
+      ]
+    },
+    "UT-S48-08": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store does nothing when unlinked, busy or missing an id",
+        "src/store/overleaf-sync.test.ts > overleaf sync store saves the token, toggles auto sync and unlinks"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy"
+      ]
+    },
+    "UT-S48-09": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-10": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-11": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-12": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-13": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-14": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-15": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-16": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton names a failed sync and a missing token",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton asks for a Git token before linking an imported project"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-17": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs, toggles automatic sync and stops syncing when linked"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-18": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_push_rejected_by_a_newer_remote_retries_and_keeps_both_changes",
+        "remote_failures_name_the_line_git_reported"
+      ]
+    },
+    "UT-S48-19": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "only_one_sync_runs_per_project_at_a_time",
+        "sync_waits_for_the_worktree_lock_then_reports_busy"
+      ]
+    },
+    "UT-S48-20": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_clash_changes_nothing_until_a_side_is_chosen",
+        "diff_lists_changes_marks_conflicts_and_leaves_the_mirror_at_base"
+      ]
+    },
+    "UT-S48-21": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported",
+        "link_backups_are_never_written_through_a_link"
+      ]
+    },
+    "UT-S48-22": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store says where stopping the sync kept the files Overleaf's versions replaced"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy",
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported"
+      ]
+    },
+    "UT-S48-23": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_file_edited_after_it_was_read_is_never_overwritten_or_deleted"
+      ]
+    }
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "sync-S43",
+  "cases": {
+    "ST-S43-01": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store connects Google Drive through the browser and names it in a failed sign-in",
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncHost loads the keeper at start when this computer has an account, without syncing yet"
+      ],
+      "e2e": [],
+      "rust": [
+        "connecting_by_pasted_code_or_by_the_loopback_page_stores_the_account",
+        "sync_uploads_then_downloads_what_another_computer_changed"
+      ]
+    },
+    "ST-S43-02": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store connects S3-compatible storage with keys, once, and starts a round",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers connects S3-compatible storage and shows the bucket without a storage ring"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_accepts_a_bucket_with_conditional_writes_and_leaves_nothing_behind"
+      ]
+    },
+    "ST-S43-03": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again",
+        "src/store/cloud.test.ts > cloud store downloads every Dropbox-only project and sums up once"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_uploads_then_downloads_what_another_computer_changed",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S43-04": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store applies settings from Dropbox and records the stamp as a string",
+        "src/lib/cloud-settings.test.ts > settings that stay on each computer applies a 0.4.7 cloud document and drops its browser keys",
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper runs a settings-only round three seconds after settings change"
+      ],
+      "e2e": [],
+      "rust": [
+        "settings_start_with_a_choice_on_a_new_computer_and_then_merge",
+        "keeping_this_computers_settings_replaces_the_cloud_copy"
+      ]
+    },
+    "ST-S43-05": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists local and Dropbox-only projects with their controls"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_without_project_json_uploads_it_again_instead_of_deleting_it",
+        "excluding_a_folder_stops_syncing_it_without_deleting_it_elsewhere"
+      ]
+    },
+    "ST-S43-06": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs a few seconds after a file is saved, once for a burst of saves"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home",
+        "sync_uploads_then_downloads_what_another_computer_changed"
+      ]
+    },
+    "ST-S43-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_endpoint"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_names_what_keeps_a_bucket_from_holding_sync"
+      ]
+    },
+    "ST-S43-08": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_no_conditional_writes"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_accepts_a_bucket_with_conditional_writes_and_leaves_nothing_behind"
+      ]
+    },
+    "ST-S43-09": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab says a project with too many files can't sync without promising to try again"
+      ],
+      "e2e": [],
+      "rust": [
+        "skipped_files_are_counted_and_listed_with_their_reasons"
+      ]
+    },
+    "ST-S43-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "sizes_in_a_hostile_record_never_overflow_the_listing"
+      ]
+    },
+    "ST-S43-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists local and Dropbox-only projects with their controls"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_without_project_json_uploads_it_again_instead_of_deleting_it"
+      ]
+    },
+    "ST-S43-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "excluding_a_folder_stops_syncing_it_without_deleting_it_elsewhere",
+        "remote_paths_into_git_or_outside_the_project_are_never_written"
+      ]
+    },
+    "ST-S43-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "remote_paths_into_git_or_outside_the_project_are_never_written",
+        "a_log_git_tracks_is_backed_up_and_other_build_output_is_not"
+      ]
+    },
+    "ST-S43-14": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows a quiet line when Dropbox can't be reached",
+        "src/store/cloud.test.ts > cloud store says how to end Oleafly's access when Dropbox couldn't be reached to disconnect"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unreachable_dropbox_reports_network_errors_and_keeps_the_account",
+        "server_errors_conflicts_rate_limits_and_busy_projects_are_reported"
+      ]
+    },
+    "ST-S43-15": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again",
+        "src/store/cloud.test.ts > open files after a round reloads a clean open file that the round changed on this computer"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home",
+        "sync_uploads_then_downloads_what_another_computer_changed"
+      ]
+    },
+    "UT-S43-01": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers offers every provider with a line about it, and disables one this build can't connect"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync"
+      ]
+    },
+    "UT-S43-02": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers keeps Connect off until the S3 form is complete and the endpoint is an http(s) URL"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_bad_address_bucket_or_key_is_refused_before_any_request"
+      ]
+    },
+    "UT-S43-03": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-04": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-05": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-06": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store guards a pasted code against double submits and clears the connect error on success"
+      ],
+      "e2e": [],
+      "rust": [
+        "pasted_codes_accept_bare_codes_and_full_redirect_urls"
+      ]
+    },
+    "UT-S43-08": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab downloads one project from its icon button",
+        "src/store/cloud.test.ts > cloud store removes a project that is only in Dropbox and reloads the list"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S43-09": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store asks once which settings to keep, and keeps this computer's on request",
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request",
+        "src/lib/cloud-settings.test.ts > settings that stay on each computer returns a document without them unchanged"
+      ],
+      "e2e": [],
+      "rust": [
+        "keeping_this_computers_settings_replaces_the_cloud_copy"
+      ]
+    },
+    "UT-S43-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists local and Dropbox-only projects with their controls"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_without_project_json_uploads_it_again_instead_of_deleting_it",
+        "a_missing_remote_record_uploads_again_and_never_deletes_local_files"
+      ]
+    },
+    "UT-S43-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "excluding_a_folder_stops_syncing_it_without_deleting_it_elsewhere",
+        "remote_paths_into_git_or_outside_the_project_are_never_written"
+      ]
+    },
+    "UT-S43-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "remote_paths_into_git_or_outside_the_project_are_never_written",
+        "a_log_git_tracks_is_backed_up_and_other_build_output_is_not"
+      ]
+    },
+    "UT-S43-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab says a project with too many files can't sync without promising to try again",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "skipped_files_are_counted_and_listed_with_their_reasons"
+      ]
+    },
+    "UT-S43-14": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "sizes_in_a_hostile_record_never_overflow_the_listing"
+      ]
+    },
+    "UT-S43-15": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_endpoint"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_names_what_keeps_a_bucket_from_holding_sync"
+      ]
+    },
+    "UT-S43-16": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_no_conditional_writes"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_accepts_a_bucket_with_conditional_writes_and_leaves_nothing_behind"
+      ]
+    },
+    "UT-S43-17": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_uploads_then_downloads_what_another_computer_changed",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S43-18": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows a quiet line when Dropbox can't be reached",
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper retries network failures sooner and returns to the usual check after a good round"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unreachable_dropbox_reports_network_errors_and_keeps_the_account",
+        "going_offline_mid_round_keeps_everything_that_already_happened"
+      ]
+    }
+  }
+}

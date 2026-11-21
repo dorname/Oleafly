@@ -1,0 +1,5313 @@
+{
+  "schema": "openlogos/test-map@1",
+  "generated_at": "2026-11-21T08:36:54.775Z",
+  "description": "用例 ID → 测试选择器映射表。vitest/e2e 选择器语法为「<文件路径> > <标题前缀>」；rust 选择器为测试名（函数名或模块路径::函数名）。多选择器时状态取最差值。",
+  "cases": {
+    "ST-S21-01": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns tracks a successful write from the existing tool-result mirror path",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns saves open files, takes the before-turn copy, then compares after the run"
+      ],
+      "e2e": [
+        "36-ai-agentic.spec.ts > plan mode proposes a plan, waits for approval, then works through it",
+        "67-agent-rust.spec.ts > a write tool run by the agent lands on disk"
+      ],
+      "rust": []
+    },
+    "ST-S21-02": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns plans with read-only tools, waits for approval, then executes with write tools and the approved plan",
+        "packages/ai-tools/src/approval-risk.test.ts > plan mode tool classification keeps only inspection tools"
+      ],
+      "e2e": [
+        "36-ai-agentic.spec.ts > plan mode proposes a plan, waits for approval, then works through it"
+      ],
+      "rust": []
+    },
+    "ST-S21-03": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard undoes one file through the project transaction and offers Redo in place",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard reaches the files beyond the list with Undo all and then Redo all"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-04": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Full access run when project approval rules cannot be loaded",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Custom run when project approval rules cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-05": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit rule without ToolConfirm in approve-for-me mode",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit Custom rule without ToolConfirm",
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval returns deny-per-rules for an explicit denial in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write",
+        "src/components/ai/ToolConfirm.diff.test.tsx > ToolConfirm edits previews a figure and renders without its chrome when embedded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-07": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore streaming details opens a file the assistant reads and refuses tools after the project changes",
+        "src/components/ai/agent-turn.test.ts > harness refuses to execute a tool when the run guard reports a context change"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-08": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard shows committed files without Undo and leaves them out of Undo all",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard hides Undo all when another turn overlapped",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard flags files the user also edited and leaves them out of Undo all"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-09": {
+      "vitest": [
+        "src/features/ask-ai-compile-errors.test.ts > askAiAboutCompileErrors passes the Typst position, source excerpt and hints to the assistant",
+        "src/features/ask-ai-compile-errors.test.ts > askAiAboutCompileErrors keeps the LaTeX format for errors without columns"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-10": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of too_many_files",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of timeout"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-01": {
+      "vitest": [
+        "src/store/approval-mode.test.ts > approval mode store defaults projects to Approve for me until persisted state loads",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns assembles the approve-for-me posture into the system prompt"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-02": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval routes approve-for-me for write_file",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns prompts for a risky tool in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-03": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > toolRisk classifies run_command as shell",
+        "packages/ai-tools/src/approval-risk.test.ts > riskRequiresConfirm only read runs without a prompt",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns prompts for a risky tool in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-04": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval prompts for network access only in Ask for approval",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns prompts before internet access in Ask for approval"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-05": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval returns deny-per-rules for an explicit denial in approve-for-me mode",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit rule without ToolConfirm in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Full access run when project approval rules cannot be loaded",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Custom run when project approval rules cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-07": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write",
+        "src/components/ai/ToolConfirm.diff.test.tsx > ToolConfirm edits previews a figure and renders without its chrome when embedded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-08": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore streaming details opens a file the assistant reads and refuses tools after the project changes",
+        "src/components/ai/agent-turn.test.ts > harness refuses to execute a tool when the run guard reports a context change"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-09": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard shows committed files without Undo and leaves them out of Undo all",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard never sends null while a committed file exists, even an unlisted one"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-10": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard hides Undo all when another turn overlapped"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-11": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard flags files the user also edited and leaves them out of Undo all"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-12": {
+      "vitest": [
+        "src/features/ask-ai-compile-errors.test.ts > askAiAboutCompileErrors passes the Typst position, source excerpt and hints to the assistant",
+        "src/lib/research-presets.test.ts > research presets offers compilation repair, submission prep and reviewer response with their skills"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-13": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of too_many_files",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of timeout",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard says Undo is gone once the copy expired"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-14": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > plan mode tool classification keeps only inspection tools",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns plans with read-only tools, waits for approval, then executes with write tools and the approved plan"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S22-01": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns loads a slash-requested skill that is not enabled and directs the turn to it",
+        "src/lib/skills.test.ts > skill invocation from the composer strips a leading skill token and keeps the rest of the request"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a slash skill invocation reaches the model and loads the skill",
+        "75-skills.spec.ts > read_skill_file returns a supporting file from the skill folder"
+      ],
+      "rust": []
+    },
+    "ST-S22-02": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns offers skill-backed suggestions and runs the skill when one is clicked",
+        "src/lib/skills.test.ts > progressive skill disclosure selects valid skills enabled for the device or for the project"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S22-03": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab groups skills by phase and shows tier and source badges",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab shows one device-wide toggle per skill and no scope switch without a project"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > Settings lists the bundled skill pack grouped by research phase",
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": []
+    },
+    "ST-S22-04": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not start an internet request before approval",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not contact the verifier before approval"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S22-05": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab names the cached catalog when an offline refresh kept the cached list",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab refreshes the catalog and shows the network fallback line"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_newer_catalog_wins_and_an_older_one_is_ignored"
+      ]
+    },
+    "ST-S22-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S22-07": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "ST-S22-08": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-01": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab groups skills by phase and shows tier and source badges",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab groups an installed domain shelf skill separately from its phase",
+        "src/lib/skills.test.ts > skills client returns valid and invalid skills for the open project"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > Settings lists the bundled skill pack grouped by research phase"
+      ],
+      "rust": []
+    },
+    "UT-S22-02": {
+      "vitest": [
+        "src/lib/skills.test.ts > skills client persists global and per-project enable state through the backend",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab persists a device-wide skill toggle"
+      ],
+      "e2e": [],
+      "rust": [
+        "enable_state_round_trips_and_invalid_skills_cannot_be_enabled"
+      ]
+    },
+    "UT-S22-03": {
+      "vitest": [
+        "src/lib/skills.test.ts > skill invocation from the composer strips a leading skill token and keeps the rest of the request",
+        "src/lib/skills.test.ts > skill invocation from the composer prefers the longest matching id",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns loads a slash-requested skill that is not enabled and directs the turn to it"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a slash skill invocation reaches the model and loads the skill"
+      ],
+      "rust": []
+    },
+    "UT-S22-04": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns offers skill-backed suggestions and runs the skill when one is clicked",
+        "src/lib/skills.test.ts > progressive skill disclosure selects valid skills enabled for the device or for the project"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-05": {
+      "vitest": [
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools literature_search asks the host's unified search with the clamped limit",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools verify_citation passes doi and title to the host verifier",
+        "src/lib/research-presets.test.ts > research presets offers the CLI research presets in a fixed order"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit rule without ToolConfirm in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-07": {
+      "vitest": [
+        "src/features/citation.store.test.ts > addCitations through the real writeProjectFile holds the rebuild and its own completion until the tree listing finishes",
+        "src/features/citation.editor-sync.test.tsx > citation writes to the file open in the editor shows imported entries in the open bibliography and keeps them after the next keystroke",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns tracks a successful write from the existing tool-result mirror path"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-08": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not start an internet request before approval",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not contact the verifier before approval"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-09": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab names the cached catalog when an offline refresh kept the cached list",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab refreshes the catalog and shows the network fallback line"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_newer_catalog_wins_and_an_older_one_is_ignored"
+      ]
+    },
+    "UT-S22-10": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab says when there are no skills and when they cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-11": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-12": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab says when there are no skills and when they cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-13": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": []
+    },
+    "UT-S22-14": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns saves open files, takes the before-turn copy, then compares after the run",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard lists the files, loads one diff at a time, and shows loading and errors"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S29-01": {
+      "vitest": [
+        "src/features/collab/store.test.ts > collab store loads the servers this computer knows"
+      ],
+      "e2e": [],
+      "rust": [
+        "manifest_reports_name_providers_features_and_limits"
+      ]
+    },
+    "ST-S29-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_code_becomes_a_device_session",
+        "devices_lists_my_devices_and_marks_this_one"
+      ]
+    },
+    "ST-S29-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_link_lets_signed_in_people_join_with_the_link_role",
+        "the_owner_adds_changes_and_removes_people"
+      ]
+    },
+    "ST-S29-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "ST-S29-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_wrong_setup_code_gets_no_claim"
+      ]
+    },
+    "ST-S29-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_suspended_account_is_refused"
+      ]
+    },
+    "ST-S29-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve",
+        "signing_a_device_out_leaves_it_no_live_token_or_kept_reply"
+      ]
+    },
+    "UT-S29-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "constants_match_the_spec"
+      ]
+    },
+    "UT-S29-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_picks_the_highest_shared_version"
+      ]
+    },
+    "UT-S29-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_picks_the_highest_shared_version"
+      ]
+    },
+    "UT-S29-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "UT-S29-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "UT-S29-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "enums_use_snake_case_names"
+      ]
+    },
+    "UT-S29-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "kinds_from_a_newer_server_read_as_unknown"
+      ]
+    },
+    "UT-S29-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access"
+      ]
+    },
+    "UT-S29-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "manifest_reports_name_providers_features_and_limits"
+      ]
+    },
+    "UT-S29-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_wrong_setup_code_gets_no_claim"
+      ]
+    },
+    "UT-S29-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_code_becomes_a_device_session"
+      ]
+    },
+    "UT-S29-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "me_needs_a_bearer_token"
+      ]
+    },
+    "UT-S29-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve"
+      ]
+    },
+    "UT-S29-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "devices_lists_my_devices_and_marks_this_one"
+      ]
+    },
+    "UT-S29-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_owner_adds_changes_and_removes_people"
+      ]
+    },
+    "UT-S29-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_link_lets_signed_in_people_join_with_the_link_role"
+      ]
+    },
+    "UT-S29-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_link_lets_signed_in_people_join_with_the_link_role"
+      ]
+    },
+    "UT-S29-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_title_must_not_be_empty"
+      ]
+    },
+    "UT-S29-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_directory_finds_other_people_by_name"
+      ]
+    },
+    "UT-S29-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_link_page_offers_to_open_the_project_in_the_app"
+      ]
+    },
+    "UT-S29-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "server_roles_follow_the_rbac_truth_table",
+        "the_truth_table_lists_every_action_exactly_once"
+      ]
+    },
+    "UT-S29-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve"
+      ]
+    },
+    "UT-S29-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "access_tokens_resolve_until_they_expire_and_only_the_hash_is_stored"
+      ]
+    },
+    "UT-S29-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
+    },
+    "UT-S29-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
+    },
+    "UT-S29-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
+    },
+    "UT-S29-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_wrong_setup_code_gets_no_claim",
+        "the_setup_code_makes_the_first_admin"
+      ]
+    },
+    "UT-S29-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "UT-S29-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_suspended_account_is_refused"
+      ]
+    },
+    "UT-S29-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve"
+      ]
+    },
+    "UT-S29-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "everyone_but_the_owner_and_unknown_roles_can_be_granted"
+      ]
+    },
+    "UT-S29-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "merging_onto_an_unchanged_base_is_the_change_itself"
+      ]
+    },
+    "UT-S29-43": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-44": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "sign_in_endpoints_refuse_a_flood_from_one_address"
+      ]
+    },
+    "UT-S29-45": {
+      "vitest": [
+        "src/features/collab/store.test.ts > collab store adds a newly signed-in server"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S31-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S31-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S33-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-43": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S33-44": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S34-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S34-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S40-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-43": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S40-44": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S41-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-43": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S41-44": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S04-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S04-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S07-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S07-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S10-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S10-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S12-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S12-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-01": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation fetches BibTeX for a DOI, an ISBN and a PubMed id",
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter"
+      ],
+      "e2e": [
+        "16-editor-toolbar.spec.ts > citation button opens the add-citation dialog",
+        "51-editor-toolbar-semantics.spec.ts > citation toolbar activation uses production addCitation and renders its bibliography",
+        "74-conversion-matrix.spec.ts > live identifier lookups (G7) › doi, isbn, and pmid resolve to real bibtex"
+      ],
+      "rust": []
+    },
+    "ST-S16-02": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing deduplicates by DOI and keeps the richest fields from every source",
+        "src/lib/literature-search.edge.test.ts > merging and identity merges records without a DOI by their normalized title",
+        "src/lib/citation/citation.test.ts > detectInput detects a bare DOI",
+        "src/lib/citation/citation.test.ts > detectInput detects a modern arXiv id (with version stripped)",
+        "src/lib/citation/citation.test.ts > detectInput falls back to a title search for free text"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-03": {
+      "vitest": [
+        "src/components/editor/cm/zotero-completion.test.ts > @ citations in LaTeX merges the project .bib with the Zotero library, without duplicate keys or DOIs",
+        "src/lib/citation/citation.test.ts > generateCiteKey dedupes against existing keys with a letter suffix",
+        "packages/preflight/src/refs-rules.test.ts > undefined citations flags a \\cite whose key is in no .bib",
+        "packages/editor/src/bibtex-linter.test.ts > lintBibtexText: required fields marks the entry key, not the whole entry"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-04": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter",
+        "src/features/citation.test.ts > addCitations dedupes by DOI inside the batch and declares the bibliography once",
+        "src/features/citation.test.ts > addCitations counts every entry as a duplicate of what the file already holds"
+      ],
+      "e2e": [
+        "48-citation-import.spec.ts > importing a RIS file adds a citation to the project's .bib, deduping a repeat import by DOI",
+        "85-biblatex-references-bib.spec.ts > a citation imported into a fresh biblatex project resolves on the first compile"
+      ],
+      "rust": []
+    },
+    "ST-S16-05": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing keeps successful sources when another source is rate-limited",
+        "src/lib/literature-search.edge.test.ts > searchLiterature reports the paused USPTO source and non-Error failures as failed runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-06": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing skips Google Scholar without a Serper key instead of reporting it as failed",
+        "src/lib/literature-search.test.ts > literature result processing searches Google Scholar once a Serper key is saved",
+        "src/lib/literature-search.edge.test.ts > searchLiterature uses a saved Serper key to decide whether Google Scholar runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-07": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-08": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitations stops before touching the main document when the bib write fails",
+        "src/features/citation.test.ts > addCitation reports a bib file it could not write",
+        "src/features/citation.test.ts > citation read failures preserves unreadable refs.bib during bulk import",
+        "src/features/citation.store.test.ts > citation import failures reports a bibliography it could not write"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-09": {
+      "vitest": [
+        "src/lib/citation/citation.test.ts > generateCiteKey dedupes against existing keys with a letter suffix",
+        "packages/preflight/src/refs-rules.test.ts > undefined citations flags a \\cite whose key is in no .bib",
+        "packages/editor/src/bibtex-linter.test.ts > lintBibtexText: required fields marks the entry key, not the whole entry",
+        "src/components/editor/ProjectCitationPicker.test.tsx > ProjectCitationPicker marks duplicate keys with their position"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-01": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing deduplicates by DOI and keeps the richest fields from every source",
+        "src/lib/literature-search.edge.test.ts > merging and identity merges records without a DOI by their normalized title",
+        "src/features/citation.test.ts > addCitations dedupes by DOI inside the batch and declares the bibliography once"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-02": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing skips Google Scholar without a Serper key instead of reporting it as failed",
+        "src/lib/literature-search.edge.test.ts > searchLiterature uses a saved Serper key to decide whether Google Scholar runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-03": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing keeps successful sources when another source is rate-limited",
+        "src/lib/literature-search.edge.test.ts > searchLiterature reports the paused USPTO source and non-Error failures as failed runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-04": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter",
+        "src/features/citation.test.ts > addCitation writes a Typst bibliography declaration straight to disk when the main file is closed"
+      ],
+      "e2e": [
+        "48-citation-import.spec.ts > importing a RIS file adds a citation to the project's .bib, deduping a repeat import by DOI"
+      ],
+      "rust": []
+    },
+    "UT-S16-05": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitations stops before touching the main document when the bib write fails",
+        "src/features/citation.test.ts > addCitation reports a bib file it could not write",
+        "src/features/citation.store.test.ts > citation import failures reports a bibliography it could not write"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-06": {
+      "vitest": [
+        "src/components/editor/cm/zotero-completion.test.ts > @ citations in LaTeX merges the project .bib with the Zotero library, without duplicate keys or DOIs",
+        "src/lib/citation/citation.test.ts > generateCiteKey dedupes against existing keys with a letter suffix",
+        "src/components/editor/ProjectCitationPicker.test.tsx > ProjectCitationPicker filters by the typed query and says when nothing matches"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-07": {
+      "vitest": [
+        "packages/preflight/src/refs-rules.test.ts > undefined citations flags a \\cite whose key is in no .bib",
+        "packages/editor/src/bibtex-linter.test.ts > lintBibtexText: required fields marks the entry key, not the whole entry",
+        "src/lib/citation/citation.test.ts > generateCiteKey keeps keys ASCII for classic BibTeX and never returns a bare year"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-08": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-09": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitation reuses the key already recorded for the same DOI",
+        "src/features/citation.test.ts > addCitations counts every entry as a duplicate of what the file already holds",
+        "src/lib/citation/citation.test.ts > findKeyByDoi finds an existing entry by DOI (case-insensitive)"
+      ],
+      "e2e": [
+        "48-citation-import.spec.ts > importing a RIS file adds a citation to the project's .bib, deduping a repeat import by DOI"
+      ],
+      "rust": []
+    },
+    "ST-S43-01": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store connects Google Drive through the browser and names it in a failed sign-in",
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncHost loads the keeper at start when this computer has an account, without syncing yet"
+      ],
+      "e2e": [],
+      "rust": [
+        "connecting_by_pasted_code_or_by_the_loopback_page_stores_the_account",
+        "sync_uploads_then_downloads_what_another_computer_changed"
+      ]
+    },
+    "ST-S43-02": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store connects S3-compatible storage with keys, once, and starts a round",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers connects S3-compatible storage and shows the bucket without a storage ring"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_accepts_a_bucket_with_conditional_writes_and_leaves_nothing_behind"
+      ]
+    },
+    "ST-S43-03": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again",
+        "src/store/cloud.test.ts > cloud store downloads every Dropbox-only project and sums up once"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_uploads_then_downloads_what_another_computer_changed",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S43-04": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store applies settings from Dropbox and records the stamp as a string",
+        "src/lib/cloud-settings.test.ts > settings that stay on each computer applies a 0.4.7 cloud document and drops its browser keys",
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper runs a settings-only round three seconds after settings change"
+      ],
+      "e2e": [],
+      "rust": [
+        "settings_start_with_a_choice_on_a_new_computer_and_then_merge",
+        "keeping_this_computers_settings_replaces_the_cloud_copy"
+      ]
+    },
+    "ST-S43-05": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists local and Dropbox-only projects with their controls"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_without_project_json_uploads_it_again_instead_of_deleting_it",
+        "excluding_a_folder_stops_syncing_it_without_deleting_it_elsewhere"
+      ]
+    },
+    "ST-S43-06": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs a few seconds after a file is saved, once for a burst of saves"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home",
+        "sync_uploads_then_downloads_what_another_computer_changed"
+      ]
+    },
+    "ST-S43-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_endpoint"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_names_what_keeps_a_bucket_from_holding_sync"
+      ]
+    },
+    "ST-S43-08": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_no_conditional_writes"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_accepts_a_bucket_with_conditional_writes_and_leaves_nothing_behind"
+      ]
+    },
+    "ST-S43-09": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab says a project with too many files can't sync without promising to try again"
+      ],
+      "e2e": [],
+      "rust": [
+        "skipped_files_are_counted_and_listed_with_their_reasons"
+      ]
+    },
+    "ST-S43-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "sizes_in_a_hostile_record_never_overflow_the_listing"
+      ]
+    },
+    "ST-S43-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists local and Dropbox-only projects with their controls"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_without_project_json_uploads_it_again_instead_of_deleting_it"
+      ]
+    },
+    "ST-S43-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "excluding_a_folder_stops_syncing_it_without_deleting_it_elsewhere",
+        "remote_paths_into_git_or_outside_the_project_are_never_written"
+      ]
+    },
+    "ST-S43-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "remote_paths_into_git_or_outside_the_project_are_never_written",
+        "a_log_git_tracks_is_backed_up_and_other_build_output_is_not"
+      ]
+    },
+    "ST-S43-14": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows a quiet line when Dropbox can't be reached",
+        "src/store/cloud.test.ts > cloud store says how to end Oleafly's access when Dropbox couldn't be reached to disconnect"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unreachable_dropbox_reports_network_errors_and_keeps_the_account",
+        "server_errors_conflicts_rate_limits_and_busy_projects_are_reported"
+      ]
+    },
+    "ST-S43-15": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again",
+        "src/store/cloud.test.ts > open files after a round reloads a clean open file that the round changed on this computer"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home",
+        "sync_uploads_then_downloads_what_another_computer_changed"
+      ]
+    },
+    "UT-S43-01": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers offers every provider with a line about it, and disables one this build can't connect"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync"
+      ]
+    },
+    "UT-S43-02": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers keeps Connect off until the S3 form is complete and the endpoint is an http(s) URL"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_bad_address_bucket_or_key_is_refused_before_any_request"
+      ]
+    },
+    "UT-S43-03": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-04": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-05": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-06": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab renames this computer in place and cancels with Escape",
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments"
+      ],
+      "e2e": [],
+      "rust": [
+        "device_names_follow_the_rules"
+      ]
+    },
+    "UT-S43-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store guards a pasted code against double submits and clears the connect error on success"
+      ],
+      "e2e": [],
+      "rust": [
+        "pasted_codes_accept_bare_codes_and_full_redirect_urls"
+      ]
+    },
+    "UT-S43-08": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab downloads one project from its icon button",
+        "src/store/cloud.test.ts > cloud store removes a project that is only in Dropbox and reloads the list"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S43-09": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store asks once which settings to keep, and keeps this computer's on request",
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request",
+        "src/lib/cloud-settings.test.ts > settings that stay on each computer returns a document without them unchanged"
+      ],
+      "e2e": [],
+      "rust": [
+        "keeping_this_computers_settings_replaces_the_cloud_copy"
+      ]
+    },
+    "UT-S43-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists local and Dropbox-only projects with their controls"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_without_project_json_uploads_it_again_instead_of_deleting_it",
+        "a_missing_remote_record_uploads_again_and_never_deletes_local_files"
+      ]
+    },
+    "UT-S43-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "excluding_a_folder_stops_syncing_it_without_deleting_it_elsewhere",
+        "remote_paths_into_git_or_outside_the_project_are_never_written"
+      ]
+    },
+    "UT-S43-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "remote_paths_into_git_or_outside_the_project_are_never_written",
+        "a_log_git_tracks_is_backed_up_and_other_build_output_is_not"
+      ]
+    },
+    "UT-S43-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab says a project with too many files can't sync without promising to try again",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "skipped_files_are_counted_and_listed_with_their_reasons"
+      ]
+    },
+    "UT-S43-14": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists skipped files with a reason and how many more there are"
+      ],
+      "e2e": [],
+      "rust": [
+        "sizes_in_a_hostile_record_never_overflow_the_listing"
+      ]
+    },
+    "UT-S43-15": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_endpoint"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_names_what_keeps_a_bucket_from_holding_sync"
+      ]
+    },
+    "UT-S43-16": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store keeps the reason S3 keys were refused and stays disconnected",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab providers shows what went wrong when S3 refuses with cloud.s3_no_conditional_writes"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_for_a_bucket_connect_only_once_the_bucket_can_hold_sync",
+        "the_probe_accepts_a_bucket_with_conditional_writes_and_leaves_nothing_behind"
+      ]
+    },
+    "UT-S43-17": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_uploads_then_downloads_what_another_computer_changed",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S43-18": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows a quiet line when Dropbox can't be reached",
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper retries network failures sooner and returns to the usual check after a good round"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unreachable_dropbox_reports_network_errors_and_keeps_the_account",
+        "going_offline_mid_round_keeps_everything_that_already_happened"
+      ]
+    },
+    "ST-S44-01": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store clears conflict copies once dismissed",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "concurrent_edits_keep_both_versions_and_name_the_copy_after_its_author"
+      ]
+    },
+    "ST-S44-02": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "ST-S44-03": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "project_settings_merge_by_field_and_device_fields_stay_home",
+        "incoming_meta_keeps_this_computers_device_fields"
+      ]
+    },
+    "ST-S44-04": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store skips applying Dropbox settings when a setting changed here while the request was out"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts",
+        "project_settings_merge_by_field_and_device_fields_stay_home"
+      ]
+    },
+    "ST-S44-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round reloads a clean open file that the round changed on this computer"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_edit_waits_for_its_conflict_copy_to_reach_dropbox"
+      ]
+    },
+    "ST-S44-06": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again"
+      ],
+      "e2e": [],
+      "rust": [
+        "concurrent_edits_keep_both_versions_and_name_the_copy_after_its_author",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S44-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it"
+      ],
+      "e2e": [],
+      "rust": [
+        "unsaved_editor_buffers_are_never_overwritten"
+      ]
+    },
+    "ST-S44-08": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_edit_waits_for_its_conflict_copy_to_reach_dropbox"
+      ]
+    },
+    "ST-S44-09": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "incoming_meta_keeps_this_computers_device_fields",
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts"
+      ]
+    },
+    "ST-S44-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "ST-S44-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_crash_after_placing_a_conflict_copy_reuses_it"
+      ]
+    },
+    "UT-S44-01": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store clears conflict copies once dismissed",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed",
+        "reports_name_changed_files_and_conflict_copies_wait_to_be_dismissed"
+      ]
+    },
+    "UT-S44-02": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "reports_name_changed_files_and_conflict_copies_wait_to_be_dismissed"
+      ]
+    },
+    "UT-S44-03": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab replaces an unreadable copy in Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unreadable_record_in_dropbox_can_be_replaced_from_this_computer"
+      ]
+    },
+    "UT-S44-04": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab removes a project from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "projects_only_in_dropbox_can_be_removed_from_dropbox"
+      ]
+    },
+    "UT-S44-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request",
+        "src/store/cloud.test.ts > cloud store asks once which settings to keep, and keeps this computer's on request"
+      ],
+      "e2e": [],
+      "rust": [
+        "settings_stamps_travel_as_strings_so_javascript_keeps_every_bit",
+        "keeping_this_computers_settings_replaces_the_cloud_copy"
+      ]
+    },
+    "UT-S44-06": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "concurrent_edits_keep_both_versions_and_name_the_copy_after_its_author",
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "UT-S44-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "project_settings_merge_by_field_and_device_fields_stay_home",
+        "incoming_meta_keeps_this_computers_device_fields"
+      ]
+    },
+    "UT-S44-08": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store skips applying Dropbox settings when a setting changed here while the request was out"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts"
+      ]
+    },
+    "UT-S44-09": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request"
+      ],
+      "e2e": [],
+      "rust": [
+        "objects_merge_per_key_and_both_sides_keep_their_own_changes",
+        "a_key_removed_on_one_side_stays_removed_unless_the_other_side_changed_it"
+      ]
+    },
+    "UT-S44-10": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "objects_merge_per_key_and_both_sides_keep_their_own_changes"
+      ]
+    },
+    "UT-S44-11": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "lists_of_items_with_ids_merge_item_by_item"
+      ]
+    },
+    "UT-S44-12": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request"
+      ],
+      "e2e": [],
+      "rust": [
+        "objects_merge_per_key_and_both_sides_keep_their_own_changes",
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts"
+      ]
+    },
+    "UT-S44-13": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "incoming_meta_keeps_this_computers_device_fields",
+        "project_meta_digest_ignores_device_fields_and_key_order"
+      ]
+    },
+    "UT-S44-14": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it",
+        "src/store/cloud.test.ts > cloud store tells the engine which open files have unsaved changes"
+      ],
+      "e2e": [],
+      "rust": [
+        "unsaved_editor_buffers_are_never_overwritten"
+      ]
+    },
+    "UT-S44-15": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round leaves open files alone when the round changed another project",
+        "src/store/cloud.test.ts > open files after a round checks every open file when the round changed too many to list"
+      ],
+      "e2e": [],
+      "rust": [
+        "unsaved_editor_buffers_are_never_overwritten"
+      ]
+    },
+    "UT-S44-16": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_carry_the_date_on_this_computer",
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "UT-S44-17": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_crash_after_placing_a_conflict_copy_reuses_it"
+      ]
+    },
+    "UT-S44-18": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_conflict_copy_is_named_after_the_computer_that_wrote_that_version",
+        "a_computer_name_that_would_hide_the_copy_is_not_used_for_it"
+      ]
+    },
+    "UT-S44-19": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "UT-S44-20": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files",
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_edit_waits_for_its_conflict_copy_to_reach_dropbox"
+      ]
+    },
+    "ST-S45-01": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-02": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store passes the project's unsaved files to hold resolution and reloads what it put back"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "an_emptied_project_folder_is_held_even_when_small"
+      ]
+    },
+    "ST-S45-03": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store names what putting back or deleting did for files missing from Dropbox"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "ST-S45-04": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "ST-S45-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round closes a clean open file the round deleted, the way an outside delete does"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-06": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store leaves Recycle Bin projects out of Download all"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store marks a resumed project as waiting and clears transfer progress when the round ends"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete"
+      ]
+    },
+    "ST-S45-08": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "ST-S45-09": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S45-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "ST-S45-11": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store leaves Recycle Bin projects out of Download all"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_daily_sweep_removes_old_objects_no_manifest_names_and_keeps_the_rest"
+      ]
+    },
+    "ST-S45-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "ST-S45-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_emptied_project_folder_is_held_even_when_small"
+      ]
+    },
+    "UT-S45-01": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete"
+      ]
+    },
+    "UT-S45-02": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store passes the project's unsaved files to hold resolution and reloads what it put back",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-03": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store names what putting back or deleting did for files missing from Dropbox"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-04": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete"
+      ]
+    },
+    "UT-S45-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store rolls back a project switch the engine refuses"
+      ],
+      "e2e": [],
+      "rust": [
+        "pausing_removing_and_resuming_projects"
+      ]
+    },
+    "UT-S45-06": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store rolls back a project switch the engine refuses"
+      ],
+      "e2e": [],
+      "rust": [
+        "pausing_removing_and_resuming_projects"
+      ]
+    },
+    "UT-S45-07": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab turns a removed project back on so it uploads again",
+        "src/store/cloud.test.ts > cloud store marks a resumed project as waiting and clears transfer progress when the round ends"
+      ],
+      "e2e": [],
+      "rust": [
+        "pausing_removing_and_resuming_projects"
+      ]
+    },
+    "UT-S45-08": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab removes a project from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "projects_only_in_dropbox_can_be_removed_from_dropbox"
+      ]
+    },
+    "UT-S45-09": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_emptied_project_folder_is_held_even_when_small",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S45-12": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-13": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab shows what a round is moving, what another computer is still uploading, and a resumed project waiting"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_quiet_project_costs_no_requests_and_a_changed_flag_costs_one",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S45-14": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "files_another_computer_removed_go_here_too_once_you_say_so",
+        "deleting_most_files_holds_the_project_until_the_person_decides"
+      ]
+    },
+    "UT-S45-15": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back",
+        "files_another_computer_removed_go_here_too_once_you_say_so"
+      ]
+    },
+    "UT-S45-16": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round closes a clean open file the round deleted, the way an outside delete does"
+      ],
+      "e2e": [],
+      "rust": [
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "UT-S45-17": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store leaves Recycle Bin projects out of Download all"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_daily_sweep_removes_old_objects_no_manifest_names_and_keeps_the_rest"
+      ]
+    },
+    "UT-S45-18": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab puts held files back, and deletes them from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "mass_deletions_wait_for_a_choice_to_restore_or_delete",
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "UT-S45-19": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab keeps files missing from Dropbox here, and deletes them only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "files_another_computer_removed_go_here_too_once_you_say_so",
+        "a_record_that_lost_files_holds_here_until_you_choose_to_put_them_back"
+      ]
+    },
+    "UT-S45-20": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab removes a project from Dropbox only after confirming",
+        "src/store/cloud.test.ts > cloud store removes a project that is only in Dropbox and reloads the list"
+      ],
+      "e2e": [],
+      "rust": [
+        "projects_only_in_dropbox_can_be_removed_from_dropbox"
+      ]
+    },
+    "ST-S48-01": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton shows a token error and links straight away when a token is saved",
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_identical_trees_then_local_edits_push_without_app_files"
+      ]
+    },
+    "ST-S48-02": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton asks which version wins when linking finds differences",
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_different_trees_asks_and_never_deletes",
+        "linking_with_my_version_uploads_mine"
+      ]
+    },
+    "ST-S48-03": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported"
+      ]
+    },
+    "ST-S48-04": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs, toggles automatic sync and stops syncing when linked",
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_project_on_main_links_pulls_and_pushes_without_a_new_branch",
+        "co_author_changes_arrive_and_local_deletions_leave"
+      ]
+    },
+    "ST-S48-05": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S48-06": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying",
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_clash_changes_nothing_until_a_side_is_chosen",
+        "clashes_list_the_files_still_waiting_for_a_choice"
+      ]
+    },
+    "ST-S48-07": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store says where stopping the sync kept the files Overleaf's versions replaced"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy"
+      ]
+    },
+    "ST-S48-08": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton names a failed sync and a missing token"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S48-09": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_push_rejected_by_a_newer_remote_retries_and_keeps_both_changes"
+      ]
+    },
+    "ST-S48-10": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "only_one_sync_runs_per_project_at_a_time",
+        "sync_waits_for_the_worktree_lock_then_reports_busy"
+      ]
+    },
+    "ST-S48-11": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_clash_changes_nothing_until_a_side_is_chosen",
+        "diff_lists_changes_marks_conflicts_and_leaves_the_mirror_at_base"
+      ]
+    },
+    "ST-S48-12": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported",
+        "link_backups_are_never_written_through_a_link"
+      ]
+    },
+    "ST-S48-13": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_a_folder_to_a_second_project_is_refused"
+      ]
+    },
+    "ST-S48-14": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_file_edited_after_it_was_read_is_never_overwritten_or_deleted"
+      ]
+    },
+    "ST-S48-15": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store does nothing when unlinked, busy or missing an id"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unlinked_folder_reports_not_linked"
+      ]
+    },
+    "ST-S48-16": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_a_folder_to_a_second_project_is_refused"
+      ]
+    },
+    "UT-S48-01": {
+      "vitest": [
+        "src/lib/overleaf-sync.test.ts > overleaf sync bridge names every command and argument",
+        "src/store/overleaf-sync.test.ts > overleaf sync store does nothing when unlinked, busy or missing an id"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_project_id_reports_no_git_access"
+      ]
+    },
+    "UT-S48-02": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store links through the editor lease, applies the new state and syncs once linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_a_folder_to_a_second_project_is_refused"
+      ]
+    },
+    "UT-S48-03": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_my_version_uploads_mine",
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported"
+      ]
+    },
+    "UT-S48-04": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying"
+      ],
+      "e2e": [],
+      "rust": [
+        "clashes_list_the_files_still_waiting_for_a_choice",
+        "diff_lists_changes_marks_conflicts_and_leaves_the_mirror_at_base"
+      ]
+    },
+    "UT-S48-05": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store saves the token, toggles auto sync and unlinks",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs, toggles automatic sync and stops syncing when linked"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy"
+      ]
+    },
+    "UT-S48-06": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store saves the token, toggles auto sync and unlinks",
+        "src/components/settings/OverleafSection.test.tsx > OverleafSection saves, replaces and removes the Git token for sync"
+      ],
+      "e2e": [],
+      "rust": [
+        "guards_refuse_unsafe_trees_tokens_and_ids"
+      ]
+    },
+    "UT-S48-07": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store refreshes the status and resets when the project changes"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_project_id_reports_no_git_access"
+      ]
+    },
+    "UT-S48-08": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store does nothing when unlinked, busy or missing an id",
+        "src/store/overleaf-sync.test.ts > overleaf sync store saves the token, toggles auto sync and unlinks"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy"
+      ]
+    },
+    "UT-S48-09": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-10": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-11": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-12": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-13": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-14": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-15": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs on its own only when linked, awake and idle",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-16": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton names a failed sync and a missing token",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton asks for a Git token before linking an imported project"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-17": {
+      "vitest": [
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton syncs, toggles automatic sync and stops syncing when linked"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S48-18": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_push_rejected_by_a_newer_remote_retries_and_keeps_both_changes",
+        "remote_failures_name_the_line_git_reported"
+      ]
+    },
+    "UT-S48-19": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "only_one_sync_runs_per_project_at_a_time",
+        "sync_waits_for_the_worktree_lock_then_reports_busy"
+      ]
+    },
+    "UT-S48-20": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store records clashes and resolves them with the picks",
+        "src/components/layout/overleaf-sync/OverleafSyncButton.test.tsx > OverleafSyncButton collects a side for every clash before applying"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_clash_changes_nothing_until_a_side_is_chosen",
+        "diff_lists_changes_marks_conflicts_and_leaves_the_mirror_at_base"
+      ]
+    },
+    "UT-S48-21": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store asks which version wins and links with the chosen side"
+      ],
+      "e2e": [],
+      "rust": [
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported",
+        "link_backups_are_never_written_through_a_link"
+      ]
+    },
+    "UT-S48-22": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store says where stopping the sync kept the files Overleaf's versions replaced"
+      ],
+      "e2e": [],
+      "rust": [
+        "sync_links_round_trip_and_unlink_removes_the_copy",
+        "linking_with_the_online_version_saves_the_replaced_files_where_they_can_be_exported"
+      ]
+    },
+    "UT-S48-23": {
+      "vitest": [
+        "src/store/overleaf-sync.test.ts > overleaf sync store keeps quiet about a busy sync or a project switch, and reports other failures"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_file_edited_after_it_was_read_is_never_overwritten_or_deleted"
+      ]
+    }
+  }
+}

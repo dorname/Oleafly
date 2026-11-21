@@ -1,0 +1,226 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "collab-S32",
+  "cases": {
+    "ST-S32-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S32-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S32-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema": "openlogos/test-map-parts@1",
+  "modules": {
+    "core-S01": {
+      "count": 30,
+      "file": "logos/resources/verify/.map-parts/core-S01.json"
+    },
+    "core-S04": {
+      "count": 24,
+      "file": "logos/resources/verify/.map-parts/core-S04.json"
+    },
+    "core-S07": {
+      "count": 33,
+      "file": "logos/resources/verify/.map-parts/core-S07.json"
+    },
+    "core-S09": {
+      "count": 29,
+      "file": "logos/resources/verify/.map-parts/core-S09.json"
+    },
+    "core-S10": {
+      "count": 28,
+      "file": "logos/resources/verify/.map-parts/core-S10.json"
+    },
+    "core-S11": {
+      "count": 28,
+      "file": "logos/resources/verify/.map-parts/core-S11.json"
+    },
+    "core-S12": {
+      "count": 45,
+      "file": "logos/resources/verify/.map-parts/core-S12.json"
+    },
+    "research-S16": {
+      "count": 18,
+      "file": "logos/resources/verify/.map-parts/research-S16.json"
+    },
+    "ai-S21": {
+      "count": 24,
+      "file": "logos/resources/verify/.map-parts/ai-S21.json"
+    },
+    "ai-S22": {
+      "count": 22,
+      "file": "logos/resources/verify/.map-parts/ai-S22.json"
+    },
+    "collab-S29": {
+      "count": 52,
+      "file": "logos/resources/verify/.map-parts/collab-S29.json"
+    },
+    "collab-S30": {
+      "count": 49,
+      "file": "logos/resources/verify/.map-parts/collab-S30.json"
+    },
+    "collab-S31": {
+      "count": 42,
+      "file": "logos/resources/verify/.map-parts/collab-S31.json"
+    },
+    "collab-S32": {
+      "count": 44,
+      "file": "logos/resources/verify/.map-parts/collab-S32.json"
+    },
+    "collab-S33": {
+      "count": 54,
+      "file": "logos/resources/verify/.map-parts/collab-S33.json"
+    },
+    "collab-S34": {
+      "count": 52,
+      "file": "logos/resources/verify/.map-parts/collab-S34.json"
+    },
+    "collab-S35": {
+      "count": 42,
+      "file": "logos/resources/verify/.map-parts/collab-S35.json"
+    },
+    "collab-S40": {
+      "count": 54,
+      "file": "logos/resources/verify/.map-parts/collab-S40.json"
+    },
+    "collab-S41": {
+      "count": 56,
+      "file": "logos/resources/verify/.map-parts/collab-S41.json"
+    },
+    "sync-S43": {
+      "count": 33,
+      "file": "logos/resources/verify/.map-parts/sync-S43.json"
+    },
+    "sync-S44": {
+      "count": 31,
+      "file": "logos/resources/verify/.map-parts/sync-S44.json"
+    },
+    "sync-S45": {
+      "count": 33,
+      "file": "logos/resources/verify/.map-parts/sync-S45.json"
+    },
+    "sync-S48": {
+      "count": 39,
+      "file": "logos/resources/verify/.map-parts/sync-S48.json"
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "collab-S35",
+  "cases": {
+    "ST-S35-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S35-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S35-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

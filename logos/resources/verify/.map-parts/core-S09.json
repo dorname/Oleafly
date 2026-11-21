@@ -1,0 +1,151 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "core-S09",
+  "cases": {
+    "ST-S09-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S09-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S09-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

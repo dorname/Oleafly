@@ -1,0 +1,560 @@
+Listing tests:
+  [tauri] › 00-bridge.spec.ts:3:1 › asynchronous app predicates are polled until they resolve true
+  [tauri] › 00-tours.spec.ts:256:1 › welcome is modal and Home creates a real project before Workspace starts
+  [tauri] › 00-tours.spec.ts:357:1 › only Getting started and Your workspace remain enabled
+  [tauri] › 01-library.spec.ts:4:1 › app launches to the library
+  [tauri] › 01-library.spec.ts:8:1 › template gallery opens with template cards and closes
+  [tauri] › 02-create-compile.spec.ts:23:1 › create a project from the Blank template
+  [tauri] › 02-create-compile.spec.ts:29:1 › compile produces a rendered PDF with zero errors
+  [tauri] › 02-create-compile.spec.ts:37:1 › opening a project in split view auto-compiles
+  [tauri] › 03-editor.spec.ts:17:1 › typed text appears in the compiled PDF
+  [tauri] › 03-editor.spec.ts:29:1 › reverting an edit removes the text from the recompiled PDF
+  [tauri] › 03-editor.spec.ts:50:1 › replacing the whole document recompiles to the new content
+  [tauri] › 03-editor.spec.ts:67:1 › an empty-body document compiles to a blank page
+  [tauri] › 04-commands.spec.ts:9:1 › Cmd+K opens the palette and the theme command toggles the real theme
+  [tauri] › 04-commands.spec.ts:35:1 › Cmd+Shift+F opens the omnibar with registered commands
+  [tauri] › 05-rail.spec.ts:9:1 › project search tab opens the search panel
+  [tauri] › 05-rail.spec.ts:14:1 › AI tab opens the chat panel
+  [tauri] › 05-rail.spec.ts:60:1 › preflight and git tabs are present for a LaTeX project
+  [tauri] › 05-rail.spec.ts:66:1 › files tab shows the file tree with main.tex
+  [tauri] › 06-diagram.spec.ts:4:1 › diagram composer compiles the starter drawing to a preview
+  [tauri] › 06-diagram.spec.ts:24:1 › Save Figure caches the compiled diagram without leaving the composer
+  [tauri] › 07-settings.spec.ts:23:1 › settings modal opens with all sections
+  [tauri] › 07-settings.spec.ts:48:1 › keyboard shortcuts are editable from their Settings section
+  [tauri] › 07-settings.spec.ts:60:1 › keyboard shortcuts Settings section opens from the home view
+  [tauri] › 07-settings.spec.ts:69:1 › home tour opens from Help and About
+  [tauri] › 07-settings.spec.ts:82:1 › compile button becomes recompile after the first result
+  [tauri] › 07-settings.spec.ts:97:1 › vim mode: modal editing, live toggle, and persistence part 1
+  [tauri] › 07-settings.spec.ts:239:1 › vim mode survived the app restart, then disable it (part 2)
+  [tauri] › 07-settings.spec.ts:277:1 › palette lists every registered core command
+  [tauri] › 08-files.spec.ts:4:1 › create a new file, edit it, and switch between files
+  [tauri] › 08-files.spec.ts:30:1 › outline shows the document structure
+  [tauri] › 09-search.spec.ts:9:1 › project search finds text across the project
+  [tauri] › 09-search.spec.ts:17:1 › omnibar /docs scope searches inside documents
+  [tauri] › 09-search.spec.ts:27:1 › omnibar finds projects by name
+  [tauri] › 10-shortcuts.spec.ts:4:1 › Cmd+Enter compiles and Cmd+Shift+J forward-SyncTeX highlights the PDF
+  [tauri] › 10-shortcuts.spec.ts:28:1 › Cmd+/ opens the keyboard shortcuts reference
+  [tauri] › 10-shortcuts.spec.ts:52:1 › Cmd+, opens Settings
+  [tauri] › 10-shortcuts.spec.ts:69:1 › Cmd+Option+P shows and hides the PDF beside the editor
+  [tauri] › 10-shortcuts.spec.ts:88:1 › Cmd+= and Cmd+- zoom the whole app and Cmd+0 sets it back
+  [tauri] › 100-workspace-layout.spec.ts:41:1 › workspace controls fit at the minimum window width with larger interface text
+  [tauri] › 100-workspace-layout.spec.ts:50:1 › wide toolbars restore direct actions and center the view group after resizing
+  [tauri] › 100-workspace-layout.spec.ts:79:1 › reopening a project restores its workspace choices
+  [tauri] › 100-workspace-layout.spec.ts:94:1 › detached preview shares compilation and keeps logs in its window
+  [tauri] › 100-workspace-layout.spec.ts:144:1 › sidebar width and document split survive a new session
+  [tauri] › 100-workspace-layout.spec.ts:166:1 › the file tree keeps its width while the window is resized
+  [tauri] › 100-workspace-layout.spec.ts:188:1 › grouped layouts open the assistant and its sidebar button hides it
+  [tauri] › 100-workspace-layout.spec.ts:204:1 › the shared detached PDF controls save a copy into the current project
+  [tauri] › 101-desktop-apps-settings.spec.ts:10:1 › without Cua Driver the tab shows the install line and keeps the switch off
+  [tauri] › 101-multilingual-spelling.spec.ts:223:1 › German spell checking keeps umlauts and ß inside words and skips English grammar
+  [tauri] › 101-multilingual-spelling.spec.ts:248:1 › a downloaded Czech dictionary checks a thesis without splitting words or timing out
+  [tauri] › 102-open-folder-root-main.spec.ts:30:1 › a folder with a root main.tex opens in the editor, compiles and stays untouched
+  [tauri] › 102-open-folder-root-main.spec.ts:65:1 › a folder that holds too much is refused with Choose a subfolder
+  [tauri] › 103-open-folder-main-detection.spec.ts:82:1 › a single nested main opens by itself and compiles from its own folder
+  [tauri] › 103-open-folder-main-detection.spec.ts:107:1 › a long main path never lets the window scroll sideways
+  [tauri] › 103-open-folder-main-detection.spec.ts:127:1 › an ambiguous folder asks for the main document and remembers the choice
+  [tauri] › 103-open-folder-main-detection.spec.ts:174:1 › an empty folder opens without a main document until one is set
+  [tauri] › 104-open-folder-engines.spec.ts:21:1 › a Typst-only folder opens with the Typst engine and compiles
+  [tauri] › 104-open-folder-engines.spec.ts:43:1 › a Markdown-only folder opens with the Markdown engine and compiles
+  [tauri] › 104-open-folder-engines.spec.ts:66:1 › a TeX root comment in an opened folder compiles the root it declares
+  [tauri] › 105-open-folder-trust.spec.ts:32:1 › a Git repository gets Source Control only after the folder is trusted
+  [tauri] › 105-open-folder-trust.spec.ts:82:1 › a trusted plain folder still has no Git repository after opening and compiling
+  [tauri] › 106-open-folder-session.spec.ts:27:1 › opening another folder while an edit is unsaved keeps the edit
+  [tauri] › 106-open-folder-session.spec.ts:83:1 › deleting an open folder shows it as unavailable with Locate
+  [tauri] › 107-open-folder-library.spec.ts:78:1 › the library shows an opened folder as an external card and filters by location
+  [tauri] › 107-open-folder-library.spec.ts:122:1 › Remove from Oleafly keeps the files and reopening brings the chats back untrusted
+  [tauri] › 107-open-folder-library.spec.ts:162:1 › renaming a closed folder on disk keeps its project and chats
+  [tauri] › 108-window-fill.spec.ts:134:1 › AppKit keeps the main webview filling its window as the window resizes
+  [tauri] › 108-window-fill.spec.ts:157:1 › a webview stuck at half the window's size is put back over the whole window
+  [tauri] › 109-live-collaboration-peer.spec.ts:273:1 › one app and a headless peer share, edit together, merge after time away, and removal stops the peer
+  [tauri] › 109-live-collaboration-peer.spec.ts:383:1 › a form field edit reaches the peer, and the peer's edit leaves a draft in a focused field alone
+  [tauri] › 109-online-import.spec.ts:23:1 › signs in to an Overleaf server, lists its projects and imports them with their settings
+  [tauri] › 11-logs.spec.ts:39:1 › the Logs tab shows the real compile log
+  [tauri] › 11-logs.spec.ts:51:1 › a LaTeX error surfaces as an error status, and fixing it recovers
+  [tauri] › 110-custom-templates.spec.ts:64:1 › a ZIP imported as a template makes independent projects with every file
+  [tauri] › 110-custom-templates.spec.ts:107:1 › a library project is saved as a template from its menu
+  [tauri] › 110-custom-templates.spec.ts:150:1 › a gallery link is imported through the signed-in account
+  [tauri] › 111-typst-forms-browser.spec.ts:25:3 › Typst function forms in Visual mode › shows the fixture report's calls as cards and a chip
+  [tauri] › 111-typst-forms-browser.spec.ts:33:3 › Typst function forms in Visual mode › edits one field of each kind and writes exactly that argument
+  [tauri] › 111-typst-forms-browser.spec.ts:55:3 › Typst function forms in Visual mode › opens a chip's form in a popover and writes the choice back
+  [tauri] › 111-typst-forms-browser.spec.ts:68:3 › Typst function forms in Visual mode › keeps keys typed after a click on a card out of the document
+  [tauri] › 111-typst-forms-browser.spec.ts:80:3 › Typst function forms in Visual mode › reads a number field's text itself and never clears it for bad input
+  [tauri] › 111-typst-forms-browser.spec.ts:92:3 › Typst function forms in Visual mode › stacks labels above their controls in a narrow pane
+  [tauri] › 111-typst-forms-browser.spec.ts:100:3 › Typst function forms in Visual mode › scrolls a 300-card report without console errors
+  [tauri] › 111-typst-forms-browser.spec.ts:111:3 › Typst function forms in Visual mode › renders the same editor DOM with no port and with an empty catalog
+  [tauri] › 111-typst-forms-browser.spec.ts:123:5 › Typst function forms in Visual mode › card and popover shots (light)
+  [tauri] › 111-typst-forms-browser.spec.ts:123:5 › Typst function forms in Visual mode › card and popover shots (dark)
+  [tauri] › 112-typst-forms.spec.ts:75:1 › forms declared by a vendored template show as cards and chips and edit the report
+  [tauri] › 112-typst-forms.spec.ts:98:1 › editing oleafly-forms.toml updates the cards and marks a broken definition
+  [tauri] › 112-typst-forms.spec.ts:120:1 › a Typst project without definitions shows no forms
+  [tauri] › 12-git.spec.ts:83:1 › Source Control keeps local Git available while no Git hosting account is connected
+  [tauri] › 12-git.spec.ts:109:1 › a successful compile is committed only through an explicit local action
+  [tauri] › 12-git.spec.ts:146:1 › stage, diff, and commit without requiring a connected account
+  [tauri] › 12-git.spec.ts:207:1 › publish to GitHub creates a real repo and pushes the project
+  [tauri] › 13-preflight.spec.ts:11:1 › preflight categories render and a single check runs independently
+  [tauri] › 13-preflight.spec.ts:58:1 › compiled GitHub Projects reaches the ATS store and parser UI
+  [tauri] › 14-dictionary.spec.ts:12:1 › every shipped Hunspell pack loads through production and supports spell, suggest, and user words
+  [tauri] › 14-dictionary.spec.ts:87:1 › misspellings get squiggles; ignore clears them; un-ignore brings them back
+  [tauri] › 14-dictionary.spec.ts:193:1 › a dismissed grammar finding stays dismissed for the project
+  [tauri] › 15-fonts.spec.ts:4:1 › a font component downloads, installs, and removes
+  [tauri] › 16-editor-toolbar.spec.ts:27:1 › bold wraps the selection; undo and redo round-trip
+  [tauri] › 16-editor-toolbar.spec.ts:47:1 › toolbar inserts figure and table environments
+  [tauri] › 16-editor-toolbar.spec.ts:87:1 › citation button opens the add-citation dialog
+  [tauri] › 16-editor-toolbar.spec.ts:97:1 › right-click context menu offers editor actions and inserts an equation
+  [tauri] › 17-preview-controls.spec.ts:208:1 › zoom controls change the zoom level
+  [tauri] › 17-preview-controls.spec.ts:223:1 › zoom menu applies presets and calculated fit scales
+  [tauri] › 17-preview-controls.spec.ts:249:1 › one-page documents hide the layout toggles and bound page navigation
+  [tauri] › 17-preview-controls.spec.ts:279:1 › multi-page layout, previous/next, and direct page jump all navigate
+  [tauri] › 17-preview-controls.spec.ts:333:1 › invert colors toggles on and off
+  [tauri] › 17-preview-controls.spec.ts:344:1 › logs control toggles back to the PDF preview
+  [tauri] › 17-preview-controls.spec.ts:355:1 › save PDF writes the exact compiled bytes at the requested relative path and reports failures
+  [tauri] › 17-preview-controls.spec.ts:382:1 › sync PDF on compiles writes a PDF named after the project title
+  [tauri] › 17-preview-controls.spec.ts:405:1 › save image writes a real nonblank PNG at the requested relative path
+  [tauri] › 17-preview-controls.spec.ts:460:1 › copy log writes the exact visible payload and log scrolling reaches both boundaries
+  [tauri] › 17-preview-controls.spec.ts:510:1 › fullscreen controls hide, restore, and exit the preview toolbar
+  [tauri] › 17-preview-controls.spec.ts:525:1 › open-in-window control creates the detached preview window and reattaches it
+  [tauri] › 18-modals.spec.ts:21:1 › settings and template modals close through user interactions and restore focus
+  [tauri] › 18-modals.spec.ts:56:1 › project info modal opens from the word-count palette command and closes
+  [tauri] › 18-modals.spec.ts:71:1 › history command reveals Source Control Graph while Versioning stays checkpoints-only
+  [tauri] › 18-modals.spec.ts:129:1 › Help and About is available from Settings
+  [tauri] › 18-modals.spec.ts:137:1 › shortcuts reference filters as you search
+  [tauri] › 19-diagram-deep.spec.ts:4:1 › place a shape, inspect it, and toggle canvas controls
+  [tauri] › 19-diagram-deep.spec.ts:41:1 › code tab snippets insert TikZ
+  [tauri] › 19-diagram-deep.spec.ts:52:1 › canvas zoom controls change the viewport
+  [tauri] › 19-diagram-deep.spec.ts:92:1 › arrow styling stays selected and matches the generated TikZ
+  [tauri] › 19-diagram-deep.spec.ts:143:1 › saving to a new project creates a project visible from Home
+  [tauri] › 19-diagram-deep.spec.ts:167:1 › the Download picker offers PNG and disables SVG
+  [tauri] › 19-diagram-deep.spec.ts:181:1 › importing hand-written TikZ draws it on the canvas
+  [tauri] › 19-diagram-deep.spec.ts:220:1 › importing TikZ with no shapes stays code-only
+  [tauri] › 19-diagram-deep.spec.ts:245:1 › canceling the file picker during import leaves the draft untouched
+  [tauri] › 20-ai-panel.spec.ts:4:1 › connect-a-provider leads to Settings -> AI
+  [tauri] › 20-ai-panel.spec.ts:16:1 › keyless panel offers the Ollama path into settings
+  [tauri] › 20-ai-panel.spec.ts:26:1 › a stale provider preference does not recommend or expand that provider
+  [tauri] › 21-library.spec.ts:57:1 › favorite toggles on a project book
+  [tauri] › 21-library.spec.ts:81:1 › the bookmark stacks above the hover preview overlay
+  [tauri] › 21-library.spec.ts:121:1 › fork a project from the context menu
+  [tauri] › 21-library.spec.ts:149:1 › move the forked copy to the recycle bin and restore it from Data Storage
+  [tauri] › 21-library.spec.ts:233:1 › the library header search filters projects and clears cleanly
+  [tauri] › 21-library.spec.ts:255:1 › list view exposes favorites and the compiled PDF preview
+  [tauri] › 21-library.spec.ts:300:1 › hovering a compiled project slides in its PDF preview, gated by the setting
+  [tauri] › 21-library.spec.ts:350:1 › project details and export history release their modal layers after closing
+  [tauri] › 21-library.spec.ts:404:1 › advanced filters keep select interactions open and dismiss outside
+  [tauri] › 22-toolbar.spec.ts:4:1 › view mode segmented control switches source/split/pdf
+  [tauri] › 22-toolbar.spec.ts:15:1 › inline project rename commits and reverts
+  [tauri] › 22-toolbar.spec.ts:73:1 › export menu lists the document formats
+  [tauri] › 22-toolbar.spec.ts:85:1 › back to library and reopen
+  [tauri] › 23-code-intel.spec.ts:62:1 › go-to-definition on a \ref jumps to its \label
+  [tauri] › 23-code-intel.spec.ts:78:1 › Shift+F12 opens the references panel with the usage
+  [tauri] › 23-code-intel.spec.ts:96:1 › F2 opens the rename-symbol dialog and cancel leaves the doc untouched
+  [tauri] › 24-pdf-selection-browser.spec.ts:178:1 › production PdfViewer selects real PDF text with trusted Chromium pointer input
+  [tauri] › 24-pdf-selection-browser.spec.ts:197:3 › production PdfViewer keeps trusted selection exact in Firefox
+  [tauri] › 24-pdf-selection-browser.spec.ts:197:3 › production PdfViewer keeps trusted selection exact in WebKit
+  [tauri] › 24-pdf-selection-browser.spec.ts:214:1 › low-level selection sentinel fixture remains bounded in Chromium
+  [tauri] › 24-synctex-inverse.spec.ts:328:1 › clicking the PDF jumps to the word in the source
+  [tauri] › 24-synctex-inverse.spec.ts:375:1 › clicking after a non-collapsed PDF selection does not invoke inverse SyncTeX
+  [tauri] › 24-synctex-inverse.spec.ts:424:1 › PDF selection geometry is exact for mixed pages, rotation, UserUnit and transient zoom
+  [tauri] › 24-synctex-inverse.spec.ts:873:1 › superseded PDF work cannot restore stale text after a document switch
+  [tauri] › 25-image-project.spec.ts:4:1 › image project: tailored UI and a real figure compile
+  [tauri] › 26-file-tree.spec.ts:123:1 › create a scratch file in the tree
+  [tauri] › 26-file-tree.spec.ts:140:1 › rename a file via the tree three-dot menu
+  [tauri] › 26-file-tree.spec.ts:179:1 › delete a file via the tree three-dot menu
+  [tauri] › 26-file-tree.spec.ts:199:1 › delete asks in the app's dialog: Cancel keeps the file, Delete removes it
+  [tauri] › 26-file-tree.spec.ts:236:1 › rename collisions offer Cancel, Keep both, and Replace without silent data loss
+  [tauri] › 26-file-tree.spec.ts:286:1 › dragging into a folder uses the same collision-safe Keep both flow
+  [tauri] › 26-file-tree.spec.ts:328:1 › creating a taken name offers Keep both and never offers Replace
+  [tauri] › 27-markdown-rendering-browser.spec.ts:3:1 › chat math keeps KaTeX fonts and vertical layout in the browser
+  [tauri] › 28-ai-chat.spec.ts:17:1 › connect an AI provider through the settings UI
+  [tauri] › 28-ai-chat.spec.ts:81:1 › choose the GLM-4.6 model in settings and persist it
+  [tauri] › 28-ai-chat.spec.ts:156:1 › a real conversation round-trip
+  [tauri] › 28-ai-chat.spec.ts:182:1 › the assistant can use a real project tool
+  [tauri] › 29-history-restore.spec.ts:132:1 › commit twice, restore the first commit, then roll forward again
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template acm: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template article-academic: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template assignment: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template ats-resume: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template beamer: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template bibliography: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template blank: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template book: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template calendar: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template elsevier: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template ieee: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template letter: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template newsletter: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template poster: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template resume: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template sidebar-resume: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template thesis: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template blank-typst: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template typst-conference-style-article: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template typst-figure: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template typst-letter: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template typst-report: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template typst-resume: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template typst-technical-report: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template typst-thesis: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:65:3 › template blank-markdown: create and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:76:3 › template modern-resume: create (with asset download) and compile with zero errors
+  [tauri] › 30-project-kinds.spec.ts:85:1 › presentation export menu offers PowerPoint but not EPUB
+  [tauri] › 30-project-kinds.spec.ts:95:1 › book export menu offers EPUB but not PowerPoint
+  [tauri] › 30-project-kinds.spec.ts:104:1 › plain document export menu offers neither PowerPoint nor EPUB
+  [tauri] › 30-project-kinds.spec.ts:117:1 › image project exports an image, not document formats
+  [tauri] › 31-ai-figure.spec.ts:108:1 › a LaTeX chat run carries the figure tools with no mode to switch on
+  [tauri] › 31-ai-figure.spec.ts:145:1 › insert_figure lands a tikzpicture in the open document
+  [tauri] › 32-settings-matrix.spec.ts:55:1 › every editor font size option restyles the editor
+  [tauri] › 32-settings-matrix.spec.ts:69:1 › every app font size option rescales the interface
+  [tauri] › 32-settings-matrix.spec.ts:102:1 › the app font picker applies an installed font, a typed name and the default
+  [tauri] › 32-settings-matrix.spec.ts:133:1 › the editor font picker applies an installed font, a typed name and the default
+  [tauri] › 32-settings-matrix.spec.ts:164:1 › every accent color repaints the primary color
+  [tauri] › 32-settings-matrix.spec.ts:186:1 › open-projects-in controls new project landing layouts
+  [tauri] › 32-settings-matrix.spec.ts:218:1 › show-file-tree-on-open controls new project sidebars
+  [tauri] › 32-settings-matrix.spec.ts:260:1 › offline mode compiles from the local cache
+  [tauri] › 32-settings-matrix.spec.ts:276:1 › the shortcuts settings section exposes configurable app shortcuts
+  [tauri] › 32-settings-matrix.spec.ts:284:1 › reset to defaults restores factory preferences
+  [tauri] › 32-settings-matrix.spec.ts:322:1 › appearance choice in settings sets the real theme
+  [tauri] › 33-editor-toolbar-full.spec.ts:60:1 › italic, link, and cross-reference buttons insert LaTeX
+  [tauri] › 33-editor-toolbar-full.spec.ts:70:1 › every heading level inserts its sectioning command
+  [tauri] › 33-editor-toolbar-full.spec.ts:192:1 › both list kinds insert their environments
+  [tauri] › 33-editor-toolbar-full.spec.ts:202:1 › every remaining formatting control inserts its LaTeX command
+  [tauri] › 33-editor-toolbar-full.spec.ts:225:1 › symbol picker searches and inserts a symbol
+  [tauri] › 33-editor-toolbar-full.spec.ts:236:1 › project-info toolbar popover reports the active file
+  [tauri] › 33-editor-toolbar-full.spec.ts:245:1 › code-intelligence toolbar menu runs definition, references, and rename actions
+  [tauri] › 33-editor-toolbar-full.spec.ts:305:1 › the find button opens the editor search panel
+  [tauri] › 33-editor-toolbar-full.spec.ts:311:1 › non-tex files get no formatting toolbar; txt files edit fine
+  [tauri] › 33-editor-toolbar-full.spec.ts:340:1 › font files open a binary notice instead of a broken editor
+  [tauri] › 33-mcp.spec.ts:41:1 › mcp server serves the in-app tool surface end to end
+  [tauri] › 34-chrome.spec.ts:10:1 › the workspace appearance menu sets the real theme
+  [tauri] › 34-chrome.spec.ts:44:1 › the sidebar collapses and restores from the rail
+  [tauri] › 34-chrome.spec.ts:105:1 › Explorer sections collapse, resize, and restore as one stack
+  [tauri] › 34-chrome.spec.ts:419:1 › the editor/preview split resizes from the separator
+  [tauri] › 34-chrome.spec.ts:465:1 › editor tabs close from their x button
+  [tauri] › 34-chrome.spec.ts:500:1 › code folding collapses and restores a region
+  [tauri] › 35-refs-chat.spec.ts:37:1 › references panel guides toward Shift-F12
+  [tauri] › 35-refs-chat.spec.ts:47:1 › new chat clears the transcript and history brings it back
+  [tauri] › 35-refs-chat.spec.ts:77:1 › custom instructions steer a real reply
+  [tauri] › 35-refs-chat.spec.ts:128:1 › the active conversation survives tab switches and sidebar collapse
+  [tauri] › 36-ai-agentic.spec.ts:13:1 › AI settings shows the agent tool catalog and PDF capture toggle
+  [tauri] › 36-ai-agentic.spec.ts:56:1 › agent status pill renders the checklist from the todos store
+  [tauri] › 36-ai-agentic.spec.ts:84:1 › agent sticky memory persists to storage and reloads on reopen
+  [tauri] › 36-ai-agentic.spec.ts:126:1 › agent handoff hook is available and stores a prompt
+  [tauri] › 36-ai-agentic.spec.ts:159:1 › MCP activity rail tab appears only when the server is running
+  [tauri] › 36-ai-agentic.spec.ts:201:1 › plan mode proposes a plan, waits for approval, then works through it
+  [tauri] › 37-ai-mock.spec.ts:27:1 › a real streamed conversation round-trips and records usage
+  [tauri] › 37-ai-mock.spec.ts:49:1 › the assistant runs a real tool call end to end
+  [tauri] › 37-ai-mock.spec.ts:65:1 › agent handoff delivers the prompt into the live composer
+  [tauri] › 37-ai-mock.spec.ts:94:1 › Up recalls the last prompt in an empty message box
+  [tauri] › 37-ai-mock.spec.ts:103:1 › the message box keeps the height the user gives it
+  [tauri] › 37-ai-mock.spec.ts:118:1 › a dropped text file reaches the model as text
+  [tauri] › 37-ai-mock.spec.ts:137:1 › Regenerate sends the last prompt again
+  [tauri] › 38-git-history.spec.ts:118:1 › explicit local Git history restores the document backward and forward
+  [tauri] › 39-ai-secret-storage.spec.ts:6:1 › AI credentials persist encrypted and never return to the window
+  [tauri] › 39-ai-secret-storage.spec.ts:45:1 › saving one provider keeps every other stored credential
+  [tauri] › 40-import.spec.ts:33:1 › PDF converts locally in the converter view
+  [tauri] › 40-import.spec.ts:60:1 › created project compiles and round-trips the source text
+  [tauri] › 40-import.spec.ts:85:1 › DOCX imports through pandoc into a project
+  [tauri] › 40-import.spec.ts:101:1 › converter downloads exact .tex, ZIP, and extracted PNG artifacts
+  [tauri] › 41-import-ai.spec.ts:39:1 › refine with AI creates the project and hands off to the agent
+  [tauri] › 41-import-ai.spec.ts:74:1 › image to LaTeX toolbar action transcribes and renders through the production path
+  [tauri] › 42-template-packs.spec.ts:128:1 › a pack opens to a preview of each template and installs one on its own
+  [tauri] › 42-template-packs.spec.ts:153:1 › a downloaded template with a Korean name opens in the gallery, which scrolls end to end
+  [tauri] › 42-template-packs.spec.ts:189:1 › installing a pack adds its templates to the gallery
+  [tauri] › 42-template-packs.spec.ts:210:1 › 600 templates named in mixed scripts scroll in the gallery and the pack browser
+  [tauri] › 43-template-generate.spec.ts:24:1 › generate with AI saves a reusable custom template
+  [tauri] › 44-deadlines.spec.ts:14:1 › deadlines view refreshes, counts down, and filters
+  [tauri] › 45-home-nav.spec.ts:9:1 › dock opens the Tools page, and a converter returns to it
+  [tauri] › 45-home-nav.spec.ts:31:1 › Oleafly Tools gallery filters by category and search, and opens a dedicated tool view
+  [tauri] › 45-home-nav.spec.ts:58:1 › a deterministic converter runs from its built-in example
+  [tauri] › 45-home-nav.spec.ts:74:1 › the bundled Pandoc converts Markdown without a project
+  [tauri] › 45-home-nav.spec.ts:103:1 › dock opens the Diagram Composer as a standalone page and back returns to Library
+  [tauri] › 45-home-nav.spec.ts:128:1 › dock's Search button is gated on having at least one project
+  [tauri] › 46-alphaxiv-settings.spec.ts:20:1 › a key alphaXiv does not accept is explained and never saved
+  [tauri] › 46-alphaxiv-settings.spec.ts:58:1 › the key hint links to alphaXiv and its MCP server docs
+  [tauri] › 47-editor-overflow-and-selection.spec.ts:11:1 › toolbar overflow menu surfaces controls that don't fit the bar
+  [tauri] › 47-editor-overflow-and-selection.spec.ts:55:1 › forward SyncTeX switches to split view and locates the PDF position
+  [tauri] › 47-editor-overflow-and-selection.spec.ts:90:1 › selecting text in the editor reveals the Ask AI action bubble
+  [tauri] › 48-citation-import.spec.ts:48:1 › importing a RIS file adds a citation to the project's .bib, deduping a repeat import by DOI
+  [tauri] › 48-citation-import.spec.ts:69:1 › importing EndNote XML and BibTeX both land in the same library, RDF and unknown extensions are rejected
+  [tauri] › 48-citation-import.spec.ts:105:1 › importing into a project with no bibliography refreshes the tree and the Citations tab
+  [tauri] › 49-wysiwyg.spec.ts:4:1 › toggling into WYSIWYG shows parsed content, editing round-trips back to source
+  [tauri] › 49-wysiwyg.spec.ts:17:1 › toggling into WYSIWYG shows parsed markdown content, editing round-trips back to source
+  [tauri] › 50-project-flow-integrity.spec.ts:108:1 › local LaTeX command completion survives project-intelligence refresh
+  [tauri] › 50-project-flow-integrity.spec.ts:139:1 › reopening a project in persisted Visual mode keeps the workspace chrome anchored
+  [tauri] › 50-project-flow-integrity.spec.ts:193:1 › a document paints source on reopen after switching back from Visual
+  [tauri] › 50-project-flow-integrity.spec.ts:231:1 › toolbar edits flush on immediate close, survive reopen, and compile
+  [tauri] › 50-project-flow-integrity.spec.ts:301:1 › a direct project switch flushes an edit made in the same event turn
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:165:1 › book heading controls compile Part and Chapter into text and PDF outline
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:202:1 › article heading controls compile every article-valid hierarchy level
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:244:1 › underline adds isolated PDF rule operators without changing text geometry
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:292:1 › formatting, link, reference, footnote, and quote controls have PDF semantics
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:419:1 › undo and redo change the next compiled PDF from absence to presence
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:448:1 › citation toolbar activation uses production addCitation and renders its bibliography
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:511:1 › figure and generated-table controls render a real image, captions, cells, and table geometry
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:585:1 › lists, align, equation, fraction, and every symbol category render
+  [tauri] › 51-editor-toolbar-semantics.spec.ts:696:1 › every symbol inventory macro compiles and exposes its deterministic PDF marker
+  [tauri] › 52-editor-workflows-semantics.spec.ts:305:1 › word count is exact after mutation and Find navigates, reverses, and replaces
+  [tauri] › 52-editor-workflows-semantics.spec.ts:370:1 › Find covers filters, select-all, close, preserve-case, and replace-all
+  [tauri] › 52-editor-workflows-semantics.spec.ts:477:1 › toolbar code intelligence commits rename and keeps the PDF reference resolved
+  [tauri] › 52-editor-workflows-semantics.spec.ts:562:1 › WYSIWYG toolbar and keyboard undo/redo use visual history and compiled state
+  [tauri] › 52-editor-workflows-semantics.spec.ts:651:1 › WYSIWYG toolbar formatting serializes to LaTeX and renders semantically
+  [tauri] › 52-editor-workflows-semantics.spec.ts:775:1 › every raw-backed WYSIWYG formatting branch serializes and compiles after placeholder entry
+  [tauri] › 53-editor-context-menu-full.spec.ts:94:1 › LaTeX context menu activates every formatting and insertion action
+  [tauri] › 53-editor-context-menu-full.spec.ts:157:1 › LaTeX context navigation actions run SyncTeX and all code-intelligence paths
+  [tauri] › 53-editor-context-menu-full.spec.ts:247:1 › Typst context menu activates every profile-appropriate action
+  [tauri] › 53-editor-context-menu-full.spec.ts:265:1 › Markdown context menu activates every profile-appropriate action
+  [tauri] › 54-file-tree-production.spec.ts:285:1 › real row menus cover nested create/rename/copy/main/delete and reopen persistence
+  [tauri] › 54-file-tree-production.spec.ts:384:1 › real import actions copy exact files and recursive folders into exact destinations
+  [tauri] › 55-export-artifacts.spec.ts:113:1 › every document export writes a semantic artifact to the selected exact path
+  [tauri] › 55-export-artifacts.spec.ts:256:1 › image project exports real vector PDF and nonblank raster PNG; SVG stays unsupported
+  [tauri] › 56-preview-window-browser.spec.ts:16:1 › detached preview one-page controls stay bounded and zoom/invert work
+  [tauri] › 56-preview-window-browser.spec.ts:42:1 › detached preview two-page layout, previous/input/next, and invalid bounds work
+  [tauri] › 56-preview-window-browser.spec.ts:78:1 › the document outline slides in and back out
+  [tauri] › 56-preview-window-browser.spec.ts:100:1 › paging scrolls the preview pane, not the page around it
+  [tauri] › 57-ai-provider-revamp.spec.ts:59:1 › connect a provider and manage its models with validation and restore
+  [tauri] › 57-ai-provider-revamp.spec.ts:114:1 › custom provider dialog validates its fields inline
+  [tauri] › 57-ai-provider-revamp.spec.ts:144:1 › instructions tab hosts the tools list and a working default-model picker
+  [tauri] › 57-ai-provider-revamp.spec.ts:205:1 › personas: deep link from persona menu, create, switch in chat
+  [tauri] › 58-editor-core-stability.spec.ts:742:1 › a realistic 6,200-line book keeps the full authoring workspace stable under chaos
+  [tauri] › 58-editor-core-stability.spec.ts:1159:1 › all core intelligence surfaces agree on one real project revision
+  [tauri] › 58-editor-core-stability.spec.ts:1349:1 › exact reversions and stale SyncTeX remain productive without a recompile
+  [tauri] › 59-latex-intelligence.spec.ts:84:1 › corpus package completion is curated and package-gated
+  [tauri] › 59-latex-intelligence.spec.ts:150:1 › % !TEX root override and broken-root warning surface in the toolbar
+  [tauri] › 59-latex-intelligence.spec.ts:178:1 › % !TEX root override compiles the declared root
+  [tauri] › 59-proofreading-complete.spec.ts:363:1 › every Harper dialect selected in Settings produces its dialect-sensitive result
+  [tauri] › 59-proofreading-complete.spec.ts:457:1 › every Hunspell locale selected in Settings returns its locale-sensitive suggestion
+  [tauri] › 59-proofreading-complete.spec.ts:530:1 › Spellcheck and Harper Settings toggles remove and restore their editor decorations
+  [tauri] › 59-proofreading-complete.spec.ts:623:1 › LaTeX, Markdown, and Typst Source proofreading checks prose and masks syntax
+  [tauri] › 59-proofreading-complete.spec.ts:698:1 › a pasted LaTeX block produces word-sized findings with their real message
+  [tauri] › 59-proofreading-complete.spec.ts:825:1 › LaTeX and Markdown Visual proofreading paints real prose issues
+  [tauri] › 59-proofreading-complete.spec.ts:882:1 › grammar and spelling suggestions apply and serialize back to project source
+  [tauri] › 59-proofreading-complete.spec.ts:976:1 › global and project dictionaries add, remove, and remain isolated
+  [tauri] › 59-proofreading-complete.spec.ts:1099:1 › proofreading preferences and dictionaries persist across project and app reopen
+  [tauri] › 59-proofreading-complete.spec.ts:1205:1 › rapid locale switching rejects superseded worker generations and keeps only the newest locale
+  [tauri] › 59-proofreading-complete.spec.ts:1305:1 › worker startup failure, partial analysis, retry, and recovery remain usable
+  [tauri] › 60-document-citation.spec.ts:17:1 › Citation Search exposes From document and Review modes; e2e hooks seed results
+  [tauri] › 60-production-editor-csp.spec.ts:10:1 › the packaged editor accepts CodeMirror runtime styles
+  [tauri] › 61-ux-density.spec.ts:35:1 › Enter continues \item lists and Mod-Alt-. closes the open environment
+  [tauri] › 61-ux-density.spec.ts:66:1 › word count popover reports mask-accurate counts
+  [tauri] › 61-ux-density.spec.ts:93:1 › reference numbers surface from the last compile's aux file
+  [tauri] › 62-large-document-interaction.spec.ts:294:1 › seeded jumps across the whole document keep the gutter aligned
+  [tauri] › 62-large-document-interaction.spec.ts:305:1 › the first and last lines both render without a blank viewport
+  [tauri] › 62-large-document-interaction.spec.ts:314:1 › scrolling that never settles still leaves the editor painted
+  [tauri] › 62-large-document-interaction.spec.ts:350:1 › an edit made during fast scrolling lands on the intended line
+  [tauri] › 62-large-document-interaction.spec.ts:394:1 › a burst of edits at scattered lines survives undo
+  [tauri] › 63-overleaf-import.spec.ts:106:1 › wrapped Overleaf ZIP unwraps and follows the TeX root magic comment
+  [tauri] › 63-overleaf-import.spec.ts:127:1 › a lone .tex file becomes the compile entry
+  [tauri] › 63-overleaf-import.spec.ts:139:1 › a Tectonic project with an engine gap opens the engine picker on open
+  [tauri] › 63-overleaf-import.spec.ts:209:1 › the unified import chooser exposes every supported project source
+  [tauri] › 63-overleaf-import.spec.ts:232:1 › the template chooser imports an Overleaf ZIP from its header button
+  [tauri] › 64-compiler-choice.spec.ts:184:1 › a new LaTeX project starts on Tectonic with no compiler pinned
+  [tauri] › 64-compiler-choice.spec.ts:209:1 › a new LaTeX project starts on latexmk when that is the default in Settings
+  [tauri] › 64-compiler-choice.spec.ts:231:1 › picking pdfLaTeX moves the project to latexmk and pins the compiler
+  [tauri] › 64-compiler-choice.spec.ts:244:1 › the pinned compiler survives closing and reopening the project
+  [tauri] › 64-compiler-choice.spec.ts:261:1 › switching compilers repins without leaving the latexmk engine
+  [tauri] › 64-compiler-choice.spec.ts:272:1 › Auto keeps latexmk but clears the pin so the source decides
+  [tauri] › 64-compiler-choice.spec.ts:287:1 › Tectonic returns the project to the bundled engine and drops the pin
+  [tauri] › 65-editor-preferences.spec.ts:209:1 › auto-close brackets inserts the closing brace, and stops when turned off
+  [tauri] › 65-editor-preferences.spec.ts:233:1 › auto-complete opens the popup while typing, and stays closed when off
+  [tauri] › 65-editor-preferences.spec.ts:274:1 › cursor blinking styles change the cursor animation and Off stops it
+  [tauri] › 65-editor-preferences.spec.ts:311:1 › LaTeX math and environment closing follow their own toggles
+  [tauri] › 65-editor-preferences.spec.ts:370:1 › semantic delimiter pairing follows the math toggle
+  [tauri] › 65-editor-preferences.spec.ts:404:1 › auto-close brackets gates math and environment closing
+  [tauri] › 65-editor-preferences.spec.ts:445:1 › editor preferences persist across a reload
+  [tauri] › 65-editor-preferences.spec.ts:462:1 › the keybinding mode switches between Default, Emacs and Vim
+  [tauri] › 65-editor-preferences.spec.ts:502:1 › tab size, line wrapping and line height follow their settings
+  [tauri] › 65-editor-preferences.spec.ts:586:1 › a custom line height, a wider cursor and per-theme cursor colors reach the editor
+  [tauri] › 65-editor-preferences.spec.ts:631:1 › letter spacing and a custom font size reach the editor text
+  [tauri] › 65-editor-preferences.spec.ts:664:1 › the default editor keys run their commands
+  [tauri] › 65-editor-preferences.spec.ts:713:1 › Mod-slash comments the line instead of opening the shortcut reference
+  [tauri] › 65-editor-preferences.spec.ts:738:1 › remapping an editor key takes effect without a reload
+  [tauri] › 66-checkpoints.spec.ts:91:3 › blank: successful compiles deduplicate checkpoints and restore source
+  [tauri] › 66-checkpoints.spec.ts:91:3 › blank-typst: successful compiles deduplicate checkpoints and restore source
+  [tauri] › 66-checkpoints.spec.ts:91:3 › blank-markdown: successful compiles deduplicate checkpoints and restore source
+  [tauri] › 66-ghost-completion.spec.ts:127:1 › a dim suggestion appears while typing a command
+  [tauri] › 66-ghost-completion.spec.ts:143:1 › Tab accepts the suggestion into the document
+  [tauri] › 66-ghost-completion.spec.ts:160:1 › Escape dismisses the suggestion and leaves the text alone
+  [tauri] › 66-ghost-completion.spec.ts:185:1 › no suggestion appears when the preference is off
+  [tauri] › 66-ghost-completion.spec.ts:203:1 › the preference persists and stays out of the way of plain typing
+  [tauri] › 67-agent-rust.spec.ts:64:1 › a streamed reply arrives through the Rust harness
+  [tauri] › 67-agent-rust.spec.ts:76:1 › no model call is made from the webview
+  [tauri] › 67-agent-rust.spec.ts:97:1 › a tool call is dispatched by Rust and executed in the app
+  [tauri] › 67-agent-rust.spec.ts:109:1 › a write tool run by the agent lands on disk
+  [tauri] › 67-agent-rust.spec.ts:131:1 › stopping a run cancels it in the backend
+  [tauri] › 67-agent-rust.spec.ts:146:1 › provider credentials are never handed to the webview
+  [tauri] › 67-agent-rust.spec.ts:168:1 › a redacted config round trip does not destroy the stored key
+  [tauri] › 67-agent-rust.spec.ts:184:1 › the Ollama host stays readable because it is not a secret
+  [tauri] › 67-agent-rust.spec.ts:197:1 › a custom OpenAI-compatible provider streams through the harness
+  [tauri] › 67-agent-rust.spec.ts:234:1 › the redaction marker has one definition, not two
+  [tauri] › 67-agent-rust.spec.ts:251:1 › the AI SDK is gone from the shipped bundle
+  [tauri] › 68-mcp-headless.spec.ts:118:3 › MCP without the webview › reads a project file over HTTP with nothing running in the renderer
+  [tauri] › 68-mcp-headless.spec.ts:129:3 › MCP without the webview › lists and searches the project natively
+  [tauri] › 68-mcp-headless.spec.ts:149:3 › MCP without the webview › rejects every mutation after the renderer disconnects
+  [tauri] › 68-mcp-headless.spec.ts:179:3 › MCP without the webview › does not delete files without an active approval interface
+  [tauri] › 68-mcp-headless.spec.ts:198:3 › MCP without the webview › keeps native reads available after a renderer lease expires
+  [tauri] › 68-mcp-headless.spec.ts:210:3 › MCP without the webview › a renderer-approved write refreshes an already-open editor buffer
+  [tauri] › 68-mcp-headless.spec.ts:226:3 › MCP without the webview › read-only config is enforced even before the webview registry refreshes
+  [tauri] › 68-mcp-headless.spec.ts:250:3 › MCP without the webview › a replace that matches nothing is reported rather than silently ignored
+  [tauri] › 68-mcp-headless.spec.ts:262:3 › MCP without the webview › a project id outside the library is refused
+  [tauri] › 68-mcp-headless.spec.ts:272:3 › MCP without the webview › an unauthenticated call is rejected
+  [tauri] › 68-mcp-headless.spec.ts:281:3 › MCP without the webview › the default policy sends a change to the app to be approved
+  [tauri] › 68-mcp-headless.spec.ts:299:3 › MCP without the webview › auto_writes still stops at a delete
+  [tauri] › 68-mcp-headless.spec.ts:323:3 › MCP without the webview › a tool that needs the UI is still routed to the app
+  [tauri] › 69-agent-live.spec.ts:84:3 › live provider › lists the models the key actually has access to
+  [tauri] › 69-agent-live.spec.ts:100:3 › live provider › streams a real reply and records real token usage
+  [tauri] › 69-agent-live.spec.ts:122:3 › live provider › streams the thinking phase separately from the answer
+  [tauri] › 69-agent-live.spec.ts:151:3 › live provider › runs a real tool call against the project
+  [tauri] › 69-agent-live.spec.ts:170:3 › live provider › a real delegated agent completes and exposes its recorded conversation
+  [tauri] › 69-agent-live.spec.ts:193:3 › live provider › the same key works through a custom provider entry
+  [tauri] › 69-agent-live.spec.ts:215:3 › live provider › saving a key selects a model the provider actually offers
+  [tauri] › 69-agent-live.spec.ts:263:3 › live provider › a refresh drops a model the provider no longer lists
+  [tauri] › 69-agent-live.spec.ts:285:3 › live provider › a rejected key surfaces the provider's own message
+  [tauri] › 70-agent-ollama.spec.ts:95:3 › local Ollama › lists locally pulled models with no credential configured
+  [tauri] › 70-agent-ollama.spec.ts:111:3 › local Ollama › streams a real reply from a local model
+  [tauri] › 70-agent-ollama.spec.ts:126:3 › local Ollama › records the usage frame a local daemon reports
+  [tauri] › 70-agent-ollama.spec.ts:144:3 › local Ollama › runs a tool call against the project on a local model
+  [tauri] › 70-agent-ollama.spec.ts:159:3 › local Ollama › a host pasted with a trailing slash still reaches the daemon
+  [tauri] › 70-agent-ollama.spec.ts:174:3 › local Ollama › the host is stored and shown, never treated as a secret
+  [tauri] › 71-toolbar-focus.spec.ts:95:1 › compiling from the toolbar leaves keyboard undo reachable
+  [tauri] › 71-toolbar-focus.spec.ts:124:1 › editor toolbar buttons keep the caret in the editor
+  [tauri] › 72-terminal-dock.spec.ts:90:1 › the terminal dock starts closed and its toggle is in the top toolbar
+  [tauri] › 72-terminal-dock.spec.ts:110:1 › the real terminal opens, echoes, and exits cleanly
+  [tauri] › 72-terminal-dock.spec.ts:197:1 › a second terminal opens active, takes a name, and closes back to one tab
+  [tauri] › 72-terminal-dock.spec.ts:229:1 › the tab menu closes every other terminal
+  [tauri] › 72-terminal-dock.spec.ts:266:1 › the new terminal button stops at ten terminals
+  [tauri] › 72-terminal-dock.spec.ts:290:1 › the configured terminal shortcut route toggles its dock
+  [tauri] › 72-terminal-dock.spec.ts:332:1 › terminal font size and color theme apply to the open terminal
+  [tauri] › 74-agent-steer.spec.ts:45:1 › Enter during a stream queues messages that can be steered, discarded, and auto-sent
+  [tauri] › 74-conversion-matrix.spec.ts:108:3 › LaTeX project exports (registry routes) › imports the paper zip and compiles it
+  [tauri] › 74-conversion-matrix.spec.ts:123:3 › LaTeX project exports (registry routes) › exports Typst, Word, MathML HTML, and Markdown
+  [tauri] › 74-conversion-matrix.spec.ts:163:3 › import routes (pandoc plan table) › html to LaTeX, Markdown, and Typst projects
+  [tauri] › 74-conversion-matrix.spec.ts:189:3 › import routes (pandoc plan table) › typst to LaTeX and Markdown projects
+  [tauri] › 74-conversion-matrix.spec.ts:208:3 › import routes (pandoc plan table) › docx to LaTeX, Markdown, and Typst projects (OMML math survives)
+  [tauri] › 74-conversion-matrix.spec.ts:240:3 › import routes (pandoc plan table) › markdown to LaTeX and Typst projects (citations, footnotes, math, mermaid)
+  [tauri] › 74-conversion-matrix.spec.ts:261:3 › spreadsheet tables (G17) › csv to LaTeX escapes every special exactly once
+  [tauri] › 74-conversion-matrix.spec.ts:276:3 › spreadsheet tables (G17) › csv to Typst emits a table with a header
+  [tauri] › 74-conversion-matrix.spec.ts:283:3 › spreadsheet tables (G17) › xlsx honors merged cells and formula results
+  [tauri] › 74-conversion-matrix.spec.ts:292:3 › equation export (G16) › renders SVG through MathJax and rejects broken TeX
+  [tauri] › 74-conversion-matrix.spec.ts:313:3 › bibtex cleaner (G6) › preview preserves conflicting metadata and apply rewrites duplicate citations
+  [tauri] › 74-conversion-matrix.spec.ts:363:3 › statistics calculators (G39) › matches reference values from the statrs backend
+  [tauri] › 74-conversion-matrix.spec.ts:382:3 › pdf fixtures › text-layer pdf converts; image-only pdf reports no-text-layer (G2 deferred)
+  [tauri] › 74-conversion-matrix.spec.ts:405:1 › long renderer operations survive the bridge deadline and retain failures
+  [tauri] › 74-conversion-matrix.spec.ts:422:3 › live identifier lookups (G7) › doi, isbn, and pmid resolve to real bibtex
+  [tauri] › 74-conversion-matrix.spec.ts:445:3 › live identifier lookups (G7) › an arxiv e-print round-trips into a compiling project
+  [tauri] › 75-conversion-matrix-ui.spec.ts:96:1 › import menu lists every registry source
+  [tauri] › 75-conversion-matrix-ui.spec.ts:109:1 › html imports as a LaTeX project through the menu targets
+  [tauri] › 75-conversion-matrix-ui.spec.ts:138:1 › latex paper compiles and shows the pdf preview
+  [tauri] › 75-conversion-matrix-ui.spec.ts:154:1 › export menu shows the registry formats and exports typst
+  [tauri] › 75-conversion-matrix-ui.spec.ts:177:1 › typst project export menu offers word, html, markdown, and tex
+  [tauri] › 75-conversion-matrix-ui.spec.ts:191:1 › equation context menu exports a real svg image
+  [tauri] › 75-conversion-matrix-ui.spec.ts:234:1 › table import dialog previews and inserts a booktabs table
+  [tauri] › 75-conversion-matrix-ui.spec.ts:253:1 › references panel cleaner shows the dry-run diff
+  [tauri] › 75-conversion-matrix-ui.spec.ts:268:1 › statistics calculator identifies its Wilson proportion interval
+  [tauri] › 75-conversion-matrix-ui.spec.ts:287:1 › symbols preview the selected command and insert it into the open project
+  [tauri] › 75-conversion-matrix-ui.spec.ts:318:1 › writing generator uses the active project for its assistant prompt
+  [tauri] › 75-skills.spec.ts:260:1 › Settings lists the bundled skill pack grouped by research phase
+  [tauri] › 75-skills.spec.ts:290:1 › the slash menu lists skills and fills the composer with the command
+  [tauri] › 75-skills.spec.ts:329:1 › a slash skill invocation reaches the model and loads the skill
+  [tauri] › 75-skills.spec.ts:370:1 › read_skill_file returns a supporting file from the skill folder
+  [tauri] › 75-skills.spec.ts:393:1 › a shelf skill installs from the catalog and uninstalls again
+  [tauri] › 75-skills.spec.ts:432:1 › a steered message survives reopening the assistant
+  [tauri] › 76-terminal-keys.spec.ts:150:1 › Shift+Enter reaches the program as the newline CLI agents read
+  [tauri] › 76-terminal-keys.spec.ts:161:1 › Ctrl+/ reaches the shell as 0x1f
+  [tauri] › 76-terminal-keys.spec.ts:173:1 › word keys reach the shell
+  [tauri] › 76-terminal-keys.spec.ts:194:1 › Ctrl+B goes to the shell, not the sidebar
+  [tauri] › 76-terminal-keys.spec.ts:212:1 › output that arrives while a tab is hidden is all there when it comes back
+  [tauri] › 80-research-workspace.spec.ts:58:1 › research tasks stay off until the Experimentation switch is turned on
+  [tauri] › 80-research-workspace.spec.ts:99:1 › a research task runs in Rust, reaches review, and records the same native turn
+  [tauri] › 80-research-workspace.spec.ts:212:1 › a linked folder keeps its access profile, previews a source, and unlinks without deletion
+  [tauri] › 80-research-workspace.spec.ts:325:1 › research project setup previews the planned tree and creates its queued first task
+  [tauri] › 81-acp-workspace.spec.ts:253:1 › a custom ACP agent signs in, selects its model, and resolves a native permission
+  [tauri] › 81-acp-workspace.spec.ts:303:1 › ACP history survives reload and reconnect without inventing token usage
+  [tauri] › 81-acp-workspace.spec.ts:344:1 › Stop reaps the child process of an agent that ignores cancellation
+  [tauri] › 81-acp-workspace.spec.ts:367:1 › Stop ends the turn and leaves a compliant agent connected
+  [tauri] › 81-acp-workspace.spec.ts:387:1 › Agent setup opens the CLI agents tab in settings
+  [tauri] › 81-acp-workspace.spec.ts:401:1 › an agent's edit shows as a turn change that can be reviewed, undone and redone
+  [tauri] › 81-acp-workspace.spec.ts:424:1 › a long agent name never pushes the assistant panel sideways
+  [tauri] › 81-acp-workspace.spec.ts:449:1 › a message typed during a turn is sent after it
+  [tauri] › 81-acp-workspace.spec.ts:467:1 › the effort picker changes the agent's effort
+  [tauri] › 81-acp-workspace.spec.ts:478:1 › the slash menu lists the agent's commands
+  [tauri] › 81-acp-workspace.spec.ts:493:1 › all conversations: rename and delete
+  [tauri] › 82-research-task-review.spec.ts:156:1 › a native task edits its isolated manuscript and applies only after preview and review
+  [tauri] › 82-research-task-review.spec.ts:190:1 › applying a task preserves an unsaved editor edit and retains the conflicting result
+  [tauri] › 83-research-settings.spec.ts:43:1 › theme customization imports, exports, applies, and resets theme tokens
+  [tauri] › 84-settings-install-browser.spec.ts:127:3 › chromium: bridge confirmation is clickable above Settings and can retry
+  [tauri] › 84-settings-install-browser.spec.ts:185:3 › chromium: a chosen Pi program is tested before it is saved
+  [tauri] › 84-settings-install-browser.spec.ts:226:3 › chromium: TeX Live search, installed aliases, failure details and retry
+  [tauri] › 84-settings-install-browser.spec.ts:127:3 › webkit: bridge confirmation is clickable above Settings and can retry
+  [tauri] › 84-settings-install-browser.spec.ts:185:3 › webkit: a chosen Pi program is tested before it is saved
+  [tauri] › 84-settings-install-browser.spec.ts:226:3 › webkit: TeX Live search, installed aliases, failure details and retry
+  [tauri] › 85-biblatex-references-bib.spec.ts:35:1 › a citation imported into a fresh biblatex project resolves on the first compile
+  [tauri] › 85-biblatex-references-bib.spec.ts:71:1 › a bibliography file that does not exist is named in the compile diagnostics
+  [tauri] › 86-ad-hoc-converters.spec.ts:110:1 › the Tools page exposes all 22 converters and the palette opens one directly
+  [tauri] › 86-ad-hoc-converters.spec.ts:132:1 › the Tools page exposes the complete reference toolkit and the palette opens it directly
+  [tauri] › 86-ad-hoc-converters.spec.ts:154:1 › reference tools format, validate, compare, and export locally without a project
+  [tauri] › 86-ad-hoc-converters.spec.ts:197:1 › every text converter runs its built-in example through the real app
+  [tauri] › 86-ad-hoc-converters.spec.ts:229:1 › file, archive, PDF, and local-vision converters complete without a project
+  [tauri] › 86-ad-hoc-converters.spec.ts:359:1 › Settings, AI, Tools offers the Tools model and the Mathpix keys
+  [tauri] › 86-ad-hoc-converters.spec.ts:383:1 › the five specialized converter cards open and run their production workflows
+  [tauri] › 87-semantic-delimiters.spec.ts:182:1 › size commands close their delimiter as the user types
+  [tauri] › 87-semantic-delimiters.spec.ts:201:1 › separators, closers and symmetric bars stay unpaired
+  [tauri] › 87-semantic-delimiters.spec.ts:216:1 › a size command typed against content stays open
+  [tauri] › 87-semantic-delimiters.spec.ts:238:1 › an empty pair clears from either end
+  [tauri] › 87-semantic-delimiters.spec.ts:264:1 › an inner pair keeps its own closer inside a sized pair
+  [tauri] › 87-semantic-delimiters.spec.ts:280:1 › spelling out the closer never duplicates it
+  [tauri] › 87-semantic-delimiters.spec.ts:298:1 › a closer the user typed themselves is left alone
+  [tauri] › 87-semantic-delimiters.spec.ts:313:1 › a selection is wrapped and several carets pair at once
+  [tauri] › 87-semantic-delimiters.spec.ts:329:1 › Enter on a dropdown entry inserts both halves of a named delimiter
+  [tauri] › 87-semantic-delimiters.spec.ts:349:1 › accepting the matching closer consumes the pending one
+  [tauri] › 87-semantic-delimiters.spec.ts:364:1 › a size command already open scopes the dropdown to delimiters
+  [tauri] › 87-semantic-delimiters.spec.ts:395:1 › accepting a brace delimiter keeps its backslash
+  [tauri] › 87-semantic-delimiters.spec.ts:407:1 › a standalone pair from the dropdown clears on Backspace
+  [tauri] › 87-semantic-delimiters.spec.ts:420:1 › an environment that needs an argument completes with it
+  [tauri] › 87-semantic-delimiters.spec.ts:443:1 › delimiters the editor writes compile
+  [tauri] › 88-visual-editor-widgets.spec.ts:118:1 › visual mode renders the document and reveals the source under the cursor
+  [tauri] › 88-visual-editor-widgets.spec.ts:166:1 › moving the cursor into a heading shows its command and the edit lands in the file
+  [tauri] › 88-visual-editor-widgets.spec.ts:195:1 › the preamble and the end of the document collapse into their own bars
+  [tauri] › 88-visual-editor-widgets.spec.ts:219:1 › a tabular renders as a grid whose toolbar edits the source
+  [tauri] › 88-visual-editor-widgets.spec.ts:266:1 › a project image renders in place and the edit button reopens the figure dialog
+  [tauri] › 88-visual-editor-widgets.spec.ts:306:1 › Windows resolves image references with different filename casing
+  [tauri] › 88-visual-editor-widgets.spec.ts:322:1 › toolbar insertions write LaTeX into the document in visual mode
+  [tauri] › 89-bibtex-editing.spec.ts:192:1 › a bibliography style is completed inside \bibliographystyle
+  [tauri] › 89-bibtex-editing.spec.ts:212:1 › an entry type is completed into a full skeleton in a .bib file
+  [tauri] › 89-bibtex-editing.spec.ts:241:1 › a missing required field is marked in a .bib file and %%novalidate clears it
+  [tauri] › 89-bibtex-editing.spec.ts:259:1 › a LaTeX syntax error is marked and %novalidate clears it
+  [tauri] › 89-bibtex-editing.spec.ts:277:1 › a novalidate region hides only the errors inside it
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a class diagram as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a state diagram as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports an entity relationship diagram as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a mindmap as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a flowchart with subgraphs as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a flowchart with line breaks as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a user journey as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a flowchart that asks for HTML labels as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a flowchart with inline HTML and entity codes as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:106:5 › Mermaid to LaTeX image fallback › exports a class diagram with an unreadable init directive as a PNG
+  [tauri] › 90-mermaid-export-browser.spec.ts:125:3 › Mermaid to LaTeX image fallback › writes inline HTML and entity codes in labels as formatted text
+  [tauri] › 90-mermaid-export-browser.spec.ts:141:3 › Mermaid to LaTeX image fallback › wraps long journey tasks inside their boxes
+  [tauri] › 90-mermaid-export-browser.spec.ts:149:3 › Mermaid to LaTeX image fallback › exports a diagram at the 50,000-character limit instead of Mermaid's size error
+  [tauri] › 90-mermaid-export-browser.spec.ts:160:3 › Mermaid to LaTeX image fallback › keeps HTML labels in the on-screen render of a diagram that was exported
+  [tauri] › 91-dictionaries.spec.ts:123:1 › a project keeps its own spell-check language while the app setting stays English
+  [tauri] › 91-dictionaries.spec.ts:179:1 › downloading a language in Settings makes it spell check immediately
+  [tauri] › 92-editor-jump-browser.spec.ts:19:5 › go to line in a long book › centers each target line and keeps the gutter aligned at 360px
+  [tauri] › 92-editor-jump-browser.spec.ts:19:5 › go to line in a long book › centers each target line and keeps the gutter aligned at 480px
+  [tauri] › 92-editor-jump-browser.spec.ts:19:5 › go to line in a long book › centers each target line and keeps the gutter aligned at 600px
+  [tauri] › 92-editor-jump-browser.spec.ts:19:5 › go to line in a long book › centers each target line and keeps the gutter aligned at 720px
+  [tauri] › 93-typst-visual-mode.spec.ts:87:1 › Typst visual mode renders the document and reveals the source under the cursor
+  [tauri] › 93-typst-visual-mode.spec.ts:118:1 › moving the cursor into a Typst heading shows its marker and the edit lands in the file
+  [tauri] › 93-typst-visual-mode.spec.ts:136:1 › the leading set and import lines fold into a document settings bar
+  [tauri] › 93-typst-visual-mode.spec.ts:150:1 › a Typst table renders as a grid whose toolbar writes valid Typst
+  [tauri] › 93-typst-visual-mode.spec.ts:198:1 › a Typst figure renders its image and the edit button opens the Typst figure dialog
+  [tauri] › 93-typst-visual-mode.spec.ts:236:1 › Typst toolbar insertions write Typst into the document in visual mode
+  [tauri] › 94-research-autoresearch.spec.ts:89:1 › a plan-first task stops at Plan ready and continues after approval
+  [tauri] › 94-research-autoresearch.spec.ts:121:1 › a failed dependency fails its waiting dependent with a Retry
+  [tauri] › 94-research-autoresearch.spec.ts:140:1 › the Research tab shows a badge while a task waits for review
+  [tauri] › 97-locale-zh-hans.spec.ts:7:3 › interface language › boots in Simplified Chinese and switches live without a reload
+  [tauri] › 98-interface-languages.spec.ts:18:3 › interface languages › every shipped language switches live and renders its own settings copy
+  [tauri] › 99-update-window-browser.spec.ts:20:1 › lists every skipped release newest first, one more each time the reader nears the end
+  [tauri] › 99-update-window-browser.spec.ts:51:1 › opens links through the app instead of navigating the update window
+  [tauri] › 99-update-window-browser.spec.ts:63:1 › takes the accent colour from the user's setting
+  [tauri] › 99-update-window-browser.spec.ts:74:1 › offers a way forward when the install or the earlier notes fail
+  [tauri] › 99-update-window-browser.spec.ts:88:1 › the changelog shows every release newest first and says where the user is
+Total: 558 tests in 117 files

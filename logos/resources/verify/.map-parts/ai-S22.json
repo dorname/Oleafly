@@ -1,0 +1,213 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "ai-S22",
+  "cases": {
+    "ST-S22-01": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns loads a slash-requested skill that is not enabled and directs the turn to it",
+        "src/lib/skills.test.ts > skill invocation from the composer strips a leading skill token and keeps the rest of the request"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a slash skill invocation reaches the model and loads the skill",
+        "75-skills.spec.ts > read_skill_file returns a supporting file from the skill folder"
+      ],
+      "rust": []
+    },
+    "ST-S22-02": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns offers skill-backed suggestions and runs the skill when one is clicked",
+        "src/lib/skills.test.ts > progressive skill disclosure selects valid skills enabled for the device or for the project"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S22-03": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab groups skills by phase and shows tier and source badges",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab shows one device-wide toggle per skill and no scope switch without a project"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > Settings lists the bundled skill pack grouped by research phase",
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": []
+    },
+    "ST-S22-04": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not start an internet request before approval",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not contact the verifier before approval"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S22-05": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab names the cached catalog when an offline refresh kept the cached list",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab refreshes the catalog and shows the network fallback line"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_newer_catalog_wins_and_an_older_one_is_ignored"
+      ]
+    },
+    "ST-S22-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S22-07": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "ST-S22-08": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-01": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab groups skills by phase and shows tier and source badges",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab groups an installed domain shelf skill separately from its phase",
+        "src/lib/skills.test.ts > skills client returns valid and invalid skills for the open project"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > Settings lists the bundled skill pack grouped by research phase"
+      ],
+      "rust": []
+    },
+    "UT-S22-02": {
+      "vitest": [
+        "src/lib/skills.test.ts > skills client persists global and per-project enable state through the backend",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab persists a device-wide skill toggle"
+      ],
+      "e2e": [],
+      "rust": [
+        "enable_state_round_trips_and_invalid_skills_cannot_be_enabled"
+      ]
+    },
+    "UT-S22-03": {
+      "vitest": [
+        "src/lib/skills.test.ts > skill invocation from the composer strips a leading skill token and keeps the rest of the request",
+        "src/lib/skills.test.ts > skill invocation from the composer prefers the longest matching id",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns loads a slash-requested skill that is not enabled and directs the turn to it"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a slash skill invocation reaches the model and loads the skill"
+      ],
+      "rust": []
+    },
+    "UT-S22-04": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns offers skill-backed suggestions and runs the skill when one is clicked",
+        "src/lib/skills.test.ts > progressive skill disclosure selects valid skills enabled for the device or for the project"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-05": {
+      "vitest": [
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools literature_search asks the host's unified search with the clamped limit",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools verify_citation passes doi and title to the host verifier",
+        "src/lib/research-presets.test.ts > research presets offers the CLI research presets in a fixed order"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit rule without ToolConfirm in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-07": {
+      "vitest": [
+        "src/features/citation.store.test.ts > addCitations through the real writeProjectFile holds the rebuild and its own completion until the tree listing finishes",
+        "src/features/citation.editor-sync.test.tsx > citation writes to the file open in the editor shows imported entries in the open bibliography and keeps them after the next keystroke",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns tracks a successful write from the existing tool-result mirror path"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-08": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not start an internet request before approval",
+        "packages/ai-tools/src/research-tools.test.ts > literature search and citation verification tools does not contact the verifier before approval"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S22-09": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab names the cached catalog when an offline refresh kept the cached list",
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab refreshes the catalog and shows the network fallback line"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_newer_catalog_wins_and_an_older_one_is_ignored"
+      ]
+    },
+    "UT-S22-10": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab says when there are no skills and when they cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-11": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-12": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab says when there are no skills and when they cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_wrong_checksum_or_size_stops_an_install"
+      ]
+    },
+    "UT-S22-13": {
+      "vitest": [
+        "src/components/settings/ai/SkillsTab.test.tsx > SkillsTab installs a domain shelf skill from the catalog"
+      ],
+      "e2e": [
+        "75-skills.spec.ts > a shelf skill installs from the catalog and uninstalls again"
+      ],
+      "rust": []
+    },
+    "UT-S22-14": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns saves open files, takes the before-turn copy, then compares after the run",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard lists the files, loads one diff at a time, and shows loading and errors"
+      ],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

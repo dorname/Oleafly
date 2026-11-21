@@ -1,0 +1,205 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "ai-S21",
+  "cases": {
+    "ST-S21-01": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns tracks a successful write from the existing tool-result mirror path",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns saves open files, takes the before-turn copy, then compares after the run"
+      ],
+      "e2e": [
+        "36-ai-agentic.spec.ts > plan mode proposes a plan, waits for approval, then works through it",
+        "67-agent-rust.spec.ts > a write tool run by the agent lands on disk"
+      ],
+      "rust": []
+    },
+    "ST-S21-02": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns plans with read-only tools, waits for approval, then executes with write tools and the approved plan",
+        "packages/ai-tools/src/approval-risk.test.ts > plan mode tool classification keeps only inspection tools"
+      ],
+      "e2e": [
+        "36-ai-agentic.spec.ts > plan mode proposes a plan, waits for approval, then works through it"
+      ],
+      "rust": []
+    },
+    "ST-S21-03": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard undoes one file through the project transaction and offers Redo in place",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard reaches the files beyond the list with Undo all and then Redo all"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-04": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Full access run when project approval rules cannot be loaded",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Custom run when project approval rules cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-05": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit rule without ToolConfirm in approve-for-me mode",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit Custom rule without ToolConfirm",
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval returns deny-per-rules for an explicit denial in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write",
+        "src/components/ai/ToolConfirm.diff.test.tsx > ToolConfirm edits previews a figure and renders without its chrome when embedded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-07": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore streaming details opens a file the assistant reads and refuses tools after the project changes",
+        "src/components/ai/agent-turn.test.ts > harness refuses to execute a tool when the run guard reports a context change"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-08": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard shows committed files without Undo and leaves them out of Undo all",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard hides Undo all when another turn overlapped",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard flags files the user also edited and leaves them out of Undo all"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-09": {
+      "vitest": [
+        "src/features/ask-ai-compile-errors.test.ts > askAiAboutCompileErrors passes the Typst position, source excerpt and hints to the assistant",
+        "src/features/ask-ai-compile-errors.test.ts > askAiAboutCompileErrors keeps the LaTeX format for errors without columns"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S21-10": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of too_many_files",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of timeout"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-01": {
+      "vitest": [
+        "src/store/approval-mode.test.ts > approval mode store defaults projects to Approve for me until persisted state loads",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns assembles the approve-for-me posture into the system prompt"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-02": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval routes approve-for-me for write_file",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns prompts for a risky tool in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-03": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > toolRisk classifies run_command as shell",
+        "packages/ai-tools/src/approval-risk.test.ts > riskRequiresConfirm only read runs without a prompt",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns prompts for a risky tool in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-04": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval prompts for network access only in Ask for approval",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns prompts before internet access in Ask for approval"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-05": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > decideToolApproval returns deny-per-rules for an explicit denial in approve-for-me mode",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns denies an explicit rule without ToolConfirm in approve-for-me mode"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-06": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Full access run when project approval rules cannot be loaded",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns aborts a Custom run when project approval rules cannot be loaded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-07": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns reads an unopened file before a replace and does not track a declined write",
+        "src/components/ai/ToolConfirm.diff.test.tsx > ToolConfirm edits previews a figure and renders without its chrome when embedded"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-08": {
+      "vitest": [
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore streaming details opens a file the assistant reads and refuses tools after the project changes",
+        "src/components/ai/agent-turn.test.ts > harness refuses to execute a tool when the run guard reports a context change"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-09": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard shows committed files without Undo and leaves them out of Undo all",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard never sends null while a committed file exists, even an unlisted one"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-10": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard hides Undo all when another turn overlapped"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-11": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard flags files the user also edited and leaves them out of Undo all"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-12": {
+      "vitest": [
+        "src/features/ask-ai-compile-errors.test.ts > askAiAboutCompileErrors passes the Typst position, source excerpt and hints to the assistant",
+        "src/lib/research-presets.test.ts > research presets offers compilation repair, submission prep and reviewer response with their skills"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-13": {
+      "vitest": [
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of too_many_files",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard edge states explains a turn that could not be copied because of timeout",
+        "src/components/ai/turns/TurnChangesCard.test.tsx > TurnChangesCard says Undo is gone once the copy expired"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S21-14": {
+      "vitest": [
+        "packages/ai-tools/src/approval-risk.test.ts > plan mode tool classification keeps only inspection tools",
+        "src/components/ai/ChatCore.agent-loop.test.tsx > ChatCore agent turns plans with read-only tools, waits for approval, then executes with write tools and the approved plan"
+      ],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

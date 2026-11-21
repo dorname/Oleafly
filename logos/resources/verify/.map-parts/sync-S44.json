@@ -1,0 +1,306 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "sync-S44",
+  "cases": {
+    "ST-S44-01": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store clears conflict copies once dismissed",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "concurrent_edits_keep_both_versions_and_name_the_copy_after_its_author"
+      ]
+    },
+    "ST-S44-02": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "ST-S44-03": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "project_settings_merge_by_field_and_device_fields_stay_home",
+        "incoming_meta_keeps_this_computers_device_fields"
+      ]
+    },
+    "ST-S44-04": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store skips applying Dropbox settings when a setting changed here while the request was out"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts",
+        "project_settings_merge_by_field_and_device_fields_stay_home"
+      ]
+    },
+    "ST-S44-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round reloads a clean open file that the round changed on this computer"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_edit_waits_for_its_conflict_copy_to_reach_dropbox"
+      ]
+    },
+    "ST-S44-06": {
+      "vitest": [
+        "src/components/cloud/CloudSyncKeeper.test.tsx > CloudSyncKeeper syncs soon after another computer changes Dropbox and waits for that round before asking again"
+      ],
+      "e2e": [],
+      "rust": [
+        "concurrent_edits_keep_both_versions_and_name_the_copy_after_its_author",
+        "two_computers_share_edits_and_deletes_and_build_output_stays_home"
+      ]
+    },
+    "ST-S44-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it"
+      ],
+      "e2e": [],
+      "rust": [
+        "unsaved_editor_buffers_are_never_overwritten"
+      ]
+    },
+    "ST-S44-08": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_edit_waits_for_its_conflict_copy_to_reach_dropbox"
+      ]
+    },
+    "ST-S44-09": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "incoming_meta_keeps_this_computers_device_fields",
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts"
+      ]
+    },
+    "ST-S44-10": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "ST-S44-11": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_crash_after_placing_a_conflict_copy_reuses_it"
+      ]
+    },
+    "UT-S44-01": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store clears conflict copies once dismissed",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed",
+        "reports_name_changed_files_and_conflict_copies_wait_to_be_dismissed"
+      ]
+    },
+    "UT-S44-02": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "reports_name_changed_files_and_conflict_copies_wait_to_be_dismissed"
+      ]
+    },
+    "UT-S44-03": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab replaces an unreadable copy in Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_unreadable_record_in_dropbox_can_be_replaced_from_this_computer"
+      ]
+    },
+    "UT-S44-04": {
+      "vitest": [
+        "src/lib/cloud.test.ts > cloud bridge calls each backend command with its arguments",
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab removes a project from Dropbox only after confirming"
+      ],
+      "e2e": [],
+      "rust": [
+        "projects_only_in_dropbox_can_be_removed_from_dropbox"
+      ]
+    },
+    "UT-S44-05": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request",
+        "src/store/cloud.test.ts > cloud store asks once which settings to keep, and keeps this computer's on request"
+      ],
+      "e2e": [],
+      "rust": [
+        "settings_stamps_travel_as_strings_so_javascript_keeps_every_bit",
+        "keeping_this_computers_settings_replaces_the_cloud_copy"
+      ]
+    },
+    "UT-S44-06": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "concurrent_edits_keep_both_versions_and_name_the_copy_after_its_author",
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "UT-S44-07": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "project_settings_merge_by_field_and_device_fields_stay_home",
+        "incoming_meta_keeps_this_computers_device_fields"
+      ]
+    },
+    "UT-S44-08": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store skips applying Dropbox settings when a setting changed here while the request was out"
+      ],
+      "e2e": [],
+      "rust": [
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts"
+      ]
+    },
+    "UT-S44-09": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request"
+      ],
+      "e2e": [],
+      "rust": [
+        "objects_merge_per_key_and_both_sides_keep_their_own_changes",
+        "a_key_removed_on_one_side_stays_removed_unless_the_other_side_changed_it"
+      ]
+    },
+    "UT-S44-10": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "objects_merge_per_key_and_both_sides_keep_their_own_changes"
+      ]
+    },
+    "UT-S44-11": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "lists_of_items_with_ids_merge_item_by_item"
+      ]
+    },
+    "UT-S44-12": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store uses the Dropbox settings on request"
+      ],
+      "e2e": [],
+      "rust": [
+        "objects_merge_per_key_and_both_sides_keep_their_own_changes",
+        "keys_unknown_locally_survive_and_local_wins_true_conflicts"
+      ]
+    },
+    "UT-S44-13": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files"
+      ],
+      "e2e": [],
+      "rust": [
+        "incoming_meta_keeps_this_computers_device_fields",
+        "project_meta_digest_ignores_device_fields_and_key_order"
+      ]
+    },
+    "UT-S44-14": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it",
+        "src/store/cloud.test.ts > cloud store tells the engine which open files have unsaved changes"
+      ],
+      "e2e": [],
+      "rust": [
+        "unsaved_editor_buffers_are_never_overwritten"
+      ]
+    },
+    "UT-S44-15": {
+      "vitest": [
+        "src/store/cloud.test.ts > open files after a round leaves open files alone when the round changed another project",
+        "src/store/cloud.test.ts > open files after a round checks every open file when the round changed too many to list"
+      ],
+      "e2e": [],
+      "rust": [
+        "unsaved_editor_buffers_are_never_overwritten"
+      ]
+    },
+    "UT-S44-16": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_carry_the_date_on_this_computer",
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "UT-S44-17": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_crash_after_placing_a_conflict_copy_reuses_it"
+      ]
+    },
+    "UT-S44-18": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "a_conflict_copy_is_named_after_the_computer_that_wrote_that_version",
+        "a_computer_name_that_would_hide_the_copy_is_not_used_for_it"
+      ]
+    },
+    "UT-S44-19": {
+      "vitest": [
+        "src/components/settings/cloud/CloudTab.test.tsx > CloudTab lists conflict copies and dismisses them"
+      ],
+      "e2e": [],
+      "rust": [
+        "conflict_copies_add_up_until_dismissed_and_name_what_changed"
+      ]
+    },
+    "UT-S44-20": {
+      "vitest": [
+        "src/store/cloud.test.ts > cloud store replaces an unreadable Dropbox copy with this computer's, passing its unsaved files",
+        "src/store/cloud.test.ts > open files after a round keeps unsaved edits and marks the file as changed on disk instead of overwriting it"
+      ],
+      "e2e": [],
+      "rust": [
+        "an_edit_waits_for_its_conflict_copy_to_reach_dropbox"
+      ]
+    }
+  }
+}

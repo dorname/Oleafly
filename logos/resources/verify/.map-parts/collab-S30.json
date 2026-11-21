@@ -1,0 +1,251 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "collab-S30",
+  "cases": {
+    "ST-S30-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S30-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S30-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

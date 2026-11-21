@@ -1,0 +1,177 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "research-S16",
+  "cases": {
+    "ST-S16-01": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation fetches BibTeX for a DOI, an ISBN and a PubMed id",
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter"
+      ],
+      "e2e": [
+        "16-editor-toolbar.spec.ts > citation button opens the add-citation dialog",
+        "51-editor-toolbar-semantics.spec.ts > citation toolbar activation uses production addCitation and renders its bibliography",
+        "74-conversion-matrix.spec.ts > live identifier lookups (G7) › doi, isbn, and pmid resolve to real bibtex"
+      ],
+      "rust": []
+    },
+    "ST-S16-02": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing deduplicates by DOI and keeps the richest fields from every source",
+        "src/lib/literature-search.edge.test.ts > merging and identity merges records without a DOI by their normalized title",
+        "src/lib/citation/citation.test.ts > detectInput detects a bare DOI",
+        "src/lib/citation/citation.test.ts > detectInput detects a modern arXiv id (with version stripped)",
+        "src/lib/citation/citation.test.ts > detectInput falls back to a title search for free text"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-03": {
+      "vitest": [
+        "src/components/editor/cm/zotero-completion.test.ts > @ citations in LaTeX merges the project .bib with the Zotero library, without duplicate keys or DOIs",
+        "src/lib/citation/citation.test.ts > generateCiteKey dedupes against existing keys with a letter suffix",
+        "packages/preflight/src/refs-rules.test.ts > undefined citations flags a \\cite whose key is in no .bib",
+        "packages/editor/src/bibtex-linter.test.ts > lintBibtexText: required fields marks the entry key, not the whole entry"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-04": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter",
+        "src/features/citation.test.ts > addCitations dedupes by DOI inside the batch and declares the bibliography once",
+        "src/features/citation.test.ts > addCitations counts every entry as a duplicate of what the file already holds"
+      ],
+      "e2e": [
+        "48-citation-import.spec.ts > importing a RIS file adds a citation to the project's .bib, deduping a repeat import by DOI",
+        "85-biblatex-references-bib.spec.ts > a citation imported into a fresh biblatex project resolves on the first compile"
+      ],
+      "rust": []
+    },
+    "ST-S16-05": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing keeps successful sources when another source is rate-limited",
+        "src/lib/literature-search.edge.test.ts > searchLiterature reports the paused USPTO source and non-Error failures as failed runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-06": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing skips Google Scholar without a Serper key instead of reporting it as failed",
+        "src/lib/literature-search.test.ts > literature result processing searches Google Scholar once a Serper key is saved",
+        "src/lib/literature-search.edge.test.ts > searchLiterature uses a saved Serper key to decide whether Google Scholar runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-07": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-08": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitations stops before touching the main document when the bib write fails",
+        "src/features/citation.test.ts > addCitation reports a bib file it could not write",
+        "src/features/citation.test.ts > citation read failures preserves unreadable refs.bib during bulk import",
+        "src/features/citation.store.test.ts > citation import failures reports a bibliography it could not write"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S16-09": {
+      "vitest": [
+        "src/lib/citation/citation.test.ts > generateCiteKey dedupes against existing keys with a letter suffix",
+        "packages/preflight/src/refs-rules.test.ts > undefined citations flags a \\cite whose key is in no .bib",
+        "packages/editor/src/bibtex-linter.test.ts > lintBibtexText: required fields marks the entry key, not the whole entry",
+        "src/components/editor/ProjectCitationPicker.test.tsx > ProjectCitationPicker marks duplicate keys with their position"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-01": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing deduplicates by DOI and keeps the richest fields from every source",
+        "src/lib/literature-search.edge.test.ts > merging and identity merges records without a DOI by their normalized title",
+        "src/features/citation.test.ts > addCitations dedupes by DOI inside the batch and declares the bibliography once"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-02": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing skips Google Scholar without a Serper key instead of reporting it as failed",
+        "src/lib/literature-search.edge.test.ts > searchLiterature uses a saved Serper key to decide whether Google Scholar runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-03": {
+      "vitest": [
+        "src/lib/literature-search.test.ts > literature result processing keeps successful sources when another source is rate-limited",
+        "src/lib/literature-search.edge.test.ts > searchLiterature reports the paused USPTO source and non-Error failures as failed runs"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-04": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter",
+        "src/features/citation.test.ts > addCitation writes a Typst bibliography declaration straight to disk when the main file is closed"
+      ],
+      "e2e": [
+        "48-citation-import.spec.ts > importing a RIS file adds a citation to the project's .bib, deduping a repeat import by DOI"
+      ],
+      "rust": []
+    },
+    "UT-S16-05": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitations stops before touching the main document when the bib write fails",
+        "src/features/citation.test.ts > addCitation reports a bib file it could not write",
+        "src/features/citation.store.test.ts > citation import failures reports a bibliography it could not write"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-06": {
+      "vitest": [
+        "src/components/editor/cm/zotero-completion.test.ts > @ citations in LaTeX merges the project .bib with the Zotero library, without duplicate keys or DOIs",
+        "src/lib/citation/citation.test.ts > generateCiteKey dedupes against existing keys with a letter suffix",
+        "src/components/editor/ProjectCitationPicker.test.tsx > ProjectCitationPicker filters by the typed query and says when nothing matches"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-07": {
+      "vitest": [
+        "packages/preflight/src/refs-rules.test.ts > undefined citations flags a \\cite whose key is in no .bib",
+        "packages/editor/src/bibtex-linter.test.ts > lintBibtexText: required fields marks the entry key, not the whole entry",
+        "src/lib/citation/citation.test.ts > generateCiteKey keeps keys ASCII for classic BibTeX and never returns a bare year"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-08": {
+      "vitest": [
+        "src/features/citation.lookup.test.ts > resolving a citation refuses to look anything up while offline",
+        "src/features/citation.test.ts > addCitation writes into the open bib file and declares it in Markdown front matter"
+      ],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S16-09": {
+      "vitest": [
+        "src/features/citation.test.ts > addCitation reuses the key already recorded for the same DOI",
+        "src/features/citation.test.ts > addCitations counts every entry as a duplicate of what the file already holds",
+        "src/lib/citation/citation.test.ts > findKeyByDoi finds an existing entry by DOI (case-insensitive)"
+      ],
+      "e2e": [
+        "48-citation-import.spec.ts > importing a RIS file adds a citation to the project's .bib, deduping a repeat import by DOI"
+      ],
+      "rust": []
+    }
+  }
+}

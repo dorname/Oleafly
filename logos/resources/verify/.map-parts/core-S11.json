@@ -1,0 +1,146 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "core-S11",
+  "cases": {
+    "ST-S11-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S11-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S11-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

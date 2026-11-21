@@ -1,0 +1,156 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "core-S01",
+  "cases": {
+    "ST-S01-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "ST-S01-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    },
+    "UT-S01-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}

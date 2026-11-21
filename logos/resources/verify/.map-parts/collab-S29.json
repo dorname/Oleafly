@@ -1,0 +1,377 @@
+{
+  "schema": "openlogos/test-map-part@1",
+  "module": "collab-S29",
+  "cases": {
+    "ST-S29-01": {
+      "vitest": [
+        "src/features/collab/store.test.ts > collab store loads the servers this computer knows"
+      ],
+      "e2e": [],
+      "rust": [
+        "manifest_reports_name_providers_features_and_limits"
+      ]
+    },
+    "ST-S29-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_code_becomes_a_device_session",
+        "devices_lists_my_devices_and_marks_this_one"
+      ]
+    },
+    "ST-S29-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_link_lets_signed_in_people_join_with_the_link_role",
+        "the_owner_adds_changes_and_removes_people"
+      ]
+    },
+    "ST-S29-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "ST-S29-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_wrong_setup_code_gets_no_claim"
+      ]
+    },
+    "ST-S29-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_suspended_account_is_refused"
+      ]
+    },
+    "ST-S29-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve",
+        "signing_a_device_out_leaves_it_no_live_token_or_kept_reply"
+      ]
+    },
+    "UT-S29-01": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-02": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "constants_match_the_spec"
+      ]
+    },
+    "UT-S29-03": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_picks_the_highest_shared_version"
+      ]
+    },
+    "UT-S29-04": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_picks_the_highest_shared_version"
+      ]
+    },
+    "UT-S29-05": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "UT-S29-06": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "UT-S29-07": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "enums_use_snake_case_names"
+      ]
+    },
+    "UT-S29-08": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "kinds_from_a_newer_server_read_as_unknown"
+      ]
+    },
+    "UT-S29-09": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-10": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_manifest_from_an_older_server_has_no_suggestions_chat_or_browser_access"
+      ]
+    },
+    "UT-S29-11": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-12": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "manifest_reports_name_providers_features_and_limits"
+      ]
+    },
+    "UT-S29-13": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_wrong_setup_code_gets_no_claim"
+      ]
+    },
+    "UT-S29-14": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_code_becomes_a_device_session"
+      ]
+    },
+    "UT-S29-15": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "me_needs_a_bearer_token"
+      ]
+    },
+    "UT-S29-16": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve"
+      ]
+    },
+    "UT-S29-17": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "devices_lists_my_devices_and_marks_this_one"
+      ]
+    },
+    "UT-S29-18": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_owner_adds_changes_and_removes_people"
+      ]
+    },
+    "UT-S29-19": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_link_lets_signed_in_people_join_with_the_link_role"
+      ]
+    },
+    "UT-S29-20": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_link_lets_signed_in_people_join_with_the_link_role"
+      ]
+    },
+    "UT-S29-21": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_title_must_not_be_empty"
+      ]
+    },
+    "UT-S29-22": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_directory_finds_other_people_by_name"
+      ]
+    },
+    "UT-S29-23": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_link_page_offers_to_open_the_project_in_the_app"
+      ]
+    },
+    "UT-S29-24": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "server_roles_follow_the_rbac_truth_table",
+        "the_truth_table_lists_every_action_exactly_once"
+      ]
+    },
+    "UT-S29-25": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-26": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-27": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-28": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-29": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve"
+      ]
+    },
+    "UT-S29-30": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "access_tokens_resolve_until_they_expire_and_only_the_hash_is_stored"
+      ]
+    },
+    "UT-S29-31": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_new_database_has_every_table_and_index"
+      ]
+    },
+    "UT-S29-32": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
+    },
+    "UT-S29-33": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-34": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "an_older_database_keeps_its_projects_grants_and_invitations_and_takes_the_review_roles"
+      ]
+    },
+    "UT-S29-35": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-36": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "foreign_keys_checks_and_unique_constraints_hold"
+      ]
+    },
+    "UT-S29-37": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_wrong_setup_code_gets_no_claim",
+        "the_setup_code_makes_the_first_admin"
+      ]
+    },
+    "UT-S29-38": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "negotiate_names_the_side_that_needs_an_update"
+      ]
+    },
+    "UT-S29-39": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_suspended_account_is_refused"
+      ]
+    },
+    "UT-S29-40": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "a_token_for_a_revoked_device_does_not_resolve"
+      ]
+    },
+    "UT-S29-41": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "everyone_but_the_owner_and_unknown_roles_can_be_granted"
+      ]
+    },
+    "UT-S29-42": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "merging_onto_an_unchanged_base_is_the_change_itself"
+      ]
+    },
+    "UT-S29-43": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "the_manifest_round_trips_through_the_documented_json"
+      ]
+    },
+    "UT-S29-44": {
+      "vitest": [],
+      "e2e": [],
+      "rust": [
+        "sign_in_endpoints_refuse_a_flood_from_one_address"
+      ]
+    },
+    "UT-S29-45": {
+      "vitest": [
+        "src/features/collab/store.test.ts > collab store adds a newly signed-in server"
+      ],
+      "e2e": [],
+      "rust": []
+    }
+  }
+}
