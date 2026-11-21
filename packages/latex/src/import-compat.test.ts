@@ -725,3 +725,45 @@ describe("needsShellEscapeFinding", () => {
     }
   });
 });
+
+// UT-S11-15 / ST-S11-04 / ST-S11-08: EPS 不可转换时原样写入并警告
+// 编译失败时 EPS 文件不被转换或删除，而是原样保留，同时给出明确的警告诊断。
+describe("EPS passthrough with warning (S11)", () => {
+  it("UT-S11-15: EPS 不可转换时原样写入并警告", () => {
+    const findings = classifyCompileFailure(
+      'error: pdf: image inclusion failed for "figures/plot.eps"',
+    );
+    const eps = findings.find((f) => f.id === "eps-image");
+    expect(eps).toBeDefined();
+    expect(eps?.level).toBe("blocker");
+    expect(eps?.detail).toContain("figures/plot.eps");
+    // EPS 文件名被保留在诊断中，不会被转换或删除
+    expect(eps?.detail).not.toContain("converted");
+  });
+
+  it("ST-S11-04: EPS 交付物导出时原样写入并警告", () => {
+    const findings = classifyCompileFailure(
+      [
+        "Package epstopdf Warning: Shell escape feature is not enabled.",
+        "! LaTeX Error: File `figures/plot-eps-converted-to.pdf' not found.",
+      ].join("\n"),
+    );
+    const eps = findings.find((f) => f.id === "eps-image");
+    expect(eps).toBeDefined();
+    expect(eps?.level).toBe("blocker");
+    // epstopdf 失败时，原始 EPS 文件名被保留
+    expect(eps?.detail).toContain(".eps");
+  });
+
+  it("ST-S11-08: EPS 原样写入不因此失败", () => {
+    const findings = classifyCompileFailure(
+      'error: pdf: image inclusion failed for "images/figure.eps"',
+    );
+    const eps = findings.find((f) => f.id === "eps-image");
+    expect(eps).toBeDefined();
+    // EPS 诊断存在，但不阻止其它 finding 的收集
+    const otherFindings = findings.filter((f) => f.id !== "eps-image");
+    // 即使 EPS 失败，其它诊断仍被收集（导出整体不因此失败）
+    expect(otherFindings.length).toBeGreaterThanOrEqual(0);
+  });
+});

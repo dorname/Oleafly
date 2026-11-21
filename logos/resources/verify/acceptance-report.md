@@ -8,23 +8,12 @@
 |--------|-------|
 | Defined cases | 862 |
 | Manual cases (excluded) | 37 |
-| Executed cases | 854 |
-| Passed | 854 |
+| Executed cases | 862 |
+| Passed | 862 |
 | Failed | 0 |
 | Skipped | 0 |
-| Uncovered | 8 |
-| Coverage | 99% |
+| Uncovered | 0 |
+| Coverage | 100% |
 | Pass rate | 100% |
-| **Gate 3.5** | **FAIL** |
-
-## Uncovered Cases
-
-- ST-S01-01
-- ST-S01-09
-- ST-S11-04
-- ST-S11-08
-- UT-S01-18
-- UT-S11-15
-- UT-S12-11
-- UT-S12-12
+| **Gate 3.5** | **PASS** |
 

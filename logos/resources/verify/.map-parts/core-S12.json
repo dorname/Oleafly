@@ -208,12 +208,16 @@
     "UT-S12-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "packs_file_name_unique_constraint_rejects_duplicates"
+      ]
     },
     "UT-S12-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "packs_encoded_size_check_constraint_rejects_negative"
+      ]
     },
     "UT-S12-13": {
       "vitest": [],

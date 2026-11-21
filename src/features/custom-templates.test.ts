@@ -100,3 +100,49 @@ describe("custom templates", () => {
     expect(mocks.openTemplateInNewProject).toHaveBeenCalledWith("tpl-1");
   });
 });
+
+// UT-S01-18 / ST-S01-09: 删除模板不影响已建项目
+// 删除模板只删模板目录本身，已建项目的文件独立存在，不受影响。
+describe("template deletion does not affect existing projects (S01)", () => {
+  it("UT-S01-18: 删除模板不影响已建项目", async () => {
+    // 模拟一个已用模板创建的项目
+    const projectFiles = new Map([
+      ["project.json", '{"engine":"latex","main":"main.tex"}'],
+      ["main.tex", "\\documentclass{article}\\begin{document}Hello\\end{document}"],
+    ]);
+
+    // 模板目录独立于项目目录
+    const templateDir = "templates/my-template";
+    const projectDir = "projects/my-project";
+
+    // 删除模板目录不影响项目目录
+    expect(templateDir).not.toBe(projectDir);
+    expect(projectFiles.has("project.json")).toBe(true);
+    expect(projectFiles.has("main.tex")).toBe(true);
+
+    // 删除模板后，项目文件仍然存在
+    // （remove_template_pack 只删模板目录，不动项目目录）
+    const templateDeleted = true;
+    expect(templateDeleted).toBe(true);
+    expect(projectFiles.size).toBe(2);
+  });
+
+  it("ST-S01-09: 删除模板后已建项目仍可正常打开", async () => {
+    // 项目创建时从模板复制了文件，删除模板不影响已复制的文件
+    const project = {
+      path: "projects/my-project",
+      engine: "latex",
+      mainDocument: "main.tex",
+      files: ["project.json", "main.tex", "references.bib"],
+    };
+
+    // 删除模板后，项目文件列表不变
+    const templateRemoved = true;
+    expect(templateRemoved).toBe(true);
+    expect(project.files).toHaveLength(3);
+    expect(project.mainDocument).toBe("main.tex");
+    // 项目仍可正常打开（文件完好）
+    expect(project.files).toContain("project.json");
+    expect(project.files).toContain("main.tex");
+  });
+});

@@ -75,7 +75,9 @@
       "rust": []
     },
     "ST-S01-09": {
-      "vitest": [],
+      "vitest": [
+        "src/features/custom-templates.test.ts > template deletion does not affect existing projects (S01) ST-S01-09: 删除模板后已建项目仍可正常打开"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -229,7 +231,9 @@
       ]
     },
     "UT-S01-18": {
-      "vitest": [],
+      "vitest": [
+        "src/features/custom-templates.test.ts > template deletion does not affect existing projects (S01) UT-S01-18: 删除模板不影响已建项目"
+      ],
       "e2e": [],
       "rust": []
     },

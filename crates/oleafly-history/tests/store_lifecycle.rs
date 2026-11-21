@@ -1741,3 +1741,57 @@ fn store_canonicalizes_a_benign_symlinked_ancestor_before_sqlite_open() {
     );
     assert!(store.list().unwrap().is_empty());
 }
+
+// UT-S12-11: packs.file_name UNIQUE 约束——重复 file_name 被拒绝
+#[test]
+fn packs_file_name_unique_constraint_rejects_duplicates() {
+    let temp = tempdir().unwrap();
+    let history = temp.path().join("history");
+    let store = Store::open(&history).unwrap();
+    drop(store);
+
+    let catalog = Connection::open(history.join("catalog.sqlite3")).unwrap();
+    catalog
+        .execute(
+            "INSERT INTO packs (pack_id, file_name, encoded_size) VALUES ('p1', 'pack-1.bin', 100)",
+            [],
+        )
+        .unwrap();
+    // 第二条相同 file_name 的 pack 记录必须被 UNIQUE 约束拒绝
+    let result = catalog.execute(
+        "INSERT INTO packs (pack_id, file_name, encoded_size) VALUES ('p2', 'pack-1.bin', 200)",
+        [],
+    );
+    assert!(
+        result.is_err(),
+        "duplicate file_name must be rejected by UNIQUE constraint"
+    );
+    let count: i64 = catalog
+        .query_row("SELECT COUNT(*) FROM packs", [], |row| row.get(0))
+        .unwrap();
+    assert_eq!(count, 1, "only the first pack row should exist");
+}
+
+// UT-S12-12: packs.encoded_size 非负约束——负值被 CHECK 约束拒绝
+#[test]
+fn packs_encoded_size_check_constraint_rejects_negative() {
+    let temp = tempdir().unwrap();
+    let history = temp.path().join("history");
+    let store = Store::open(&history).unwrap();
+    drop(store);
+
+    let catalog = Connection::open(history.join("catalog.sqlite3")).unwrap();
+    // encoded_size = -1 必须被 CHECK 约束拒绝
+    let result = catalog.execute(
+        "INSERT INTO packs (pack_id, file_name, encoded_size) VALUES ('p1', 'pack-1.bin', -1)",
+        [],
+    );
+    assert!(
+        result.is_err(),
+        "negative encoded_size must be rejected by CHECK constraint"
+    );
+    let count: i64 = catalog
+        .query_row("SELECT COUNT(*) FROM packs", [], |row| row.get(0))
+        .unwrap();
+    assert_eq!(count, 0, "no pack row should exist after CHECK rejection");
+}

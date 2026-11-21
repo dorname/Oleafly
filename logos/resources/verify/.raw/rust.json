@@ -22122,3 +22122,9 @@
 {"type":"test","event":"ok","name":"oleafly-server::offline_comments$a_large_paste_with_a_comment_checked_against_a_snapshot_the_server_built_is_refused","exec_time":35.129725935}
 {"type":"test","event":"ok","name":"oleafly-server::offline_comments$a_large_paste_with_a_comment_that_continues_the_writers_own_change_is_refused","exec_time":36.342243874}
 {"type":"suite","event":"ok","passed":8,"failed":0,"ignored":0,"measured":0,"filtered_out":0,"exec_time":185.574022431}
+{"type":"suite","event":"started","test_count":2}
+{"type":"test","event":"started","name":"oleafly-history::store_lifecycle$packs_encoded_size_check_constraint_rejects_negative"}
+{"type":"test","event":"started","name":"oleafly-history::store_lifecycle$packs_file_name_unique_constraint_rejects_duplicates"}
+{"type":"test","event":"ok","name":"oleafly-history::store_lifecycle$packs_encoded_size_check_constraint_rejects_negative","exec_time":0.159019847}
+{"type":"test","event":"ok","name":"oleafly-history::store_lifecycle$packs_file_name_unique_constraint_rejects_duplicates","exec_time":0.179439537}
+{"type":"suite","event":"ok","passed":2,"failed":0,"ignored":0,"measured":0,"filtered_out":46,"exec_time":0.338459384}

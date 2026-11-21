@@ -1,6 +1,6 @@
 {
   "schema": "openlogos/test-map@1",
-  "generated_at": "2026-11-21T09:05:43.671Z",
+  "generated_at": "2026-11-21T10:14:47.780Z",
   "description": "用例 ID → 测试选择器映射表。vitest/e2e 选择器语法为「<文件路径> > <标题前缀>」；rust 选择器为测试名（函数名或模块路径::函数名）。多选择器时状态取最差值。",
   "cases": {
     "ST-S21-01": {
@@ -3901,7 +3901,9 @@
       "rust": []
     },
     "ST-S01-09": {
-      "vitest": [],
+      "vitest": [
+        "src/features/custom-templates.test.ts > template deletion does not affect existing projects (S01) ST-S01-09: 删除模板后已建项目仍可正常打开"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -4055,7 +4057,9 @@
       ]
     },
     "UT-S01-18": {
-      "vitest": [],
+      "vitest": [
+        "src/features/custom-templates.test.ts > template deletion does not affect existing projects (S01) UT-S01-18: 删除模板不影响已建项目"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -5032,7 +5036,9 @@
       "rust": []
     },
     "ST-S11-04": {
-      "vitest": [],
+      "vitest": [
+        "packages/latex/src/import-compat.test.ts > EPS passthrough with warning (S11) ST-S11-04: EPS 交付物导出时原样写入并警告"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -5062,7 +5068,9 @@
       "rust": []
     },
     "ST-S11-08": {
-      "vitest": [],
+      "vitest": [
+        "packages/latex/src/import-compat.test.ts > EPS passthrough with warning (S11) ST-S11-08: EPS 原样写入不因此失败"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -5188,7 +5196,9 @@
       "rust": []
     },
     "UT-S11-15": {
-      "vitest": [],
+      "vitest": [
+        "packages/latex/src/import-compat.test.ts > EPS passthrough with warning (S11) UT-S11-15: EPS 不可转换时原样写入并警告"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -5420,12 +5430,16 @@
     "UT-S12-11": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "packs_file_name_unique_constraint_rejects_duplicates"
+      ]
     },
     "UT-S12-12": {
       "vitest": [],
       "e2e": [],
-      "rust": []
+      "rust": [
+        "packs_encoded_size_check_constraint_rejects_negative"
+      ]
     },
     "UT-S12-13": {
       "vitest": [],

@@ -33,7 +33,9 @@
       "rust": []
     },
     "ST-S11-04": {
-      "vitest": [],
+      "vitest": [
+        "packages/latex/src/import-compat.test.ts > EPS passthrough with warning (S11) ST-S11-04: EPS 交付物导出时原样写入并警告"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -63,7 +65,9 @@
       "rust": []
     },
     "ST-S11-08": {
-      "vitest": [],
+      "vitest": [
+        "packages/latex/src/import-compat.test.ts > EPS passthrough with warning (S11) ST-S11-08: EPS 原样写入不因此失败"
+      ],
       "e2e": [],
       "rust": []
     },
@@ -189,7 +193,9 @@
       "rust": []
     },
     "UT-S11-15": {
-      "vitest": [],
+      "vitest": [
+        "packages/latex/src/import-compat.test.ts > EPS passthrough with warning (S11) UT-S11-15: EPS 不可转换时原样写入并警告"
+      ],
       "e2e": [],
       "rust": []
     },
