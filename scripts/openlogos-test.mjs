@@ -43,18 +43,24 @@ with logos/resources/verify/test-map.json into the OpenLogos JSONL result file.
 Suites: vitest, vitest-web, rust, playwright
   --skip <suite>   Skip a suite (repeatable). Local iteration only.
   --only <suite>   Run only the listed suites (repeatable).
+  --rust-exclude <pkg>   Exclude a Rust package from the nextest run.
+  --cargo-jobs <n>       Cargo build concurrency (default 2; 1 lowers memory peak).
   --root <dir>     Repository root (default: this repository)
   -h, --help       Show this help`;
 }
 
 function parseArgs(argv) {
-  const options = { root: DEFAULT_ROOT, skip: new Set(), only: null };
+  const options = { root: DEFAULT_ROOT, skip: new Set(), only: null, rustExclude: null, cargoJobs: null };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--root") {
       options.root = resolve(argv[++i] ?? "");
     } else if (arg === "--skip") {
       options.skip.add(argv[++i] ?? "");
+    } else if (arg === "--rust-exclude") {
+      options.rustExclude = argv[++i] ?? "";
+    } else if (arg === "--cargo-jobs") {
+      options.cargoJobs = argv[++i] ?? null;
     } else if (arg === "--only") {
       options.only ??= new Set();
       options.only.add(argv[++i] ?? "");
@@ -146,16 +152,23 @@ function main() {
   if (enabled("rust")) {
     clearRaw(root, RAW_FILES.rust);
     const nextestAvailable = spawnSync("cargo", ["nextest", "--version"], { cwd: root, encoding: "utf8" }).status === 0;
+    // src-tauri 的测试二进制体积大，链接阶段内存峰值高；内存紧张时可用
+    // --rust-exclude oleafly 跳过它（crates/* 仍全量覆盖）。
+    const excludeArgs = options.rustExclude ? ["--exclude", options.rustExclude] : [];
     if (nextestAvailable) {
       const output = join(root, RAW_FILES.rust);
       mkdirSync(dirname(output), { recursive: true });
       const result = spawnSync(
         "cargo",
-        ["nextest", "run", "--workspace", "--message-format", "libtest-json"],
+        ["nextest", "run", "--workspace", ...excludeArgs, "--message-format", "libtest-json"],
         {
           cwd: root,
           encoding: "utf8",
-          env: { ...process.env, NEXTEST_EXPERIMENTAL_LIBTEST_JSON: "1" },
+          env: {
+            ...process.env,
+            NEXTEST_EXPERIMENTAL_LIBTEST_JSON: "1",
+            CARGO_BUILD_JOBS: options.cargoJobs ?? String(process.env.CARGO_BUILD_JOBS ?? "2"),
+          },
           maxBuffer: 256 * 1024 * 1024,
         },
       );

@@ -23,6 +23,7 @@ const VITEST_RAW = "logos/resources/verify/.raw/vitest.json";
 const VITEST_WEB_RAW = "logos/resources/verify/.raw/vitest-web.json";
 const PLAYWRIGHT_LIST = "logos/resources/verify/.raw/playwright-list.txt";
 const RUST_LIST = "logos/resources/verify/.raw/rust-list.json";
+const RUST_STATIC_LIST = "logos/resources/verify/.raw/rust-tests.json";
 
 function usage() {
   return `Usage:
@@ -96,15 +97,36 @@ function loadPlaywright(root) {
   return byFile;
 }
 
-/** 读 Rust nextest 清单，返回测试名数组。 */
+/**
+ * 读 Rust 测试名清单。优先用 nextest 的执行清单（`--message-format json`）；
+ * 没有时回退到静态提取的 `rust-tests.json`——后者只用于**校验 selector 可解析**，
+ * 不代表测试真的跑过（运行时记录只认真实执行结果）。
+ */
 function loadRust(root) {
-  const path = resolve(root, RUST_LIST);
-  if (!existsSync(path)) return [];
+  const nextestPath = resolve(root, RUST_LIST);
+  if (existsSync(nextestPath)) {
+    try {
+      const parsed = JSON.parse(readFileSync(nextestPath, "utf8"));
+      const names = (parsed?.tests ?? [])
+        .map((test) => (typeof test?.name === "string" ? test.name : ""))
+        .filter((name) => name !== "");
+      if (names.length > 0) return names;
+    } catch {
+      /* 落到静态清单 */
+    }
+  }
+  const staticPath = resolve(root, RUST_STATIC_LIST);
+  if (!existsSync(staticPath)) return [];
   try {
-    const parsed = JSON.parse(readFileSync(path, "utf8"));
-    return (parsed?.tests ?? [])
-      .map((test) => (typeof test?.name === "string" ? test.name : ""))
-      .filter((name) => name !== "");
+    const parsed = JSON.parse(readFileSync(staticPath, "utf8"));
+    const names = [];
+    for (const tests of Object.values(parsed ?? {})) {
+      for (const test of Array.isArray(tests) ? tests : []) {
+        if (typeof test?.name === "string") names.push(test.name);
+        if (typeof test?.qualified === "string") names.push(test.qualified);
+      }
+    }
+    return names;
   } catch {
     return [];
   }
