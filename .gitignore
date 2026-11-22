@@ -70,3 +70,10 @@ agent-collab/*
 
 # OpenLogos runtime guard lock (per-change runtime state)
 logos/.openlogos-guard
+
+# >>> openlogos managed >>>
+# 由 openlogos 维护，请用 `openlogos ignore` 修改；区块外内容不会被改动
+logos/.openlogos-runtime/
+logos/.openlogos-guard
+.worktrees/
+# <<< openlogos managed <<<

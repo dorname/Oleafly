@@ -267,6 +267,7 @@ AI 面前已有完整上下文（原型 + 场景 + API + DB + 部署方案 + 测
 - **部署相关代码**：部署方案中要求的健康检查、迁移脚本、启动脚本或构建脚本
 - **OpenLogos reporter 集成**：测试代码内嵌标准 reporter，将用例结果写入 `logos/resources/verify/test-results.jsonl` 或配置的阶段结果路径（格式见 [test-results.md](./test-results.md)）
 - **verify 预跑配置检查**：代码完成前必须检查 `logos.config.json` 是否存在 `verify.pre_run_command`、`verify.regression_command` 或 `verify.incremental_command`；缺失时必须补齐或明确说明无法推断
+- **smoke runner 覆盖预检**：若本提案新增或修改 `logos/resources/test/smoke/*.md`，代码完成前必须同步实现 smoke runner / reporter / dispatcher。新增 `SMOKE-*` 必须被 `scripts/smoke-*` 或等效 runner 覆盖，runner 必须写入 `smoke-results.jsonl` 或 `smoke.result_path`，且 `smoke.command` 必须可执行该 runner；预检发现 `smoke_runner_missing`、`smoke_reporter_missing` 或 `smoke_cases_uncovered` 时不得标记 code 完成。
 
 **Step 5 标准交付（不可拆分）**：
 
@@ -343,8 +344,19 @@ smoke 顺序：
 工作区写入保护：
 - 当 `sandbox_deny_workspace_write=true` 时，沙箱执行器必须阻止预跑命令或 smoke 命令写入仓库根目录中的非白名单路径。
 - 白名单仅包含配置声明的结果文件、报告文件和 CLI 显式生成的门禁标记。
+- **白名单回收采用定点采集**：copy-back 对白名单声明的每个路径在沙箱副本内存在即拷回，不依赖快照 diff；白名单路径位于审计豁免目录（如 `node_modules`）下也照常回收——白名单回收优先于豁免。
 - `always` 模式下，一旦检测到非白名单写入，命令必须失败。
 - `auto` 模式下，无法启用写入保护时必须输出告警，并在 JSON `sandbox.status` 中标记为 `warn`。
+
+依赖目录豁免（fix-sandbox-node-modules-write-audit）：
+- 沙箱副本内**规范化并统一分隔符后，存在至少一个完整路径段严格等于 `node_modules`** 的路径视为沙箱内一次性依赖目录，**不参与**非白名单写入判定（典型来源：pnpm 11 `verifyDepsBeforeRun=install` 在沙箱副本内自动 install/repair 重写 `node_modules/.bin/*`）；禁止子串/前缀/后缀匹配，`node_modules-cache` 等近似名称不豁免。
+- 该豁免为执行器内置固定规则，不是项目可配置白名单；不得开放项目级通用 allow-path 配置。
+- 基线 / 命令后快照遍历直接跳过豁免目录；豁免生效时以 JSON `sandbox.infos`（可选、additive）输出一条信息级说明，`sandbox.status` 不因此改变，文本输出以 `ℹ️` 渲染一次。
+
+symlink 隔离与运行期写保护（先于依赖目录豁免生效）：
+- 复制 workspace 进沙箱必须保持 symlink 原始目标字面量（等价 `verbatimSymlinks` 语义），复制后执行 realpath containment 校验；存在逃逸链接按「无法隔离」处理：`always` 失败、`auto` 降级为非隔离执行并告警。
+- 命令执行期间必须由 OS 级写保护（macOS `sandbox-exec` 拒写原 workspace 子树 / Linux bubblewrap 只读绑定 / 等价机制）在**写入发生前**阻断对原 workspace 的写入，覆盖运行期新建或改写（retarget）的 symlink。
+- 运行期写保护机制不可用时按能力分层：`always` 命令失败并说明原因；`auto` 继续沙箱执行但 `sandbox.status=warn` 并披露残留风险。
 
 兼容性：
 - 未配置 `sandbox_mode` 的历史项目等价于 `off`，不得破坏既有 verify / smoke 行为。
@@ -453,6 +465,23 @@ smoke 顺序：
 
 该一致性约束应在 AI 填写提案时前置自检，并在 CLI 的 `status` / `next` 中作为运行时护栏。
 
+## plan gate 等待态与无人值守闭环
+
+在 launched 变更中，`proposal.md` 与 `tasks.md` 已脱模板后，流程进入 plan 出口门等待态。该等待态必须与任务执行进度分离：
+
+- `ready-to-delta` 表示方案已完成，等待 `plan-exit` 人工批准或 `next --auto` 自动消费。
+- `tasks.md` 中 `[delta]` / `[deploy]` checkbox 表示后续执行清单进度；`0/N` 是“尚未执行”，不是“未规划”。
+- `PLAN_APPROVED` 或实际 delta 产出才表示 plan gate 已消费；`GATE_AUTO_PASSED` 只作为审计，不作为默认状态源。
+
+AI / driver 在 proposal/tasks 工作单元结束前必须执行前沿校验：
+
+1. 若状态仍为 `writing`，说明 proposal/tasks 尚未完成或结构冲突，必须修正后再结束。
+2. 若状态为 `ready-to-delta`，应报告“方案已完成，plan gate 待批准/auto 消费”，不得报告 blocked 或任务规划失败。
+3. 若在全自动模式下调用 `next --auto` 并消费 `plan-exit`，且响应含 `gate_auto_passed=true` 与 `next_node.id=="write-delta"`，driver 必须继续派发 delta-writing。
+4. 若 `tasks_execution_done < tasks_execution_total`，只说明 delta/deploy/code 执行任务尚未完成，不得将其折叠为 proposal/tasks 规划失败。
+
+该规则用于 RunLogos / AI 宿主的自动调度健壮性：可恢复的等待态必须输出可行动诊断和下一前沿；只有 proposal/tasks 真实未脱模板、部署决策冲突、越权产物或不可恢复的人类决策缺口才可阻断。
+
 ## 迭代规则
 
 功能迭代**必须**按同样的分层工作流推进，使用 Delta 变更管理（详见 [change-management.md](./change-management.md)）。不允许跳过中间环节直接改代码。
@@ -476,6 +505,60 @@ proposal / tasks（明确是否需要部署）
 - **deploy 在 verify 通过之后**：部署必须由人类明确确认，AI 不得自动发起
 - **smoke 在部署之后**：冒烟测试验收部署环境，不替代 verify
 - **verify / deploy / smoke 失败只修对应产物**：不需要重走 merge 流程，除非发现规格本身错误
-- **git push 是人类确认点**：archive 完成后 AI 提示用户确认，不得自动推送
+- **git push 是人类确认点**：archive 完成后 AI 提示用户确认，不得自动推送。**例外（auto-full-unattended）**：全自动 / 无人值守模式下（`openlogos next --auto` 的 standing run-scoped 授权——用户选 `--auto` 即一次性授权该提案全链路自动跑到底），archive 完成即由 standing 授权自动 `git push`，并向活跃提案目录的 `GATE_AUTO_PASSED` 追加审计行。`git push` 无需任何 marker 或 guard 改动——PreToolUse guard 的安全白名单本就放行 `git push`、从不拦截（见 [pretooluse-guard.md](./pretooluse-guard.md)）；全自动由生成的指令文本授权 AI 自动 push，半自动 / 手动模式（无 `--auto`）由指令文本要求人工确认，行为完全不变。
+
+### Windows 外部归档 watcher 握手
+
+- 仅当 `process.platform === "win32"` 时，`openlogos archive <slug>` 才读取 `logos/.runtime/archive-watch/v1/`；macOS/Linux 不读写协议文件、不校验 token、不等待，直接沿用既有 rename 路径。
+- Windows 下先清理过期协议对象并快照项目匹配的活跃租约。快照为空时立即走快路径；非空时原子写 `prepare.json`，只有 `expectedInstances` 全部写出 `released` ACK 后才允许 rename。
+- ACK 超时、实例 `failed`、未知协议主版本、缺少 `prepare` 能力或 rename 的 `EPERM`/`EACCES`/`EBUSY` 均 fail-closed：不删除 guard、不自动重试，并输出稳定 `ARCHIVE_WATCH_*` 错误码。
+- RunLogos 宿主只可通过与项目、slug、协议及有效期绑定的子进程变量 `OPENLOGOS_ARCHIVE_WATCH_PREPARED` 跳过外部握手；不存在长期全局逃生开关。
+- rename 异常或进程重跑时以 live/archive/guard 磁盘三态裁决，磁盘已归档则写 `reconciledFromDisk:true`，矛盾则拒绝继续。真实 Windows watcher + rename 端到端验证在打包后由 Windows 机器执行；非 Windows 开发机只运行注入式 `fs/platform/env/clock` 协议测试。
 
 迭代可能导致场景变更：新增场景、修改已有场景、废弃场景。所有变更通过 `logos/changes/` 提案管理，场景编号一旦分配不复用。
+
+## 无人值守恢复策略
+
+### 可恢复失败
+
+无人值守流程中，可恢复失败是指系统已经掌握足够证据继续推进修复的失败，包括：
+
+- 局部切片完成但全量 verify 失败；
+- artifacts 声明遗漏但可从磁盘事实更正；
+- reporter 缺失少量 test ID，且当前切片可重派补齐；
+- driver 缺少验证规则但能输出明确缺口。
+
+### 恢复动作
+
+可恢复失败必须输出下一步动作：
+
+- `repair` / `code`：用于全量 verify failed；
+- `re-dispatch-current-slice`：用于切片合同未满足；
+- `correct-artifacts`：用于完成回报 artifacts 声明错误；
+- `rerun-focused-tests`：用于 focused tests 缺失或 reporter 缺失；
+- `human-review`：仅用于必须人工判断的情况。
+
+### hard block
+
+hard block 仅适用于：
+
+- 达到不可跳硬红线；
+- 连续无产物、无测试、无状态变化；
+- 越权修改或工作单元范围冲突；
+- 外部依赖不可用且无法继续模拟或降级；
+- 明确需要人类产品/风险决策。
+
+任何 hard block 都必须说明为什么不能自动恢复，并提供恢复所需的人类动作。
+
+## 无文档 delta 也必须保留 spec-complete 追溯
+
+OpenLogos 的 Why → What → How 链路不要求每个提案都修改规格文档，但要求每个进入实现的提案都能证明规格阶段已经定稿。纯代码级提案没有 PRD / API / DB / 场景 delta 时，不能把“没有 delta”解释为“规格阶段天然完成且可直接实现”。
+
+方法论规则：
+
+1. **Why / What 不变也要留痕**：纯代码提案应在 proposal 中说明复用哪些既有需求、场景与测试 ID。
+2. **spec-complete 是状态，不等于文档修改**：无 delta 时通过 no-delta merge 写入 `SPEC_MERGED`，表达“本次无需文档 delta，规格阶段已确认完成”。
+3. **How 必须绑定真实测试 ID**：代码切片必须绑定真实 UT/ST/SMOKE ID；测试 ID 未稳定时不得切片。
+4. **slice-planner 不补方法论缺口**：它只消费已完成 spec-complete 与真实测试 ID，不负责替上游判断是否可以进入实现。
+
+这保证“无文档 delta”的轻量修复仍保持可追溯，而不会把切片规划建立在隐含假设或占位测试 ID 上。

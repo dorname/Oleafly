@@ -5,21 +5,54 @@
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/openlogos/bin/openlogos-phase"
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/openlogos/bin/openlogos-phase"
           }
         ]
       }
     ],
     "PreToolUse": [
       {
-        "matcher": "Edit|Write|Bash",
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash|PowerShell",
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/openlogos/bin/guard-check"
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/openlogos/bin/guard-check"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|PowerShell|BashOutput|TaskOutput|KillShell|TaskStop",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/openlogos/bin/guard-post-check.cjs\" check"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/openlogos/bin/guard-post-check.cjs\" check"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/openlogos/bin/guard-post-check.cjs\" check --stop"
           }
         ]
       }
     ]
-  }
+  },
+  "language": "chinese"
 }

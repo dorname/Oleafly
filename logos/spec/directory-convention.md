@@ -78,9 +78,25 @@ OpenLogos 方法论的统一入口。包含配置文件、研发资源文档和�
 | `implementation/` | Phase 3: HOW | 代码实现清单（Markdown），标记代码实现阶段完成 |
 | `verify/` | Phase 3: HOW | 测试验收、部署执行、冒烟测试结果（JSONL + 报告） |
 
+**自足性声明（S37，merge-conservation-archive-audit）**：`logos/resources/` 必须**自足**——所有「当前有效」的规格内容必须存在于此处（方法论规范在根 `spec/`、Skill 在 `skills/`），任何流程、Skill、CLI 均不得依赖读取 `logos/changes/archive/` 内容来还原当前真相。条目退出 resources 只能显式发生——**整节删除经 `REMOVED`，部分条目删除经同锚 `MODIFIED`（携带剩余全量）+ `REMOVED-ITEMS`（逐行点名）的成对协议**——由条目守恒门（change-lint L8 + merge 拒绝）机器保障，详见 [change-management.md](./change-management.md)。
+
+
+### logos/resources/decisions/（S38，decision-record-capability）
+
+顶层决策记录目录（与 `prd/`、`api/`、`database/`、`test/` 平级），存放标准 ADR 变体的**决策记录**——把「为什么这样设计」的拍板理由沉淀为当前有效规格的活文档。
+
+- **文件命名**：`<module>-DXX-<slug>.md`（如 `core-D01-decision-record-capability.md`）；`DXX` 全局唯一，由 `logos-project.yaml` 的 `decision_counter.next_id` 维护（对齐 `scenario_counter`，跨模块单调递增）。
+- **文档结构（标准 ADR 变体）**：状态（`proposed` / `accepted` / `superseded by DYY`）、背景、决策、理由、备选方案、影响面、来源（提案 slug + issue 链接）。
+- **产出通道**：决策记录是普通规格 delta——delta 子目录 `deltas/decisions/` 映射到 `logos/resources/decisions/`（`DELTA_TO_RESOURCE` 同源维护，**该类别由 decision-record-capability 的代码注册；注册前 `deltas/decisions/` 会被判 `delta_path_invalid`**，delta-r1 F1）；`openlogos merge` 只校验 + 生成 `MERGE_PROMPT`，**实际落盘由 merge-executor 在 apply 时完成**（delta-r1 F2，见 `change-management.md`）；**不新增 `openlogos decision` CLI 命令**。
+- **resource_index 收录（delta-r1 F3）**：`decisions/` 文件的内容化 desc 需 `cli/src/lib/sync-resource-index.ts` 的 `scanCandidateFiles()` 纳入 `decisions/`、`inferResourceDesc()` 增 `DXX` 规则后，才由 `openlogos index` / `sync` 发现并入 `resource_index`（非既有机制自动收录）。
+- **与自足性声明联动（承 S37）**：决策理由入 resources 后，`logos/resources/` 的「自足性」从「只覆盖规格结论（是什么）」扩展到「覆盖决策理由（为什么）」——archive 彻底卸下「决策理由唯一载体」负担，删除 archive 不再损失任何需复盘信息。
+- **守恒保护（承 S37）**：`DXX` 纳入条目守恒门 ID 模式注册表，决策记录条目删除必须显式（`REMOVED` / `REMOVED-ITEMS` 点名）；推翻旧决策改状态为 `superseded by DYY`（不删除），决策历史留在活文档内、可检索、不依赖 archive。
+
 ### logos/changes/
 
 变更提案工作区。每次功能迭代或 Bug 修复，先在这里创建变更提案，审核通过后再合并回主文档。详见 [change-management.md](./change-management.md)。
+
+**archive 定位（audit-only，S37）**：`logos/changes/archive/` 是已完成变更的历史归档，**仅供审计**——它不是任何规格内容的事实源；归档内容过期后可整体或部分删除（含 `MERGE_PROMPT.md` 等纯派生物），删除不得损失任何当前有效信息（当前真相自足于 `logos/resources/` 与根 `spec/`、`skills/`）。清理由项目按需自行执行，OpenLogos 不强制保留期。
 
 ### logos.config.json 与 logos-project.yaml
 
@@ -88,6 +104,12 @@ OpenLogos 方法论的统一入口。包含配置文件、研发资源文档和�
 - `logos/logos-project.yaml`：AI 协作索引，为 AI 助手提供项目全局上下文
 
 两个文件都放在 `logos/` 目录下。
+
+**`logos.config.json` 的 `flow.cmd_timeout_seconds`（cmd 超时项目级默认）**：可选 `flow` 块（与 `verify` / `smoke` 块同级）
+
+- **`flow.cmd_timeout_seconds`**（integer ≥ 1，默认 60）：flow 节点 `cmd:` 谓词的**项目级默认超时秒数**。
+- **优先级**：节点级 `cmd_timeout_seconds`（flow 文件 node 字段）> 项目级 `flow.cmd_timeout_seconds` > 内置 60s。
+- 二者均须整数 ≥ 1；为 0 / 负数 / 非整数时报 `FLOW_SCHEMA_INVALID`。
 
 ## 文件命名约定
 

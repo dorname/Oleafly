@@ -66,7 +66,27 @@ test-writer 不写代码；code-implementor 不设计用例；code-reviewer 不�
 
 ### Step 2: 规划分批策略
 
-**大任务必须拆批，但每批必须闭环。**
+> ⚠️ **适用范围（必读）**：本 Step 的「六维打分 + 分批 / 切片判定」**仅适用于 initial 阶段**——首轮从 0 到 1 开发，没有变更提案、没有 `tasks.md`，需由实现者自行按场景 / 子模块分批。
+>
+> **launched 变更下本 Step 不适用**：切片数量已由 **`slice-planner`** 在 **merge 之后**的 `slice` 段（`ready-to-implement`）用**六维打分 + 垂直/横向判别器 + 删后续证伪门**写进 `tasks.md` 的 `[code]` section（每个未勾行 = 一片，是唯一事实源；见 `skills/slice-planner/SKILL.md`）。code-implementor 在 launched 下**不得重新打分、不得自行分批**，必须**逐行消费 `[code]` 切片**——做哪一片、做几片，一律以 `[code]` 为准（具体执行见下方「Step 2 补充」的激活门）。
+
+**（以下仅 initial）只有大任务才拆批；大任务 = 切片评分 8 分及以上。每批必须闭环。**
+
+在规划分批前，先按 6 个维度打分（每项 0/1/2，总分 0-12）：
+
+| 维度 | 0 分 | 1 分 | 2 分 |
+|---|---|---|---|
+| 影响范围 | 1 个文件或局部函数 | 2-5 个相关文件 | 跨模块 / 跨服务 / 跨端 |
+| 行为复杂度 | 单一路径 bugfix | 2-3 个分支 | 多场景 / 状态机 / 异步流程 |
+| 契约变化 | 无 | CLI/API 输出小改 | API/DB/flow/兼容契约变更 |
+| 测试规模 | 1-3 个用例 | 4-8 个用例 | 9+ 个用例或多类测试矩阵 |
+| 风险等级 | 易回滚 | 有兼容性风险 | 涉数据、安全、部署、迁移 |
+| 不确定性 | 原因明确 | 1 个待验证假设 | 多个未知点 / 需要探索 |
+
+判定规则：
+- **0-7 分：不是大任务，必须单批 / 单切片实现**，不得把测试、reporter、golden baseline 拆成独立批次。
+- **8 分及以上：定义为大任务，需要拆批 / 切片实现**。
+- **无法垂直闭环时仍单批**：即使达到 8 分，如果拆不出独立可验证的垂直闭环，保留单批并说明原因。
 
 1. **拆分维度**：按场景（S01、S02）或按模块（auth、projects）拆分
 2. **批前声明**：每批开始前，列出本批覆盖的 UT/ST case ID 清单，确保与 `logos/resources/test/*.md` 可追溯
@@ -83,6 +103,27 @@ test-writer 不写代码；code-implementor 不设计用例；code-reviewer 不�
 - DB 表：users, profiles
 - 覆盖用例：UT-S01-01 ~ UT-S01-08, ST-S01-01 ~ ST-S01-03
 ```
+
+### Step 2 补充：切片循环驱动模型（change-flow-redesign）
+
+> 自 change-flow-redesign 起，launched `implement` 默认以**切片循环**推进（场景 S31）。`tasks.md` 的 `[code]` section 每个未勾行 = 一个切片，由宿主（如 RunLogos driver）逐片驱动；Step 2 的"分批策略"在 launched 下即对齐这些切片。
+
+> 🚦 **激活前提（最高优先级，必读）**：下列「每轮只实现一片」的纪律，**仅当 `openlogos next` 实际返回了 `next_node.slice`（即宿主 / driver 正逐片注入「只做这一片」的上下文）时才适用**。
+>
+> **若你并未被逐片注入**——例如手动执行、没有 driver 驱动循环、或所用 `openlogos` CLI 不支持切片循环（< 0.11，`next` 不输出 `next_node.slice` / `slice_state`）——则**必须在本次实现里把整个 `[code]` section 的所有未勾切片一次性全部实现完**（每片仍各自闭环：业务代码 + 该片 UT/ST + reporter），全部完成后再交 `verify`。
+>
+> **严禁**在没有逐片注入的情况下，自行把单个 `[code]` 行当作「第一个切片」、实现完就停下等下一轮。**为什么**：切片只 scope `code` 的上下文注入、**不 scope verify**（verify 永远全量回归）；只做完一片就跑全量 verify 必然飘红（其余切片的测试尚不存在 / 不过），循环无法出环，会直接死锁在 `verify-failed`。
+
+切片循环下的实现纪律（**仅在上述激活前提满足、即宿主正逐片注入时适用**）：
+
+1. **每轮只实现一片**：宿主读 `openlogos next` 的 `next_node.slice` / `slice_state.current` 注入"只做这一片 + 该片相关 spec/测试"的上下文。**逐片注入正是为规避"一次塞太多导致 AI 失败"**。
+2. **每片自闭环**：该片的业务代码 + 该片 UT/ST 测试 + reporter 同批交付（与既有 Step 2「闭环要求」一致），切片 ID 来自 `[code]` 行标注的 `UT-Sxx-..`/`ST-Sxx-..`。
+3. **verify 跑全量回归，不只跑本片**：`openlogos verify` 始终全量执行——切片只 scope `code` 的上下文注入，**不 scope verify**；这样后做切片若打断先做切片，全量 verify 会飘红、loop 不出环，从模型层杜绝"局部绿全局红"。
+4. **绿后才勾该片**：该片相关测试（及全量回归）满足后，由宿主把 `tasks.md` `[code]` 该行勾上——OpenLogos 只派生、不代勾。
+5. **收敛 = 全部切片勾选 ∧ 末轮全量测试绿**（`code_slices_green`）；达 `max_iters`（默认 30）仍未达成升级 `gate:implement:loop-exhausted`（`skippable:false`，默认不放行未完成大功能）。
+6. **修哪片由 verify 失败输出决定**：`next_node.slice` 提示的是"下一个**未建**切片"，不是"该修哪片"；回归飘红时具体修复目标由全量 verify 失败信息判断，归宿主/实现者，引擎不代判。
+
+> 非 launched（initial 单模块默认 / initial 多模块）不默认激活切片循环，沿用既有"按场景/子模块分批"策略。
 
 ### Step 3: 生成业务代码
 
@@ -171,6 +212,16 @@ it('UT-S01-01: ...', () => {
 
 Playwright E2E 测试使用 `test.afterEach` + fixture 捕获结果，参见 `logos/spec/test-results.md` 中的 Playwright 模板。
 
+#### Smoke Runner / Reporter 闭环（强制）
+
+如果本批实现新增或修改了 `logos/resources/test/smoke/*.md`，或当前活跃提案的 `deltas/test/smoke/` 中存在新增/修改的 `SMOKE-*` 用例，必须在同一批代码中同步交付 smoke 可执行验收：
+
+1. 提取本提案新增或修改的 `SMOKE-*` 用例 ID，逐项列入本批覆盖清单。
+2. 实现或更新 `scripts/smoke-*.sh`、`scripts/smoke-*.js` 或等效 smoke runner；runner 必须执行真实检查，不能只伪造 pass 记录。
+3. smoke runner 必须将每个新增 `SMOKE-*` 的执行结果写入 `logos/resources/verify/smoke-results.jsonl`，或写入 `logos.config.json.smoke.result_path` 指定路径。
+4. 确保 `logos.config.json.smoke.command` 能执行新增 runner；推荐使用统一 `scripts/run-smoke.js` smoke dispatcher 自动发现并顺序运行 `scripts/smoke-*`。
+5. 完成后运行 smoke runner、`openlogos smoke --format json`，或等效 smoke 覆盖预检；如出现 `smoke_runner_missing`、`smoke_reporter_missing`、`smoke_cases_uncovered`，不得标记 `[code]` 任务完成。
+
 #### 测试代码结构
 
 - 单元测试：每个 UT 用例对应一个独立的测试函数
@@ -191,6 +242,7 @@ Playwright E2E 测试使用 `test.afterEach` + fixture 捕获结果，参见 `lo
 - [ ] **每个测试文件都已 import reporter**，无遗漏
 - [ ] **每个测试用例都有 try/catch + reportResult 调用**，无遗漏
 - [ ] 运行测试后 `logos/resources/verify/test-results.jsonl` 已生成且非空
+- [ ] 若本批新增或修改 `SMOKE-*`：smoke runner / reporter / dispatcher 已实现，`smoke-results.jsonl` 覆盖新增 ID，且 smoke 覆盖预检无 `smoke_runner_missing` / `smoke_reporter_missing` / `smoke_cases_uncovered`
 - [ ] 无硬编码敏感信息（密码、密钥、测试数据）
 
 如果发现不一致，**立即修正后再交付**，不要等到 code-reviewer 阶段。

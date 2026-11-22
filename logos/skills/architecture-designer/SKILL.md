@@ -63,25 +63,33 @@
 - 微服务 / 模块化单体
 - 需要详细的架构决策记录（ADR）
 
+**⚠️ Mermaid flowchart / graph 语法安全（强制）**：
+- 节点标签默认使用 `ID["标签文本"]`，尤其是标签包含 `/`、`(`、`)`、`<`、`>`、`:`、`#`、`{}`、`[]`、空格、中文、API 路径、端口、技术栈组合或 `<br/>` 时。
+- 正确：`PROXY["/voice/api 代理"]`、`API["API Server<br/>Node.js"]`、`DB["PostgreSQL :5432"]`。
+- 错误：`PROXY[/voice/api 代理]`，因为 `[/` 会被 Mermaid 解析为平行四边形形状语法，标签内再出现 `/` 时容易导致解析失败。
+- 多行标签使用 `<br/>`，整段文本仍放在同一对双引号内：`API["HTTP API<br/>/voice/api"]`。
+- 子图名称含空格、中文或特殊字符时必须加引号：`subgraph "Voice Service"`。
+- 只有明确需要 Mermaid 形状语义时才使用 `ID[(Database)]`、`ID[/Input/]` 等形状语法；普通说明文本不要借用形状语法。
+
 用 Mermaid 绘制系统架构图：
 
 ```mermaid
 graph TB
-    subgraph Frontend
-        Web[Web App - Next.js]
+    subgraph "Frontend"
+        Web["Web App - Next.js"]
     end
-    subgraph Backend
-        API[API Server - Node.js]
-        Worker[Background Worker]
+    subgraph "Backend"
+        API["API Server - Node.js"]
+        Worker["Background Worker"]
     end
-    subgraph Data
-        DB[(PostgreSQL)]
-        Cache[(Redis)]
-        S3[Object Storage]
+    subgraph "Data"
+        DB["PostgreSQL"]
+        Cache["Redis"]
+        S3["Object Storage"]
     end
-    subgraph External
-        Auth[Supabase Auth]
-        Email[SendGrid]
+    subgraph "External"
+        Auth["Supabase Auth"]
+        Email["SendGrid"]
     end
 
     Web -->|REST API| API
@@ -260,3 +268,25 @@ resource_index:
    此步骤产出的 `scenarios` 字段将作为 `scenario-architect` Skill 的输入基础，直接影响后续阶段的完成判断。**若此步骤跳过，`scenario-architect` Skill 开始时将强制要求补填。**
 
 **不执行收尾步骤将导致后续 AI 在场景建模和代码生成时无法读取架构决策，产生技术栈不一致的代码。**
+
+## Authority Closure 与 Authority Registry
+
+
+### 规范源
+
+执行本节前完整读取 `spec/authority-closure.md`。本 Skill 只定义 architecture-designer 的 producer 职责，不复制 AC-01～AC-08；冲突时根规范优先。
+
+### 强制步骤：共享事实盘点
+
+在技术选型前，从需求/场景提取跨组件、进程或仓库共享的业务事实和完成谓词，并盘点 cache/index/marker/receipt/view 等投影及 owner/writer/recovery/cutover 变化。适用 fact 必须进入架构 Authority Registry。
+
+每行填写 `fact_id`、semantic scope、authority owner、canonical state、sole writer、mutation entry、decision/read API、projection consumer、freshness proof、rebuild rule、recovery source、forbidden shadow sources 和 cutover exit。`fact_id` 以业务语义命名，不绑定文件或类。
+
+### Fail-closed
+
+- 两个组件均可直接 write/decide：拆分 fact 或选择唯一 owner，不交付“共同权威”。
+- projection 无 freshness/rebuild：降为 advisory 或移除，不能参与业务决策。
+- 旧 writer 无法关闭或切换无终点：保持未决，不进入部署设计。
+- 不得用“最后写入胜出”“读取时择新”“双方最终一致”替代 Authority Closure。
+
+交接 scenario-architect、deployment-designer、test-writer 和 code-reviewer 时只传 `fact_id` 引用与适用范围；项目 Registry 保持唯一实例源。

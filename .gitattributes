@@ -60,3 +60,12 @@ test/fixtures/typst-forms/bad/bom.toml -text
 # checkout (core.autocrlf=true on Windows) then shows them as modified after
 # each build, with no content change.
 vendor/tauri-plugin-playwright/permissions/** text eol=lf
+# >>> OpenLogos managed: line-ending fidelity (do not edit) >>>
+logos/** -text
+.claude/openlogos/** -text
+.cursor/hooks/** -text
+.agents/plugins/openlogos/hooks/** -text
+.zcode/plugins/openlogos/** -text
+.qoder/plugins/openlogos/** -text
+.workbuddy/plugins/openlogos/** -text
+# <<< OpenLogos managed <<<

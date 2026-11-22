@@ -1,53 +1,55 @@
 project:
-  name: "oleafly"
-  description: "Oleafly 桌面研究写作工作区（0.4.11）全链路规格基线"
-  methodology: "OpenLogos"
-
+  name: oleafly
+  description: Oleafly 桌面研究写作工作区（0.4.11）全链路规格基线
+  methodology: OpenLogos
 tech_stack: {}
-
 scenario_counter:
   next_id: 53
-
 modules:
   - id: core
     name: 核心功能
     lifecycle: launched
     bootstrap: adopted
-    skip_phases: [scenario]
+    skip_phases:
+      - scenario
     deployment_required: true
+    baseline_seed_state: required
   - id: research
     name: 研究与文献
     lifecycle: launched
     bootstrap: adopted
     deployment_required: false
+    baseline_seed_state: required
   - id: ai
     name: AI 与 agent
     lifecycle: launched
     bootstrap: adopted
     deployment_required: false
+    baseline_seed_state: required
   - id: collab
     name: 实时协作
     lifecycle: launched
     bootstrap: adopted
     deployment_required: false
+    baseline_seed_state: required
   - id: sync
     name: 云同步与在线服务
     lifecycle: launched
     bootstrap: adopted
     deployment_required: false
+    baseline_seed_state: required
   - id: delivery
     name: 工程交付
     lifecycle: launched
     bootstrap: adopted
     deployment_required: true
-
+    baseline_seed_state: required
 deployment_gates:
   core:
     deployment_required: true
     smoke_required: true
     environments:
       - staging
-
 resource_index:
   - path: logos/resources/prd/1-product-requirements/core-01-requirements.md
     desc: Oleafly 本地写作核心（core）需求文档。覆盖该模块场景的痛点、GIVEN/WHEN/THEN 验收条件与异常边界。
@@ -187,7 +189,8 @@ resource_index:
     desc: S48 在线服务 Git 桥双向同步 测试用例。含 UT-S48-nn 单元用例、ST-S48-nn 场景用例与 S48-AC-nn 验收条件追溯表；生成测试代码时必读。
   - path: logos/resources/test/delivery-01-smoke-test-cases.md
     desc: 发布/更新/Server 运维 smoke 用例（SMOKE-delivery-01-nn）。部署后环境可用性验证，不替代 UT/ST。
-
+  - path: logos/resources/verify/acceptance-report.md
+    desc: 验收报告。涉及 verify、部署或 smoke 结果、覆盖度分析、Gate 判定时必读。
 conventions:
-  - "遵循 OpenLogos 三层推进模型（Why → What → How）"
-  - "每次变更必须先创建 logos/changes/ 变更提案"
+  - 遵循 OpenLogos 三层推进模型（Why → What → How）
+  - 每次变更必须先创建 logos/changes/ 变更提案
