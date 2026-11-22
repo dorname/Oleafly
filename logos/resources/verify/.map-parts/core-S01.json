@@ -5,8 +5,7 @@
     "ST-S01-01": {
       "vitest": [],
       "e2e": [
-        "02-create-compile.spec.ts > create a project from the Blank template",
-        "00-tours.spec.ts > welcome is modal and Home creates a real project before Workspace starts"
+        "02-create-compile.spec.ts > create a project from the Blank template"
       ],
       "rust": []
     },

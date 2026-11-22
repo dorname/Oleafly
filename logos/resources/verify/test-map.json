@@ -1,6 +1,6 @@
 {
   "schema": "openlogos/test-map@1",
-  "generated_at": "2026-11-21T10:14:47.780Z",
+  "generated_at": "2026-11-22T06:31:07.699Z",
   "description": "用例 ID → 测试选择器映射表。vitest/e2e 选择器语法为「<文件路径> > <标题前缀>」；rust 选择器为测试名（函数名或模块路径::函数名）。多选择器时状态取最差值。",
   "cases": {
     "ST-S21-01": {
@@ -3831,8 +3831,7 @@
     "ST-S01-01": {
       "vitest": [],
       "e2e": [
-        "02-create-compile.spec.ts > create a project from the Blank template",
-        "00-tours.spec.ts > welcome is modal and Home creates a real project before Workspace starts"
+        "02-create-compile.spec.ts > create a project from the Blank template"
       ],
       "rust": []
     },
